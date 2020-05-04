@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="592cc2e2-d8ae-4d12-bba5-8025461a6070" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/woped-code/.idea/libraries/marytts_client_5_2_jar_with_dependencies.xml" beforeDir="false" afterPath="$PROJECT_DIR$/woped-code/.idea/libraries/marytts_client_5_2_jar_with_dependencies.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/woped-code/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/woped-code/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/woped-code/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/woped-code/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/woped-code/WoPeD-AProMoRe/WoPeD-AProMoRe.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/woped-code/WoPeD-AProMoRe/WoPeD-AProMoRe.iml" beforeDir="false" afterPath="$PROJECT_DIR$/woped-code/WoPeD-AProMoRe/WoPeD-AProMoRe.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/woped-code/WoPeD-BPELExport/WoPeD-BPELExport.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/woped-code/WoPeD-CommonLibs/WoPeD-CommonLibs.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/woped-code/WoPeD-Configuration/WoPeD-Configuration.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/woped-code/WoPeD-Core/WoPeD-Core.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/woped-code/WoPeD-Editor/WoPeD-Editor.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/woped-code/WoPeD-FileInterface/WoPeD-FileInterface.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/woped-code/WoPeD-Flamingo/WoPeD-Flamingo.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/woped-code/WoPeD-GUI/WoPeD-GUI.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/woped-code/WoPeD-Installer/WoPeD-Installer.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/woped-code/WoPeD-Process2Text/src/org/woped/p2t/textGenerator/TextGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/woped-code/WoPeD-Process2Text/src/org/woped/p2t/textGenerator/TextGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/woped-code/WoPeD-ProcessMetrics/WoPeD-ProcessMetrics.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/woped-code/WoPeD-ProjectFiles/WoPeD-ProjectFiles.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/woped-code/WoPeD-QualAnalysis/WoPeD-QualAnalysis.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/woped-code/WoPeD-QuantAnalysis/WoPeD-QuantAnalysis.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/woped-code/WoPeD-Starter/WoPeD-Starter.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/woped-code/WoPeD-Text2Process/WoPeD-Text2Process.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/woped-code/WoPeD-Text2Process/WoPeD-Text2Process.iml" beforeDir="false" afterPath="$PROJECT_DIR$/woped-code/WoPeD-Text2Process/WoPeD-Text2Process.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/woped-code/WoPeD-Text2Process/bin/de/uniheidelberg/cl/reiter/util/package.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/woped-code/WoPeD-UnitTests/WoPeD-UnitTests.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/woped-code/codewoped.eml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/woped-code" />
+  </component>
+  <component name="ProjectId" id="1WyDGkJnYN0G8JLlkDls6z4bR5t" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.15136719" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="592cc2e2-d8ae-4d12-bba5-8025461a6070" name="Default Changelist" comment="" />
+      <created>1580112846259</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1580112846259</updated>
+      <workItem from="1580112847624" duration="440000" />
+      <workItem from="1580115612542" duration="865000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580116639637">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="96" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1580116639637" />
+    <state x="371" y="125" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1580116271917">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="371" y="125" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1280.680@0.0.1280.680" timestamp="1580116271917" />
+    <state x="591" y="276" key="FileChooserDialogImpl" timestamp="1580112974585">
+      <screen x="0" y="0" width="1620" height="1040" />
+    </state>
+    <state x="591" y="276" key="FileChooserDialogImpl/0.0.1620.1040@0.0.1620.1040" timestamp="1580112974585" />
+    <state x="242" y="0" key="SettingsEditor" timestamp="1580116801577">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="242" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1580116801577" />
+    <state x="312" y="164" key="SettingsEditor/0.0.1620.1040@0.0.1620.1040" timestamp="1580113049804" />
+    <state x="121" y="48" key="com.intellij.ide.util.TipDialog" timestamp="1580115618976">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="121" y="48" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1580115618976" />
+  </component>
+</project>

@@ -1,0 +1,1075 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_TEST_SOURCES" value="false" />
+  </component>
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="t2p" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0fe078b1-bc4e-4c3c-990f-f7f38dbe9262" name="Default" comment="Updated Woflan Link">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/marytts_client_5_2_jar_with_dependencies.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/marytts_client_5_2_jar_with_dependencies.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-AProMoRe/WoPeD-AProMoRe.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-AProMoRe/WoPeD-AProMoRe.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-AProMoRe/WoPeD-AProMoRe.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-BPELExport/WoPeD-BPELExport.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-CommonLibs/WoPeD-CommonLibs.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-CommonLibs/lib/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-CommonLibs/lib/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-CommonLibs/lib/jfxrt.jar" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-CommonLibs/lib/jfxrt.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-Configuration/WoPeD-Configuration.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-Core/WoPeD-Core.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-Editor/WoPeD-Editor.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-FileInterface/WoPeD-FileInterface.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-Flamingo/WoPeD-Flamingo.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-Flamingo/WoPeD-Flamingo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Flamingo/WoPeD-Flamingo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-Flamingo/src/org/pushingpixels/flamingo/api/svg/SvgBaseTranscoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Flamingo/src/org/pushingpixels/flamingo/api/svg/SvgBaseTranscoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-GUI/WoPeD-GUI.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-Installer/WoPeD-Installer.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/WoPeD-Process2Text.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/src/org/woped/p2t/textGenerator/TextGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/src/org/woped/p2t/textGenerator/TextGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/src/org/woped/p2t/textPlanning/PlanningHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/src/org/woped/p2t/textPlanning/PlanningHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-ProcessMetrics/WoPeD-ProcessMetrics.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-ProjectFiles/WoPeD-ProjectFiles.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/WoPeD-QualAnalysis.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/WoPeD-QualAnalysis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-QualAnalysis/WoPeD-QualAnalysis.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/paraphrasing/controller/WebServiceThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/paraphrasing/controller/WebServiceThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-QuantAnalysis/WoPeD-QuantAnalysis.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-Starter/WoPeD-Starter.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-Text2Process/WoPeD-Text2Process.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-Text2Process/WoPeD-Text2Process.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-Text2Process/bin/de/uniheidelberg/cl/reiter/util/package.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-Text2Process/de/de/saar/coli/salsa/reiter/framenet/FrameElementRelation.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Text2Process/de/de/saar/coli/salsa/reiter/framenet/FrameElementRelation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-Text2Process/de/de/saar/coli/salsa/reiter/framenet/fncorpus/AnnotatedLexicalUnit.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Text2Process/de/de/saar/coli/salsa/reiter/framenet/fncorpus/AnnotatedLexicalUnit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-UnitTests/WoPeD-UnitTests.eml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-UnitTests/WoPeD-UnitTests.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-UnitTests/WoPeD-UnitTests.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codewoped.eml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/WoPeD$test_in_WoPeD_Text2Process.ic" NAME="test in WoPeD-Text2Process Coverage Results" MODIFIED="1533649897634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+  <component name="ErrorTreeViewConfiguration">
+    <option name="hideWarnings" value="true" />
+    <option name="HIDE_WARNINGS" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit4 Test Class" />
+        <option value="CSS File" />
+        <option value="HTML File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>FileChooser</find>
+      <find>FileC</find>
+      <find>193.1</find>
+      <find>Is Loa</find>
+      <find>T2PUI.Loa</find>
+      <find>Loading</find>
+      <find>%</find>
+      <find>%0</find>
+      <find>contacted</find>
+      <find>Testb</find>
+      <find>193.196.</find>
+      <find>aproImport</find>
+      <find>Apromore</find>
+      <find>importA</find>
+      <find>Apromore.</find>
+      <find>193.196</find>
+      <find>193.19</find>
+      <find>Paraphrasing.Webservice.Success.Message</find>
+      <find>woped.dhbw-karlsruhe.de&quot;</find>
+      <find>contact</find>
+      <find>T2P</find>
+      <find>TransitionP</find>
+      <find>triggerBu</find>
+      <find>unfolding</find>
+      <find>toText(</find>
+      <find>P2</find>
+      <find>oogle</find>
+      <find>leven</find>
+      <find>StringUtils</find>
+      <find>commons</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+      <replace>processtotext.ws/&quot;</replace>
+      <replace>ws.processtotext</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/WoPeD-Text2Process/src/orgChart</dir>
+      <dir>$PROJECT_DIR$/WoPeD-T2P</dir>
+      <dir>$PROJECT_DIR$/WoPeD-AProMoRe</dir>
+      <dir>$PROJECT_DIR$/WoPeD-Text2Process</dir>
+      <dir>$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/p2t</dir>
+      <dir>$PROJECT_DIR$/WoPeD-Installer</dir>
+      <dir>$PROJECT_DIR$/WoPeD-QualAnalysis/src</dir>
+      <dir>$PROJECT_DIR$/WoPeD-Process2Text/.settings</dir>
+      <dir>$PROJECT_DIR$/WoPeD-Process2Text</dir>
+      <dir>$PROJECT_DIR$/WoPeD-Editor</dir>
+      <dir>$PROJECT_DIR$/</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectId" id="1WedZ8dyP8cj6WgUIlNtZoZliGU" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="woped" />
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="null)&#9;null&#9;null&#10;System.out.println&#9;null&#9;null&#10;Prozess ist sound&#9;null&#9;null&#10;ModelElement&#9;PSI&#9;JAVA://org.woped.core.model.ModelElementContainer" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="ignore.virus.scanning.warn.message" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/WoPeD-Process2Text/src/org/woped/p2t/contentDetermination" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/WoPeD-CommonLibs/lib/jfxrt.jar!/" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15136719" />
+    <property name="project.structure.side.proportion" value="0.3164557" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/../Test/code/WoPeD-Text2Process/WoPeD-Text2Process.eml" />
+    <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/../Test/code/WoPeD-Starter" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/WoPeD-Process2Text/res" />
+      <recent name="$PROJECT_DIR$/WoPeD-Process2Text" />
+      <recent name="$PROJECT_DIR$/WoPeD-Text2Process/test" />
+      <recent name="$PROJECT_DIR$/WoPeD-Text2Process/test/Test" />
+      <recent name="$PROJECT_DIR$/WoPeD-Text2Process" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/WoPeD-Installer/lib" />
+      <recent name="$PROJECT_DIR$/WoPeD-Process2Text/bin" />
+      <recent name="$PROJECT_DIR$/WoPeD-Installer/dist/launch/test" />
+      <recent name="$PROJECT_DIR$/WoPeD-Process2Text" />
+      <recent name="$PROJECT_DIR$/WoPeD-Process2Text/bin/test" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.RunWoPeD">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+    </configuration>
+    <configuration name="RunWoPeD" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.woped.starter.RunWoPeD" />
+      <module name="WoPeD-Starter" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.woped.starter.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Unnamed (1)" type="JBossConfiguration" factoryName="Remote" APPLICATION_SERVER_NAME="JBoss 13.0.0.Final" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="PORT" value="80" />
+      <option name="LOCAL" value="false" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:80/" />
+      <deployment />
+      <server-settings>
+        <data>
+          <option name="serverGroup" value="" />
+          <option name="stagingRemotePath" value="" />
+          <option name="transportHostId" value="" />
+          <option name="transportStagingTarget">
+            <TransportTarget>
+              <option name="id" value="a9edd285-b2d9-47e9-9595-9b0ff7245122" />
+              <id>a9edd285-b2d9-47e9-9595-9b0ff7245122</id>
+            </TransportTarget>
+          </option>
+          <server-group />
+          <transport-target>
+            <TransportTarget>
+              <option name="id" value="a9edd285-b2d9-47e9-9595-9b0ff7245122" />
+              <id>a9edd285-b2d9-47e9-9595-9b0ff7245122</id>
+            </TransportTarget>
+          </transport-target>
+          <staging-path />
+          <host-id />
+        </data>
+      </server-settings>
+      <predefined_log_file enabled="true" id="JBoss" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="63477" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Unnamed" type="JBossConfiguration" factoryName="Remote" APPLICATION_SERVER_NAME="JBoss 13.0.0.Final" ALTERNATIVE_JRE_ENABLED="false" show_console_on_std_err="true" show_console_on_std_out="true">
+      <option name="PORT" value="80" />
+      <option name="LOCAL" value="false" />
+      <option name="OPEN_IN_BROWSER" value="false" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:80/t2p/" />
+      <option name="UPDATING_POLICY" value="hot-swap-classes" />
+      <deployment>
+        <artifact name="t2p">
+          <settings DEPLOYMENT_METHOD="Native" />
+        </artifact>
+      </deployment>
+      <server-settings>
+        <data>
+          <option name="stagingRemotePath" value="" />
+          <option name="transportHostId" value="" />
+          <option name="transportStagingTarget">
+            <TransportTarget>
+              <option name="id" value="386873ad-e6f4-4477-8b6f-aa4922c608af" />
+              <id>386873ad-e6f4-4477-8b6f-aa4922c608af</id>
+            </TransportTarget>
+          </option>
+          <transport-target>
+            <TransportTarget>
+              <option name="id" value="386873ad-e6f4-4477-8b6f-aa4922c608af" />
+              <id>386873ad-e6f4-4477-8b6f-aa4922c608af</id>
+            </TransportTarget>
+          </transport-target>
+          <staging-path />
+          <host-id />
+        </data>
+      </server-settings>
+      <log_file alias="log" path="$USER_HOME$/Downloads" />
+      <predefined_log_file enabled="true" id="JBoss" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="57081" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JBossConfiguration" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
+      <deployment />
+      <server-settings>
+        <option name="SERVER" value="" />
+        <option name="BINDING_SET_NAME" value="" />
+        <option name="DOMAIN" value="false" />
+        <option name="SERVER_GROUP" value="" />
+        <option name="USERNAME" value="" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="JBoss" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="63481" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in WoPeD-Process2Text" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WoPeD-Process2Text" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in WoPeD-Text2Process (3)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WoPeD-Text2Process" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in WoPeD-Text2Process" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WoPeD-Text2Process" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="STTextToProcess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WoPeD-Text2Process" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.STTextToProcess" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <module name="Servers" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Unnamed" type="TomeeConfiguration" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="t2p">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_woped-code" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="52991" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.RunWoPeD" />
+      <item itemvalue="JBoss Server.Unnamed (1)" />
+      <item itemvalue="JBoss Server.Unnamed" />
+      <item itemvalue="JUnit.All in WoPeD-Text2Process (3)" />
+      <item itemvalue="JUnit.STTextToProcess" />
+      <item itemvalue="JUnit.All in WoPeD-Text2Process" />
+      <item itemvalue="JUnit.All in WoPeD-Process2Text" />
+      <item itemvalue="TomEE Server.Unnamed" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.RunWoPeD" />
+        <item itemvalue="JUnit.All in WoPeD-Process2Text" />
+        <item itemvalue="JUnit.All in WoPeD-Text2Process" />
+        <item itemvalue="JUnit.STTextToProcess" />
+        <item itemvalue="JUnit.All in WoPeD-Text2Process (3)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",SHOW_PROPERTIES" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0fe078b1-bc4e-4c3c-990f-f7f38dbe9262" name="Default" comment="Adapted master build to IntelliJ" />
+      <created>1532358043426</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1532358043426</updated>
+      <workItem from="1532358047064" duration="1023000" />
+      <workItem from="1532359131861" duration="514000" />
+      <workItem from="1532432825817" duration="568000" />
+      <workItem from="1532451094031" duration="247000" />
+      <workItem from="1532510421665" duration="3993000" />
+      <workItem from="1532515929192" duration="2505000" />
+      <workItem from="1532521669625" duration="8822000" />
+      <workItem from="1532531817956" duration="597000" />
+      <workItem from="1532532665803" duration="1340000" />
+      <workItem from="1532588067073" duration="4339000" />
+      <workItem from="1532606276242" duration="4673000" />
+      <workItem from="1532610966701" duration="2611000" />
+      <workItem from="1532674225241" duration="5795000" />
+      <workItem from="1532682276211" duration="226000" />
+      <workItem from="1532689064203" duration="5462000" />
+      <workItem from="1532702373682" duration="4734000" />
+      <workItem from="1532770244243" duration="683000" />
+      <workItem from="1532786440655" duration="2838000" />
+      <workItem from="1532792801934" duration="354000" />
+      <workItem from="1532796818598" duration="501000" />
+      <workItem from="1532877133779" duration="3196000" />
+      <workItem from="1532963728104" duration="742000" />
+      <workItem from="1533030169292" duration="2309000" />
+      <workItem from="1533040133770" duration="379000" />
+      <workItem from="1533047492871" duration="3172000" />
+      <workItem from="1533108396895" duration="11731000" />
+      <workItem from="1533122175262" duration="2230000" />
+      <workItem from="1533136198529" duration="202000" />
+      <workItem from="1533186930752" duration="1187000" />
+      <workItem from="1533191143475" duration="2631000" />
+      <workItem from="1533203639992" duration="195000" />
+      <workItem from="1533203947884" duration="4338000" />
+      <workItem from="1533212241205" duration="4687000" />
+      <workItem from="1533223066155" duration="1255000" />
+      <workItem from="1533231306539" duration="2902000" />
+      <workItem from="1533234534478" duration="263000" />
+      <workItem from="1533234802502" duration="41000" />
+      <workItem from="1533275164074" duration="441000" />
+      <workItem from="1533279014220" duration="555000" />
+      <workItem from="1533297716398" duration="3278000" />
+      <workItem from="1533476112241" duration="1153000" />
+      <workItem from="1533636514049" duration="2775000" />
+      <workItem from="1533651484283" duration="1413000" />
+      <workItem from="1533652923131" duration="1525000" />
+      <workItem from="1533706282771" duration="1466000" />
+      <workItem from="1533707915540" duration="1554000" />
+      <workItem from="1533709739520" duration="1463000" />
+      <workItem from="1533711520432" duration="1341000" />
+      <workItem from="1533713577212" duration="1011000" />
+      <workItem from="1533733857182" duration="1434000" />
+      <workItem from="1533736034035" duration="167000" />
+      <workItem from="1533736225166" duration="364000" />
+      <workItem from="1534250657175" duration="1372000" />
+      <workItem from="1534334995982" duration="2768000" />
+      <workItem from="1534398346969" duration="1357000" />
+      <workItem from="1534406042474" duration="1985000" />
+      <workItem from="1534408307772" duration="2183000" />
+      <workItem from="1534430158740" duration="1545000" />
+      <workItem from="1534431736224" duration="491000" />
+      <workItem from="1534492375941" duration="3065000" />
+      <workItem from="1534513030104" duration="360000" />
+      <workItem from="1534515176676" duration="540000" />
+      <workItem from="1534778908886" duration="3302000" />
+      <workItem from="1534829805301" duration="658000" />
+      <workItem from="1534935832677" duration="4177000" />
+      <workItem from="1534940392097" duration="188000" />
+      <workItem from="1534940644267" duration="38000" />
+      <workItem from="1534950385934" duration="2330000" />
+      <workItem from="1535188707428" duration="414000" />
+      <workItem from="1535375380070" duration="399000" />
+      <workItem from="1535541416737" duration="4172000" />
+      <workItem from="1536553119950" duration="2048000" />
+      <workItem from="1536564339776" duration="108000" />
+      <workItem from="1536713775050" duration="1105000" />
+      <workItem from="1538581529079" duration="473000" />
+      <workItem from="1542635290412" duration="516000" />
+      <workItem from="1543489517805" duration="205000" />
+      <workItem from="1543833202035" duration="675000" />
+      <workItem from="1543841299361" duration="38000" />
+      <workItem from="1544116719268" duration="660000" />
+      <workItem from="1545200005525" duration="529000" />
+      <workItem from="1545900520263" duration="514000" />
+      <workItem from="1547111501588" duration="1544000" />
+      <workItem from="1547116850789" duration="62000" />
+      <workItem from="1547116921042" duration="44000" />
+      <workItem from="1548057727048" duration="2220000" />
+      <workItem from="1548065551485" duration="3996000" />
+      <workItem from="1548075227620" duration="409000" />
+      <workItem from="1549217111880" duration="215000" />
+      <workItem from="1556893044951" duration="104000" />
+      <workItem from="1557133905401" duration="3215000" />
+      <workItem from="1557739384591" duration="3068000" />
+      <workItem from="1557747195563" duration="40000" />
+      <workItem from="1557747683593" duration="61000" />
+      <workItem from="1557751544313" duration="4907000" />
+      <workItem from="1557768890810" duration="511000" />
+      <workItem from="1557769536734" duration="60000" />
+      <workItem from="1557769659165" duration="37000" />
+      <workItem from="1557769756018" duration="412000" />
+      <workItem from="1557770400882" duration="610000" />
+      <workItem from="1557771053278" duration="163000" />
+      <workItem from="1557771562405" duration="390000" />
+      <workItem from="1557772737379" duration="1218000" />
+      <workItem from="1557815240993" duration="199000" />
+      <workItem from="1557815615811" duration="370000" />
+      <workItem from="1557842391371" duration="1251000" />
+      <workItem from="1557899249265" duration="1672000" />
+      <workItem from="1557901788591" duration="323000" />
+      <workItem from="1579514054333" duration="2147000" />
+      <workItem from="1580112328449" duration="30000" />
+      <workItem from="1580112421929" duration="248000" />
+      <workItem from="1580112700253" duration="145000" />
+      <workItem from="1580116878387" duration="1695000" />
+      <workItem from="1580119229035" duration="691000" />
+      <workItem from="1580120127541" duration="883000" />
+      <workItem from="1588582802565" duration="2785000" />
+      <workItem from="1588585630975" duration="2209000" />
+      <workItem from="1588587983573" duration="3898000" />
+    </task>
+    <task id="LOCAL-00001" summary="Adapted master build to IntelliJ">
+      <created>1532514709268</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1532514709268</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Adjusted context root of webservices T2P and P2T">
+      <created>1532521979235</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1532521979235</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Tidy up QualAnalysis">
+      <created>1532522647883</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1532522647883</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Tidy up QualAnalysis">
+      <created>1532524367676</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1532524367676</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added label translation in T2P dialog">
+      <created>1532590753420</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1532590753420</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Remove System.out.print">
+      <created>1532605131577</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1532605131577</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Renamed P2T webservice to /p2t">
+      <created>1532613364875</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1532613364875</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Renamed webservice name back to ProcessToTextWebServiceService (for backbward compatibility)&#10;Fixed build of P2T webservice">
+      <created>1532689220252</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1532689220252</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Renamed P2T webservice to /p2t">
+      <created>1532707016974</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1532707016974</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Streamlined project structure and build files">
+      <created>1532964376891</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1532964376891</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Make use of new version of P2T server">
+      <created>1533032451044</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1533032451044</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Fixed problems with new P2T webservice consumption">
+      <created>1533118282967</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1533118282967</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Fixed problems with new P2T webservice consumption">
+      <created>1533118390191</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1533118390191</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Add WoPeD-Installer to IntelliJ modules">
+      <created>1533118719462</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1533118719462</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Replace hard-coded Server string for T2P with config-Entries">
+      <created>1533120176216</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1533120176216</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Two more test files">
+      <created>1533135496026</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1533135496026</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Create src folder structure in WoPeD style (with package org.woped.p2t)">
+      <created>1533212590669</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1533212590669</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Create src folder structure in WoPeD style (with package org.woped.p2t) - small fix">
+      <created>1533214405062</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1533214405062</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Wrongly moved files in P2T source code">
+      <created>1533219746099</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1533219746099</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Removed some type mismatches in P2T source code">
+      <created>1533220066390</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1533220066390</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Fixed bug with incompatible xerces library in P2T">
+      <created>1533234580041</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1533234580041</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Moved Junit library to commonlibs">
+      <created>1533734009306</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1533734009306</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Tidy up project build structures">
+      <created>1533736561587</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1533736561587</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Tidy up project build structures&#10;Workflow net property instead of Soundness required for P2T&#10;Some smaller bug fixes">
+      <created>1534431508955</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1534431508955</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Tidy up project build structures">
+      <created>1534431876964</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1534431876964</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Fixed bug with maximization of JInternalFrame on startup">
+      <created>1534515638012</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1534515638012</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Better file dialog for MacOS in T2P">
+      <created>1534782200010</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1534782200010</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Wrong platform check for T2P Filedialog">
+      <created>1534863152572</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1534863152572</updated>
+    </task>
+    <task id="LOCAL-00029" summary="New server defaults for T2P and P2T&#10;Some better messages and translations&#10;Fix problem with Linux shortcut and startup settings">
+      <created>1534939980116</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1534939980117</updated>
+    </task>
+    <task id="LOCAL-00030" summary="New default servers">
+      <created>1534940453634</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1534940453634</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Some bugfixes in QuantAna Logging (by Jörg Evermann)">
+      <created>1537167721119</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1537167721119</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Updated Woflan Link">
+      <created>1543489717997</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1543489717997</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Problems with build paths">
+      <created>1557746766486</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1557746766486</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="Remove System.out.print" />
+    <MESSAGE value="Renamed webservice name back to ProcessToTextWebServiceService (for backbward compatibility)&#10;Fixed build of P2T webservice" />
+    <MESSAGE value="Renamed P2T webservice to /p2t" />
+    <MESSAGE value="Streamlined project structure and build files" />
+    <MESSAGE value="Make use of new version of P2T server" />
+    <MESSAGE value="Fixed problems with new P2T webservice consumption" />
+    <MESSAGE value="Add WoPeD-Installer to IntelliJ modules" />
+    <MESSAGE value="Replace hard-coded Server string for T2P with config-Entries" />
+    <MESSAGE value="Two more test files" />
+    <MESSAGE value="Create src folder structure in WoPeD style (with package org.woped.p2t)" />
+    <MESSAGE value="Create src folder structure in WoPeD style (with package org.woped.p2t) - small fix" />
+    <MESSAGE value="Wrongly moved files in P2T source code" />
+    <MESSAGE value="Removed some type mismatches in P2T source code" />
+    <MESSAGE value="Fixed bug with incompatible xerces library in P2T" />
+    <MESSAGE value="Moved Junit library to commonlibs" />
+    <MESSAGE value="Tidy up project build structures&#10;Workflow net property instead of Soundness required for P2T&#10;Some smaller bug fixes" />
+    <MESSAGE value="Tidy up project build structures" />
+    <MESSAGE value="Fixed bug with maximization of JInternalFrame on startup" />
+    <MESSAGE value="Better file dialog for MacOS in T2P" />
+    <MESSAGE value="Wrong platform check for T2P Filedialog" />
+    <MESSAGE value="New server defaults for T2P and P2T&#10;Some better messages and translations&#10;Fix problem with Linux shortcut and startup settings" />
+    <MESSAGE value="New default servers" />
+    <MESSAGE value="Some bugfixes in QuantAna Logging (by Jörg Evermann)" />
+    <MESSAGE value="Updated Woflan Link" />
+    <MESSAGE value="Problems with build paths" />
+    <option name="LAST_COMMIT_MESSAGE" value="Problems with build paths" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="141" y="0" width="991" height="680" key="#Project_Structure" timestamp="1588587941570">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="141" y="0" width="991" height="680" key="#Project_Structure/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1588587941570" />
+    <state x="318" y="0" key="#Project_Structure/0.0.1280.680@0.0.1280.680" timestamp="1588585519682" />
+    <state x="480" y="96" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1588584498647">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="480" y="96" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1280.680@0.0.1280.680" timestamp="1588584498647" />
+    <state x="361" y="0" key="#jfxrt.jar" timestamp="1588586553554">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="361" y="0" key="#jfxrt.jar/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1588586553554" />
+    <state x="370" y="187" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1580117118611">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="370" y="187" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1280.680@0.0.1280.680" timestamp="1580117118611" />
+    <state x="467" y="70" key="FileChooserDialogImpl" timestamp="1588588575433">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="467" y="70" key="FileChooserDialogImpl/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1588588575433" />
+    <state x="467" y="70" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1588585805847" />
+    <state x="591" y="276" key="FileChooserDialogImpl/0.0.1620.1040@0.0.1620.1040" timestamp="1580112842406" />
+    <state x="0" y="81" width="815" height="599" key="NewModule_or_Project.wizard" timestamp="1588583683738">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="0" y="81" width="815" height="599" key="NewModule_or_Project.wizard/0.0.1280.680@0.0.1280.680" timestamp="1588583683738" />
+    <state x="242" y="0" key="SettingsEditor" timestamp="1588588577995">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="242" y="0" key="SettingsEditor/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1588588577995" />
+    <state x="242" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1588585823198" />
+    <state x="291" y="96" key="SettingsEditor/0.0.1620.1040@0.0.1620.1040" timestamp="1580112799522" />
+    <state x="400" y="226" key="com.intellij.ide.util.TipDialog" timestamp="1588582804604">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="400" y="226" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1588582804604" />
+    <state x="506" y="346" key="com.intellij.ide.util.TipDialog/0.0.1620.1040@0.0.1620.1040" timestamp="1580112702104" />
+    <state x="0" y="0" key="new project wizard" timestamp="1588583622684">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="0" y="0" key="new project wizard/0.0.1280.680@0.0.1280.680" timestamp="1588583622684" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/WoPeD-TranslationEditor/javafx/scene/control/Dialogs.java</url>
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/WoPeD-Text2Process/src/org/woped/t2p/ToolWrapper/WordNetInitializer.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/WoPeD-Text2Process/test/UTXORSplit.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/WoPeD-Text2Process/test/STTextToWorldModel.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/WoPeD-Text2Process/src/ToolWrapper/StanfordParserInitializer.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/WoPeD-Installer/dist/mac/WoPeD.app/Contents/Java/WoPeD-classes-3.7.1.jar!/org/woped/quantana/gui/CapacityAnalysisDialog.class</url>
+          <line>891</line>
+          <option name="timeStamp" value="90" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/WoPeD-FileInterface/src/org/woped/file/t2p/PlainTextFileReader.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="92" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/WoPeD-Editor/src/org/woped/editor/controller/vep/EditorEventProcessor.java</url>
+          <line>334</line>
+          <option name="timeStamp" value="94" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/WoPeD-Flamingo/src/org/pushingpixels/flamingo/api/bcb/BreadcrumbBarCallBack.java</url>
+          <option name="timeStamp" value="95" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="setValue">
+      <expression>
+        <expression-string>&quot;set aside 1\\/4 \n cup of the mixture to use &quot;</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>&quot;olive oil \n in a bowl&quot;</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+</project>
