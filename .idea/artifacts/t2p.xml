@@ -43,6 +43,8 @@
           <element id="library" level="project" name="lib42" />
           <element id="library" level="project" name="test2" />
           <element id="library" level="project" name="xml-apis-2.0.22" />
+          <element id="library" level="application" name="lib" />
+          <element id="library" level="application" name="lib1" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="WoPeD-Text2Process/web/Web" />

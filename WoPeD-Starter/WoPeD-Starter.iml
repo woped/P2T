@@ -20,5 +20,6 @@
     <orderEntry type="module" module-name="WoPeD-QuantAnalysis" />
     <orderEntry type="module" module-name="WoPeD-AProMoRe" />
     <orderEntry type="library" name="lib" level="application" />
+    <orderEntry type="library" name="lib1" level="application" />
   </component>
 </module>

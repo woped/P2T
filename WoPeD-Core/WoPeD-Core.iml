@@ -10,5 +10,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="WoPeD-Configuration" />
     <orderEntry type="library" name="lib" level="application" />
+    <orderEntry type="library" name="lib1" level="application" />
   </component>
 </module>
