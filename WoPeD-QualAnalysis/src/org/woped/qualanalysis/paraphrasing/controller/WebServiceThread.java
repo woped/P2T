@@ -33,7 +33,7 @@ import org.woped.qualanalysis.paraphrasing.webservice.PNMLExport;
 import org.woped.qualanalysis.paraphrasing.webservice.ProcessToTextWebService;
 import org.woped.qualanalysis.paraphrasing.webservice.ProcessToTextWebServiceImpl;
 import org.xml.sax.InputSource;
-//import org.woped.p2t.textGenerator.*;
+import org.woped.p2t.textGenerator.*;
 
 public class WebServiceThread extends Thread {
 
@@ -62,7 +62,7 @@ public class WebServiceThread extends Thread {
 		if (numOfNodes > 3) {
 
 			// Start of alternative code to use Webservice to call P2T
-			try {
+			/*try {
 				ByteArrayOutputStream stream = new ByteArrayOutputStream();
 				new PNMLExport().saveToStream(editor, stream);
 				String text = stream.toString();
@@ -91,11 +91,11 @@ public class WebServiceThread extends Thread {
 				paraphrasingPanel.showLoadingAnimation(false);
 				paraphrasingPanel.enableButtons(true);
 				paraphrasingPanel.setThreadInProgress(false);
-			}
+			}*/
 			// End of alternative to use Webservice to call P2T*/
 
 			// Alternative code for calling P2T locally (not via Webservice)
-/*
+///*
 			ByteArrayOutputStream stream = new ByteArrayOutputStream();
 			new PNMLExport().saveToStream(editor, stream);
 			String text = stream.toString();
@@ -114,7 +114,8 @@ public class WebServiceThread extends Thread {
 			paraphrasingPanel.setThreadInProgress(false);
 			paraphrasingPanel.showLoadingAnimation(false);
 			paraphrasingPanel.enableButtons(true);
-			paraphrasingPanel.setThreadInProgress(false);*/
+			paraphrasingPanel.setThreadInProgress(false);
+			//*/
 			// End of alternative code for calling P2T locally (not via Webservice)
 		}
 		else { // numOfNodes of Petri net in editor is 3 or smaller
