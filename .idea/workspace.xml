@@ -10,27 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fe078b1-bc4e-4c3c-990f-f7f38dbe9262" name="Default" comment="Updated Woflan Link">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/p2t.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/p2t.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/t2p.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/t2p.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/marytts_client_5_2_jar_with_dependencies.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/marytts_client_5_2_jar_with_dependencies.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-AProMoRe/WoPeD-AProMoRe.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-AProMoRe/WoPeD-AProMoRe.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-BPELExport/WoPeD-BPELExport.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-BPELExport/WoPeD-BPELExport.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WoPeD-CommonLibs/WoPeD-CommonLibs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-CommonLibs/WoPeD-CommonLibs.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Configuration/WoPeD-Configuration.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Configuration/WoPeD-Configuration.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Core/WoPeD-Core.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Core/WoPeD-Core.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Editor/WoPeD-Editor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Editor/WoPeD-Editor.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-FileInterface/WoPeD-FileInterface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-FileInterface/WoPeD-FileInterface.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Flamingo/WoPeD-Flamingo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Flamingo/WoPeD-Flamingo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-GUI/WoPeD-GUI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-GUI/WoPeD-GUI.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/WoPeD-Process2Text.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/WoPeD-Process2Text.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/out/p2t.war" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/out/p2t.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-ProcessMetrics/WoPeD-ProcessMetrics.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-ProcessMetrics/WoPeD-ProcessMetrics.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/WoPeD-QualAnalysis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-QualAnalysis/WoPeD-QualAnalysis.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-QuantAnalysis/WoPeD-QuantAnalysis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-QuantAnalysis/WoPeD-QuantAnalysis.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Starter/WoPeD-Starter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Starter/WoPeD-Starter.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Text2Process/WoPeD-Text2Process.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Text2Process/WoPeD-Text2Process.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-UnitTests/WoPeD-UnitTests.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-UnitTests/WoPeD-UnitTests.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-CommonLibs/lib/jfxrt.jar" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-CommonLibs/lib/jfxrt.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-CommonLibs/lib/sphinx4-core-5prealpha-20160628.232526-10.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +131,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15136719" />
     <property name="project.structure.side.proportion" value="0.3164557" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -630,7 +613,8 @@
       <workItem from="1557901788591" duration="323000" />
       <workItem from="1588748856623" duration="1886000" />
       <workItem from="1588751031376" duration="1746000" />
-      <workItem from="1588756012507" duration="1771000" />
+      <workItem from="1588756012507" duration="2302000" />
+      <workItem from="1588850456681" duration="1525000" />
     </task>
     <task id="LOCAL-00001" summary="Adapted master build to IntelliJ">
       <created>1532514709268</created>
@@ -1009,10 +993,10 @@
       <screen x="0" y="0" width="1620" height="1040" />
     </state>
     <state width="1578" height="462" key="GridCell.Tab.1.right/0.0.1620.1040/675.-1080.1920.1040@0.0.1620.1040" timestamp="1588749939842" />
-    <state x="2100" y="126" key="SettingsEditor" timestamp="1588759673504">
+    <state x="2100" y="126" key="SettingsEditor" timestamp="1588851200099">
       <screen x="1600" y="0" width="1920" height="1040" />
     </state>
-    <state x="2100" y="126" key="SettingsEditor/0.0.1600.860/1600.0.1920.1040@1600.0.1920.1040" timestamp="1588759673504" />
+    <state x="2100" y="126" key="SettingsEditor/0.0.1600.860/1600.0.1920.1040@1600.0.1920.1040" timestamp="1588851200099" />
     <state x="291" y="95" key="SettingsEditor/0.0.1620.1040/675.-1080.1920.1040@0.0.1620.1040" timestamp="1588752551842" />
     <state x="477" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1588752565981">
       <screen x="0" y="0" width="1620" height="1040" />
