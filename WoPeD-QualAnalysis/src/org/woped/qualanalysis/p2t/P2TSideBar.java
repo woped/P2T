@@ -26,6 +26,7 @@ import org.woped.qualanalysis.paraphrasing.Constants;
 import org.woped.qualanalysis.paraphrasing.controller.WebServiceThread;
 import org.woped.qualanalysis.service.IQualanalysisService;
 import org.woped.qualanalysis.service.QualAnalysisServiceFactory;
+import org.woped.qualanalysis.service.QualanalysisServiceImplement;
 
 @SuppressWarnings("serial")
 /**
@@ -249,7 +250,17 @@ public class P2TSideBar extends JPanel implements ActionListener {
 			}
 
 			if (this.getThreadInProgress() == false) {
-				getText();
+				QualanalysisServiceImplement soundnesscheck = new QualanalysisServiceImplement(editor);
+				System.out.println(soundnesscheck.isSound());
+				if(soundnesscheck.isSound()) {
+					getText();
+				} else{
+					JOptionPane.showMessageDialog(null,
+							Messages.getString("PetriNet.NotSound"),
+							Messages.getString("AnalysisSideBar.SoundnessAnalysis"), JOptionPane.ERROR_MESSAGE);
+				}
+
+
 			} else {
 				JOptionPane.showMessageDialog(null,
 						Messages.getString("Paraphrasing.Webservice.ThreadInProgress.Message"),

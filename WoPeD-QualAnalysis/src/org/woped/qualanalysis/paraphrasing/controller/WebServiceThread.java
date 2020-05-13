@@ -32,6 +32,8 @@ import org.woped.qualanalysis.p2t.Process2Text;
 import org.woped.qualanalysis.paraphrasing.webservice.PNMLExport;
 import org.woped.qualanalysis.paraphrasing.webservice.ProcessToTextWebService;
 import org.woped.qualanalysis.paraphrasing.webservice.ProcessToTextWebServiceImpl;
+import org.woped.qualanalysis.service.AbstractQualanalysisService;
+import org.woped.qualanalysis.service.QualanalysisServiceImplement;
 import org.xml.sax.InputSource;
 import org.woped.p2t.textGenerator.*;
 
@@ -102,7 +104,10 @@ public class WebServiceThread extends Thread {
 			String output = "";
 			org.woped.p2t.textGenerator.TextGenerator tg = new org.woped.p2t.textGenerator.TextGenerator();
 			try {
-				output = tg.toText(text, true);
+				QualanalysisServiceImplement soundnesscheck = new QualanalysisServiceImplement(editor);
+				if(soundnesscheck.isSound()) {
+					output = tg.toText(text, true);
+				}
 			}
 			catch (Exception e) {
 				e.printStackTrace();
