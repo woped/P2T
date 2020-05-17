@@ -18,6 +18,7 @@ public abstract class SpecifiedElement extends OriginatedElement implements Comp
 	/**
 	 * @param origin
 	 * @param wordInSentence
+	 * @param name
 	 */
 	public SpecifiedElement(T2PSentence origin, int wordInSentence,String name) {
 		super(origin);

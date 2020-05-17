@@ -45,8 +45,8 @@ public class Action extends SpecifiedElement{
 	/**
 	 * 
 	 */
-	public Action(T2PSentence origin, int wordInSentece, String verb) {
-		super(origin,wordInSentece,verb);
+	public Action(T2PSentence origin, int wordInSentence, String verb) {
+		super(origin,wordInSentence,verb);
 	}
 
 	public void setBaseForm(String verbBaseForm){
@@ -58,7 +58,7 @@ public class Action extends SpecifiedElement{
 		_clone.f_baseForm = f_baseForm;
 		_clone.f_actorFrom = f_actorFrom;
 		_clone.f_object = f_object;
-		
+
 		_clone.f_prt = f_prt;
 		_clone.f_cop = f_cop;
 		_clone.f_copIndex = f_copIndex;
@@ -177,7 +177,7 @@ public class Action extends SpecifiedElement{
 	}
 	
 	/**
-	 * @param _marker
+	 * @param marker
 	 */
 	public void setMarker(String marker) {
 		f_marker = marker;
@@ -263,7 +263,7 @@ public class Action extends SpecifiedElement{
 	}
 
 	/**
-	 * @param b
+	 * @param value
 	 */
 	public void setMarkerFromPP(boolean value) {
 		f_markerFromPP = value;
@@ -282,7 +282,7 @@ public class Action extends SpecifiedElement{
 	}
 
 	/**
-	 * @param b
+	 * @param value
 	 */
 	public void setTransient(boolean value) {
 		f_transient = value;

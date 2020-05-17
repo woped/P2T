@@ -1,15 +1,9 @@
 package TextToWorldModel;
 
 import ToolWrapper.*;
-import WorldModelToPetrinet.IDHandler;
-import edu.stanford.nlp.ling.Word;
-import worldModel.T2PSentence;
 import worldModel.Text;
-import TextToWorldModel.transform.DummyAction;
 import TextToWorldModel.transform.TextAnalyzer;
 import worldModel.*;
-
-import java.util.ArrayList;
 
 public class WorldModelBuilder {
 

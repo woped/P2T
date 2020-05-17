@@ -81,7 +81,6 @@ public class WorldModel {
 				_result.add(a);
 			}
 		}
-		//Collections.sort(_result);
 		return _result;
 	}
 	
@@ -114,9 +113,10 @@ public class WorldModel {
 		return f_resources;
 	}
 	
-	/**
-	 * @param here
-	 * @return
+	/**get all Resources, that the sentence contains
+	 *
+	 * @param sentence
+	 * @return List of resources that the sentence contains
 	 */
 	public List<Resource> getResources(T2PSentence sentence) {
 		ArrayList<Resource> _result = new ArrayList<Resource>();
@@ -164,9 +164,9 @@ public class WorldModel {
 		f_actions.remove(me);
 	}
 
-	/**
+	/** Switches position of Action a with action b
 	 * @param a
-	 * @param _switcher
+	 * @param b
 	 */
 	public void switchPositions(Action a, Action b) {
 		int _idA = f_actions.indexOf(a);

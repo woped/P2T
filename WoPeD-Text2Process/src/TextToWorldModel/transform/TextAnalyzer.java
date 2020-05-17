@@ -16,6 +16,7 @@ import TextToWorldModel.SentenceWordID;
 import TextToWorldModel.processing.ProcessingUtils;
 
 import ToolWrapper.FrameNetFunctionality.PhraseType;
+import edu.stanford.nlp.ling.IndexedWord;
 import worldModel.T2PSentence;
 import worldModel.Text;
 import TextToWorldModel.transform.ConjunctionElement.ConjunctionType;
@@ -34,7 +35,6 @@ import worldModel.Flow.FlowDirection;
 import worldModel.Flow.FlowType;
 import worldModel.Specifier.SpecifierType;
 
-import edu.stanford.nlp.trees.TreeGraphNode;
 import edu.stanford.nlp.trees.TypedDependency;
 
 public class TextAnalyzer {
@@ -66,7 +66,11 @@ public class TextAnalyzer {
 	public TextAnalyzer() {
 		dummyIDHandler=new IDHandler(1);
 	}
-	
+
+
+	/**
+	 *
+	 */
 	public void analyze(Text textToAnalyze) {
 		try{
 			T2PSentence.resetIDs();
@@ -75,7 +79,9 @@ public class TextAnalyzer {
 			f_text = textToAnalyze;			
 			for(int i = 0;i<f_text.getSentences().size();i++) {
 				T2PSentence s = f_text.getSentences().get(i);
-				analyzeSentence(s,i,false);					
+					AnalyzedSentence _sentence = new AnalyzedSentence(s,i);
+					_sentence.analyze(f_world);
+					f_analyzedSentences.add(_sentence);
 			}
 			
 			referenceResolution();
@@ -131,9 +137,9 @@ private void createFinalLabelsForActions(){
 	}
 
 	/**
-	 * @param _a1
-	 * @param _a2
-	 * @return
+	 * @param linkSource
+	 * @param linkTarget
+	 * @return ActionLinkType of the two Actions linked
 	 */
 	private ActionLinkType determineLinkType(Action linkSource, Action linkTarget) {
 		if("if".equals(linkSource.getMarker())) {
@@ -173,7 +179,7 @@ private void createFinalLabelsForActions(){
 		if(_a2 == null) {
 			return false;
 		}
-		if(_a1.getVerb().equals(_a2.getVerb())){
+ 		if(_a1.getVerb().equals(_a2.getVerb())){
 			if(_a1.isNegated() != _a2.isNegated()) {
 				return false;
 			}
@@ -302,7 +308,7 @@ private void createFinalLabelsForActions(){
 	 * @param _from1
 	 * @param _from2
 	 * @param toCheck
-	 * @param headWord
+	 * @param headWordForUnknowns
 	 * @return
 	 */
 	private boolean checkSpecifierEqual(SpecifiedElement _from1,SpecifiedElement _from2,SpecifierType toCheck,List<String> headWordForUnknowns) {		
@@ -479,12 +485,11 @@ private void createFinalLabelsForActions(){
 	/**
 	 * special case where an and split and something else (or, and/or) are joined in one sentence
 	 * "A and B do C or D". In such a case we have to build the and-splt first and then 2 or-splits.
-	 * @param from 
-	 * 
-	 * @param _base
-	 * @param _flow
-	 * @param _conjs
-	 * @param _actions
+	 * @param base
+	 * @param flow
+	 * @param conjs
+	 * @param allActions
+	 * @param from
 	 */
 	private void handleMixedSituation(T2PSentence base, Flow flow, List<ConjunctionElement> conjs, List<Action> allActions, List<Action> from) {
 		//first, split up on dummy nodes for each and
@@ -533,10 +538,9 @@ private void createFinalLabelsForActions(){
 	}
 
 	/**
-	 * @param base 
-	 * @param endPoint 
-	 * @param _da
-	 * @param _actions
+	 * @param base
+	 * @param startingPoint
+	 * @param endPoint
 	 * @param conjs
 	 */
 	private void buildBlock(T2PSentence base, DummyAction startingPoint, DummyAction endPoint, List<Action> actions,List<ConjunctionElement> conjs) {
@@ -753,18 +757,6 @@ private void createFinalLabelsForActions(){
 		return _result;
 	}
 
-	/**
-	 * @param action
-	 * @return
-	 
-		private boolean hasLinks(Action action) {
-			for(Action a:f_world.getActions()) {
-				if(a.getLink()!= null && a.getLink().equals(action)) {
-					return true;
-				}
-			}
-			return false;
-	}*/
 
 	private void buildJoin(Flow _flow,List<Action> cameFrom ,Action action) {
 		//several actions in came from -> make a join
@@ -898,25 +890,6 @@ private void createFinalLabelsForActions(){
 		cameFrom.add(_actions.get(0)); //setting new came from 
 	}
 
-	/**
-	 * @param a
-	 * @param arrayList 
-	 * @return
-	 
-	private Flow findFlowWithTarget(Action a, List<Flow> list) {
-		for(Flow f:list) {
-			if(f.getDirection() == FlowDirection.split) {
-				if(f.getMultipleObjects().contains(a)) {
-					return f;
-				}
-			}else {
-				if(f.getSingleObject().equals(a)) {
-					return f;
-				}
-			}
-		}
-		return null;
-	}*/
 
 	private void referenceResolution() {
 		List<ExtractedObject> _toCheck = new ArrayList<ExtractedObject>(f_world.getActors());
@@ -960,7 +933,7 @@ private void createFinalLabelsForActions(){
 
 	/**
 	 * @param a
-	 * @return
+	 * @return AnimateType
 	 */
 	private AnimateType determineAnimateType(ExtractedObject a) {
 		if(a instanceof Resource) {
@@ -1004,7 +977,7 @@ private void createFinalLabelsForActions(){
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	private void combineActions() {
 		for(Action a:new ArrayList<Action>(f_world.getActions())) {
@@ -1031,9 +1004,8 @@ private void createFinalLabelsForActions(){
 	}
 
 	/**
-	 * @param action
-	 * @param a
-	 * @param b
+	 * @param strong
+	 * @param weak
 	 */
 	private void copy(Action strong, Action weak) {
 		weak.setActorFrom(strong.getActorFrom());
@@ -1042,8 +1014,9 @@ private void createFinalLabelsForActions(){
 	}
 
 	/**
-	 * @param action
 	 * @param a
+	 * @param b
+	 * @param copyOnly
 	 */
 	private void merge(Action a, Action b, boolean copyOnly) {
 		Action _main = null;
@@ -1097,9 +1070,10 @@ private void createFinalLabelsForActions(){
 	}
 
 	/**
-	 * @param action
 	 * @param a
-	 * @return
+	 * @param b
+	 * @param onlyShareProps
+	 * @return boolean
 	 */
 	private boolean canBeMerged(Action a, Action b,boolean onlyShareProps) {
 		if(onlyShareProps || (a.isNegated() == b.isNegated())) {
@@ -1128,7 +1102,7 @@ private void createFinalLabelsForActions(){
 			Collection<TypedDependency> _deps = _base.getGrammaticalStructure().typedDependenciesCollapsed();
 			List<TypedDependency> _markers = SearchUtils.findDependency("mark",_deps);
 			for(TypedDependency td:_markers) {
-				TreeGraphNode _lookFor = td.gov();
+				IndexedWord _lookFor = td.gov();
 				Action _a = findAction(_lookFor,sentence.getExtractedActions(),_deps);
 				if(_a != null) {
 					String _val = td.dep().value().toLowerCase();
@@ -1139,7 +1113,7 @@ private void createFinalLabelsForActions(){
 			}			
 			_markers = SearchUtils.findDependency(ListUtils.getList("advmod"),_deps);
 			for(TypedDependency td:_markers) {
-				TreeGraphNode _lookFor = td.gov();
+				IndexedWord _lookFor = td.gov();
 				Action _a = findAction(_lookFor,sentence.getExtractedActions(),_deps);
 				if(_a != null && _a.getWordIndex()>td.dep().index()) {
 					String _val = td.dep().value().toLowerCase();
@@ -1156,7 +1130,7 @@ private void createFinalLabelsForActions(){
 			}
 			_markers = SearchUtils.findDependency("prepc",_deps); //e.g. except
 			for(TypedDependency td:_markers) {
-				TreeGraphNode _lookFor = td.dep();
+				IndexedWord _lookFor = td.dep();
 				Action _a = findAction(_lookFor,sentence.getExtractedActions(),_deps);
 				if(_a != null) {
 					if(Constants.DEBUG_MARKING)
@@ -1167,7 +1141,7 @@ private void createFinalLabelsForActions(){
 			_markers = SearchUtils.findDependency("complm",_deps); //whether
 			for(TypedDependency td:_markers) {
 				if(!td.dep().value().equals("that")) {
-					TreeGraphNode _lookFor = td.gov();
+					IndexedWord _lookFor = td.gov();
 					Action _a = findAction(_lookFor,sentence.getExtractedActions(),_deps);
 					if(_a != null) {
 						String _val = td.dep().value().toLowerCase();
@@ -1287,20 +1261,20 @@ private void createFinalLabelsForActions(){
 	
 
 	/**
-	 * @param deps 
-	 * @param for1
-	 * @param extractedActions
-	 * @return
+	 * @param indexedWord
+	 * @param list
+	 * @param deps
+	 * @return Action
 	 */
-	private Action findAction(TreeGraphNode node, List<Action> list, Collection<TypedDependency> deps) {
+	private Action findAction(IndexedWord indexedWord, List<Action> list, Collection<TypedDependency> deps) {
 		for(Action a:list) {
-			if(a.getWordIndex() == node.index()) {
+			if(a.getWordIndex() == indexedWord.index()) {
 				return a;
 			}
 		}
 		List<TypedDependency> _cops = SearchUtils.findDependency("cop",deps);
 		for(TypedDependency td:_cops) {
-			if(td.gov().equals(node)) {
+			if(td.gov().equals(indexedWord)) {
 				return findAction(td.dep(), list, deps);
 			}
 		}		
@@ -1310,8 +1284,9 @@ private void createFinalLabelsForActions(){
 	
 	/**
 	 * for reference resolution
-	 * @param _id
-	 * @return
+	 * @param id
+	 * @param forThis
+	 * @return Action
 	 */
 	private Action findAction(int id,SpecifiedElement forThis) {
 		if(id < 0) return null;
@@ -1332,9 +1307,11 @@ private void createFinalLabelsForActions(){
 
 	
 	/**
-	 * @param a
-	 * @param _animate
-	 * @return
+	 * @param id
+	 * @param resolveMe
+	 * @param type
+	 * @param copSentence
+	 * @return ExtractedObject
 	 */
 	private ExtractedObject findReference(int id,ExtractedObject resolveMe, AnimateType type, boolean copSentence) {		
 		HashMap<ExtractedObject, Integer> _candidates = getReferenceCandidates(id,resolveMe,type,copSentence);
@@ -1351,8 +1328,8 @@ private void createFinalLabelsForActions(){
 	}
 	
 	/**
-	 * @param _candidates
-	 * @return
+	 * @param candidates
+	 * @return ExtractedObject
 	 */
 	private ExtractedObject getMaxScoreElements(HashMap<ExtractedObject, Integer> candidates) {
 		Integer _score = Integer.MIN_VALUE;
@@ -1380,8 +1357,8 @@ private void createFinalLabelsForActions(){
 	}
 
 	/**
-	 * @param _candidates
-	 * @return
+	 * @param candidates
+	 * @return int
 	 */
 	private int getMaxScore(HashMap<ExtractedObject, Integer> candidates) {
 		Integer _result = Integer.MIN_VALUE;
@@ -1462,16 +1439,7 @@ private void createFinalLabelsForActions(){
 		
 	}
 	
-	
-	public void analyzeSentence(T2PSentence s, int sentenceNumber,boolean singleSentence) {		
-		AnalyzedSentence _sentence = new AnalyzedSentence(s,sentenceNumber);
-		_sentence.analyze(this, f_world);
-		if(!singleSentence) {
-			f_analyzedSentences.add(_sentence);
-		}else {
-			PrintUtils.printExtractedActions(_sentence);
-		}
-	}
+
 
 	/**
 	 * @return
@@ -1493,8 +1461,8 @@ private void createFinalLabelsForActions(){
 	}
 
 	/**
-	 * @param sentenceWordID
-	 * @param sentenceWordID2
+	 * @param resolveMe
+	 * @param reference
 	 */
 	public void addManualReference(SentenceWordID resolveMe,SentenceWordID reference) {
 		f_referenceMap.put(resolveMe, reference);
@@ -1508,7 +1476,7 @@ private void createFinalLabelsForActions(){
 	}
 
 	/**
-	 * @return
+	 * @return int
 	 */
 	public int getNumberOfReferences() {
 		int _result = 0;
@@ -1522,7 +1490,7 @@ private void createFinalLabelsForActions(){
 	}
 	
 	/**
-	 * @return
+	 * @return int
 	 */
 	public int getNumberOfLinks() {
 		int _result = 0;

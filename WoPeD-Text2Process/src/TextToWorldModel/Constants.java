@@ -229,6 +229,7 @@ public class Constants {
 		f_exampleIndicators.add("for instance");
 		f_exampleIndicators.add("for example");
 		f_exampleIndicators.add("e.g.");
+		f_exampleIndicators.add("i.e.");
 		
 		f_realActorPPIndicators.add("in");
 		f_realActorPPIndicators.add("of");

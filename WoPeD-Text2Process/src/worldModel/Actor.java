@@ -24,7 +24,7 @@ public class Actor extends ExtractedObject{
 	
 
 	/**
-	 * @param b
+	 * @param value
 	 */
 	public void setUnreal(boolean value) {
 		f_unreal  = value;
@@ -43,7 +43,7 @@ public class Actor extends ExtractedObject{
 	}
 
 	/**
-	 * @param b
+	 * @param value
 	 */
 	public void setPassive(boolean value) {
 		f_passive  = value;

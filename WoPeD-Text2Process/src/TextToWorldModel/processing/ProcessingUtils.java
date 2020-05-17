@@ -10,7 +10,6 @@ import worldModel.Actor;
 import worldModel.ExtractedObject;
 
 import edu.stanford.nlp.trees.Tree;
-import edu.stanford.nlp.trees.TreeGraphNode;
 
 
 public class ProcessingUtils {
@@ -110,7 +109,7 @@ public class ProcessingUtils {
 	}
 
 	/**
-	 * @param name
+	 * @param value
 	 * @return
 	 */
 	public static boolean is3rdPerson(String value) {
@@ -140,7 +139,7 @@ public class ProcessingUtils {
 	
 	
 	/**
-	 * needed due to bug in Tree.removeChild() for TreeGraphNodes
+	 * needed due to bug in Tree.removeChild() for Treenodes
 	 * @param copy
 	 * @param i
 	 * @return
@@ -149,22 +148,22 @@ public class ProcessingUtils {
 		Tree[] kids = copy.children();
 		Tree kid = kids[i];
 		Tree[] newKids;
-		if (copy instanceof TreeGraphNode) {
-			newKids = new TreeGraphNode[kids.length - 1];
+		if (copy instanceof Tree) {
+			newKids = new Tree[kids.length - 1];
 		} else {
 			newKids = new Tree[kids.length - 1];
 		}
 		for (int j = 0; j < newKids.length; j++) {
 			if (j < i) {
-				if (copy instanceof TreeGraphNode) {
-					newKids[j] = (TreeGraphNode) kids[j];
+				if (copy instanceof Tree) {
+					newKids[j] = (Tree) kids[j];
 				} else {
 					newKids[j] = kids[j];
 				}
 
 			} else {
-				if (copy instanceof TreeGraphNode) {
-					newKids[j] = (TreeGraphNode) kids[j+1];
+				if (copy instanceof Tree) {
+					newKids[j] = (Tree) kids[j+1];
 				} else {
 					newKids[j] = kids[j+1];
 				}

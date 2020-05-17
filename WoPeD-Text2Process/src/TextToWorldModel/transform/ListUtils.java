@@ -12,8 +12,8 @@ import worldModel.ExtractedObject;
 public class ListUtils {
 	
 	/**
-	 * @param _subjects
-	 * @return
+	 * @param list
+	 * @return ArrayList<ExtractedObjects>
 	 */
 	public static ArrayList<ExtractedObject> toExtractedObjects(List<Actor> list) {
 		ArrayList<ExtractedObject> _result = new ArrayList<ExtractedObject>();
