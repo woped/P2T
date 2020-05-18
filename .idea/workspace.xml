@@ -12,12 +12,15 @@
     <list default="true" id="0fe078b1-bc4e-4c3c-990f-f7f38dbe9262" name="Default" comment="Updated Woflan Link">
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/p2t.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/p2t.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/t2p.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/t2p.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WoPeD-FileInterface/WoPeD-FileInterface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-FileInterface/WoPeD-FileInterface.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/WoPeD-Process2Text.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/WoPeD-Process2Text.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/out/p2t.war" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/out/p2t.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/WoPeD-QualAnalysis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-QualAnalysis/WoPeD-QualAnalysis.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/paraphrasing/controller/WebServiceThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/paraphrasing/controller/WebServiceThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WoPeD-QuantAnalysis/WoPeD-QuantAnalysis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-QuantAnalysis/WoPeD-QuantAnalysis.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-Text2Process/WoPeD-Text2Process.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Text2Process/WoPeD-Text2Process.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WoPeD-UnitTests/WoPeD-UnitTests.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-UnitTests/WoPeD-UnitTests.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,8 +82,14 @@
     <property name="last_directory_selection" value="$PROJECT_DIR$/WoPeD-Process2Text/src/org/woped/p2t/contentDetermination" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/WoPeD-Flamingo/lib" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15136719" />
     <property name="project.structure.side.proportion" value="0.1770551" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -327,7 +336,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
       <module name="Servers" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
@@ -564,9 +573,10 @@
       <workItem from="1588849160984" duration="61000" />
       <workItem from="1588851110689" duration="798000" />
       <workItem from="1588877193469" duration="590000" />
-      <workItem from="1589023816316" duration="552000" />
-      <workItem from="1589357436118" duration="5115000" />
-      <workItem from="1589629263428" duration="3835000" />
+      <workItem from="1588922726956" duration="2019000" />
+      <workItem from="1589182011858" duration="6772000" />
+      <workItem from="1589363527268" duration="766000" />
+      <workItem from="1589785661861" duration="1204000" />
     </task>
     <task id="LOCAL-00001" summary="Adapted master build to IntelliJ">
       <created>1532514709268</created>
@@ -816,38 +826,6 @@
     <option name="localTasksCounter" value="36" />
     <servers />
   </component>
-  <component name="TestHistory">
-    <history-entry file="Tests_in_WoPeD-Text2Process - 2018.08.08 at 15h 49m 30s.xml">
-      <configuration name="Tests in WoPeD-Text2Process" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Tests_in_WoPeD-Text2Process - 2018.08.08 at 15h 53m 50s.xml">
-      <configuration name="Tests in WoPeD-Text2Process" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Tests_in_WoPeD-Text2Process - 2018.08.16 at 10h 34m 09s.xml">
-      <configuration name="Tests in WoPeD-Text2Process" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="STTextToProcess - 2018.08.16 at 10h 34m 19s.xml">
-      <configuration name="STTextToProcess" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="STTextToProcess - 2018.08.16 at 10h 36m 17s.xml">
-      <configuration name="STTextToProcess" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_WoPeD-Text2Process_(1) - 2018.08.16 at 10h 37m 04s.xml">
-      <configuration name="All in WoPeD-Text2Process (1)" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_WoPeD-Text2Process_(1) - 2018.08.16 at 11h 10m 45s.xml">
-      <configuration name="All in WoPeD-Text2Process (1)" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_WoPeD-Text2Process_(1) - 2018.08.16 at 11h 19m 49s.xml">
-      <configuration name="All in WoPeD-Text2Process (1)" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_WoPeD-Text2Process_(1) - 2018.08.16 at 11h 27m 12s.xml">
-      <configuration name="All in WoPeD-Text2Process (1)" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_WoPeD-Text2Process - 2019.01.21 at 10h 34m 11s.xml">
-      <configuration name="All in WoPeD-Text2Process" configurationId="JUnit" />
-    </history-entry>
-  </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
@@ -858,7 +836,7 @@
     </todo-panel>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -875,12 +853,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
@@ -917,9 +896,10 @@
       <screen x="0" y="23" width="2560" height="1361" />
     </state>
     <state x="1677" y="412" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.23.2560.1361@0.23.2560.1361" timestamp="1588768064064" />
-    <state x="803" y="272" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1588877300876">
-      <screen x="0" y="0" width="1620" height="1040" />
+    <state x="634" y="178" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1588923259051">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="634" y="178" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1588923259051" />
     <state x="803" y="272" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1620.1040@0.0.1620.1040" timestamp="1588877300876" />
     <state x="1001" y="351" width="1240" height="704" key="CommitChangelistDialog2" timestamp="1588772104693">
       <screen x="0" y="23" width="2560" height="1361" />
@@ -929,43 +909,39 @@
       <screen x="0" y="23" width="2560" height="1361" />
     </state>
     <state x="261" y="335" width="1651" height="880" key="DiffContextDialog/0.23.2560.1361@0.23.2560.1361" timestamp="1588772088317" />
-    <state x="704" y="350" key="FileChooserDialogImpl" timestamp="1589024026450">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="342" y="90" key="FileChooserDialogImpl" timestamp="1588923038777">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="704" y="350" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1589024026450" />
-    <state width="1340" height="266" key="GridCell.Tab.0.bottom" timestamp="1589024394632">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="342" y="90" key="FileChooserDialogImpl/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1588923038777" />
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom" timestamp="1589363491848">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1589363491848" />
     <state width="1578" height="282" key="GridCell.Tab.0.bottom/0.0.1620.1040@0.0.1620.1040" timestamp="1588877674890" />
-    <state width="1340" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1589024394632" />
     <state width="1809" height="290" key="GridCell.Tab.0.bottom/0.23.2560.1361@0.23.2560.1361" timestamp="1588852240723" />
-    <state width="1340" height="266" key="GridCell.Tab.0.center" timestamp="1589024394632">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1237" height="163" key="GridCell.Tab.0.center" timestamp="1589363491848">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.center/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1589363491848" />
     <state width="1578" height="282" key="GridCell.Tab.0.center/0.0.1620.1040@0.0.1620.1040" timestamp="1588877674890" />
-    <state width="1340" height="266" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1589024394632" />
     <state width="1809" height="290" key="GridCell.Tab.0.center/0.23.2560.1361@0.23.2560.1361" timestamp="1588852240723" />
-    <state width="1340" height="266" key="GridCell.Tab.0.left" timestamp="1589024394631">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1237" height="163" key="GridCell.Tab.0.left" timestamp="1589363491847">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.left/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1589363491847" />
     <state width="1578" height="282" key="GridCell.Tab.0.left/0.0.1620.1040@0.0.1620.1040" timestamp="1588877674889" />
-    <state width="1340" height="266" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1589024394631" />
     <state width="1809" height="290" key="GridCell.Tab.0.left/0.23.2560.1361@0.23.2560.1361" timestamp="1588852240722" />
-    <state width="1340" height="266" key="GridCell.Tab.0.right" timestamp="1589024394632">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1237" height="163" key="GridCell.Tab.0.right" timestamp="1589363491848">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state width="1237" height="163" key="GridCell.Tab.0.right/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1589363491848" />
     <state width="1578" height="282" key="GridCell.Tab.0.right/0.0.1620.1040@0.0.1620.1040" timestamp="1588877674890" />
-    <state width="1340" height="266" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1589024394632" />
     <state width="1809" height="290" key="GridCell.Tab.0.right/0.23.2560.1361@0.23.2560.1361" timestamp="1588852240723" />
-    <state x="493" y="248" key="RollbackChangesDialog" timestamp="1589361920870">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="170" y="7" width="1038" height="673" key="SettingsEditor" timestamp="1589357291387">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="493" y="248" key="RollbackChangesDialog/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1589361920870" />
-    <state x="77" y="188" width="1555" height="837" key="SettingsEditor" timestamp="1589024344965">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
+    <state x="170" y="7" width="1038" height="673" key="SettingsEditor/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1589357291387" />
     <state x="578" y="191" key="SettingsEditor/0.0.1620.1040@0.0.1620.1040" timestamp="1588877783400" />
-    <state x="77" y="188" key="SettingsEditor/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1589024344965" />
     <state x="913" y="278" width="1555" height="837" key="SettingsEditor/0.23.2560.1361@0.23.2560.1361" timestamp="1588851141495" />
     <state x="1092" y="416" key="Vcs.Push.Dialog.v2" timestamp="1588772029240">
       <screen x="0" y="23" width="2560" height="1361" />
@@ -975,15 +951,15 @@
       <screen x="0" y="23" width="2560" height="1361" />
     </state>
     <state x="761" y="516" width="1214" height="580" key="VcsDiffUtil.ChangesDialog/0.23.2560.1361@0.23.2560.1361" timestamp="1588767260892" />
-    <state x="338" y="134" key="new project wizard" timestamp="1589629437195">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="0" y="0" width="612" height="680" key="find.popup" timestamp="1589358021856">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="338" y="134" key="new project wizard/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1589629437195" />
-    <state x="562" y="227" width="797" height="678" key="search.everywhere.popup" timestamp="1589362259144">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="0" y="0" width="612" height="680" key="find.popup/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1589358021856" />
+    <state x="375" y="148" width="672" height="444" key="search.everywhere.popup" timestamp="1589363661351">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="375" y="148" width="672" height="444" key="search.everywhere.popup/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1589363661351" />
     <state x="474" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1620.1040@0.0.1620.1040" timestamp="1588877565250" />
-    <state x="562" y="227" width="797" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1589362259144" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
