@@ -10,10 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fe078b1-bc4e-4c3c-990f-f7f38dbe9262" name="Default" comment="Updated Woflan Link">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/p2t.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/p2t.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/t2p.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/t2p.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-FileInterface/WoPeD-FileInterface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-FileInterface/WoPeD-FileInterface.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/WoPeD-Process2Text.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/WoPeD-Process2Text.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/out/p2t.war" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/out/p2t.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/WoPeD-QualAnalysis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-QualAnalysis/WoPeD-QualAnalysis.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/paraphrasing/controller/WebServiceThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/paraphrasing/controller/WebServiceThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-QuantAnalysis/WoPeD-QuantAnalysis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-QuantAnalysis/WoPeD-QuantAnalysis.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-UnitTests/WoPeD-UnitTests.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-UnitTests/WoPeD-UnitTests.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,58 +37,6 @@
         <option value="Class" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>FileChooser</find>
-      <find>FileC</find>
-      <find>193.1</find>
-      <find>Is Loa</find>
-      <find>T2PUI.Loa</find>
-      <find>Loading</find>
-      <find>%</find>
-      <find>%0</find>
-      <find>contacted</find>
-      <find>Testb</find>
-      <find>193.196.</find>
-      <find>aproImport</find>
-      <find>Apromore</find>
-      <find>importA</find>
-      <find>Apromore.</find>
-      <find>193.196</find>
-      <find>193.19</find>
-      <find>Paraphrasing.Webservice.Success.Message</find>
-      <find>woped.dhbw-karlsruhe.de&quot;</find>
-      <find>contact</find>
-      <find>T2P</find>
-      <find>TransitionP</find>
-      <find>triggerBu</find>
-      <find>unfolding</find>
-      <find>toText(</find>
-      <find>P2</find>
-      <find>oogle</find>
-      <find>leven</find>
-      <find>StringUtils</find>
-      <find>commons</find>
-    </findStrings>
-    <replaceStrings>
-      <replace />
-      <replace>processtotext.ws/&quot;</replace>
-      <replace>ws.processtotext</replace>
-    </replaceStrings>
-    <dirStrings>
-      <dir>$PROJECT_DIR$/WoPeD-Text2Process/src/orgChart</dir>
-      <dir>$PROJECT_DIR$/WoPeD-T2P</dir>
-      <dir>$PROJECT_DIR$/WoPeD-AProMoRe</dir>
-      <dir>$PROJECT_DIR$/WoPeD-Text2Process</dir>
-      <dir>$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/p2t</dir>
-      <dir>$PROJECT_DIR$/WoPeD-Installer</dir>
-      <dir>$PROJECT_DIR$/WoPeD-QualAnalysis/src</dir>
-      <dir>$PROJECT_DIR$/WoPeD-Process2Text/.settings</dir>
-      <dir>$PROJECT_DIR$/WoPeD-Process2Text</dir>
-      <dir>$PROJECT_DIR$/WoPeD-Editor</dir>
-      <dir>$PROJECT_DIR$/</dir>
-    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -124,9 +77,10 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/WoPeD-Process2Text/src/org/woped/p2t/contentDetermination" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/WoPeD-Flamingo/lib" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15136719" />
     <property name="project.structure.side.proportion" value="0.1770551" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -610,6 +564,9 @@
       <workItem from="1588849160984" duration="61000" />
       <workItem from="1588851110689" duration="798000" />
       <workItem from="1588877193469" duration="590000" />
+      <workItem from="1589023816316" duration="552000" />
+      <workItem from="1589357436118" duration="5115000" />
+      <workItem from="1589629263428" duration="3835000" />
     </task>
     <task id="LOCAL-00001" summary="Adapted master build to IntelliJ">
       <created>1532514709268</created>
@@ -972,30 +929,43 @@
       <screen x="0" y="23" width="2560" height="1361" />
     </state>
     <state x="261" y="335" width="1651" height="880" key="DiffContextDialog/0.23.2560.1361@0.23.2560.1361" timestamp="1588772088317" />
-    <state width="1578" height="282" key="GridCell.Tab.0.bottom" timestamp="1588877674890">
-      <screen x="0" y="0" width="1620" height="1040" />
+    <state x="704" y="350" key="FileChooserDialogImpl" timestamp="1589024026450">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="704" y="350" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1589024026450" />
+    <state width="1340" height="266" key="GridCell.Tab.0.bottom" timestamp="1589024394632">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1578" height="282" key="GridCell.Tab.0.bottom/0.0.1620.1040@0.0.1620.1040" timestamp="1588877674890" />
+    <state width="1340" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1589024394632" />
     <state width="1809" height="290" key="GridCell.Tab.0.bottom/0.23.2560.1361@0.23.2560.1361" timestamp="1588852240723" />
-    <state width="1578" height="282" key="GridCell.Tab.0.center" timestamp="1588877674890">
-      <screen x="0" y="0" width="1620" height="1040" />
+    <state width="1340" height="266" key="GridCell.Tab.0.center" timestamp="1589024394632">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1578" height="282" key="GridCell.Tab.0.center/0.0.1620.1040@0.0.1620.1040" timestamp="1588877674890" />
+    <state width="1340" height="266" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1589024394632" />
     <state width="1809" height="290" key="GridCell.Tab.0.center/0.23.2560.1361@0.23.2560.1361" timestamp="1588852240723" />
-    <state width="1578" height="282" key="GridCell.Tab.0.left" timestamp="1588877674889">
-      <screen x="0" y="0" width="1620" height="1040" />
+    <state width="1340" height="266" key="GridCell.Tab.0.left" timestamp="1589024394631">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1578" height="282" key="GridCell.Tab.0.left/0.0.1620.1040@0.0.1620.1040" timestamp="1588877674889" />
+    <state width="1340" height="266" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1589024394631" />
     <state width="1809" height="290" key="GridCell.Tab.0.left/0.23.2560.1361@0.23.2560.1361" timestamp="1588852240722" />
-    <state width="1578" height="282" key="GridCell.Tab.0.right" timestamp="1588877674890">
-      <screen x="0" y="0" width="1620" height="1040" />
+    <state width="1340" height="266" key="GridCell.Tab.0.right" timestamp="1589024394632">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1578" height="282" key="GridCell.Tab.0.right/0.0.1620.1040@0.0.1620.1040" timestamp="1588877674890" />
+    <state width="1340" height="266" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1589024394632" />
     <state width="1809" height="290" key="GridCell.Tab.0.right/0.23.2560.1361@0.23.2560.1361" timestamp="1588852240723" />
-    <state x="578" y="191" width="1555" height="837" key="SettingsEditor" timestamp="1588877783400">
-      <screen x="0" y="0" width="1620" height="1040" />
+    <state x="493" y="248" key="RollbackChangesDialog" timestamp="1589361920870">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="493" y="248" key="RollbackChangesDialog/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1589361920870" />
+    <state x="77" y="188" width="1555" height="837" key="SettingsEditor" timestamp="1589024344965">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="578" y="191" key="SettingsEditor/0.0.1620.1040@0.0.1620.1040" timestamp="1588877783400" />
+    <state x="77" y="188" key="SettingsEditor/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1589024344965" />
     <state x="913" y="278" width="1555" height="837" key="SettingsEditor/0.23.2560.1361@0.23.2560.1361" timestamp="1588851141495" />
     <state x="1092" y="416" key="Vcs.Push.Dialog.v2" timestamp="1588772029240">
       <screen x="0" y="23" width="2560" height="1361" />
@@ -1005,10 +975,15 @@
       <screen x="0" y="23" width="2560" height="1361" />
     </state>
     <state x="761" y="516" width="1214" height="580" key="VcsDiffUtil.ChangesDialog/0.23.2560.1361@0.23.2560.1361" timestamp="1588767260892" />
-    <state x="474" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1588877565250">
-      <screen x="0" y="0" width="1620" height="1040" />
+    <state x="338" y="134" key="new project wizard" timestamp="1589629437195">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="338" y="134" key="new project wizard/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1589629437195" />
+    <state x="562" y="227" width="797" height="678" key="search.everywhere.popup" timestamp="1589362259144">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="474" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1620.1040@0.0.1620.1040" timestamp="1588877565250" />
+    <state x="562" y="227" width="797" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1589362259144" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
