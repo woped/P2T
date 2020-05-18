@@ -144,7 +144,13 @@ public class ProcessModel {
     }
 
     public void addPool(String pool) {
-        this.pools.add(pool);
+        String temp = pool;
+        if (temp.contains("glossary://")) {
+            temp = pool.replace("glossary://", "");
+            temp = temp.substring(temp.indexOf("/") + 1, temp.length());
+            temp = temp.replace(";;", "");
+        }
+        pools.add(temp);
     }
 
     public void addArc(org.woped.p2t.dataModel.process.Arc arc) {

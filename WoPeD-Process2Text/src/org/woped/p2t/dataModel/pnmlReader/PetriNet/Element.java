@@ -5,12 +5,15 @@ public abstract class Element {
     private String label;
     private String id;
     private String role;
+    private String group;
     private String type;
 
-    public Element(String id, String label, String role, String type) {
+
+    public Element(String id, String label, String role, String group, String type) {
         this.id = id;
         this.label = label;
         this.role = role;
+        this.group = group;
         this.type = type;
     }
 
@@ -37,6 +40,10 @@ public abstract class Element {
     public String getRole() {
         return role;
     }
+
+    public String getGroup() { return group; }
+
+    public void setGroup(String group) { this.group = group; }
 
     public void setType(String type) {
         this.type = type;

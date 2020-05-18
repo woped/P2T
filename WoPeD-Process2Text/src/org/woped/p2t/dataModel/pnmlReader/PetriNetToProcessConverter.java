@@ -45,7 +45,7 @@ public class PetriNetToProcessConverter {
         // Id of current petri net element
         String elemId = elem.getId();
         String elemType = "";
-        // If element not already exists
+        // If element not already excists
         if (!transformedElems.keySet().contains(elemId)) {
 
             // Places ...
@@ -168,11 +168,11 @@ public class PetriNetToProcessConverter {
                     x++;
 
                     //Role in Text --> Role in Petrinet = Lane in BPMN
-                    org.woped.p2t.dataModel.process.Pool roleAsPool = new org.woped.p2t.dataModel.process.Pool(elem.getRole());
+                    org.woped.p2t.dataModel.process.Pool groupAsPool = new org.woped.p2t.dataModel.process.Pool(elem.getGroup());
                     org.woped.p2t.dataModel.process.Lane roleAsLane = new org.woped.p2t.dataModel.process.Lane(elem.getRole());
 
                     if (elem.getRole().equals("none")) {
-                        roleAsPool = null;
+                        groupAsPool = null;
                         roleAsLane = null;
                     }
 
@@ -188,7 +188,7 @@ public class PetriNetToProcessConverter {
                         String label2 = sucXOR.getLabel();
 
                         int newId = model.getNewId();
-                        model.addActivity(new org.woped.p2t.dataModel.process.Activity(newId, xorTitle + " " + label2, roleAsLane, roleAsPool, ActivityType.NONE));
+                        model.addActivity(new org.woped.p2t.dataModel.process.Activity(newId, xorTitle + " " + label2, roleAsLane, groupAsPool, ActivityType.NONE));
                         transformedElems.put(elemId, newId);
                         transformedElemsRev.put(newId, elemId);
                         if (precElem != -1) {
@@ -204,7 +204,7 @@ public class PetriNetToProcessConverter {
                         int newId = model.getNewId();
                         String label = elem.getLabel();
                         int type = elem.getId().contains("sub") ? ActivityType.TYPE_MAP.get("Subprocess") : ActivityType.NONE;
-                        model.addActivity(new org.woped.p2t.dataModel.process.Activity(newId, label, roleAsLane, roleAsPool, type));
+                        model.addActivity(new org.woped.p2t.dataModel.process.Activity(newId, label, roleAsLane, groupAsPool, type));
                         transformedElems.put(elemId, newId);
                         transformedElemsRev.put(newId, elemId);
                         if (precElem != -1) {
