@@ -251,7 +251,6 @@ public class P2TSideBar extends JPanel implements ActionListener {
 
 			if (this.getThreadInProgress() == false) {
 				QualanalysisServiceImplement soundnesscheck = new QualanalysisServiceImplement(editor);
-				System.out.println(soundnesscheck.isSound());
 				if(soundnesscheck.isSound()) {
 					getText();
 				} else{

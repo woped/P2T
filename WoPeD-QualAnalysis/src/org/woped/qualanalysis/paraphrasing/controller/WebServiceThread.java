@@ -7,6 +7,9 @@ import org.woped.p2t.textGenerator.TextGenerator;
 import org.woped.qualanalysis.p2t.P2TSideBar;
 import org.woped.qualanalysis.p2t.Process2Text;
 import org.woped.qualanalysis.paraphrasing.webservice.PNMLExport;
+import org.woped.qualanalysis.service.AbstractQualanalysisService;
+import org.woped.qualanalysis.service.QualanalysisServiceImplement;
+
 
 import javax.swing.*;
 import javax.xml.ws.WebServiceException;
@@ -43,22 +46,24 @@ public class WebServiceThread extends Thread {
 				String text = stream.toString();
 				String output = "";
 
-				// Use WebService to call P2T
-/*					HttpRequest req = new HttpRequest(url, text);
-				HttpResponse res = req.getResponse();
-				output = res.getBody(); */
-				// End of call for WebService
+				QualanalysisServiceImplement soundnesscheck = new QualanalysisServiceImplement(editor);
+				if(soundnesscheck.isSound()) {
+					// Use WebService to call P2T
+	/*					HttpRequest req = new HttpRequest(url, text);
+					HttpResponse res = req.getResponse();
+					output = res.getBody(); */
+					// End of call for WebService
 
-				// Alternatively call P2T directly with bypass of WebService
-			TextGenerator tg = new TextGenerator();
-				try {
-					output = tg.toText(text, true);
+					// Alternatively call P2T directly with bypass of WebService
+				TextGenerator tg = new TextGenerator();
+					try {
+						output = tg.toText(text, true);
+					}
+					catch (Exception e) {
+						e.printStackTrace();
+					}
+					// End of alternative code
 				}
-				catch (Exception e) {
-					e.printStackTrace();
-				}
-				// End of alternative code
-
 				//End Comment here!
 				//Do Not Comment the Following!!
 				output = output.replaceAll("\\s*\n\\s*", "");
@@ -93,7 +98,7 @@ public class WebServiceThread extends Thread {
 				output = tg.toText(text, true);
 			}
 			catch (Exception e) {
-				e.printStackTrace();
+				e.printSsidetackTrace();
 			}
 
 			isFinished = true;

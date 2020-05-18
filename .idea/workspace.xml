@@ -29,6 +29,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0fe078b1-bc4e-4c3c-990f-f7f38dbe9262" name="Default" comment="Re-enable Webservice call of P2T as default&#10;Added jwnl.jar to P2T builder">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/out/p2t.war" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/out/p2t.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/p2t/P2TSideBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/p2t/P2TSideBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/paraphrasing/controller/WebServiceThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/paraphrasing/controller/WebServiceThread.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -585,6 +588,7 @@
       <workItem from="1589618969277" duration="385000" />
       <workItem from="1589724340302" duration="657000" />
       <workItem from="1589792981130" duration="844000" />
+      <workItem from="1589797943815" duration="748000" />
     </task>
     <task id="LOCAL-00001" summary="Adapted master build to IntelliJ">
       <created>1532514709268</created>
@@ -950,6 +954,10 @@
       <screen x="0" y="23" width="2560" height="1361" />
     </state>
     <state x="1677" y="412" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.23.2560.1361@0.23.2560.1361" timestamp="1589127198677" />
+    <state x="2398" y="444" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1589798097608">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2398" y="444" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589798097608" />
     <state x="1109" y="514" width="525" height="256" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1589613177591">
       <screen x="0" y="23" width="2560" height="1361" />
     </state>
@@ -974,24 +982,28 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="694" y="217" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1589724509310" />
-    <state width="1342" height="195" key="GridCell.Tab.0.bottom" timestamp="1589725013911">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="225" key="GridCell.Tab.0.bottom" timestamp="1589797783168">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="225" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589797783168" />
     <state width="1342" height="195" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589725013911" />
     <state width="997" height="369" key="GridCell.Tab.0.bottom/0.23.2560.1361@0.23.2560.1361" timestamp="1589616149298" />
-    <state width="1342" height="195" key="GridCell.Tab.0.center" timestamp="1589725013911">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="225" key="GridCell.Tab.0.center" timestamp="1589797783167">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="225" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589797783167" />
     <state width="1342" height="195" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1589725013911" />
     <state width="997" height="369" key="GridCell.Tab.0.center/0.23.2560.1361@0.23.2560.1361" timestamp="1589616149298" />
-    <state width="1342" height="195" key="GridCell.Tab.0.left" timestamp="1589725013911">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="225" key="GridCell.Tab.0.left" timestamp="1589797783167">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="225" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589797783167" />
     <state width="1342" height="195" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1589725013911" />
     <state width="997" height="369" key="GridCell.Tab.0.left/0.23.2560.1361@0.23.2560.1361" timestamp="1589616149298" />
-    <state width="1342" height="195" key="GridCell.Tab.0.right" timestamp="1589725013911">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="225" key="GridCell.Tab.0.right" timestamp="1589797783167">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="225" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589797783167" />
     <state width="1342" height="195" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1589725013911" />
     <state width="997" height="369" key="GridCell.Tab.0.right/0.23.2560.1361@0.23.2560.1361" timestamp="1589616149298" />
     <state width="1459" height="374" key="GridCell.Tab.1.bottom" timestamp="1589030037537">
@@ -1039,9 +1051,10 @@
       <screen x="0" y="23" width="2560" height="1361" />
     </state>
     <state x="935" y="254" width="1312" height="946" key="find.popup/0.23.2560.1361@0.23.2560.1361" timestamp="1589127733184" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1589724575987">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="2459" y="183" width="840" height="856" key="search.everywhere.popup" timestamp="1589798102988">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state x="2459" y="183" width="840" height="856" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589798102988" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1589724575987" />
   </component>
   <component name="XDebuggerManager">
