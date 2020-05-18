@@ -103,7 +103,7 @@ public class WebServiceThread extends Thread {
 			String text = stream.toString();
 			String output = "";
 			org.woped.p2t.textGenerator.TextGenerator tg = new org.woped.p2t.textGenerator.TextGenerator();
-			try {
+			try{
 				QualanalysisServiceImplement soundnesscheck = new QualanalysisServiceImplement(editor);
 				if(soundnesscheck.isSound()) {
 					output = tg.toText(text, true);
