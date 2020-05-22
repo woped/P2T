@@ -55,6 +55,7 @@ public class PNMLReader {
     }
 
     public static String role;
+    public static String group;
 
     private static void extractElements(Document doc, String type, PetriNet petriNet) {
         NodeList list = doc.getElementsByTagName(type);
@@ -65,6 +66,7 @@ public class PNMLReader {
             NodeList fstNodeElems = fstNode.getChildNodes();
             String operatortype = "none";
             role = "none";
+            group = "none";
 
             //-------- CHECK FOR OPERATOR TYPE---------------
             for (int o = 0; o < fstNodeElems.getLength(); o++) {
@@ -92,6 +94,7 @@ public class PNMLReader {
                         if (n2.getNodeName().equals("transitionResource")) {
                             Element n2Elem = (Element) n2;
                             role = n2Elem.getAttribute("roleName");
+                            group = n2Elem.getAttribute("organizationalUnitName");
                         }
                     }
                 }
@@ -107,7 +110,7 @@ public class PNMLReader {
                             if (type.equals("place")) {
                                 petriNet.addElements(new Place(id, thdNode.getTextContent()));
                             } else {
-                                petriNet.addElements(new Transition(id, thdNode.getTextContent(), role, operatortype));
+                                petriNet.addElements(new Transition(id, thdNode.getTextContent(), role, group, operatortype));
                             }
                         }
                     }
@@ -118,5 +121,6 @@ public class PNMLReader {
 
     public void test() {
         System.out.println(role);
+        System.out.println(group);
     }
 }

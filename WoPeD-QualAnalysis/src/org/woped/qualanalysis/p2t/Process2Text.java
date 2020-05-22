@@ -1,5 +1,13 @@
 package org.woped.qualanalysis.p2t;
 
+import org.woped.core.config.ConfigurationManager;
+import org.woped.core.controller.IEditor;
+import org.woped.gui.translations.Messages;
+//import org.woped.p2t.textGenerator.TextGenerator;
+
+import javax.swing.*;
+import javax.xml.ws.WebServiceException;
+import java.io.ByteArrayOutputStream;
 import java.util.LinkedHashMap;
 import java.util.Vector;
 
@@ -158,6 +166,6 @@ public class Process2Text {
 	
 	public String getHtmlText() {
 		return htmlText;
-	}	
-	
-}
+	}
+
+ }

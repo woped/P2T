@@ -22,8 +22,7 @@ import org.woped.core.controller.IEditor;
 import org.woped.core.model.ModelElementContainer;
 import org.woped.core.utilities.LoggerManager;
 import org.woped.gui.translations.Messages;
-import org.woped.qualanalysis.paraphrasing.Constants;
-import org.woped.qualanalysis.paraphrasing.controller.WebServiceThread;
+import org.woped.qualanalysis.Constants;
 import org.woped.qualanalysis.service.IQualanalysisService;
 import org.woped.qualanalysis.service.QualAnalysisServiceFactory;
 import org.woped.qualanalysis.service.QualanalysisServiceImplement;
@@ -258,8 +257,6 @@ public class P2TSideBar extends JPanel implements ActionListener {
 							Messages.getString("PetriNet.NotSound"),
 							Messages.getString("AnalysisSideBar.SoundnessAnalysis"), JOptionPane.ERROR_MESSAGE);
 				}
-
-
 			} else {
 				JOptionPane.showMessageDialog(null,
 						Messages.getString("Paraphrasing.Webservice.ThreadInProgress.Message"),
@@ -304,7 +301,7 @@ public class P2TSideBar extends JPanel implements ActionListener {
 								out.write(textelements.get(key) + "\r\n");
 							}
 
-							LoggerManager.info(Constants.PARAPHRASING_LOGGER, " Description exported to: " + path);
+							LoggerManager.info(Constants.QUALANALYSIS_LOGGER, " Description exported to: " + path);
 
 							out.close();
 						} catch (Exception ex) {
