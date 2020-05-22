@@ -5,7 +5,7 @@
   </component>
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="t2p" />
+      <artifact name="p2t" />
     </artifacts-to-build>
   </component>
   <component name="BranchesTreeState">
@@ -28,10 +28,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fe078b1-bc4e-4c3c-990f-f7f38dbe9262" name="Default" comment="Re-enable Webservice call of P2T as default&#10;Added jwnl.jar to P2T builder">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/p2t.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/p2t.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/t2p.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/t2p.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-FileInterface/WoPeD-FileInterface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-FileInterface/WoPeD-FileInterface.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/WoPeD-Process2Text.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/WoPeD-Process2Text.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/out/p2t.war" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/out/p2t.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/p2t/P2TSideBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/p2t/P2TSideBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/test/Petrinets/AND - (PetriNet Logik).pnml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/test/Petrinets/AND - (PetriNet Logik).pnml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/WoPeD-QualAnalysis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-QualAnalysis/WoPeD-QualAnalysis.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/paraphrasing/controller/WebServiceThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/paraphrasing/controller/WebServiceThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-Text2Process/WoPeD-Text2Process.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Text2Process/WoPeD-Text2Process.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,14 +96,14 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/WoPeD-Process2Text/src/org/woped/p2t/contentDetermination" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/WoPeD-Flamingo/lib" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15136719" />
     <property name="project.structure.side.proportion" value="0.1770551" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/../Test/code/WoPeD-Text2Process/WoPeD-Text2Process.eml" />
     <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/../Test/code/WoPeD-Starter" />
   </component>
@@ -105,17 +111,7 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/WoPeD-Process2Text/lib" />
-      <recent name="$PROJECT_DIR$/WoPeD-Process2Text" />
-      <recent name="$PROJECT_DIR$/WoPeD-Process2Text/res" />
-      <recent name="$PROJECT_DIR$/WoPeD-Text2Process/lib" />
-      <recent name="$PROJECT_DIR$/WoPeD-Text2Process/NLPTools/Stanford" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -124,6 +120,16 @@
       <recent name="$PROJECT_DIR$/WoPeD-Installer/lib" />
       <recent name="$PROJECT_DIR$/WoPeD-Process2Text/bin" />
       <recent name="$PROJECT_DIR$/WoPeD-Installer/dist/launch/test" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/WoPeD-Process2Text/lib" />
+      <recent name="$PROJECT_DIR$/WoPeD-Process2Text" />
+      <recent name="$PROJECT_DIR$/WoPeD-Process2Text/res" />
+      <recent name="$PROJECT_DIR$/WoPeD-Text2Process/lib" />
+      <recent name="$PROJECT_DIR$/WoPeD-Text2Process/NLPTools/Stanford" />
     </key>
   </component>
   <component name="RunManager" selected="Application.RunWoPeD">
@@ -148,6 +154,78 @@
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JBoss P2T" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss 13.0.0.Final" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/p2t" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="p2t">
+          <settings />
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="SERVER" />
+        <option name="BINDING_SET_NAME" value="" />
+        <option name="DOMAIN" value="false" />
+        <option name="SERVER_GROUP" value="main-server-group" />
+        <option name="USERNAME" value="" />
+        <option name="CREDENTIAL_ALIAS" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="JBoss" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="63481" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="p2t" />
+        </option>
       </method>
     </configuration>
     <configuration name="Unnamed (1)" type="JBossConfiguration" factoryName="Remote" APPLICATION_SERVER_NAME="JBoss 13.0.0.Final" ALTERNATIVE_JRE_ENABLED="false">
@@ -434,6 +512,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.RunWoPeD" />
+      <item itemvalue="JBoss Server.JBoss P2T" />
       <item itemvalue="JBoss Server.Unnamed (1)" />
       <item itemvalue="JBoss Server.Unnamed" />
       <item itemvalue="JUnit.All in WoPeD-Text2Process (3)" />
@@ -589,6 +668,7 @@
       <workItem from="1589724340302" duration="657000" />
       <workItem from="1589792981130" duration="844000" />
       <workItem from="1589797943815" duration="748000" />
+      <workItem from="1589980602331" duration="6567000" />
     </task>
     <task id="LOCAL-00001" summary="Adapted master build to IntelliJ">
       <created>1532514709268</created>
@@ -950,6 +1030,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="Re-enable Webservice call of P2T as default&#10;Added jwnl.jar to P2T builder" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="3095" y="96" key="#JBoss_P2T" timestamp="1589984812862">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="3095" y="96" key="#JBoss_P2T/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589984812862" />
+    <state x="2334" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589982193765">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2334" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589982193765" />
     <state x="1677" y="412" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1589127198677">
       <screen x="0" y="23" width="2560" height="1361" />
     </state>
@@ -966,9 +1054,10 @@
       <screen x="0" y="23" width="2560" height="1361" />
     </state>
     <state x="671" y="432" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.2560.1361@0.23.2560.1361" timestamp="1589038510448" />
-    <state x="720" y="230" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1589724566778">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="2820" y="290" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1589981152226">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state x="2820" y="290" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589981152226" />
     <state x="720" y="230" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1536.824@0.0.1536.824" timestamp="1589724566778" />
     <state x="1001" y="351" width="1257" height="831" key="CommitChangelistDialog2" timestamp="1589619167424">
       <screen x="0" y="23" width="2560" height="1361" />
@@ -978,57 +1067,63 @@
       <screen x="0" y="23" width="2560" height="1361" />
     </state>
     <state x="261" y="335" width="2114" height="880" key="DiffContextDialog/0.23.2560.1361@0.23.2560.1361" timestamp="1589616149352" />
-    <state x="694" y="217" key="FileChooserDialogImpl" timestamp="1589724509310">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="694" y="217" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1589724509310" />
-    <state width="1877" height="225" key="GridCell.Tab.0.bottom" timestamp="1589797783168">
+    <state x="2788" y="274" key="FileChooserDialogImpl" timestamp="1589981116718">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="225" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589797783168" />
+    <state x="2788" y="274" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589981116718" />
+    <state x="694" y="217" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1589724509310" />
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1589990596527">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589990596527" />
     <state width="1342" height="195" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1589725013911" />
     <state width="997" height="369" key="GridCell.Tab.0.bottom/0.23.2560.1361@0.23.2560.1361" timestamp="1589616149298" />
-    <state width="1877" height="225" key="GridCell.Tab.0.center" timestamp="1589797783167">
+    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1589990596526">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="225" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589797783167" />
+    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589990596526" />
     <state width="1342" height="195" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1589725013911" />
     <state width="997" height="369" key="GridCell.Tab.0.center/0.23.2560.1361@0.23.2560.1361" timestamp="1589616149298" />
-    <state width="1877" height="225" key="GridCell.Tab.0.left" timestamp="1589797783167">
+    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1589990596526">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="225" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589797783167" />
+    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589990596526" />
     <state width="1342" height="195" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1589725013911" />
     <state width="997" height="369" key="GridCell.Tab.0.left/0.23.2560.1361@0.23.2560.1361" timestamp="1589616149298" />
-    <state width="1877" height="225" key="GridCell.Tab.0.right" timestamp="1589797783167">
+    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1589990596527">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="225" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589797783167" />
+    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589990596527" />
     <state width="1342" height="195" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1589725013911" />
     <state width="997" height="369" key="GridCell.Tab.0.right/0.23.2560.1361@0.23.2560.1361" timestamp="1589616149298" />
-    <state width="1459" height="374" key="GridCell.Tab.1.bottom" timestamp="1589030037537">
-      <screen x="0" y="23" width="2560" height="1361" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1589990596528">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589990596528" />
     <state width="1459" height="374" key="GridCell.Tab.1.bottom/0.23.2560.1361@0.23.2560.1361" timestamp="1589030037537" />
-    <state width="1459" height="374" key="GridCell.Tab.1.center" timestamp="1589030037536">
-      <screen x="0" y="23" width="2560" height="1361" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1589990596527">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589990596527" />
     <state width="1459" height="374" key="GridCell.Tab.1.center/0.23.2560.1361@0.23.2560.1361" timestamp="1589030037536" />
-    <state width="1459" height="374" key="GridCell.Tab.1.left" timestamp="1589030037536">
-      <screen x="0" y="23" width="2560" height="1361" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1589990596527">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589990596527" />
     <state width="1459" height="374" key="GridCell.Tab.1.left/0.23.2560.1361@0.23.2560.1361" timestamp="1589030037536" />
-    <state width="1459" height="374" key="GridCell.Tab.1.right" timestamp="1589030037536">
-      <screen x="0" y="23" width="2560" height="1361" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1589990596527">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589990596527" />
     <state width="1459" height="374" key="GridCell.Tab.1.right/0.23.2560.1361@0.23.2560.1361" timestamp="1589030037536" />
     <state x="847" y="396" width="1140" height="708" key="IDE.errors.dialog" timestamp="1589191531990">
       <screen x="0" y="23" width="2560" height="1361" />
     </state>
     <state x="847" y="396" width="1140" height="708" key="IDE.errors.dialog/0.23.2560.1361@0.23.2560.1361" timestamp="1589191531990" />
-    <state x="606" y="212" width="766" height="526" key="SettingsEditor" timestamp="1589724570470">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="2678" y="268" width="958" height="708" key="SettingsEditor" timestamp="1589981154468">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state x="2678" y="268" width="958" height="708" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589981154468" />
     <state x="606" y="212" width="766" height="526" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1589724570470" />
     <state x="1010" y="373" width="1276" height="824" key="SettingsEditor/0.23.2560.1361@0.23.2560.1361" timestamp="1589619314426" />
     <state x="1092" y="416" key="Vcs.Push.Dialog.v2" timestamp="1589619178778">
@@ -1051,10 +1146,10 @@
       <screen x="0" y="23" width="2560" height="1361" />
     </state>
     <state x="935" y="254" width="1312" height="946" key="find.popup/0.23.2560.1361@0.23.2560.1361" timestamp="1589127733184" />
-    <state x="2459" y="183" width="840" height="856" key="search.everywhere.popup" timestamp="1589798102988">
+    <state x="2459" y="183" width="840" height="856" key="search.everywhere.popup" timestamp="1589989853691">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2459" y="183" width="840" height="856" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589798102988" />
+    <state x="2459" y="183" width="840" height="856" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589989853691" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1589724575987" />
   </component>
   <component name="XDebuggerManager">
@@ -1083,21 +1178,17 @@
           <line>891</line>
           <option name="timeStamp" value="90" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/WoPeD-Process2Text/src/org/woped/p2t/textGenerator/TextGenerator.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="97" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/paraphrasing/controller/WebServiceThread.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-  </component>
-  <component name="debuggerHistoryManager">
-    <expressions id="setValue">
-      <expression>
-        <expression-string>&quot;set aside 1\\/4 \n cup of the mixture to use &quot;</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>&quot;olive oil \n in a bowl&quot;</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-    </expressions>
   </component>
 </project>
