@@ -5,7 +5,103 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
   <net type="http://www.informatik.hu-berlin.de/top/pntd/ptNetb" id="noID">
     <place id="p1">
       <name>
-        <text>appetite realized</text>
+        <text>p1</text>
+        <graphics>
+          <offset x="420" y="280"/>
+        </graphics>
+      </name>
+      <graphics>
+        <position x="420" y="240"/>
+        <dimension x="40" y="40"/>
+      </graphics>
+    </place>
+    <place id="p2">
+      <name>
+        <text>datebase checked</text>
+        <graphics>
+          <offset x="200" y="110"/>
+        </graphics>
+      </name>
+      <graphics>
+        <position x="200" y="70"/>
+        <dimension x="40" y="40"/>
+      </graphics>
+    </place>
+    <place id="p3">
+      <name>
+        <text>p3</text>
+        <graphics>
+          <offset x="410" y="110"/>
+        </graphics>
+      </name>
+      <graphics>
+        <position x="410" y="70"/>
+        <dimension x="40" y="40"/>
+      </graphics>
+    </place>
+    <place id="p4">
+      <name>
+        <text>request checked</text>
+        <graphics>
+          <offset x="200" y="280"/>
+        </graphics>
+      </name>
+      <graphics>
+        <position x="200" y="240"/>
+        <dimension x="40" y="40"/>
+      </graphics>
+    </place>
+    <place id="p5">
+      <name>
+        <text>p5</text>
+        <graphics>
+          <offset x="670" y="280"/>
+        </graphics>
+      </name>
+      <graphics>
+        <position x="670" y="240"/>
+        <dimension x="40" y="40"/>
+      </graphics>
+    </place>
+    <place id="p6">
+      <name>
+        <text>rejection</text>
+        <graphics>
+          <offset x="940" y="110"/>
+        </graphics>
+      </name>
+      <graphics>
+        <position x="940" y="70"/>
+        <dimension x="40" y="40"/>
+      </graphics>
+    </place>
+    <place id="p7">
+      <name>
+        <text>p7</text>
+        <graphics>
+          <offset x="660" y="110"/>
+        </graphics>
+      </name>
+      <graphics>
+        <position x="660" y="70"/>
+        <dimension x="40" y="40"/>
+      </graphics>
+    </place>
+    <place id="p8">
+      <name>
+        <text>acceptance</text>
+        <graphics>
+          <offset x="940" y="280"/>
+        </graphics>
+      </name>
+      <graphics>
+        <position x="940" y="240"/>
+        <dimension x="40" y="40"/>
+      </graphics>
+    </place>
+    <place id="p9">
+      <name>
+        <text>request</text>
         <graphics>
           <offset x="50" y="110"/>
         </graphics>
@@ -14,234 +110,55 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
         <position x="50" y="70"/>
         <dimension x="40" y="40"/>
       </graphics>
-      <initialMarking>
-        <text>1</text>
-      </initialMarking>
     </place>
-    <place id="p2">
+    <place id="p18">
       <name>
-        <text>veggie recepie found</text>
+        <text>end</text>
         <graphics>
-          <offset x="280" y="110"/>
+          <offset x="1220" y="110"/>
         </graphics>
       </name>
       <graphics>
-        <position x="282" y="70"/>
+        <position x="1220" y="70"/>
         <dimension x="40" y="40"/>
       </graphics>
     </place>
-    <place id="p3">
+    <place id="P_CENTER_t2">
       <name>
-        <text>got salad for garnish</text>
+        <text>answering</text>
         <graphics>
-          <offset x="570" y="180"/>
-        </graphics>
-      </name>
-      <graphics>
-        <position x="567" y="140"/>
-        <dimension x="40" y="40"/>
-      </graphics>
-    </place>
-    <place id="p4">
-      <name>
-        <text>baught veggies to roast</text>
-        <graphics>
-          <offset x="570" y="110"/>
-        </graphics>
-      </name>
-      <graphics>
-        <position x="567" y="70"/>
-        <dimension x="40" y="40"/>
-      </graphics>
-    </place>
-    <place id="p5">
-      <name>
-        <text>salad is prepared</text>
-        <graphics>
-          <offset x="820" y="180"/>
-        </graphics>
-      </name>
-      <graphics>
-        <position x="810" y="140"/>
-        <dimension x="40" y="40"/>
-      </graphics>
-    </place>
-    <place id="p6">
-      <name>
-        <text>veggies are roasted</text>
-        <graphics>
-          <offset x="830" y="110"/>
+          <offset x="835" y="115"/>
         </graphics>
       </name>
       <graphics>
         <position x="815" y="70"/>
         <dimension x="40" y="40"/>
       </graphics>
-    </place>
-    <place id="p7">
-      <name>
-        <text>steak is bought</text>
-        <graphics>
-          <offset x="570" y="270"/>
-        </graphics>
-      </name>
-      <graphics>
-        <position x="567" y="226"/>
-        <dimension x="40" y="40"/>
-      </graphics>
-    </place>
-    <place id="p9">
-      <name>
-        <text>p9</text>
-        <graphics>
-          <offset x="950" y="110"/>
-        </graphics>
-      </name>
-      <graphics>
-        <position x="950" y="70"/>
-        <dimension x="40" y="40"/>
-      </graphics>
-    </place>
-    <place id="p10">
-      <name>
-        <text>p10</text>
-        <graphics>
-          <offset x="1090" y="110"/>
-        </graphics>
-      </name>
-      <graphics>
-        <position x="1091" y="74"/>
-        <dimension x="40" y="40"/>
-      </graphics>
-    </place>
-    <place id="p12">
-      <name>
-        <text>steak is bought</text>
-        <graphics>
-          <offset x="810" y="270"/>
-        </graphics>
-      </name>
-      <graphics>
-        <position x="811" y="230"/>
-        <dimension x="40" y="40"/>
-      </graphics>
-    </place>
-    <place id="p11">
-      <name>
-        <text>meat recepie found</text>
-        <graphics>
-          <offset x="280" y="270"/>
-        </graphics>
-      </name>
-      <graphics>
-        <position x="277" y="226"/>
-        <dimension x="40" y="40"/>
-      </graphics>
-    </place>
-    <transition id="t4">
-      <name>
-        <text>prepare salad</text>
-        <graphics>
-          <offset x="700" y="180"/>
-        </graphics>
-      </name>
-      <graphics>
-        <position x="700" y="140"/>
-        <dimension x="40" y="40"/>
-      </graphics>
       <toolspecific tool="WoPeD" version="1.0">
-        <trigger id="" type="200">
-          <graphics>
-            <position x="710" y="120"/>
-            <dimension x="24" y="22"/>
-          </graphics>
-        </trigger>
-        <transitionResource organizationalUnitName="Kitchen staff" roleName="Chef">
-          <graphics>
-            <position x="710" y="93"/>
-            <dimension x="60" y="22"/>
-          </graphics>
-        </transitionResource>
-        <time>0</time>
-        <timeUnit>1</timeUnit>
-        <orientation>1</orientation>
+        <operator id="t2" type="108"/>
       </toolspecific>
-    </transition>
+    </place>
     <transition id="t6">
       <name>
-        <text>get needed ingredients</text>
+        <text>checking credit rating</text>
         <graphics>
-          <offset x="420" y="270"/>
+          <offset x="530" y="280"/>
         </graphics>
       </name>
       <graphics>
-        <position x="423" y="226"/>
-        <dimension x="40" y="40"/>
-      </graphics>
-      <toolspecific tool="WoPeD" version="1.0">
-        <time>0</time>
-        <timeUnit>1</timeUnit>
-        <orientation>1</orientation>
-      </toolspecific>
-    </transition>
-    <transition id="t7_op_1">
-      <name>
-        <text>check for recepies</text>
-        <graphics>
-          <offset x="150" y="110"/>
-        </graphics>
-      </name>
-      <graphics>
-        <position x="151" y="70"/>
-        <dimension x="40" y="40"/>
-      </graphics>
-      <toolspecific tool="WoPeD" version="1.0">
-        <operator id="t7" type="104"/>
-        <time>0</time>
-        <timeUnit>1</timeUnit>
-        <orientation>1</orientation>
-      </toolspecific>
-    </transition>
-    <transition id="t7_op_2">
-      <name>
-        <text>check for recepies</text>
-        <graphics>
-          <offset x="150" y="110"/>
-        </graphics>
-      </name>
-      <graphics>
-        <position x="151" y="70"/>
-        <dimension x="40" y="40"/>
-      </graphics>
-      <toolspecific tool="WoPeD" version="1.0">
-        <operator id="t7" type="104"/>
-        <time>0</time>
-        <timeUnit>1</timeUnit>
-        <orientation>1</orientation>
-      </toolspecific>
-    </transition>
-    <transition id="t8_op_1">
-      <name>
-        <text>buy needed ingredients</text>
-        <graphics>
-          <offset x="420" y="110"/>
-        </graphics>
-      </name>
-      <graphics>
-        <position x="422" y="70"/>
+        <position x="535" y="240"/>
         <dimension x="40" y="40"/>
       </graphics>
       <toolspecific tool="WoPeD" version="1.0">
         <trigger id="" type="200">
           <graphics>
-            <position x="432" y="50"/>
+            <position x="545" y="220"/>
             <dimension x="24" y="22"/>
           </graphics>
         </trigger>
-        <operator id="t8" type="101"/>
-        <transitionResource organizationalUnitName="Kitchen staff" roleName="Sous-Chef">
+        <transitionResource organizationalUnitName="Dept. Credit" roleName="Manager">
           <graphics>
-            <position x="432" y="23"/>
+            <position x="545" y="193"/>
             <dimension x="60" y="22"/>
           </graphics>
         </transitionResource>
@@ -250,27 +167,27 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
         <orientation>1</orientation>
       </toolspecific>
     </transition>
-    <transition id="t9">
+    <transition id="t7">
       <name>
-        <text>grill steak</text>
+        <text>checking open requirements</text>
         <graphics>
-          <offset x="700" y="270"/>
+          <offset x="530" y="110"/>
         </graphics>
       </name>
       <graphics>
-        <position x="705" y="230"/>
+        <position x="535" y="70"/>
         <dimension x="40" y="40"/>
       </graphics>
       <toolspecific tool="WoPeD" version="1.0">
         <trigger id="" type="200">
           <graphics>
-            <position x="715" y="210"/>
+            <position x="545" y="50"/>
             <dimension x="24" y="22"/>
           </graphics>
         </trigger>
-        <transitionResource organizationalUnitName="Kitchen staff" roleName="Chef">
+        <transitionResource organizationalUnitName="Dept. Credit" roleName="Trainee">
           <graphics>
-            <position x="715" y="183"/>
+            <position x="545" y="23"/>
             <dimension x="60" y="22"/>
           </graphics>
         </transitionResource>
@@ -279,19 +196,37 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
         <orientation>1</orientation>
       </toolspecific>
     </transition>
-    <transition id="t1_op_2">
+    <transition id="t10_op_2">
       <name>
-        <text>t1</text>
+        <text>t10</text>
         <graphics>
-          <offset x="1030" y="110"/>
+          <offset x="1110" y="110"/>
         </graphics>
       </name>
       <graphics>
-        <position x="1030" y="70"/>
+        <position x="1115" y="70"/>
         <dimension x="40" y="40"/>
       </graphics>
       <toolspecific tool="WoPeD" version="1.0">
-        <operator id="t1" type="105"/>
+        <operator id="t10" type="105"/>
+        <time>0</time>
+        <timeUnit>1</timeUnit>
+        <orientation>3</orientation>
+      </toolspecific>
+    </transition>
+    <transition id="t10_op_1">
+      <name>
+        <text>t10</text>
+        <graphics>
+          <offset x="1110" y="110"/>
+        </graphics>
+      </name>
+      <graphics>
+        <position x="1115" y="70"/>
+        <dimension x="40" y="40"/>
+      </graphics>
+      <toolspecific tool="WoPeD" version="1.0">
+        <operator id="t10" type="105"/>
         <time>0</time>
         <timeUnit>1</timeUnit>
         <orientation>3</orientation>
@@ -299,17 +234,29 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
     </transition>
     <transition id="t1_op_1">
       <name>
-        <text>t1</text>
+        <text>editing</text>
         <graphics>
-          <offset x="1030" y="110"/>
+          <offset x="310" y="110"/>
         </graphics>
       </name>
       <graphics>
-        <position x="1030" y="70"/>
+        <position x="315" y="70"/>
         <dimension x="40" y="40"/>
       </graphics>
       <toolspecific tool="WoPeD" version="1.0">
-        <operator id="t1" type="105"/>
+        <trigger id="" type="200">
+          <graphics>
+            <position x="325" y="50"/>
+            <dimension x="24" y="22"/>
+          </graphics>
+        </trigger>
+        <operator id="t1" type="107"/>
+        <transitionResource organizationalUnitName="Dept. Credit" roleName="Expert">
+          <graphics>
+            <position x="325" y="23"/>
+            <dimension x="60" y="22"/>
+          </graphics>
+        </transitionResource>
         <time>0</time>
         <timeUnit>1</timeUnit>
         <orientation>3</orientation>
@@ -317,43 +264,116 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
     </transition>
     <transition id="t2_op_1">
       <name>
-        <text>t2</text>
+        <text>answering</text>
         <graphics>
-          <offset x="900" y="110"/>
+          <offset x="810" y="110"/>
         </graphics>
       </name>
       <graphics>
-        <position x="900" y="70"/>
-        <dimension x="40" y="40"/>
-      </graphics>
-      <toolspecific tool="WoPeD" version="1.0">
-        <operator id="t2" type="102"/>
-        <time>0</time>
-        <timeUnit>1</timeUnit>
-        <orientation>3</orientation>
-      </toolspecific>
-    </transition>
-    <transition id="t3">
-      <name>
-        <text>roast veggies</text>
-        <graphics>
-          <offset x="700" y="110"/>
-        </graphics>
-      </name>
-      <graphics>
-        <position x="700" y="70"/>
+        <position x="815" y="70"/>
         <dimension x="40" y="40"/>
       </graphics>
       <toolspecific tool="WoPeD" version="1.0">
         <trigger id="" type="200">
           <graphics>
-            <position x="710" y="50"/>
+            <position x="825" y="50"/>
             <dimension x="24" y="22"/>
           </graphics>
         </trigger>
-        <transitionResource organizationalUnitName="Kitchen staff" roleName="Sous-Chef">
+        <operator id="t2" type="108"/>
+        <transitionResource organizationalUnitName="Dept. Credit" roleName="Manager">
           <graphics>
-            <position x="710" y="23"/>
+            <position x="825" y="23"/>
+            <dimension x="60" y="22"/>
+          </graphics>
+        </transitionResource>
+        <time>0</time>
+        <timeUnit>1</timeUnit>
+        <orientation>3</orientation>
+      </toolspecific>
+    </transition>
+    <transition id="t2_op_2">
+      <name>
+        <text>answering</text>
+        <graphics>
+          <offset x="810" y="110"/>
+        </graphics>
+      </name>
+      <graphics>
+        <position x="815" y="70"/>
+        <dimension x="40" y="40"/>
+      </graphics>
+      <toolspecific tool="WoPeD" version="1.0">
+        <trigger id="" type="200">
+          <graphics>
+            <position x="825" y="50"/>
+            <dimension x="24" y="22"/>
+          </graphics>
+        </trigger>
+        <operator id="t2" type="108"/>
+        <transitionResource organizationalUnitName="Dept. Credit" roleName="Manager">
+          <graphics>
+            <position x="825" y="23"/>
+            <dimension x="60" y="22"/>
+          </graphics>
+        </transitionResource>
+        <time>0</time>
+        <timeUnit>1</timeUnit>
+        <orientation>3</orientation>
+      </toolspecific>
+    </transition>
+    <transition id="t2_op_3">
+      <name>
+        <text>answering</text>
+        <graphics>
+          <offset x="810" y="110"/>
+        </graphics>
+      </name>
+      <graphics>
+        <position x="815" y="70"/>
+        <dimension x="40" y="40"/>
+      </graphics>
+      <toolspecific tool="WoPeD" version="1.0">
+        <trigger id="" type="200">
+          <graphics>
+            <position x="825" y="50"/>
+            <dimension x="24" y="22"/>
+          </graphics>
+        </trigger>
+        <operator id="t2" type="108"/>
+        <transitionResource organizationalUnitName="Dept. Credit" roleName="Manager">
+          <graphics>
+            <position x="825" y="23"/>
+            <dimension x="60" y="22"/>
+          </graphics>
+        </transitionResource>
+        <time>0</time>
+        <timeUnit>1</timeUnit>
+        <orientation>3</orientation>
+      </toolspecific>
+    </transition>
+    <transition id="t3_op_1">
+      <name>
+        <text>examine</text>
+        <graphics>
+          <offset x="120" y="110"/>
+        </graphics>
+      </name>
+      <graphics>
+        <position x="125" y="70"/>
+        <dimension x="40" y="40"/>
+      </graphics>
+      <toolspecific tool="WoPeD" version="1.0">
+        <trigger id="" type="200">
+          <graphics>
+            <position x="135" y="50"/>
+            <dimension x="24" y="22"/>
+          </graphics>
+        </trigger>
+        <operator id="t3" type="101"/>
+        <transitionResource organizationalUnitName="Dept. Credit" roleName="Manager">
+          <graphics>
+            <position x="135" y="23"/>
             <dimension x="60" y="22"/>
           </graphics>
         </transitionResource>
@@ -362,7 +382,7 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
         <orientation>1</orientation>
       </toolspecific>
     </transition>
-    <arc id="a13" source="p11" target="t6">
+    <arc id="a11" source="p3" target="t7">
       <inscription>
         <text>1</text>
         <graphics>
@@ -376,7 +396,7 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
         <displayProbabilityPosition x="500.0" y="12.0"/>
       </toolspecific>
     </arc>
-    <arc id="a12" source="t6" target="p7">
+    <arc id="a10" source="p1" target="t6">
       <inscription>
         <text>1</text>
         <graphics>
@@ -390,7 +410,7 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
         <displayProbabilityPosition x="500.0" y="12.0"/>
       </toolspecific>
     </arc>
-    <arc id="a28" source="p7" target="t9">
+    <arc id="a15" source="t7" target="p7">
       <inscription>
         <text>1</text>
         <graphics>
@@ -404,7 +424,7 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
         <displayProbabilityPosition x="500.0" y="12.0"/>
       </toolspecific>
     </arc>
-    <arc id="a29" source="t9" target="p12">
+    <arc id="a14" source="t6" target="p5">
       <inscription>
         <text>1</text>
         <graphics>
@@ -418,7 +438,7 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
         <displayProbabilityPosition x="500.0" y="12.0"/>
       </toolspecific>
     </arc>
-    <arc id="a6" source="p4" target="t3">
+    <arc id="a25" source="p4" target="t1_op_1">
       <inscription>
         <text>1</text>
         <graphics>
@@ -432,7 +452,7 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
         <displayProbabilityPosition x="500.0" y="12.0"/>
       </toolspecific>
     </arc>
-    <arc id="a7" source="p3" target="t4">
+    <arc id="a45" source="t1_op_1" target="p1">
       <inscription>
         <text>1</text>
         <graphics>
@@ -446,7 +466,7 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
         <displayProbabilityPosition x="500.0" y="12.0"/>
       </toolspecific>
     </arc>
-    <arc id="a8" source="t4" target="p5">
+    <arc id="a23" source="p2" target="t1_op_1">
       <inscription>
         <text>1</text>
         <graphics>
@@ -460,7 +480,7 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
         <displayProbabilityPosition x="500.0" y="12.0"/>
       </toolspecific>
     </arc>
-    <arc id="a9" source="t3" target="p6">
+    <arc id="a49" source="t1_op_1" target="p3">
       <inscription>
         <text>1</text>
         <graphics>
@@ -474,49 +494,7 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
         <displayProbabilityPosition x="500.0" y="12.0"/>
       </toolspecific>
     </arc>
-    <arc id="a83" source="t2_op_1" target="p9">
-      <inscription>
-        <text>1</text>
-        <graphics>
-          <offset x="500.0" y="-12.0"/>
-        </graphics>
-      </inscription>
-      <graphics/>
-      <toolspecific tool="WoPeD" version="1.0">
-        <probability>1.0</probability>
-        <displayProbabilityOn>false</displayProbabilityOn>
-        <displayProbabilityPosition x="500.0" y="0.0"/>
-      </toolspecific>
-    </arc>
-    <arc id="a57" source="p6" target="t2_op_1">
-      <inscription>
-        <text>1</text>
-        <graphics>
-          <offset x="500.0" y="-12.0"/>
-        </graphics>
-      </inscription>
-      <graphics/>
-      <toolspecific tool="WoPeD" version="1.0">
-        <probability>1.0</probability>
-        <displayProbabilityOn>false</displayProbabilityOn>
-        <displayProbabilityPosition x="500.0" y="0.0"/>
-      </toolspecific>
-    </arc>
-    <arc id="a99" source="p5" target="t2_op_1">
-      <inscription>
-        <text>1</text>
-        <graphics>
-          <offset x="500.0" y="-12.0"/>
-        </graphics>
-      </inscription>
-      <graphics/>
-      <toolspecific tool="WoPeD" version="1.0">
-        <probability>1.0</probability>
-        <displayProbabilityOn>false</displayProbabilityOn>
-        <displayProbabilityPosition x="500.0" y="0.0"/>
-      </toolspecific>
-    </arc>
-    <arc id="a22" source="p2" target="t8_op_1">
+    <arc id="a4" source="p9" target="t3_op_1">
       <inscription>
         <text>1</text>
         <graphics>
@@ -530,7 +508,7 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
         <displayProbabilityPosition x="500.0" y="12.0"/>
       </toolspecific>
     </arc>
-    <arc id="a26" source="t8_op_1" target="p3">
+    <arc id="a6" source="t3_op_1" target="p2">
       <inscription>
         <text>1</text>
         <graphics>
@@ -544,7 +522,7 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
         <displayProbabilityPosition x="500.0" y="12.0"/>
       </toolspecific>
     </arc>
-    <arc id="a24" source="t8_op_1" target="p4">
+    <arc id="a8" source="t3_op_1" target="p4">
       <inscription>
         <text>1</text>
         <graphics>
@@ -558,7 +536,7 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
         <displayProbabilityPosition x="500.0" y="12.0"/>
       </toolspecific>
     </arc>
-    <arc id="a18" source="p1" target="t7_op_1">
+    <arc id="a20" source="t10_op_1" target="p18">
       <inscription>
         <text>1</text>
         <graphics>
@@ -572,7 +550,7 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
         <displayProbabilityPosition x="500.0" y="12.0"/>
       </toolspecific>
     </arc>
-    <arc id="a18" source="p1" target="t7_op_2">
+    <arc id="a16" source="p6" target="t10_op_1">
       <inscription>
         <text>1</text>
         <graphics>
@@ -586,7 +564,7 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
         <displayProbabilityPosition x="500.0" y="12.0"/>
       </toolspecific>
     </arc>
-    <arc id="a20" source="t7_op_1" target="p2">
+    <arc id="a18" source="p8" target="t10_op_2">
       <inscription>
         <text>1</text>
         <graphics>
@@ -600,7 +578,7 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
         <displayProbabilityPosition x="500.0" y="12.0"/>
       </toolspecific>
     </arc>
-    <arc id="a23" source="t7_op_2" target="p11">
+    <arc id="a20" source="t10_op_2" target="p18">
       <inscription>
         <text>1</text>
         <graphics>
@@ -614,7 +592,7 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
         <displayProbabilityPosition x="500.0" y="12.0"/>
       </toolspecific>
     </arc>
-    <arc id="a5" source="p12" target="t1_op_1">
+    <arc id="a22" source="t2_op_3" target="P_CENTER_t2">
       <inscription>
         <text>1</text>
         <graphics>
@@ -625,10 +603,10 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
       <toolspecific tool="WoPeD" version="1.0">
         <probability>1.0</probability>
         <displayProbabilityOn>false</displayProbabilityOn>
-        <displayProbabilityPosition x="500.0" y="0.0"/>
+        <displayProbabilityPosition x="500.0" y="12.0"/>
       </toolspecific>
     </arc>
-    <arc id="a85" source="p9" target="t1_op_2">
+    <arc id="a40" source="t2_op_2" target="p8">
       <inscription>
         <text>1</text>
         <graphics>
@@ -639,10 +617,10 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
       <toolspecific tool="WoPeD" version="1.0">
         <probability>1.0</probability>
         <displayProbabilityOn>false</displayProbabilityOn>
-        <displayProbabilityPosition x="500.0" y="0.0"/>
+        <displayProbabilityPosition x="500.0" y="12.0"/>
       </toolspecific>
     </arc>
-    <arc id="a101" source="t1_op_2" target="p10">
+    <arc id="a13" source="P_CENTER_t2" target="t2_op_1">
       <inscription>
         <text>1</text>
         <graphics>
@@ -653,10 +631,10 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
       <toolspecific tool="WoPeD" version="1.0">
         <probability>1.0</probability>
         <displayProbabilityOn>false</displayProbabilityOn>
-        <displayProbabilityPosition x="500.0" y="0.0"/>
+        <displayProbabilityPosition x="500.0" y="12.0"/>
       </toolspecific>
     </arc>
-    <arc id="a101" source="t1_op_1" target="p10">
+    <arc id="a27" source="p5" target="t2_op_3">
       <inscription>
         <text>1</text>
         <graphics>
@@ -667,26 +645,67 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
       <toolspecific tool="WoPeD" version="1.0">
         <probability>1.0</probability>
         <displayProbabilityOn>false</displayProbabilityOn>
-        <displayProbabilityPosition x="500.0" y="0.0"/>
+        <displayProbabilityPosition x="500.0" y="12.0"/>
+      </toolspecific>
+    </arc>
+    <arc id="a30" source="p7" target="t2_op_3">
+      <inscription>
+        <text>1</text>
+        <graphics>
+          <offset x="500.0" y="-12.0"/>
+        </graphics>
+      </inscription>
+      <graphics/>
+      <toolspecific tool="WoPeD" version="1.0">
+        <probability>1.0</probability>
+        <displayProbabilityOn>false</displayProbabilityOn>
+        <displayProbabilityPosition x="500.0" y="12.0"/>
+      </toolspecific>
+    </arc>
+    <arc id="a37" source="t2_op_1" target="p6">
+      <inscription>
+        <text>1</text>
+        <graphics>
+          <offset x="500.0" y="-12.0"/>
+        </graphics>
+      </inscription>
+      <graphics/>
+      <toolspecific tool="WoPeD" version="1.0">
+        <probability>1.0</probability>
+        <displayProbabilityOn>false</displayProbabilityOn>
+        <displayProbabilityPosition x="500.0" y="12.0"/>
+      </toolspecific>
+    </arc>
+    <arc id="a19" source="P_CENTER_t2" target="t2_op_2">
+      <inscription>
+        <text>1</text>
+        <graphics>
+          <offset x="500.0" y="-12.0"/>
+        </graphics>
+      </inscription>
+      <graphics/>
+      <toolspecific tool="WoPeD" version="1.0">
+        <probability>1.0</probability>
+        <displayProbabilityOn>false</displayProbabilityOn>
+        <displayProbabilityPosition x="500.0" y="12.0"/>
       </toolspecific>
     </arc>
     <toolspecific tool="WoPeD" version="1.0">
       <bounds>
-        <position x="11" y="33"/>
-        <dimension x="1192" y="405"/>
+        <position x="2" y="25"/>
+        <dimension x="966" y="650"/>
       </bounds>
-      <scale>88</scale>
-      <treeWidthRight>1015</treeWidthRight>
+      <scale>84</scale>
+      <treeWidthRight>721</treeWidthRight>
       <overviewPanelVisible>true</overviewPanelVisible>
       <treeHeightOverview>100</treeHeightOverview>
       <treePanelVisible>true</treePanelVisible>
       <verticalLayout>false</verticalLayout>
       <resources>
-        <role Name="Chef"/>
-        <role Name="Sous-Chef"/>
-        <role Name="Waiter"/>
-        <organizationUnit Name="Kitchen staff"/>
-        <organizationUnit Name="Restaurant staff"/>
+        <role Name="Trainee"/>
+        <role Name="Manager"/>
+        <role Name="Expert"/>
+        <organizationUnit Name="Dept. Credit"/>
       </resources>
       <simulations/>
       <partnerLinks/>

@@ -54,6 +54,18 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
         <dimension x="40" y="40"/>
       </graphics>
     </place>
+    <place id="p5">
+      <name>
+        <text>database is updated</text>
+        <graphics>
+          <offset x="480" y="250"/>
+        </graphics>
+      </name>
+      <graphics>
+        <position x="482" y="210"/>
+        <dimension x="40" y="40"/>
+      </graphics>
+    </place>
     <place id="p6">
       <name>
         <text>payment is processed</text>
@@ -232,7 +244,35 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
         <displayProbabilityPosition x="500.0" y="12.0"/>
       </toolspecific>
     </arc>
+    <arc id="a7" source="t3" target="p5">
+      <inscription>
+        <text>1</text>
+        <graphics>
+          <offset x="500.0" y="-12.0"/>
+        </graphics>
+      </inscription>
+      <graphics/>
+      <toolspecific tool="WoPeD" version="1.0">
+        <probability>1.0</probability>
+        <displayProbabilityOn>false</displayProbabilityOn>
+        <displayProbabilityPosition x="500.0" y="12.0"/>
+      </toolspecific>
+    </arc>
     <arc id="a8" source="p4" target="t4">
+      <inscription>
+        <text>1</text>
+        <graphics>
+          <offset x="500.0" y="-12.0"/>
+        </graphics>
+      </inscription>
+      <graphics/>
+      <toolspecific tool="WoPeD" version="1.0">
+        <probability>1.0</probability>
+        <displayProbabilityOn>false</displayProbabilityOn>
+        <displayProbabilityPosition x="500.0" y="12.0"/>
+      </toolspecific>
+    </arc>
+    <arc id="a9" source="p5" target="t4">
       <inscription>
         <text>1</text>
         <graphics>
@@ -248,11 +288,11 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
     </arc>
     <toolspecific tool="WoPeD" version="1.0">
       <bounds>
-        <position x="2" y="27"/>
+        <position x="2" y="31"/>
         <dimension x="2139" y="1052"/>
       </bounds>
       <scale>180</scale>
-      <treeWidthRight>1819</treeWidthRight>
+      <treeWidthRight>1644</treeWidthRight>
       <overviewPanelVisible>true</overviewPanelVisible>
       <treeHeightOverview>100</treeHeightOverview>
       <treePanelVisible>true</treePanelVisible>

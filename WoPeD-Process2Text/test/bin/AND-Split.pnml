@@ -102,6 +102,18 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
         <dimension x="40" y="40"/>
       </graphics>
       <toolspecific tool="WoPeD" version="1.0">
+        <trigger id="" type="200">
+          <graphics>
+            <position x="746" y="120"/>
+            <dimension x="24" y="22"/>
+          </graphics>
+        </trigger>
+        <transitionResource organizationalUnitName="Kitchen staff" roleName="Chef">
+          <graphics>
+            <position x="746" y="93"/>
+            <dimension x="60" y="22"/>
+          </graphics>
+        </transitionResource>
         <time>0</time>
         <timeUnit>1</timeUnit>
         <orientation>1</orientation>
@@ -119,6 +131,18 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
         <dimension x="40" y="40"/>
       </graphics>
       <toolspecific tool="WoPeD" version="1.0">
+        <trigger id="" type="200">
+          <graphics>
+            <position x="940" y="50"/>
+            <dimension x="24" y="22"/>
+          </graphics>
+        </trigger>
+        <transitionResource organizationalUnitName="External" roleName="Customer">
+          <graphics>
+            <position x="940" y="23"/>
+            <dimension x="60" y="22"/>
+          </graphics>
+        </transitionResource>
         <time>0</time>
         <timeUnit>1</timeUnit>
         <orientation>1</orientation>
@@ -136,6 +160,18 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
         <dimension x="40" y="40"/>
       </graphics>
       <toolspecific tool="WoPeD" version="1.0">
+        <trigger id="" type="200">
+          <graphics>
+            <position x="194" y="50"/>
+            <dimension x="24" y="22"/>
+          </graphics>
+        </trigger>
+        <transitionResource organizationalUnitName="Kitchen staff" roleName="Chef">
+          <graphics>
+            <position x="194" y="23"/>
+            <dimension x="60" y="22"/>
+          </graphics>
+        </transitionResource>
         <time>0</time>
         <timeUnit>1</timeUnit>
         <orientation>1</orientation>
@@ -153,6 +189,18 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
         <dimension x="40" y="40"/>
       </graphics>
       <toolspecific tool="WoPeD" version="1.0">
+        <trigger id="" type="200">
+          <graphics>
+            <position x="462" y="50"/>
+            <dimension x="24" y="22"/>
+          </graphics>
+        </trigger>
+        <transitionResource organizationalUnitName="Kitchen staff" roleName="Sous-Chef">
+          <graphics>
+            <position x="462" y="23"/>
+            <dimension x="60" y="22"/>
+          </graphics>
+        </transitionResource>
         <time>0</time>
         <timeUnit>1</timeUnit>
         <orientation>1</orientation>
@@ -170,54 +218,38 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
         <dimension x="40" y="40"/>
       </graphics>
       <toolspecific tool="WoPeD" version="1.0">
+        <trigger id="" type="200">
+          <graphics>
+            <position x="746" y="50"/>
+            <dimension x="24" y="22"/>
+          </graphics>
+        </trigger>
+        <transitionResource organizationalUnitName="Kitchen staff" roleName="Sous-Chef">
+          <graphics>
+            <position x="746" y="23"/>
+            <dimension x="60" y="22"/>
+          </graphics>
+        </transitionResource>
         <time>0</time>
         <timeUnit>1</timeUnit>
         <orientation>1</orientation>
       </toolspecific>
     </transition>
-    <arc id="a10" source="p6" target="t5">
-      <inscription>
-        <text>1</text>
-        <graphics>
-          <offset x="500.0" y="-12.0"/>
-        </graphics>
-      </inscription>
-      <graphics/>
-      <toolspecific tool="WoPeD" version="1.0">
-        <probability>1.0</probability>
-        <displayProbabilityOn>false</displayProbabilityOn>
-        <displayProbabilityPosition x="500.0" y="12.0"/>
-      </toolspecific>
-    </arc>
-    <arc id="a24" source="t5" target="p7">
-      <inscription>
-        <text>1</text>
-        <graphics>
-          <offset x="500.0" y="-12.0"/>
-        </graphics>
-      </inscription>
-      <graphics/>
-      <toolspecific tool="WoPeD" version="1.0">
-        <probability>1.0</probability>
-        <displayProbabilityOn>false</displayProbabilityOn>
-        <displayProbabilityPosition x="500.0" y="12.0"/>
-      </toolspecific>
-    </arc>
-    <arc id="a23" source="p5" target="t5">
-      <inscription>
-        <text>1</text>
-        <graphics>
-          <offset x="500.0" y="-12.0"/>
-        </graphics>
-      </inscription>
-      <graphics/>
-      <toolspecific tool="WoPeD" version="1.0">
-        <probability>1.0</probability>
-        <displayProbabilityOn>false</displayProbabilityOn>
-        <displayProbabilityPosition x="500.0" y="12.0"/>
-      </toolspecific>
-    </arc>
     <arc id="a1" source="p1" target="t1">
+      <inscription>
+        <text>1</text>
+        <graphics>
+          <offset x="500.0" y="-12.0"/>
+        </graphics>
+      </inscription>
+      <graphics/>
+      <toolspecific tool="WoPeD" version="1.0">
+        <probability>1.0</probability>
+        <displayProbabilityOn>false</displayProbabilityOn>
+        <displayProbabilityPosition x="500.0" y="12.0"/>
+      </toolspecific>
+    </arc>
+    <arc id="a10" source="p6" target="t5">
       <inscription>
         <text>1</text>
         <graphics>
@@ -245,7 +277,35 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
         <displayProbabilityPosition x="500.0" y="12.0"/>
       </toolspecific>
     </arc>
+    <arc id="a24" source="t5" target="p7">
+      <inscription>
+        <text>1</text>
+        <graphics>
+          <offset x="500.0" y="-12.0"/>
+        </graphics>
+      </inscription>
+      <graphics/>
+      <toolspecific tool="WoPeD" version="1.0">
+        <probability>1.0</probability>
+        <displayProbabilityOn>false</displayProbabilityOn>
+        <displayProbabilityPosition x="500.0" y="12.0"/>
+      </toolspecific>
+    </arc>
     <arc id="a3" source="p2" target="t2">
+      <inscription>
+        <text>1</text>
+        <graphics>
+          <offset x="500.0" y="-12.0"/>
+        </graphics>
+      </inscription>
+      <graphics/>
+      <toolspecific tool="WoPeD" version="1.0">
+        <probability>1.0</probability>
+        <displayProbabilityOn>false</displayProbabilityOn>
+        <displayProbabilityPosition x="500.0" y="12.0"/>
+      </toolspecific>
+    </arc>
+    <arc id="a23" source="p5" target="t5">
       <inscription>
         <text>1</text>
         <graphics>
@@ -345,16 +405,22 @@ Created with Workflow PetriNet Designer Version 3.2.0 (woped.org)-->
     </arc>
     <toolspecific tool="WoPeD" version="1.0">
       <bounds>
-        <position x="2" y="31"/>
-        <dimension x="2139" y="1052"/>
+        <position x="11" y="33"/>
+        <dimension x="1192" y="405"/>
       </bounds>
-      <scale>149</scale>
-      <treeWidthRight>1819</treeWidthRight>
+      <scale>101</scale>
+      <treeWidthRight>1015</treeWidthRight>
       <overviewPanelVisible>true</overviewPanelVisible>
       <treeHeightOverview>100</treeHeightOverview>
       <treePanelVisible>true</treePanelVisible>
       <verticalLayout>false</verticalLayout>
-      <resources/>
+      <resources>
+        <role Name="Customer"/>
+        <role Name="Chef"/>
+        <role Name="Sous-Chef"/>
+        <organizationUnit Name="Kitchen staff"/>
+        <organizationUnit Name="External"/>
+      </resources>
       <simulations/>
       <partnerLinks/>
       <variables/>
