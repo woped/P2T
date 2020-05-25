@@ -36,7 +36,7 @@ public class WebServiceThread extends Thread {
 				+ ConfigurationManager.getConfiguration().getProcess2TextServerURI()
 				+ "/generate";
 
-		String[] arg = {url};
+		String[] arg = {url, "P2T"};
 
 		if (editor.getModelProcessor().getElementContainer().getRootElements().size() > 3) {
 			try {
@@ -72,13 +72,13 @@ public class WebServiceThread extends Thread {
 					case HttpServletResponse.SC_REQUEST_TIMEOUT:
 					case HttpServletResponse.SC_INTERNAL_SERVER_ERROR: //Could be more specific -> text generator should send the error in body
 							 JOptionPane.showMessageDialog(null,
-							 Messages.getString("Paraphrasing.Webservice.Error.TryAgain"),
+							 Messages.getString("Paraphrasing.Webservice.Error.TryAgain", arg),
 							 Messages.getString("Paraphrasing.Webservice.Error.Title"), JOptionPane.INFORMATION_MESSAGE);
 							 break;
 					case HttpServletResponse.SC_SERVICE_UNAVAILABLE:
 					case -1:
 							 JOptionPane.showMessageDialog(null,
-							 Messages.getString("Paraphrasing.Webservice.Error.Contact") +
+							 Messages.getString("Paraphrasing.Webservice.Error.Contact", arg) +
 									 Messages.getString("Paraphrasing.Webservice.Settings"),
 							 Messages.getString("Paraphrasing.Webservice.Error.Title"), JOptionPane.INFORMATION_MESSAGE);
 						 	 break;
