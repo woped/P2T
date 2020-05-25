@@ -21,6 +21,8 @@ public class P2TServlet extends HttpServlet {
     public static final int MAX_CONCURRENT_HTTP_REQUESTS = 6;
     private int serviceCounter = 0;
 
+    private String p2tText = "";
+
     // Call P2TController's generateText Method
     public String createText (String text) {
         P2TController control = new P2TController();
@@ -40,12 +42,12 @@ public class P2TServlet extends HttpServlet {
         if (numServices()<MAX_CONCURRENT_HTTP_REQUESTS){
             enteringServiceMethod();
             try {
-
                 response.setContentType("text/html");
                 response.setCharacterEncoding("UTF-8");
                 // get request, create natural language and put it into the HTML Body
                 String text= getBody(request);
-                writer.append(createText(text));
+                p2tText = createText(text);
+                writer.append(p2tText);
             } catch(IOException e){
                 response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
                 writer.append(e.getMessage());
@@ -57,6 +59,9 @@ public class P2TServlet extends HttpServlet {
             }
             finally
             {
+                if (p2tText == "" || p2tText == null ){
+                    response.setStatus(HttpServletResponse.SC_NO_CONTENT);
+                }
                 leavingServiceMethod();
             }
         }else{
