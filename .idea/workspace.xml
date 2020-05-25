@@ -27,203 +27,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fe078b1-bc4e-4c3c-990f-f7f38dbe9262" name="Default" comment="Some more bugfixes for running p2t webservice properly">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ant.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ant.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/p2t.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/p2t.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/t2p.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/t2p.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="820e6626-5a40-4865-94c7-6b233ef35244" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-AProMoRe/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-AProMoRe/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-AProMoRe/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-AProMoRe/WoPeD-AProMoRe.eml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-BPELExport/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-BPELExport/.externalToolBuilders/updateBPELbeans.launch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-BPELExport/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-BPELExport/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-BPELExport/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-BPELExport/.settings/org.eclipse.jdt.ui.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-BPELExport/WoPeD-BPELExport.eml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-BPELExport/WoPeD-BPELExport.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-BPELExport/WoPeD-BPELExport.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-CommonLibs/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-CommonLibs/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-CommonLibs/WoPeD-CommonLibs.eml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Configuration/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Configuration/.externalToolBuilders/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Configuration/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Configuration/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Configuration/.settings/org.eclipse.jdt.ui.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Configuration/WoPeD-Configuration.eml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Core/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Core/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Core/.settings/org.eclipse.jdt.ui.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Core/.settings/org.eclipse.ltk.core.refactoring.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Core/.settings/org.eclipse.wst.validation.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Core/WoPeD-Core.eml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Editor/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Editor/WoPeD-Editor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Editor/WoPeD-Editor.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Editor/src/org/woped/editor/gui/config/ConfNLPToolsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Editor/src/org/woped/editor/gui/config/ConfNLPToolsPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-FileInterface/.externalToolBuilders/updatePNMLbeans.launch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-FileInterface/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-FileInterface/.settings/org.eclipse.jdt.ui.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-FileInterface/WoPeD-FileInterface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-FileInterface/WoPeD-FileInterface.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-FileInterface/build.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-FileInterface/build.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-FileInterface/src/org/woped/file/t2p/T2PUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-FileInterface/src/org/woped/file/t2p/T2PUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Flamingo/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Flamingo/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Flamingo/WoPeD-Flamingo.eml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Flamingo/module_woped-flamingo.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-GUI/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-GUI/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-GUI/.settings/org.eclipse.jdt.ui.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-GUI/WoPeD-GUI.eml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-GUI/src/org/woped/gui/translations/Messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-GUI/src/org/woped/gui/translations/Messages.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-GUI/src/org/woped/gui/translations/Messages_de.properties" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-GUI/src/org/woped/gui/translations/Messages_de.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Installer/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Installer/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Installer/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Installer/.settings/org.eclipse.jdt.ui.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Installer/WoPeD-Installer.eml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.mylyn/.taskListIndex/segments_1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.mylyn/repositories.xml.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.mylyn/tasks.xml.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/history.version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.core.resources/.root/2.tree" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.egit.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.epp.logging.aeri.ide.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.ui.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.m2e.discovery.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.mylyn.context.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.mylyn.monitor.ui.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.mylyn.tasks.ui.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.team.ui.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.editors.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.ide.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.workbench.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/http-cache.lucene60/segments_1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/local-history.lucene60/_0.cfe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/local-history.lucene60/_0.cfs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/local-history.lucene60/_0.si" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/local-history.lucene60/segments_1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.epp.logging.aeri.ide/org.eclipse.epp.logging.aeri.ide.server/server-config.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.jdt.core/assumedExternalFilesCache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.jdt.core/externalFilesCache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.jdt.core/index.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.jdt.core/nonChainingJarsCache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.jdt.core/variablesAndContainers.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.jdt.ui/OpenTypeHistory.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.jdt.ui/QualifiedTypeNameHistory.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.jdt.ui/dialog_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.m2e.logback.configuration/0.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.m2e.logback.configuration/logback.1.8.3.20180227-2137.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.oomph.setup/workspace.setup" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.ui.ide/dialog_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.ui.intro/introstate" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.ui.workbench/dialog_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.metadata/version.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.settings/.jsdtscope" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.settings/org.eclipse.wst.common.component" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.settings/org.eclipse.wst.common.project.facet.core.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.settings/org.eclipse.wst.jsdt.ui.superType.container" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/.settings/org.eclipse.wst.jsdt.ui.superType.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/WoPeD-Process2Text.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/WoPeD-Process2Text.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/lib/jwnl14-rc2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/lib/jwnl14-rc2.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/out/p2t.war" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/out/p2t.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/res/dict/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/res/dict/Makefile.am" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/res/dict/Makefile.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/res/dict/data.adj" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/res/dict/data.adj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/res/dict/data.adv" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/res/dict/data.adv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/res/dict/data.noun" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/res/dict/data.noun" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/res/dict/data.verb" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/res/dict/data.verb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/res/dict/frames.vrb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/res/dict/index.adj" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/res/dict/index.adj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/res/dict/index.adv" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/res/dict/index.adv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/res/dict/index.noun" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/res/dict/index.noun" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/res/dict/index.sense" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/res/dict/index.sense" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/res/dict/index.verb" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/res/dict/index.verb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/res/dict/lexnames" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/res/dict/log.grind.3.0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/res/dict/noun.exc" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/res/dict/noun.exc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/src/org/woped/p2t/dataModel/pnmlReader/PNMLReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/src/org/woped/p2t/dataModel/pnmlReader/PNMLReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/src/org/woped/p2t/dataModel/pnmlReader/PetriNet/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/src/org/woped/p2t/dataModel/pnmlReader/PetriNet/Element.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/src/org/woped/p2t/dataModel/pnmlReader/PetriNet/Place.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/src/org/woped/p2t/dataModel/pnmlReader/PetriNet/Place.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/src/org/woped/p2t/dataModel/pnmlReader/PetriNet/Transition.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/src/org/woped/p2t/dataModel/pnmlReader/PetriNet/Transition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/src/org/woped/p2t/dataModel/pnmlReader/PetriNetToProcessConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/src/org/woped/p2t/dataModel/pnmlReader/PetriNetToProcessConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/src/org/woped/p2t/sentenceRealization/SurfaceRealizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/src/org/woped/p2t/sentenceRealization/SurfaceRealizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/src/org/woped/p2t/textGenerator/TextGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/src/org/woped/p2t/textGenerator/TextGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/test/Petrinets/AND - (PetriNet Logik).pnml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/test/Petrinets/AND - (PetriNet Logik).pnml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/test/Petrinets/AND-Join.pnml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/test/Petrinets/AND-Join.pnml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/test/Petrinets/AND-Split-Woped.pnml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/test/Petrinets/AND-Split-Woped.pnml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/test/Petrinets/AND-Split.pnml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/test/Petrinets/AND-Split.pnml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/test/Petrinets/AND-XOR (PetriNet Logik).pnml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/test/Petrinets/AND-XOR (PetriNet Logik).pnml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/test/Petrinets/AND-XOR-Split-Woped.pnml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/test/Petrinets/AND-XOR-Split-Woped.pnml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/test/Petrinets/AND_Join_Split(PetriNet Logik).pnml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/test/Petrinets/AND_Join_Split(WoPed).pnml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/test/Petrinets/Rigid.pnml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/test/Petrinets/Rigid.pnml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/test/Petrinets/XOR (PetriNet Logik).pnml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/test/Petrinets/XOR (PetriNet Logik).pnml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/test/Petrinets/XOR_Join_AND_Split (Petri Net Logik).pnml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/test/Test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/web/META-INF/wsdl/ProcessToTextWebService.wsdl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-ProcessMetrics/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-ProcessMetrics/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-ProcessMetrics/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-ProcessMetrics/WoPeD-ProcessMetrics.eml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-ProcessMetrics/WoPeD-ProcessMetrics.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-ProcessMetrics/WoPeD-ProcessMetrics.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-ProjectFiles/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-ProjectFiles/Documents/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-ProjectFiles/WoPeD-ProjectFiles.eml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/.settings/org.eclipse.jdt.ui.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/WoPeD-QualAnalysis.eml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/WoPeD-QualAnalysis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-QualAnalysis/WoPeD-QualAnalysis.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/p2t/P2TSideBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/p2t/P2TSideBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/p2t/Process2Text.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/p2t/Process2Text.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/paraphrasing/Constants.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/paraphrasing/controller/CurrentNetPnml.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/paraphrasing/controller/HttpRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/paraphrasing/controller/WebServiceThread.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/paraphrasing/webservice/Exception.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/paraphrasing/webservice/Exception_Exception.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/paraphrasing/webservice/GenerateTextFromProcessSpecification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/paraphrasing/webservice/GenerateTextFromProcessSpecificationResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/paraphrasing/webservice/ObjectFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/paraphrasing/webservice/PNMLExport.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/paraphrasing/webservice/ProcessToTextWebService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-QualAnalysis/src/org/woped/qualanalysis/paraphrasing/webservice/ProcessToTextWebServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-QuantAnalysis/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-QuantAnalysis/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-QuantAnalysis/.settings/org.eclipse.jdt.ui.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-QuantAnalysis/WoPeD-QuantAnalysis.eml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-QuantAnalysis/WoPeD-QuantAnalysis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-QuantAnalysis/WoPeD-QuantAnalysis.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Starter/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Starter/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Starter/.settings/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Starter/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Starter/WoPeD-Process2Text/WoPeD-Process2Text.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Starter/WoPeD-Process2Text/lib/batik-1.7/samples/tests/resources/java/resources.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Starter/WoPeD-Starter.eml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Starter/WoPeD-Starter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Starter/WoPeD-Starter.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Text2Process/.settings/org.jboss.ide.eclipse.as.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Text2Process/WoPeD-Text2Process.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Text2Process/WoPeD-Text2Process.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-Text2Process/lib/jaxen-1.1-beta-6.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-UnitTests/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-UnitTests/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-UnitTests/WoPeD-UnitTests.eml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WoPeD-UnitTests/WoPeD-UnitTests.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-UnitTests/WoPeD-UnitTests.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/test/bin/test/src/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/test/bin/test/src/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WoPeD-Process2Text/test/src/test/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/WoPeD-Process2Text/test/src/test/src/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,9 +89,16 @@
     <property name="add_unversioned_files" value="true" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="extract.method.default.visibility" value="private" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/WoPeD-Process2Text/test/src" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/WoPeD-Process2Text/res" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15396419" />
@@ -326,7 +140,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.RunWoPeD">
+  <component name="RunManager" selected="Application.Test">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
@@ -685,8 +499,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.RunWoPeD" />
         <item itemvalue="Application.Test" />
+        <item itemvalue="Application.RunWoPeD" />
         <item itemvalue="JUnit.test in WoPeD-Process2Text" />
         <item itemvalue="JUnit.All in WoPeD-Process2Text" />
         <item itemvalue="JUnit.All in WoPeD-Text2Process" />
@@ -701,7 +515,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0fe078b1-bc4e-4c3c-990f-f7f38dbe9262" name="Default" comment="Adapted master build to IntelliJ" />
+      <changelist id="820e6626-5a40-4865-94c7-6b233ef35244" name="Default Changelist" comment="" />
       <created>1532358043426</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -839,6 +653,7 @@
       <workItem from="1590052705498" duration="6008000" />
       <workItem from="1590062101669" duration="1185000" />
       <workItem from="1590137287304" duration="1111000" />
+      <workItem from="1590386555946" duration="808000" />
     </task>
     <task id="LOCAL-00001" summary="Adapted master build to IntelliJ">
       <created>1532514709268</created>
@@ -1291,41 +1106,49 @@
       <screen x="0" y="23" width="2560" height="1361" />
     </state>
     <state x="446" y="419" width="2114" height="880" key="DiffContextDialog/0.23.2560.1361@0.23.2560.1361" timestamp="1590063838743" />
-    <state width="1877" height="225" key="GridCell.Tab.0.bottom" timestamp="1590138179140">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1877" height="340" key="GridCell.Tab.0.bottom" timestamp="1590386618185">
+      <screen x="1600" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="225" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1590138179140" />
+    <state width="1877" height="340" key="GridCell.Tab.0.bottom/0.0.1600.860/1600.0.1920.1040@1600.0.1920.1040" timestamp="1590386618185" />
     <state width="894" height="289" key="GridCell.Tab.0.bottom/0.23.2560.1361@0.23.2560.1361" timestamp="1590065378142" />
-    <state width="1877" height="225" key="GridCell.Tab.0.center" timestamp="1590138179139">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1877" height="340" key="GridCell.Tab.0.center" timestamp="1590386618184">
+      <screen x="1600" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="225" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1590138179139" />
+    <state width="1877" height="340" key="GridCell.Tab.0.center/0.0.1600.860/1600.0.1920.1040@1600.0.1920.1040" timestamp="1590386618184" />
     <state width="894" height="289" key="GridCell.Tab.0.center/0.23.2560.1361@0.23.2560.1361" timestamp="1590065378142" />
-    <state width="1877" height="225" key="GridCell.Tab.0.left" timestamp="1590138179138">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1877" height="340" key="GridCell.Tab.0.left" timestamp="1590386618184">
+      <screen x="1600" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="225" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1590138179138" />
+    <state width="1877" height="340" key="GridCell.Tab.0.left/0.0.1600.860/1600.0.1920.1040@1600.0.1920.1040" timestamp="1590386618184" />
     <state width="894" height="289" key="GridCell.Tab.0.left/0.23.2560.1361@0.23.2560.1361" timestamp="1590065378141" />
-    <state width="1877" height="225" key="GridCell.Tab.0.right" timestamp="1590138179139">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1877" height="340" key="GridCell.Tab.0.right" timestamp="1590386618185">
+      <screen x="1600" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="225" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1590138179139" />
+    <state width="1877" height="340" key="GridCell.Tab.0.right/0.0.1600.860/1600.0.1920.1040@1600.0.1920.1040" timestamp="1590386618185" />
     <state width="894" height="289" key="GridCell.Tab.0.right/0.23.2560.1361@0.23.2560.1361" timestamp="1590065378142" />
-    <state width="911" height="325" key="GridCell.Tab.1.bottom" timestamp="1589797148785">
-      <screen x="0" y="23" width="2560" height="1361" />
+    <state width="1877" height="340" key="GridCell.Tab.1.bottom" timestamp="1590386643091">
+      <screen x="1600" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="340" key="GridCell.Tab.1.bottom/0.0.1600.860/1600.0.1920.1040@1600.0.1920.1040" timestamp="1590386643091" />
     <state width="911" height="325" key="GridCell.Tab.1.bottom/0.23.2560.1361@0.23.2560.1361" timestamp="1589797148785" />
-    <state width="911" height="325" key="GridCell.Tab.1.center" timestamp="1589797148784">
-      <screen x="0" y="23" width="2560" height="1361" />
+    <state width="1877" height="340" key="GridCell.Tab.1.center" timestamp="1590386643090">
+      <screen x="1600" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="340" key="GridCell.Tab.1.center/0.0.1600.860/1600.0.1920.1040@1600.0.1920.1040" timestamp="1590386643090" />
     <state width="911" height="325" key="GridCell.Tab.1.center/0.23.2560.1361@0.23.2560.1361" timestamp="1589797148784" />
-    <state width="911" height="325" key="GridCell.Tab.1.left" timestamp="1589797148784">
-      <screen x="0" y="23" width="2560" height="1361" />
+    <state width="1877" height="340" key="GridCell.Tab.1.left" timestamp="1590386643090">
+      <screen x="1600" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="340" key="GridCell.Tab.1.left/0.0.1600.860/1600.0.1920.1040@1600.0.1920.1040" timestamp="1590386643090" />
     <state width="911" height="325" key="GridCell.Tab.1.left/0.23.2560.1361@0.23.2560.1361" timestamp="1589797148784" />
-    <state width="911" height="325" key="GridCell.Tab.1.right" timestamp="1589797148785">
-      <screen x="0" y="23" width="2560" height="1361" />
+    <state width="1877" height="340" key="GridCell.Tab.1.right" timestamp="1590386643090">
+      <screen x="1600" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="340" key="GridCell.Tab.1.right/0.0.1600.860/1600.0.1920.1040@1600.0.1920.1040" timestamp="1590386643090" />
     <state width="911" height="325" key="GridCell.Tab.1.right/0.23.2560.1361@0.23.2560.1361" timestamp="1589797148785" />
     <state x="847" y="396" width="1140" height="708" key="IDE.errors.dialog" timestamp="1589191531990">
       <screen x="0" y="23" width="2560" height="1361" />
@@ -1364,6 +1187,10 @@
       <screen x="0" y="23" width="2560" height="1361" />
     </state>
     <state x="737" y="599" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.2560.1361@0.23.2560.1361" timestamp="1589037315227" />
+    <state x="2290" y="270" key="extract.method.dialog" timestamp="1590386940450">
+      <screen x="1600" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2290" y="270" key="extract.method.dialog/0.0.1600.860/1600.0.1920.1040@1600.0.1920.1040" timestamp="1590386940450" />
     <state x="935" y="254" width="1312" height="946" key="find.popup" timestamp="1590062329161">
       <screen x="0" y="23" width="2560" height="1361" />
     </state>
@@ -1376,10 +1203,11 @@
       <screen x="0" y="23" width="2560" height="1361" />
     </state>
     <state x="979" y="472" key="refactoring.ChangeSignatureDialog/0.23.2560.1361@0.23.2560.1361" timestamp="1589989394341" />
-    <state x="2565" y="281" width="672" height="517" key="search.everywhere.popup" timestamp="1590138364779">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="2245" y="281" width="953" height="517" key="search.everywhere.popup" timestamp="1590385719630">
+      <screen x="1600" y="0" width="1920" height="1040" />
     </state>
     <state x="2565" y="281" width="672" height="517" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1590138364779" />
+    <state x="2245" y="281" width="953" height="517" key="search.everywhere.popup/0.0.1600.860/1600.0.1920.1040@1600.0.1920.1040" timestamp="1590385719630" />
     <state x="860" y="391" width="670" height="676" key="search.everywhere.popup/0.23.2560.1361@0.23.2560.1361" timestamp="1589989225093" />
   </component>
   <component name="XDebuggerManager">
@@ -1445,18 +1273,23 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/WoPeD-Process2Text/src/org/woped/p2t/textGenerator/TextGenerator.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="123" />
+          <line>74</line>
+          <option name="timeStamp" value="125" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/WoPeD-Process2Text/src/org/woped/p2t/dataModel/pnmlReader/PetriNetToProcessConverter.java</url>
-          <line>269</line>
-          <option name="timeStamp" value="124" />
+          <url>file://$PROJECT_DIR$/WoPeD-Process2Text/test/src/test/src/Test.java</url>
+          <line>172</line>
+          <option name="timeStamp" value="127" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/WoPeD-Process2Text/test/src/test/src/Test.java</url>
+          <line>188</line>
+          <option name="timeStamp" value="128" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/WoPeD-Process2Text/src/org/woped/p2t/textGenerator/TextGenerator.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="125" />
+          <line>39</line>
+          <option name="timeStamp" value="130" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
