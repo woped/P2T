@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.swing.*;
 import javax.xml.ws.WebServiceException;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 
 public class WebServiceThread extends Thread {
 
@@ -47,18 +48,18 @@ public class WebServiceThread extends Thread {
 				QualanalysisServiceImplement soundnesscheck = new QualanalysisServiceImplement(editor);
 				if(soundnesscheck.isSound()) {
 					// Use WebService to call P2T
-				request = new HttpRequest(url, text);
+				/*request = new HttpRequest(url, text);
 				response = request.getResponse();
-				output = response.getBody();
+				output = response.getBody(); */
 
 					// End of call for WebService
 					// Alternatively call P2T directly with bypass of WebService
-					/* TextGenerator tg = new TextGenerator(new java.io.File(".").getCanonicalPath() + "/WoPeD-Process2Text/bin");
+					 TextGenerator tg = new TextGenerator(new java.io.File(".").getCanonicalPath() + "/WoPeD-Process2Text/bin");
 					try {
 						output = tg.toText(text);
 					} catch (Exception e) {
 						e.printStackTrace();
-					} */
+					}
 					// End of alternative code
 				}
 				//End Comment here!
@@ -66,6 +67,8 @@ public class WebServiceThread extends Thread {
 				output = output.replaceAll("\\s*\n\\s*", "");
 				isFinished = true;
 				paraphrasingPanel.setNaturalTextParser(new Process2Text(output));
+			} catch (IOException e) {
+				e.printStackTrace();
 			} finally {
 				switch (response.responseCode){
 					case HttpServletResponse.SC_NO_CONTENT:
