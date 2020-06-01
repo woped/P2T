@@ -1,9 +1,11 @@
 package test.src;
 
+import org.woped.p2t.dataModel.dsynt.DSynTSentence;
 import org.woped.p2t.textGenerator.TextGenerator;
 import org.woped.p2t.textPlanning.TextPlanner;
 
 import java.nio.file.Path;
+import java.sql.SQLOutput;
 import java.util.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -26,34 +28,10 @@ public class Test {
     static {
         //      Key = Dateiname, Value = Erwartetes Ergebnis
         tests.put("LoanApplication-Resources.pnml", Arrays.asList(
-                "<phrase ids=\"t17\"> The process begins, when it is registered. </phrase>",
-                "<phrase ids=\"t1_op_1\"> Then, the process is split into 3 parallel branches: </phrase>",
-                "<phrase ids=\"t5\"> The Clerk checks form. </phrase>",
-                "<phrase ids=\"t4\"> The Clerk checks the history. </phrase>",
-                "<phrase ids=\"t3\"> The Manager checks the funds. </phrase>",
-                "<phrase ids=\"t1_op_1\"> Once all 3 branches were executed, it is decided. </phrase>",
-                "<phrase ids=\"p12\"> Afterwards, one of the following branches is executed: </phrase>",
-                "<phrase ids=\"t12_op_1\"> The Manager decide:s the granted. </phrase>",
-                "<phrase ids=\"t13\"> Subsequently, the Secretary sends the approval. </phrase>",
-                "<phrase ids=\"t14_op_2\"> Then, it is archived. </phrase>",
-                "<phrase ids=\"t12_op_2\"> The Manager decide:s the rejected. </phrase>",
-                "<phrase ids=\"t15\"> Afterwards, the Secretary sends the rejection. </phrase>",
-                "<phrase ids=\"t14_op_1\"> Subsequently, it is archived. </phrase>"
+                "<phrase ids=\"t17\"> The process begins, when it is registered. </phrase><phrase ids=\"t1_op_1\"> Then, the process is split into 3 parallel branches: </phrase><phrase ids=\"t5\"> The Clerk checks form. </phrase><phrase ids=\"t4\"> The Clerk checks the history. </phrase><phrase ids=\"t3\"> The Manager checks the funds. </phrase><phrase ids=\"t1_op_1\"> Once all 3 branches were executed, it is decided. </phrase><phrase ids=\"p12\"> Afterwards, one of the following branches is executed: </phrase><phrase ids=\"t12_op_1\"> The Manager decide:s the granted. </phrase><phrase ids=\"t13\"> Subsequently, the Secretary sends the approval. </phrase><phrase ids=\"t14_op_2\"> Then, it is archived. </phrase><phrase ids=\"t12_op_2\"> The Manager decide:s the rejected. </phrase><phrase ids=\"t15\"> Afterwards, the Secretary sends the rejection. </phrase><phrase ids=\"t14_op_1\"> Subsequently, it is archived. </phrase>"
         ));
         tests.put("LoanApplication.pnml", Arrays.asList(
-                "<phrase ids=\"t17\"> The process begins, when it is registered. </phrase>",
-                "<phrase ids=\"null, t1_op_1\"> Then, the process is split into 3 parallel branches: </phrase>",
-                "<phrase ids=\"t4\"> The history is checked. </phrase>,",
-                "<phrase ids=\"t3\"> The funds is checked. </phrase>",
-                "<phrase ids=\"t5\"> Form is checked. </phrase>",
-                "<phrase ids=\"t1_op_1\"> Once all 3 branches were executed, it is decided. </phrase>",
-                "<phrase ids=\"p12\"> Afterwards, one of the following branches is executed: </phrase>",
-                "<phrase ids=\"t12_op_1\"> The granted is decide:ed. </phrase>",
-                "<phrase ids=\"t13\"> Subsequently, the approval is sent. </phrase>",
-                "<phrase ids=\"t14_op_2\"> Then, it is archived. </phrase>",
-                "<phrase ids=\"t12_op_2\"> The rejected is decide:ed. </phrase>",
-                "<phrase ids=\"t15\"> Afterwards, the rejection is sent. </phrase>",
-                "<phrase ids=\"t14_op_1\"> Subsequently, it is archived. </phrase>"
+                "<phrase ids=\"t17\"> The process begins, when it is registered. </phrase><phrase ids=\"null, t1_op_1\"> Then, the process is split into 3 parallel branches: </phrase><phrase ids=\"t4\"> The history is checked. </phrase><phrase ids=\"t3\"> The funds is checked. </phrase><phrase ids=\"t5\"> Form is checked. </phrase><phrase ids=\"t1_op_1\"> Once all 3 branches were executed, it is decided. </phrase><phrase ids=\"p12\"> Afterwards, one of the following branches is executed: </phrase><phrase ids=\"t12_op_1\"> The granted is decide:ed. </phrase><phrase ids=\"t13\"> Subsequently, the approval is sent. </phrase><phrase ids=\"t14_op_2\"> Then, it is archived. </phrase><phrase ids=\"t12_op_2\"> The rejected is decide:ed. </phrase><phrase ids=\"t15\"> Afterwards, the rejection is sent. </phrase><phrase ids=\"t14_op_1\"> Subsequently, it is archived. </phrase>"
         ));
         tests.put("AND - (PetriNet Logik).pnml", Arrays.asList(
                 "<phrase ids=\"t3\"> The process begins, when a customer database is updated. </phrase><phrase ids=\"t2\"> In concurrency to the latter step, the receipt is printed. </phrase>",
@@ -111,15 +89,20 @@ public class Test {
 
         for (Map.Entry<String, List<String>> test : tests.entrySet()) {
             List<String> expected = test.getValue();
+            List<String> roleTestList = new ArrayList<>();
+//            System.out.println("//////////////////////////////////////////////////// C TEST");
+//            System.out.println(test.getValue());
             String result;
 
             try {
-                TextGenerator textGenerator = new TextGenerator(new java.io.File(".").getCanonicalPath() + "/WoPeD-Process2Text/bin");
+
+                TextGenerator textGenerator = new TextGenerator(new File(".").getCanonicalPath() + "/WoPeD-Process2Text/bin");
                 System.out.print(test.getKey() + ": ");
                 String content = new String(Files.readAllBytes(Paths.get(BASE_PATH + test.getKey())));
                 File f = new File(BASE_PATH + test.getKey());
                 System.out.println(f.getAbsolutePath());
                 result = textGenerator.toText(content);
+                roleTestList = textGenerator.roleList;
                 result = removeNewLinesAndSurroundingSpaces(result);
                 result = result.substring(0, result.length() - 7).substring(6);
             } catch (Exception e) {
@@ -132,6 +115,12 @@ public class Test {
             if (result.isEmpty()) {
                 System.out.println(TEST_FAILED + " failed with no result.");
                 error++;
+                continue;
+            }
+            if (!roleCheck(result, expected, roleTestList)) {
+                System.out.println(TEST_FAILED + " failed because of no matching Roles");
+                printDifference(expected, result);
+                failed++;
                 continue;
             }
 
@@ -166,58 +155,88 @@ public class Test {
         }
     }
 
+    private static boolean roleCheck(String result, List<String> control, List<String> roleTestList) {
+        for (String c : control) {
+            if (!roleTestList.isEmpty()) {
+                int o = 0;
+                for (String x : roleTestList) {
+                    if (KMPSearch(x, c)) {
+                        o++;
+                    }
+                }
+                if (o != roleTestList.size()) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
 
     private static boolean equals(String result, List<String> control) {
         for (String c : control) {
-            //if (result.equals(removeNewLinesAndSurroundingSpaces(c))) {
-
-                String[] splitResult = result.split("</phrase>");
-                String[] splitControll = c.split("</phrase>");
-                int i = 0;
+            // if (result.equals(removeNewLinesAndSurroundingSpaces(c)));
+            System.out.println("////////////////////////////////////////////////// CTEEEEESSSSST");
+            System.out.println(c);
+            String[] splitResult = result.split("</phrase>");
+            String[] splitControll = c.split("</phrase>");
+            int i = 0;
                 /*for (String f : splitResult) {
                     splitResult[i] = splitResult[i] + "</phrase>";
                     i++;
                 }*/
-                int numberOfResultPhrases = splitResult.length;
-                boolean prüfung = true;
-                int levent = 0;
-                int truePattern = 0;
-                int falsePattern = 0;
-                for (int j = 0; j < splitResult.length-1; j++) {
-                    prüfung = KMPSearch(splitResult[j], splitControll[j]);
-                    levent = diff(splitControll[j],splitResult[j]);
-                    System.out.println("///////////////////////////  Prüfung " + prüfung + ": " + j);
-                    System.out.println("///////////////////////////  Leven " + levent + ": " + j);
-                    if(prüfung){
+
+            int numberOfResultPhrases = splitResult.length;
+            boolean prüfung = true;
+            int levent = 0;
+            int truePattern = 0;
+            int falsePattern = 0;
+            //Einzelne Sätze vergleichen
+
+            for (int j = 0; j < splitResult.length - 1; j++) {
+
+//                if (KMPSearch("_op_", splitControll[j])) {
+//                    break;
+//                } else {
+
+
+                //String PatterMatch Algorithmus
+                prüfung = KMPSearch(splitResult[j], splitControll[j]);
+                //Leventstein-Distanz Algorithmus
+                levent = diff(splitControll[j], splitResult[j]);
+                System.out.println("///////////////////////////  Prüfung " + prüfung + ": " + j);
+                System.out.println("///////////////////////////  Leven " + levent + ": " + j);
+                System.out.println(splitControll.length + "           " + splitResult.length);
+                //
+                if (prüfung) {
+                    truePattern++;
+                } else {
+                    if (levent < 20) {
                         truePattern++;
-                    } else{
-                        if (levent <20){
-                            truePattern++;
-                        } else {
-                            falsePattern++;
-                        }
+                    } else {
+                        falsePattern++;
                     }
                 }
-                System.out.println("/////////////////////////// + Numberof ResultPhrases   " + numberOfResultPhrases);
-                System.out.println("/////////////////////////// + Numberof True Pattern   " + truePattern);
-                System.out.println("/////////////////////////// + Numberof False Pattern   " + falsePattern);
+            }
+            System.out.println("/////////////////////////// + Numberof ResultPhrases   " + numberOfResultPhrases);
+            System.out.println("/////////////////////////// + Numberof True Pattern   " + truePattern);
+            System.out.println("/////////////////////////// + Numberof False Pattern   " + falsePattern);
             System.out.println("/////////////////////////// + Percentage   " + percentageCalculator(numberOfResultPhrases, truePattern));
-
-            if(percentageCalculator(numberOfResultPhrases, truePattern)>= 50.0){
-                    return  true;
-                } else {
-                    return false;
-                }
+            if (percentageCalculator(numberOfResultPhrases, truePattern) >= 50.0) {
+                return true;
+            } else {
+                return false;
+            }
                /* if (result.equals(removeNewLinesAndSurroundingSpaces(c))) {
                     return true;
                 }*/
-            }
-      //  }
+        }
+        //  }
         return false;
     }
 
     private static double percentageCalculator(int numberOfResultPhrases, int truePattern) {
-        return  (truePattern*100)/numberOfResultPhrases;
+        return (truePattern * 100) / numberOfResultPhrases;
     }
 
     private static String removeNewLinesAndSurroundingSpaces(String input) {

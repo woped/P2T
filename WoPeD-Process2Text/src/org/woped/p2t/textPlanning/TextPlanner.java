@@ -67,6 +67,7 @@ public class TextPlanner {
      * Text Planning Main
      */
     public void convertToText(RPSTNode<ControlFlow, Node> root, int level) throws JWNLException, FileNotFoundException {
+        String passRole = null;
         if (root == null) {
             return;
         }
@@ -278,6 +279,12 @@ public class TextPlanner {
             }
         }
     }
+    //////////////////////////////////////////////////////////////////////////////////////////////
+    public String testGetRole (){
+        return role;
+
+    }
+    String role;
 
     private void convertActivities(RPSTNode<ControlFlow, Node> node, int level, int depth) throws JWNLException, FileNotFoundException {
 
@@ -300,8 +307,9 @@ public class TextPlanner {
             eFrag.addAssociation(activity.getId());
             eFrag.addMod("the process begins when", modRecord);
 
-            String role = getRole(activity, eFrag);
+            role = getRole(activity, eFrag);
             eFrag.setRole(role);
+
             if (anno.getActions().size() == 2) {
                 ExecutableFragment eFrag2;
                 if (anno.getBusinessObjects().size() == 2) {

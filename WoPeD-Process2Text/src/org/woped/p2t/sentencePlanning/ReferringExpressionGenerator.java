@@ -1,5 +1,7 @@
 package org.woped.p2t.sentencePlanning;
 
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
+import org.w3c.dom.ls.LSOutput;
 import org.woped.p2t.contentDetermination.labelAnalysis.EnglishLabelHelper;
 import org.woped.p2t.dataModel.dsynt.DSynTMainSentence;
 import org.woped.p2t.dataModel.dsynt.DSynTSentence;
@@ -14,9 +16,18 @@ import net.didion.jwnl.data.list.PointerTargetNodeList;
 import net.didion.jwnl.data.list.PointerTargetTree;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ReferringExpressionGenerator {
     private final EnglishLabelHelper lHelper;
+    public String currRole;
+
+    public List<String> getRoleListRef() {
+        return roleListRef;
+    }
+
+    private List<String> roleListRef;
+
 
     public ReferringExpressionGenerator(EnglishLabelHelper lHelper) {
         this.lHelper = lHelper;
@@ -29,7 +40,9 @@ public class ReferringExpressionGenerator {
 
         for (DSynTSentence aTextPlan : textPlan) {
             // Determine current role
-            String currRole = aTextPlan.getExecutableFragment().getRole();
+//            roleListRef = generateRoleList(aTextPlan);
+            // roleListRef.add(currRole);
+
             ExecutableFragment currFragment = aTextPlan.getExecutableFragment();
 
             if (prevRole != null && prevFragment != null) {
@@ -66,6 +79,22 @@ public class ReferringExpressionGenerator {
             }
         }
         return textPlan;
+    }
+
+    public List<String> generateRoleList(ArrayList<DSynTSentence> textPlan) {
+        List<String> roleListRef = new ArrayList<>();
+        for (DSynTSentence aTextPlan : textPlan) {
+            currRole = aTextPlan.getExecutableFragment().getRole();
+            int i = 0;
+            int j = 0;
+            if (currRole.isEmpty()) {
+                i = i + 1;
+            } else {
+                j = j + 1;
+                roleListRef.add(currRole);
+            }
+        }
+        return roleListRef;
     }
 
     // Checks WordNet HypernymTree whether "role" is a person

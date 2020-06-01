@@ -21,11 +21,16 @@ import org.woped.p2t.textPlanning.PlanningHelper;
 import org.woped.p2t.textPlanning.TextPlanner;
 
 import javax.servlet.ServletContext;
+import javax.servlet.ServletOutputStream;
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class TextGenerator {
+    ////////////////////////////////////
+    public String testGenerator;
+    public List<String > roleList;
     private String contextPath = "";
 
     public TextGenerator(String contextPath) {
@@ -75,6 +80,9 @@ public class TextGenerator {
         // Convert to Text
         TextPlanner converter = new TextPlanner(rpst, model, lDeriver, lHelper, imperativeRole, false, false);
         converter.convertToText(rpst.getRoot(), 0);
+        ///////////////////////////////////////////////////////////
+//        String test = converter.testGetRole();
+//        System.out.println(converter.testGetRole());
         ArrayList<DSynTSentence> sentencePlan = converter.getSentencePlan();
 
         // Aggregation
@@ -83,7 +91,9 @@ public class TextGenerator {
 
         // Referring Expression
         ReferringExpressionGenerator refExpGenerator = new ReferringExpressionGenerator(lHelper);
+        refExpGenerator.insertReferringExpressions(sentencePlan, false);
         sentencePlan = refExpGenerator.insertReferringExpressions(sentencePlan, false);
+        roleList = refExpGenerator.generateRoleList(sentencePlan);
 
         // Discourse Marker
         DiscourseMarker discourseMarker = new DiscourseMarker();
