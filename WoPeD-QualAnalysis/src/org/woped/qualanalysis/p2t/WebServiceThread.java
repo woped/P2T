@@ -6,15 +6,19 @@ import org.woped.gui.translations.Messages;
 import org.woped.p2t.textGenerator.TextGenerator;
 import org.woped.qualanalysis.service.QualanalysisServiceImplement;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.swing.*;
 import javax.xml.ws.WebServiceException;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 
 public class WebServiceThread extends Thread {
 
 	private P2TSideBar paraphrasingPanel = null;
 	private String[][] result = null;
 	private boolean isFinished;
+	private HttpRequest request;
+	private HttpResponse response;
 
 	public WebServiceThread(P2TSideBar paraphrasingPanel) {
 		this.paraphrasingPanel = paraphrasingPanel;
@@ -27,12 +31,13 @@ public class WebServiceThread extends Thread {
 
 	public void run() {
 		IEditor editor = paraphrasingPanel.getEditor();
+		paraphrasingPanel.showLoadingAnimation(true);
 		String url = "http://" + ConfigurationManager.getConfiguration().getProcess2TextServerHost() + ":"
 				+ ConfigurationManager.getConfiguration().getProcess2TextServerPort()
 				+ ConfigurationManager.getConfiguration().getProcess2TextServerURI()
 				+ "/generate";
 
-		String[] arg = {url};
+		String[] arg = {url, "P2T"};
 
 		if (editor.getModelProcessor().getElementContainer().getRootElements().size() > 3) {
 			try {
@@ -43,14 +48,13 @@ public class WebServiceThread extends Thread {
 				QualanalysisServiceImplement soundnesscheck = new QualanalysisServiceImplement(editor);
 				if(soundnesscheck.isSound()) {
 					// Use WebService to call P2T
-/*				HttpRequest req = new HttpRequest(url, text);
-				HttpResponse res = req.getResponse();
-				output = res.getBody();*/
+				/*request = new HttpRequest(url, text);
+				response = request.getResponse();
+				output = response.getBody(); */
+
 					// End of call for WebService
-
-
 					// Alternatively call P2T directly with bypass of WebService
-					TextGenerator tg = new TextGenerator(new java.io.File(".").getCanonicalPath() + "/WoPeD-Process2Text/bin");
+					 TextGenerator tg = new TextGenerator(new java.io.File(".").getCanonicalPath() + "/WoPeD-Process2Text/bin");
 					try {
 						output = tg.toText(text);
 					} catch (Exception e) {
@@ -63,19 +67,25 @@ public class WebServiceThread extends Thread {
 				output = output.replaceAll("\\s*\n\\s*", "");
 				isFinished = true;
 				paraphrasingPanel.setNaturalTextParser(new Process2Text(output));
-				paraphrasingPanel.setThreadInProgress(false);
-			} catch (WebServiceException wsEx) {
-				isFinished = true;
-				JOptionPane.showMessageDialog(null,
-						Messages.getString("Paraphrasing.Webservice.Error.Webserviceexception.Message", arg),
-						Messages.getString("Paraphrasing.Webservice.Error.Title"), JOptionPane.INFORMATION_MESSAGE);
-			} catch (Exception ex) {
-				isFinished = true;
-				JOptionPane.showMessageDialog(null,
-						Messages.getString("Paraphrasing.Webservice.Error.Exception.Message", arg),
-						Messages.getString("Paraphrasing.Webservice.Error.Title"), JOptionPane.INFORMATION_MESSAGE);
-
+			} catch (IOException e) {
+				e.printStackTrace();
 			} finally {
+				switch (response.responseCode){
+					case HttpServletResponse.SC_NO_CONTENT:
+					case HttpServletResponse.SC_REQUEST_TIMEOUT:
+					case HttpServletResponse.SC_INTERNAL_SERVER_ERROR: //Could be more specific -> text generator should send the error in body
+							 JOptionPane.showMessageDialog(null,
+							 Messages.getString("Paraphrasing.Webservice.Error.TryAgain", arg),
+							 Messages.getString("Paraphrasing.Webservice.Error.Title"), JOptionPane.INFORMATION_MESSAGE);
+							 break;
+					case HttpServletResponse.SC_SERVICE_UNAVAILABLE:
+					case -1:
+							 JOptionPane.showMessageDialog(null,
+							 Messages.getString("Paraphrasing.Webservice.Error.Contact", arg) +
+									 Messages.getString("Paraphrasing.Webservice.Settings"),
+							 Messages.getString("Paraphrasing.Webservice.Error.Title"), JOptionPane.INFORMATION_MESSAGE);
+						 	 break;
+				}
 				paraphrasingPanel.showLoadingAnimation(false);
 				paraphrasingPanel.enableButtons(true);
 				paraphrasingPanel.setThreadInProgress(false);
@@ -102,7 +112,6 @@ public class WebServiceThread extends Thread {
 			paraphrasingPanel.showLoadingAnimation(false);
 			paraphrasingPanel.enableButtons(true);
 			paraphrasingPanel.setThreadInProgress(false);
-
 		} else {
 			JOptionPane.showMessageDialog(null, Messages.getString("Paraphrasing.Webservice.Numberelements.Message"),
 					Messages.getString("Paraphrasing.Webservice.Error.Title"), JOptionPane.INFORMATION_MESSAGE);
