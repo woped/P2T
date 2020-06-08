@@ -24,7 +24,7 @@ public class PetriNetToProcessConverter {
 
         org.woped.p2t.dataModel.process.ProcessModel model = new org.woped.p2t.dataModel.process.ProcessModel();
         org.woped.p2t.dataModel.process.Pool pool = new org.woped.p2t.dataModel.process.Pool("");
-        org.woped.p2t.dataModel.process.Lane lane = new org.woped.p2t.dataModel.process.Lane("");
+        org.woped.p2t.dataModel.process.Lane lane = new org.woped.p2t.dataModel.process.Lane("", pool.toString());
         model.addPool("");
         model.addLane("");
 
@@ -169,7 +169,7 @@ public class PetriNetToProcessConverter {
 
                     //Role in Text --> Role in Petrinet = Lane in BPMN
                     org.woped.p2t.dataModel.process.Pool groupAsPool = new org.woped.p2t.dataModel.process.Pool(elem.getGroup());
-                    org.woped.p2t.dataModel.process.Lane roleAsLane = new org.woped.p2t.dataModel.process.Lane(elem.getRole());
+                    org.woped.p2t.dataModel.process.Lane roleAsLane = new org.woped.p2t.dataModel.process.Lane(elem.getRole(), elem.getGroup());
 
                     if (elem.getRole().equals("none")) {
                         groupAsPool = null;
