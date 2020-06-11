@@ -6,6 +6,8 @@ import org.woped.p2t.dataModel.process.Arc;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class PetriNetToProcessConverter {
     private HashMap<String, Integer> transformedElems;
@@ -199,7 +201,65 @@ public class PetriNetToProcessConverter {
                         for (String suc : petriNet.getSuccessor(elemId)) {
                             transformElem(petriNet.getElements().get(suc), newId, petriNet, model, pool, lane);
                         }
-                    } else {
+                    }else if(elem.getType() != null && elem.getType().equals("105")) {
+                        //WoPeD XOR!! --> WoPeD specific operator
+                        //Get Label from Successor --> XOR Label
+
+                        int newActivityId = model.getNewId();
+                        model.addActivity(new org.woped.p2t.dataModel.process.Activity(newActivityId, "finish branch", null, null, ActivityType.NONE));
+                        transformedElems.put(elemId, newActivityId);
+                        transformedElemsRev.put(newActivityId, elemId);
+                        model.addArc(new org.woped.p2t.dataModel.process.Arc(model.getNewId(), "", model.getElem(precElem), model.getElem(newActivityId)));
+
+
+                        int XORId = getXORJoinID(elemId, model);
+                        if (XORId == 0) {
+                            // Gateway erstellen + mit vorheriger Activity
+                            int indexOfChar = elemId.indexOf("_");
+                            String start = elemId.substring(0, indexOfChar);
+                            String XorId = start + "_XOR";
+
+
+                            int newXorId = model.getNewId();
+                            model.addGateway(new org.woped.p2t.dataModel.process.Gateway(newXorId, XorId, lane, pool, org.woped.p2t.dataModel.process.GatewayType.XOR));
+                            transformedElems.put(elemId, newXorId);
+                            transformedElemsRev.put(newXorId, elemId);
+                            model.addArc(new org.woped.p2t.dataModel.process.Arc(model.getNewId(), "", model.getElem(newActivityId), model.getElem(newXorId)));
+
+                            // Activtiy erstellen welches das XOR-Join label darstellt und das mit Gateway verbinden
+                            newActivityId = model.getNewId();
+                            model.addActivity(new org.woped.p2t.dataModel.process.Activity(newActivityId, elem.getLabel(), null, null, ActivityType.NONE));
+                            transformedElems.put(elemId, newActivityId);
+                            transformedElemsRev.put(newActivityId, elemId);
+                            model.addArc(new org.woped.p2t.dataModel.process.Arc(model.getNewId(), "", model.getElem(newXorId), model.getElem(newActivityId)));
+
+                        } else {
+                            //vorheriges Element mit dem GatewayID verbinden
+                            model.addArc(new org.woped.p2t.dataModel.process.Arc(model.getNewId(), "", model.getElem(newActivityId), model.getElem(XORId)));
+                        }
+
+
+                        String activityLabel = elem.getLabel();
+                        HashMap<Integer, org.woped.p2t.dataModel.process.Activity> activityHashMap = model.getActivites();
+                        Iterator it = activityHashMap.entrySet().iterator();
+
+                        int activityId = 0;
+                        while (it.hasNext()) {
+                            Map.Entry element = (Map.Entry) it.next();
+                            org.woped.p2t.dataModel.process.Activity g = (org.woped.p2t.dataModel.process.Activity) element.getValue();
+                            String label = g.getLabel();
+                            if (activityLabel.equals(label)) {
+                                activityId = g.getId();
+                            }
+                        }
+
+                        //Recursively go through the model
+                        for (String suc : petriNet.getSuccessor(elemId)) {
+                            transformElem(petriNet.getElements().get(suc), activityId, petriNet, model, pool, lane);
+                        }
+
+
+                    }else {
                         //Normal Transition
                         int newId = model.getNewId();
                         String label = elem.getLabel();
@@ -259,6 +319,29 @@ public class PetriNetToProcessConverter {
             model.addArc(new Arc(model.getNewId(), "", model.getElem(precElem), model.getElem(transformedElems.get(elem.getId()))));
         }
 
+    }
+
+    private int getXORJoinID(String elementId, org.woped.p2t.dataModel.process.ProcessModel model){
+        int indexOfChar=elementId.indexOf("_");
+        String start =elementId.substring(0,indexOfChar);
+
+        String startXor = start + "_XOR";
+
+        HashMap<Integer, org.woped.p2t.dataModel.process.Gateway> gatewayHashMap = model.getGateways();
+
+        Iterator it = gatewayHashMap.entrySet().iterator();
+
+        int id = 0;
+        while(it.hasNext()){
+            Map.Entry element = (Map.Entry)it.next();
+            org.woped.p2t.dataModel.process.Gateway g = (org.woped.p2t.dataModel.process.Gateway) element.getValue();
+            String label = g.getLabel();
+            if(label.equals(startXor)){
+                id = g.getId();
+            }
+        }
+
+        return id;
     }
 
     public void printConversion() {

@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 public class DiscourseMarker {
     private final ArrayList<String> SEQ_CONNECTIVES = new ArrayList<String>() {{
-        add("then");
         add("afterwards");
         add("subsequently");
     }};
@@ -36,7 +35,11 @@ public class DiscourseMarker {
                     Element verb = mainS.getVerb();
                     Document doc = mainS.getDSynT();
 
-                    IntermediateToDSynTConverter.insertConnective(doc, verb, SEQ_CONNECTIVES.get(indexConnectors));
+                    if(mainS.getExecutableFragment().getBo().equals("branch") && mainS.getExecutableFragment().getAction().equals("finish")){
+                        IntermediateToDSynTConverter.insertConnective(doc, verb, "Then");
+                    }else {
+                        IntermediateToDSynTConverter.insertConnective(doc, verb, SEQ_CONNECTIVES.get(indexConnectors));
+                    }
                     inserted = true;
                 }
             }
