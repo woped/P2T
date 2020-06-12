@@ -482,7 +482,7 @@ public class TextPlanner {
     private ConverterRecord getANDConverterRecord(RPSTNode<ControlFlow, Node> node) {
         // Determine path count
         ArrayList<RPSTNode<ControlFlow, Node>> andNodes = PlanningHelper.sortTreeLevel(node, node.getEntry(), rpst);
-
+        /*
         if (andNodes.size() == 2) {
 
             // Determine last activities of the AND split paths
@@ -494,12 +494,13 @@ public class TextPlanner {
                     conditionNodes.add(lastNode);
                 }
             }
-            return textToIMConverter.convertANDSimple(node, PlanningHelper.getActivityCount(andNodes.get(0), rpst), conditionNodes);
-
+            //return textToIMConverter.convertANDSimple(node, PlanningHelper.getActivityCount(andNodes.get(0), rpst), conditionNodes);
+            return textToIMConverter.convertANDGeneral(node, andNodes.size());
             // General case (paths > 2)
         } else {
             return textToIMConverter.convertANDGeneral(node, andNodes.size());
-        }
+        }*/
+        return textToIMConverter.convertANDGeneral(node, andNodes.size());
 
     }
 
