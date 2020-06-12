@@ -300,14 +300,24 @@ public class PetriNetToProcessConverter {
                 if (petriNet.getSuccessor(elemId).size() > 1 && petriNet.getPredecessor(elemId).size() == 1) {
                     loopSet[x] = elemId + ": AND Split";
                     and_split++;
+
+                    // Activitiy erstellen welches das And-Split Label darstellt und das mit Gateway verbinden
+                    int newActivityId = model.getNewId();
+                    String label = elem.getLabel();
+                    model.addActivity(new org.woped.p2t.dataModel.process.Activity(newActivityId, label, null, null, ActivityType.NONE));
+                    transformedElems.put(elemId + "_AndLabel", newActivityId);
+                    transformedElemsRev.put(newActivityId, elemId + "_AndLabel");
+                    if (precElem != -1) {
+                        model.addArc(new org.woped.p2t.dataModel.process.Arc(model.getNewId(), "", model.getElem(precElem), model.getElem(newActivityId)));
+                    }
+
                     // Create new element
                     int newId = model.getNewId();
-                    model.addGateway(new org.woped.p2t.dataModel.process.Gateway(newId, "", lane, pool, org.woped.p2t.dataModel.process.GatewayType.AND));
+                    model.addGateway(new org.woped.p2t.dataModel.process.Gateway(newId, label, lane, pool, org.woped.p2t.dataModel.process.GatewayType.AND));
                     transformedElems.put(elemId, newId);
                     transformedElemsRev.put(newId, elemId);
-                    if (precElem != -1) {
-                        model.addArc(new org.woped.p2t.dataModel.process.Arc(model.getNewId(), "", model.getElem(precElem), model.getElem(newId)));
-                    }
+                    model.addArc(new org.woped.p2t.dataModel.process.Arc(model.getNewId(), "", model.getElem(newActivityId), model.getElem(newId)));
+
 
                     // Recursively go through the model
                     for (String suc : petriNet.getSuccessor(elemId)) {
