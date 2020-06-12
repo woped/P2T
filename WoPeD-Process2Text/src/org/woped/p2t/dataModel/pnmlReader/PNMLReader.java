@@ -46,8 +46,8 @@ public class PNMLReader {
             //If there is already an arc with the same ID --> new ID neccessary
             //Hashmap to check for existing arcs
             HashMap<String, Arc> arcs = petriNet.getArcs();
-            if (arcs.keySet().contains(id)) {
-                id = id + "_exists";
+            while(arcs.keySet().contains(id)) {
+                    id = id + "_exists";
             }
 
             petriNet.addArc(new Arc(id, source, target));

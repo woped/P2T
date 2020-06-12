@@ -13,6 +13,16 @@ public class DiscourseMarker {
     private final ArrayList<String> SEQ_CONNECTIVES = new ArrayList<String>() {{
         add("afterwards");
         add("subsequently");
+        add("after");
+        add("next");
+        add("latterly");
+        add("thereafter");
+        add("after that");
+        add("consequently");
+        add("following");
+        add("thereon");
+        add("later on");
+        add("hereafter");
     }};
 
     public ArrayList<DSynTSentence> insertSequenceConnectives(ArrayList<DSynTSentence> textPlan) {
