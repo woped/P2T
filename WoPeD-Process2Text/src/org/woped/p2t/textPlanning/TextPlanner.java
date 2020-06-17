@@ -113,6 +113,9 @@ public class TextPlanner {
                     convRecord = getANDConverterRecord(node);
                 }
 
+                if(convRecord != null && convRecord.fullStatements != null){
+                    sentencePlan.add(convRecord.fullStatements);
+                }
                 // Add pre statements
                 if (convRecord != null && convRecord.preStatements != null) {
                     for (DSynTSentence preStatement : convRecord.preStatements) {
@@ -194,6 +197,7 @@ public class TextPlanner {
                 // Pass post fragment
                 if (convRecord != null && convRecord.post != null) {
                     passedFragments.add(convRecord.post);
+                    System.out.println("Test");
                 }
                 //**************************************  ACTIVITIES  **************************************
             } else if (PlanningHelper.isTask(node.getEntry())) {

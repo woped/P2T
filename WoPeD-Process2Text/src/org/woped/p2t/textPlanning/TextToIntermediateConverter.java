@@ -379,17 +379,8 @@ class TextToIntermediateConverter {
     //*********************************************************************************************
 
     ConverterRecord convertANDGeneral(RPSTNode<ControlFlow, Node> node, int activities) {
-        // The process is split into three parallel branches.  (And then use bullet points for structuring)
-        ExecutableFragment eFrag = new ExecutableFragment("split", "process", "", "into " + activities + " parallel branches");
-        eFrag.bo_isSubject = true;
-        eFrag.verb_IsPassive = true;
-        eFrag.add_hasArticle = false;
-        eFrag.addAssociation(Integer.valueOf(node.getEntry().getId()));
 
-        ArrayList<DSynTSentence> preStatements = new ArrayList<>();
-        preStatements.add(new DSynTMainSentence(eFrag));
-
-        // Statement about negative case (process is finished)
+        // Statement about negative case (process is finished) (JOIN)
         ConditionFragment post = new ConditionFragment("execute", "all " + activities + " branch", "", "", ConditionFragment.TYPE_ONCE, new HashMap<>());
         post.verb_isPast = true;
         post.verb_IsPassive = true;
@@ -399,7 +390,39 @@ class TextToIntermediateConverter {
         post.addAssociation(Integer.valueOf(node.getEntry().getId()));
         post.setFragmentType(AbstractFragment.TYPE_JOIN);
 
-        return new ConverterRecord(null, post, preStatements, null, null);
+        // The process is split into three parallel branches.  (And then use bullet points for structuring)
+        ExecutableFragment eFrag = new ExecutableFragment("split", "process", "", "into " + activities + " parallel branches");
+        eFrag.bo_isSubject = true;
+        eFrag.verb_IsPassive = true;
+        eFrag.add_hasArticle = false;
+        eFrag.sen_hasComma = true;
+        eFrag.sen_hasBullet = true;
+        eFrag.addAssociation(Integer.valueOf(node.getEntry().getId()));
+
+        GatewayExtractor gwExtractor = new GatewayExtractor(node.getEntry(), lHelper);
+        if(!(gwExtractor.getObject().equals("") && gwExtractor.getVerb().equals(""))){
+            ConditionFragment cFrag = new ConditionFragment(gwExtractor.getVerb(), gwExtractor.getObject(), "", "", ConditionFragment.TYPE_ONCE, new HashMap<>());
+            cFrag.verb_isPast = true;
+            cFrag.verb_IsPassive = true;
+            cFrag.bo_isSubject = true;
+            //cFrag.bo_isPlural = true;
+            //cFrag.bo_hasArticle = false;
+            cFrag.sen_hasComma = true;
+
+            cFrag.addAssociation(Integer.valueOf(node.getEntry().getId()));
+            cFrag.setFragmentType(AbstractFragment.TYPE_JOIN);
+            if(cFrag.getBo().equals("")){
+                cFrag.setBo("it");
+                cFrag.bo_isPlural = false;
+                cFrag.bo_hasArticle = false;
+            }
+            DSynTConditionSentence fullStatements = new DSynTConditionSentence(eFrag,cFrag);
+            return new ConverterRecord(null, post, null, null, null, fullStatements);
+        } else{
+            ArrayList<DSynTSentence> preStatements = new ArrayList<>();
+            preStatements.add(new DSynTMainSentence(eFrag));
+            return new ConverterRecord(null, post, preStatements, null, null);
+        }
     }
 
     /**
