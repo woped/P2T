@@ -3,16 +3,14 @@ package org.woped.qualanalysis.p2t;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.LinkedHashMap;
 
-import javax.swing.JButton;
-import javax.swing.JEditorPane;
-import javax.swing.JFileChooser;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+import javax.swing.*;
+import javax.swing.border.LineBorder;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
 import javax.swing.filechooser.FileFilter;
@@ -44,6 +42,12 @@ public class P2TSideBar extends JPanel implements ActionListener {
 	private WebServiceThread webService = null;
 	private boolean threadInProgress = false;
 	private boolean firstTimeDisplayed = false;
+
+	//private JDialog loadDialog;
+	//private SwingWorker<HttpResponse, Void> bgTask;
+	private JButton buttonCancel = null;
+	//private JFrame frame;
+
 
 	/**
 	 * 
@@ -123,6 +127,20 @@ public class P2TSideBar extends JPanel implements ActionListener {
 		return buttonExport;
 	}
 
+	public JButton getbuttonCancel() {
+		if (buttonCancel == null) {
+			buttonCancel = new JButton("Cancel");
+			buttonCancel.setToolTipText(Messages.getString("Paraphrasing.Cancel.Title"));
+			buttonCancel.setEnabled(true);
+			buttonCancel.addActionListener(this);
+			defineButtonSize(buttonCancel);
+			buttonCancel.setBorderPainted(true);
+			//buttonCancel.setBounds(800, 5, 85, 25);
+		}
+
+		return buttonCancel;
+	}
+
 	/**
 	 * Method to initialize and add the the components to the sidebar
 	 */
@@ -134,10 +152,15 @@ public class P2TSideBar extends JPanel implements ActionListener {
 		buttonPanel.setLayout(new FlowLayout());
 		buttonPanel.add(getbuttonLoad());
 		buttonPanel.add(getbuttonExport());
+		buttonPanel.add(getbuttonCancel());
 
 		this.add(buttonPanel, BorderLayout.NORTH);
 
 		this.labelLoading = new JLabel("", Messages.getImageIcon("Paraphrasing.Output.Load.Animation"), JLabel.CENTER);
+		this.labelLoading.setLayout(new BorderLayout());
+		this.labelLoading.add(buttonCancel, BorderLayout.NORTH);
+		this.buttonCancel.setBorder(new LineBorder(Color.black));
+		this.buttonCancel.setBounds(10, 0, 25, 15);
 
 		textpane = new JEditorPane("text/html", "");
 		textpane.addHyperlinkListener(new HyperlinkListener() {
@@ -322,6 +345,13 @@ public class P2TSideBar extends JPanel implements ActionListener {
 						JOptionPane.INFORMATION_MESSAGE);
 			}
 		}
+		//Process cancel button
+		else if (e.getSource() == this.buttonCancel){
+			setThreadInProgress(false);
+			webService = null;
+
+			showLoadingAnimation(false);
+		}
 	}
 
 	/**
@@ -355,6 +385,7 @@ public class P2TSideBar extends JPanel implements ActionListener {
 
 		setThreadInProgress(false);
 		webService = null;
+		showLoadingAnimation(false);
 	}
 
 	private void showErrorMessage(String resourceKey) {
@@ -402,6 +433,15 @@ public class P2TSideBar extends JPanel implements ActionListener {
 	 */
 	public void showLoadingAnimation(boolean show) {
 		this.labelLoading.setVisible(show);
+
+		/*
+		if(show == true){
+			JPanel cancelPanel = new JPanel();
+			cancelPanel.setLayout(new FlowLayout());
+			cancelPanel.add(getbuttonCancel());
+
+			this.add(cancelPanel, BorderLayout.);
+		}*/
 	}
 
 	/**
@@ -412,6 +452,7 @@ public class P2TSideBar extends JPanel implements ActionListener {
 	public void enableButtons(boolean enable) {
 		this.buttonLoad.setEnabled(enable);
 		this.buttonExport.setEnabled(enable);
+		this.buttonCancel.setEnabled(enable);
 	}
 
 	/**
@@ -436,4 +477,5 @@ public class P2TSideBar extends JPanel implements ActionListener {
 					Messages.getString("PetriNet.NotSound"),
 					Messages.getString("AnalysisSideBar.SoundnessAnalysis"), JOptionPane.ERROR_MESSAGE);
 	}
+
 }
