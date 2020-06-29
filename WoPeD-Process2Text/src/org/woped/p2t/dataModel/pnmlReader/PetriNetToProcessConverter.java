@@ -290,40 +290,35 @@ public class PetriNetToProcessConverter {
                     if (precElem != -1) {
                         model.addArc(new org.woped.p2t.dataModel.process.Arc(model.getNewId(), "", model.getElem(precElem), model.getElem(newId)));
                     }
-                    if(!(elem.getLabel().equals("join") || elem.getLabel().matches("([a-z]+)\\d+") || elem.getLabel().equals(""))) {
-                        int newActivityId = model.getNewId();
-                        String label = elem.getLabel();
-                        model.addActivity(new org.woped.p2t.dataModel.process.Activity(newActivityId, label, null, null, ActivityType.NONE));
-                        transformedElems.put(elemId + "_AndJoinLabel", newActivityId);
-                        transformedElemsRev.put(newActivityId, elemId + "_AndJoinLabel");
-                        model.addArc(new org.woped.p2t.dataModel.process.Arc(model.getNewId(), "", model.getElem(newId), model.getElem(newActivityId)));
-                        // Recursively go through the model
-                        String suc = petriNet.getSuccessor(elemId).get(0);
-                        transformElem(petriNet.getElements().get(suc), newActivityId, petriNet, model, pool, lane);
-                    } else{
-                        // Recursively go through the model
-                        String suc = petriNet.getSuccessor(elemId).get(0);
-                        transformElem(petriNet.getElements().get(suc), newId, petriNet, model, pool, lane);
-                    }
+
+                    // Recursively go through the model
+                    String suc = petriNet.getSuccessor(elemId).get(0);
+                    transformElem(petriNet.getElements().get(suc), newId, petriNet, model, pool, lane);
                 }
 
                 //  Transition with multiple incoming arcs (AND-Split)
                 if (petriNet.getSuccessor(elemId).size() > 1 && petriNet.getPredecessor(elemId).size() == 1) {
                     loopSet[x] = elemId + ": AND Split";
                     and_split++;
-                    if(elem.getLabel().equals("split") || elem.getLabel().matches("([a-z]+)\\d+") || elem.getLabel().equals("")) {
-                        elem.setLabel("");
+
+                    // Activitiy erstellen welches das And-Split Label darstellt und das mit Gateway verbinden
+                    int newActivityId = model.getNewId();
+                    String label = elem.getLabel();
+                    model.addActivity(new org.woped.p2t.dataModel.process.Activity(newActivityId, label, null, null, ActivityType.NONE));
+                    transformedElems.put(elemId + "_AndLabel", newActivityId);
+                    transformedElemsRev.put(newActivityId, elemId + "_AndLabel");
+                    if (precElem != -1) {
+                        model.addArc(new org.woped.p2t.dataModel.process.Arc(model.getNewId(), "", model.getElem(precElem), model.getElem(newActivityId)));
                     }
+
                     // Create new element
                     int newId = model.getNewId();
-                    model.addGateway(new org.woped.p2t.dataModel.process.Gateway(newId, elem.getLabel(), lane, pool, org.woped.p2t.dataModel.process.GatewayType.AND));
+                    model.addGateway(new org.woped.p2t.dataModel.process.Gateway(newId, label, lane, pool, org.woped.p2t.dataModel.process.GatewayType.AND));
                     transformedElems.put(elemId, newId);
                     transformedElemsRev.put(newId, elemId);
+                    model.addArc(new org.woped.p2t.dataModel.process.Arc(model.getNewId(), "", model.getElem(newActivityId), model.getElem(newId)));
 
 
-                    if (precElem != -1) {
-                        model.addArc(new org.woped.p2t.dataModel.process.Arc(model.getNewId(), "", model.getElem(precElem), model.getElem(newId)));
-                    }
                     // Recursively go through the model
                     for (String suc : petriNet.getSuccessor(elemId)) {
                         transformElem(petriNet.getElements().get(suc), newId, petriNet, model, pool, lane);
