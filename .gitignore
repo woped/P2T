@@ -1,3 +1,7 @@
 /out/production/
 WoPeD-Text2Process/lib/stanford-corenlp-3.9.2-models.jar
 WoPeD-Text2Process/lib/stanford-corenlp-3.9.2-models.jar
+.idea/
+.settings/
+*.DS_Store
+*.iml

@@ -19,6 +19,7 @@
       <module fileurl="file://$PROJECT_DIR$/WoPeD-Starter/WoPeD-Starter.iml" filepath="$PROJECT_DIR$/WoPeD-Starter/WoPeD-Starter.iml" />
       <module fileurl="file://$PROJECT_DIR$/WoPeD-Text2Process/WoPeD-Text2Process.iml" filepath="$PROJECT_DIR$/WoPeD-Text2Process/WoPeD-Text2Process.iml" />
       <module fileurl="file://$PROJECT_DIR$/WoPeD-UnitTests/WoPeD-UnitTests.iml" filepath="$PROJECT_DIR$/WoPeD-UnitTests/WoPeD-UnitTests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/process2text.iml" filepath="$PROJECT_DIR$/process2text.iml" />
     </modules>
   </component>
 </project>
