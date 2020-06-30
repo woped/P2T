@@ -28,7 +28,6 @@ pipeline {
                 }
             }
             steps {
-                sh 'echo $MVN_SET'
                 sh 'mvn -s $MVN_SET deploy -Dmaven.test.skip=true'
             }
         }
