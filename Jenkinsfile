@@ -1,6 +1,5 @@
 pipeline {
     environment {
-        MVN_SET = credentials('nexus-credentials')
         VERSION = getVersion()
         DOCKER_VERSION = getDockerVersion()
     }
@@ -19,9 +18,6 @@ pipeline {
             }
         }
         stage('deploy jar') {
-            environment {
-                MVN_SET = credentials('nexus-credentials')
-            }
             agent {
                 docker {
                     image 'maven:3.6.3-jdk-11'
