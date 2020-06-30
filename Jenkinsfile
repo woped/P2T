@@ -1,6 +1,7 @@
 pipeline {
     environment {
         MVN_SET = credentials('nexus-credentials')
+        VERSION = getVersion()
     }
     agent {
         docker {
@@ -17,10 +18,13 @@ pipeline {
         }
         stage('build docker') {
             steps {
-                pom = readMavenPom file: 'pom.xml'
-                version = pom.version
                 sh "docker build -t p2t:$version ."
             }
         }
     }
+}
+
+def getVersion() {
+    pom = readMavenPom file: 'pom.xml'
+    return pom.version
 }
