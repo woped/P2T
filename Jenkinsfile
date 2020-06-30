@@ -29,7 +29,9 @@ pipeline {
                 }
             }
             steps {
-                sh 'mvn -s $MVN_SET deploy -Dmaven.test.skip=true'
+                configFileProvider([configFile(fileId: 'nexus-credentials', variable: 'MAVEN_SETTINGS')]) {
+                    sh 'mvn -s $MAVEN_SETTINGS deploy -Dmaven.test.skip=true'
+                }
             }
         }
         stage('build docker') {
