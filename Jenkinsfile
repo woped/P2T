@@ -17,6 +17,17 @@ pipeline {
                 sh 'mvn install -Dmaven.test.skip=true'
             }
         }
+        stage('deploy jar') {
+            agent {
+                docker {
+                    image 'maven:3.6.3-jdk-11'
+                    args '-u root'
+                }
+            }
+            steps {
+                sh 'mvn -s $MVN_SET deploy -Dmaven.test.skip=true'
+            }
+        }
         stage('build docker') {
             steps {
                 script {
