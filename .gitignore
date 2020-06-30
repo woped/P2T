@@ -1,8 +1,35 @@
+WoPeD-Text2Process/lib/stanford-corenlp-3.9.2-models.jar
+WoPeD-Text2Process/lib/stanford-corenlp-3.9.2-models.jar
+HELP.md
 target/
-/out/production/
-WoPeD-Text2Process/lib/stanford-corenlp-3.9.2-models.jar
-WoPeD-Text2Process/lib/stanford-corenlp-3.9.2-models.jar
-.idea/
-.settings/
-*.DS_Store
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+*.jar
+!lib/*.jar
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
 *.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+
+### VS Code ###
+.vscode/
+
