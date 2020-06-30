@@ -22,8 +22,9 @@ pipeline {
                 script {
                     node {
                         docker.withRegistry('http://vesta.dh-karlsruhe.de/nexus/repository/WoPeD/', 'nexus-credentials') {
-                        def dockerImage = docker.build("p2t:$version")
-                        dockerImage.push();
+                            def dockerImage = docker.build("p2t:$version")
+                            dockerImage.push();
+                        }
                     }
                 }
             }
