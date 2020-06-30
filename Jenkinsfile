@@ -23,7 +23,9 @@ pipeline {
         stage('build docker') {
             steps {
                 script {
-                    docker.build("p2t:${version}")
+                    node {
+                        docker.build("p2t:${version}")
+                    }
                 }
             }
         }
