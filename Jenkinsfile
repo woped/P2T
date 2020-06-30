@@ -4,22 +4,19 @@ pipeline {
         //VERSION = getVersion()
     }
     agent any
-    /*
-    agent {
-        docker {
-            image 'maven:3.6.3-jdk-11'
-            args '-u root'
-        }
-    }
-    */
+
     stages {
-        /*
         stage('build') {
+            agent {
+                docker {
+                    image 'maven:3.6.3-jdk-11'
+                    args '-u root'
+                }
+            }
             steps {
                 sh 'mvn install -Dmaven.test.skip=true'
             }
         }
-        */
         stage('build docker') {
             steps {
                 script {
