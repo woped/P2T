@@ -21,7 +21,7 @@ pipeline {
             steps {
                 script {
                     node {
-                        docker.withRegistry('localhost:5000/repository/WoPeD', 'nexus-docker-registry') {
+                        docker.withRegistry('http://localhost:5000/repository/WoPeD', 'nexus-docker-registry') {
                             def dockerImage = docker.build("p2t:$version")
                             dockerImage.push();
                         }
