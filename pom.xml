@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>de.dhbw.woped</groupId>
-	<artifactId>process2text</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>process2text</name>
+	<artifactId>WoPeD-Process2Text</artifactId>
+	<version>3.7.1</version>
+	<name>WoPeD-Process2Text</name>
 	<description>WoPed webservice p2t</description>
 
 	<properties>
@@ -23,7 +23,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -51,6 +50,105 @@
 			<artifactId>jwnl</artifactId>
 			<version>1.4_rc3</version>
 		</dependency>
+		<!-- 			Workspace Dependencies 				-->
+		<dependency>
+			<groupId>PLATZHALTER</groupId>
+			<artifactId>bpstruct</artifactId>
+			<version>0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/bpstruct.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>PLATZHALTER</groupId>
+			<artifactId>hpi-bpt</artifactId>
+			<version>0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/hpi-bpt.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>PLATZHALTER</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/javax.servlet-api-4.0.1.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>PLATZHALTER</groupId>
+			<artifactId>json</artifactId>
+			<version>20180130</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/json-20180130.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>PLATZHALTER</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/junit-4.12.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>PLATZHALTER</groupId>
+			<artifactId>pnapi-java</artifactId>
+			<version>1.0.5</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/pnapi-java-1.0.5.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>PLATZHALTER</groupId>
+			<artifactId>resolver</artifactId>
+			<version>0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/resolver.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>PLATZHALTER</groupId>
+			<artifactId>rpw</artifactId>
+			<version>0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/rpw.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>PLATZHALTER</groupId>
+			<artifactId>rpw-lkb</artifactId>
+			<version>0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/rpw-lkb.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>PLATZHALTER</groupId>
+			<artifactId>serializer</artifactId>
+			<version>0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/serializer.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>PLATZHALTER</groupId>
+			<artifactId>uma</artifactId>
+			<version>1.2.4</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/uma-1.2.4.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>PLATZHALTER</groupId>
+			<artifactId>xalan</artifactId>
+			<version>0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/xalan.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>PLATZHALTER</groupId>
+			<artifactId>xercesImpl</artifactId>
+			<version>0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/xercesImpl.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>PLATZHALTER</groupId>
+			<artifactId>xml-apis</artifactId>
+			<version>0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/xml-apis.jar</systemPath>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -58,6 +156,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<includeSystemScope>true</includeSystemScope>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
