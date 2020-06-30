@@ -18,6 +18,9 @@ pipeline {
             }
         }
         stage('deploy jar') {
+            environment {
+                MVN_SET = credentials('nexus-credentials')
+            }
             agent {
                 docker {
                     image 'maven:3.6.3-jdk-11'
@@ -25,7 +28,7 @@ pipeline {
                 }
             }
             steps {
-                sh "mvn -s ${MVN_SET} deploy -Dmaven.test.skip=true"
+                sh 'mvn -s $MVN_SET deploy -Dmaven.test.skip=true'
             }
         }
         stage('build docker') {
