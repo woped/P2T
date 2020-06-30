@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>de.dhbw.woped</groupId>
 	<artifactId>WoPeD-Process2Text</artifactId>
-	<version>3.7.1-SNAPSHOT</version>
+	<version>3.7.1</version>
 	<name>WoPeD-Process2Text</name>
 	<description>WoPed webservice p2t</description>
 
