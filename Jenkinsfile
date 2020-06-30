@@ -1,7 +1,7 @@
 pipeline {
     environment {
         MVN_SET = credentials('nexus-credentials')
-        VERSION = getVersion()
+        //VERSION = getVersion()
     }
     agent any
     /*
@@ -24,7 +24,7 @@ pipeline {
             steps {
                 script {
                     node {
-                        docker.build("p2t:${version}")
+                        docker.build("p2t:3.7.1")
                     }
                 }
             }
