@@ -3,7 +3,7 @@ pipeline {
         MVN_SET = credentials('nexus-credentials')
         VERSION = getVersion()
     }
-    agent none
+    agent any
     /*
     agent {
         docker {
