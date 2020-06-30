@@ -18,7 +18,9 @@ pipeline {
         }
         stage('build docker') {
             steps {
-                sh "docker build -t p2t:$version ."
+                node {
+                    def image = docker.build("p2t:$version")
+                }
             }
         }
     }
