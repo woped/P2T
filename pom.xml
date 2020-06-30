@@ -19,10 +19,10 @@
 	</properties>
 
 	<distributionManagement>
-		<snapshotRepository>
+		<repository>
 			<id>nexus-snapshots</id>
 			<url>http://vesta.dh-karlsruhe.de/nexus/repository/maven-snapshots/</url>
-		</snapshotRepository>
+		</repository>
 	</distributionManagement>
 
 	<dependencies>
