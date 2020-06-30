@@ -18,7 +18,9 @@ pipeline {
         }
         stage('build docker') {
             steps {
-                docker.build("p2t:$version")
+                script {
+                    docker.build("p2t:$version")
+                }
             }
         }
     }
