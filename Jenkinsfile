@@ -17,8 +17,8 @@ pipeline {
         }
         stage('build docker') {
             steps {
-                def pom = readMavenPom file: 'pom.xml'
-                def version = pom.version
+                pom = readMavenPom file: 'pom.xml'
+                version = pom.version
                 sh "docker build -t p2t:$version ."
             }
         }
