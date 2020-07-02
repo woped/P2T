@@ -39,6 +39,12 @@ pipeline {
                             dockerImage.push();
                         }
                     }
+                    node {
+                        docker.withRegistry('https/hub.docker/woped', 'docker-hub') {
+                            def dockerImage = docker.build("proces2text:$DOCKER_VERSION")
+                            dockerImage.push();
+                        }
+                    }
                 }
             }
         }
