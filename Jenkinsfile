@@ -43,7 +43,7 @@ pipeline {
                     */
                     node {
                         docker.withRegistry('https://registry.hub.docker.com/v1/repositories/woped', 'docker-hub') {
-                            def dockerImage = docker.build("woped/proces2text:$DOCKER_VERSION")
+                            def dockerImage = docker.build("woped/procces2text:$DOCKER_VERSION")
                             dockerImage.push();
                         }
                     }
