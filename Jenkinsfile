@@ -33,14 +33,16 @@ pipeline {
         stage('build docker') {
             steps {
                 script {
+                    /*
                     node {
                         docker.withRegistry('http://localhost:5000/repository/WoPeD', 'nexus-docker-registry') {
                             def dockerImage = docker.build("p2t:$DOCKER_VERSION")
                             dockerImage.push();
                         }
                     }
+                    */
                     node {
-                        docker.withRegistry('https/hub.docker/woped', 'docker-hub') {
+                        docker.withRegistry('https://registry.hub.docker.com/v1/repositories/woped', 'docker-hub') {
                             def dockerImage = docker.build("proces2text:$DOCKER_VERSION")
                             dockerImage.push();
                         }
