@@ -25,7 +25,7 @@ public class P2TServlet extends HttpServlet{
         return control.generateText(text);
     }
 
-    @RequestMapping(value = "/p2t", method = RequestMethod.POST, consumes = "text/plain", produces = "text/plain")
+    @RequestMapping(value = "/generateText", method = RequestMethod.POST, consumes = "text/plain", produces = "text/plain")
     protected String doPost(@RequestBody String body) {
         String text = body;
         log.debug(body);
