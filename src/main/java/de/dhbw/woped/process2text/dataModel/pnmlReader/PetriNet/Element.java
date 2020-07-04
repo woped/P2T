@@ -7,14 +7,16 @@ public abstract class Element {
     private String role;
     private String group;
     private String type;
+    private String trigger;
 
 
-    public Element(String id, String label, String role, String group, String type) {
+    public Element(String id, String label, String role, String group, String type, String trigger) {
         this.id = id;
         this.label = label;
         this.role = role;
         this.group = group;
         this.type = type;
+        this.trigger = trigger;
     }
 
     public String getLabel() {
@@ -51,5 +53,12 @@ public abstract class Element {
 
     public String getType() {
         return type;
+    }
+
+    public void setTrigger(String trigger){
+        this.trigger = trigger;
+    }
+    public String getTrigger(){
+        return trigger;
     }
 }

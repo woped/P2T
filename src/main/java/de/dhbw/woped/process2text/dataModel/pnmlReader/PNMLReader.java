@@ -48,7 +48,7 @@ public class PNMLReader {
             //Hashmap to check for existing arcs
             HashMap<String, Arc> arcs = petriNet.getArcs();
             while(arcs.keySet().contains(id)) {
-                    id = id + "_exists";
+                id = id + "_exists";
             }
 
             petriNet.addArc(new Arc(id, source, target));
@@ -57,6 +57,7 @@ public class PNMLReader {
 
     public static String role;
     public static String group;
+    public static String trigger;
 
     private static void extractElements(Document doc, String type, PetriNet petriNet) {
         NodeList list = doc.getElementsByTagName(type);
@@ -68,7 +69,7 @@ public class PNMLReader {
             String operatortype = "none";
             role = "none";
             group = "none";
-
+            trigger = "none";
             //-------- CHECK FOR OPERATOR TYPE---------------
             for (int o = 0; o < fstNodeElems.getLength(); o++) {
                 Node n1 = fstNodeElems.item(o);
@@ -97,6 +98,10 @@ public class PNMLReader {
                             role = n2Elem.getAttribute("roleName");
                             group = n2Elem.getAttribute("organizationalUnitName");
                         }
+                        if (n2.getNodeName().equals("trigger")) {
+                            Element n2Elem = (Element) n2;
+                            trigger = n2Elem.getAttribute("type");
+                        }
                     }
                 }
             }
@@ -111,7 +116,7 @@ public class PNMLReader {
                             if (type.equals("place")) {
                                 petriNet.addElements(new Place(id, thdNode.getTextContent()));
                             } else {
-                                petriNet.addElements(new Transition(id, thdNode.getTextContent(), role, group, operatortype));
+                                petriNet.addElements(new Transition(id, thdNode.getTextContent(), role, group, operatortype, trigger));
                             }
                         }
                     }
