@@ -13,7 +13,6 @@ public class DiscourseMarker {
     private final ArrayList<String> SEQ_CONNECTIVES = new ArrayList<String>() {{
         add("afterwards");
         add("subsequently");
-        add("after");
         add("next");
         add("latterly");
         add("thereafter");
