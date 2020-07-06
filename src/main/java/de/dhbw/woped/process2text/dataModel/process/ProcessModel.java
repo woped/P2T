@@ -6,6 +6,7 @@ import de.dhbw.woped.process2text.contentDetermination.labelAnalysis.EnglishLabe
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class ProcessModel {
     private final HashMap<Integer, de.dhbw.woped.process2text.dataModel.process.Arc> arcs;
@@ -199,4 +200,15 @@ public class ProcessModel {
         lanes.add(temp);
     }
 
-}
+    public void deleteArc( de.dhbw.woped.process2text.dataModel.process.Arc arc) {
+        for (Map.Entry entry : arcs.entrySet()) {
+            de.dhbw.woped.process2text.dataModel.process.Arc a = (de.dhbw.woped.process2text.dataModel.process.Arc) entry.getValue();
+            if (a == arc) {
+                arcs.remove(entry.getKey());
+                break;
+            }
+        }
+    }
+
+
+    }
