@@ -1,6 +1,7 @@
 package de.dhbw.woped.process2text.textPlanning;
 
 
+import de.dhbw.woped.process2text.dataModel.process.ProcessModel;
 import de.hpi.bpt.graph.algo.rpst.RPST;
 import de.hpi.bpt.graph.algo.rpst.RPSTNode;
 import de.hpi.bpt.process.ControlFlow;
@@ -13,7 +14,6 @@ import de.dhbw.woped.process2text.dataModel.dsynt.DSynTSentence;
 import de.dhbw.woped.process2text.dataModel.intermediate.AbstractFragment;
 import de.dhbw.woped.process2text.dataModel.intermediate.ConditionFragment;
 import de.dhbw.woped.process2text.dataModel.intermediate.ExecutableFragment;
-import de.dhbw.woped.process2text.dataModel.process.ProcessModel;
 import de.dhbw.woped.process2text.textPlanning.recordClasses.ConverterRecord;
 import de.dhbw.woped.process2text.textPlanning.recordClasses.ModifierRecord;
 
@@ -22,14 +22,14 @@ import java.util.HashMap;
 
 class TextToIntermediateConverter {
     private final RPST<ControlFlow, Node> rpst;
-    private final de.dhbw.woped.process2text.dataModel.process.ProcessModel process;
     private final de.dhbw.woped.process2text.contentDetermination.labelAnalysis.EnglishLabelHelper lHelper;
     private final boolean imperative;
     private final String imperativeRole;
+    private final ProcessModel process;
 
-    TextToIntermediateConverter(RPST<ControlFlow, Node> rpst, ProcessModel process, EnglishLabelHelper lHelper, String imperativeRole, boolean imperative) {
+    TextToIntermediateConverter(RPST<ControlFlow, Node> rpst, ProcessModel p, EnglishLabelHelper lHelper, String imperativeRole, boolean imperative) {
         this.rpst = rpst;
-        this.process = process;
+        this.process = p;
         this.lHelper = lHelper;
         this.imperative = imperative;
         this.imperativeRole = imperativeRole;

@@ -1,17 +1,15 @@
 package de.dhbw.woped.process2text.contentDetermination.preprocessing;
 
-import de.hpi.bpt.process.*;
-import de.dhbw.woped.process2text.dataModel.process.Arc;
 import de.dhbw.woped.process2text.dataModel.process.Element;
+import de.dhbw.woped.process2text.dataModel.process.Activity;
 import de.dhbw.woped.process2text.dataModel.process.ProcessModel;
 import de.hpi.bpt.process.ControlFlow;
-import de.hpi.bpt.process.Event;
 import de.hpi.bpt.process.Gateway;
 import de.hpi.bpt.process.GatewayType;
 import de.hpi.bpt.process.Node;
+import de.hpi.bpt.process.Event;
 import de.hpi.bpt.process.Process;
 import de.hpi.bpt.process.Task;
-
 
 import java.util.HashMap;
 
@@ -35,7 +33,7 @@ public class FormatConverter {
 				Element elem = converterMap.get(id);
 
 				if (elem.getClass().toString().endsWith("Activity")) {
-					de.dhbw.woped.process2text.dataModel.process.Activity a = (de.dhbw.woped.process2text.dataModel.process.Activity) elem;
+					Activity a = (Activity) elem;
 					pm.addActivity(a);
 					idMap.put(t.getId(), a.getId());
 					elemMap.put(a.getId(), a);
@@ -87,7 +85,7 @@ public class FormatConverter {
 		for (ControlFlow f: p.getControlFlow()) {
 			Element source = elemMap.get(idMap.get(f.getSource().getId()));
 			Element target = elemMap.get(idMap.get(f.getTarget().getId()));
-			de.dhbw.woped.process2text.dataModel.process.Arc arc = new Arc(getId(), f.getName(), source , target);
+			de.dhbw.woped.process2text.dataModel.process.Arc arc = new de.dhbw.woped.process2text.dataModel.process.Arc(getId(), f.getName(), source , target);
 			pm.addArc(arc);
 		}
 		return pm;
@@ -96,13 +94,13 @@ public class FormatConverter {
 	/**
 	 * Transforms ProcessModel format to HPI Process Format (writes IDs to labels in order to save the information)
 	 */
-	public Process transformToRigidFormat(de.dhbw.woped.process2text.dataModel.process.ProcessModel pm) {
+	public Process transformToRigidFormat(ProcessModel pm) {
 		Process p = new Process();
 		converterMap = new HashMap<>();
 		HashMap <Integer, Node> elementMap = new HashMap<>();
 
 		// Transform activities
-		for (de.dhbw.woped.process2text.dataModel.process.Activity a: pm.getActivites().values()) {
+		for (Activity a: pm.getActivites().values()) {
 			Task t = new Task(Integer.toString(a.getId()));
 			elementMap.put(a.getId(), t);
 			converterMap.put(a.getId(),a);
@@ -149,12 +147,12 @@ public class FormatConverter {
 	/**
 	 * Transforms given ProcessModel to HPI format
 	 */
-	public Process transformToRPSTFormat(de.dhbw.woped.process2text.dataModel.process.ProcessModel pm) {
+	public Process transformToRPSTFormat(ProcessModel pm) {
 		Process p = new Process();
 		HashMap <Integer, Node> elementMap = new HashMap<>();
 
 		// Transform activities
-		for (de.dhbw.woped.process2text.dataModel.process.Activity a: pm.getActivites().values()) {
+		for (Activity a: pm.getActivites().values()) {
 			Task t = new Task(a.getLabel());
 			t.setId(Integer.toString(a.getId()));
 			// if (a.getType() == ActivityType.TYPE_MAP.get("Subprocess")) t.setDescription("sub");

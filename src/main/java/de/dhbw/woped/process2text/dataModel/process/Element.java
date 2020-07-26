@@ -3,17 +3,17 @@ package de.dhbw.woped.process2text.dataModel.process;
 public abstract class Element {
     private final int id;
     private final String label;
-    private final de.dhbw.woped.process2text.dataModel.process.Lane lane;
-    private final de.dhbw.woped.process2text.dataModel.process.Pool pool;
+    private final Lane lane;
+    private final Pool pool;
 
-    Element(int id, String label, de.dhbw.woped.process2text.dataModel.process.Lane lane, de.dhbw.woped.process2text.dataModel.process.Pool pool) {
+    Element(int id, String label, Lane lane, Pool pool) {
         this.id = id;
         this.label = label;
         this.lane = lane;
         this.pool = pool;
     }
 
-    public de.dhbw.woped.process2text.dataModel.process.Pool getPool() {
+    public Pool getPool() {
         return pool;
     }
 
@@ -25,7 +25,7 @@ public abstract class Element {
         return label;
     }
 
-    public de.dhbw.woped.process2text.dataModel.process.Lane getLane() {
+    public Lane getLane() {
         return lane;
     }
 }

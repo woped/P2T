@@ -6,8 +6,6 @@ import de.hpi.bpt.process.ControlFlow;
 import de.hpi.bpt.process.Event;
 import de.hpi.bpt.process.Gateway;
 import de.hpi.bpt.process.Node;
-import de.dhbw.woped.process2text.dataModel.process.EventType;
-import de.dhbw.woped.process2text.dataModel.process.ProcessModel;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -250,10 +248,10 @@ public class PlanningHelper {
     /**
      * Decides whether considered event is an end event
      */
-    static boolean isEndEvent(Object o, ProcessModel process) {
+    static boolean isEndEvent(Object o, de.dhbw.woped.process2text.dataModel.process.ProcessModel process) {
         if (o.getClass().toString().equals("class de.hpi.bpt.process.Event")) {
             de.dhbw.woped.process2text.dataModel.process.Event event = process.getEvents().get(Integer.valueOf(((Event) o).getId()));
-            return event.getType() == EventType.END_EVENT;
+            return event.getType() == de.dhbw.woped.process2text.dataModel.process.EventType.END_EVENT;
         }
         return false;
     }

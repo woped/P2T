@@ -1,9 +1,10 @@
 package de.dhbw.woped.process2text.dataModel.pnmlReader;
 
-import dataModel.process.*;
+import dataModel.process.ActivityType;
+import de.dhbw.woped.process2text.dataModel.pnmlReader.PetriNet.Element;
 import de.dhbw.woped.process2text.dataModel.pnmlReader.PetriNet.PetriNet;
-import de.dhbw.woped.process2text.dataModel.process.Arc;
-import de.dhbw.woped.process2text.dataModel.process.Element;
+import de.dhbw.woped.process2text.dataModel.process.*;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,11 +25,11 @@ public class PetriNetToProcessConverter {
     String types[] = new String[100];
     private ArrayList<String> joinSplitWords = new ArrayList<String>();
 
-    public de.dhbw.woped.process2text.dataModel.process.ProcessModel convertToProcess(PetriNet petriNet) {
+    public ProcessModel convertToProcess(PetriNet petriNet) {
 
-        de.dhbw.woped.process2text.dataModel.process.ProcessModel model = new de.dhbw.woped.process2text.dataModel.process.ProcessModel();
-        de.dhbw.woped.process2text.dataModel.process.Pool pool = new de.dhbw.woped.process2text.dataModel.process.Pool("");
-        de.dhbw.woped.process2text.dataModel.process.Lane lane = new de.dhbw.woped.process2text.dataModel.process.Lane("", pool.toString());
+        ProcessModel model = new ProcessModel();
+        Pool pool = new Pool("");
+        Lane lane = new Lane("", pool.toString());
         model.addPool("");
         model.addLane("");
 
@@ -44,7 +45,7 @@ public class PetriNetToProcessConverter {
         transformedElems = new HashMap<>();
         transformedElemsRev = new HashMap<>();
 
-        de.dhbw.woped.process2text.dataModel.pnmlReader.PetriNet.Element startElem = petriNet.getElements().get(petriNet.getStartPlace());
+        Element startElem = petriNet.getElements().get(petriNet.getStartPlace());
         transformElem(startElem, -1, petriNet, model, pool, lane);
         return model;
     }
@@ -54,7 +55,7 @@ public class PetriNetToProcessConverter {
     private static String xorTitle;
     //private static String andTitle;
 
-    private void transformElem(de.dhbw.woped.process2text.dataModel.pnmlReader.PetriNet.Element elem, int precElem, PetriNet petriNet, de.dhbw.woped.process2text.dataModel.process.ProcessModel model, de.dhbw.woped.process2text.dataModel.process.Pool pool, de.dhbw.woped.process2text.dataModel.process.Lane lane) {
+    private void transformElem(Element elem, int precElem, PetriNet petriNet, ProcessModel model, Pool pool, Lane lane) {
         // Id of current petri net element
         String elemId = elem.getId();
         String elemType = "";
@@ -70,17 +71,17 @@ public class PetriNetToProcessConverter {
                     loopSet[x] = elemId + ": simple place, no ougoing arc";
                     x++;
                     int newActivityId = model.getNewId();
-                    model.addActivity(new de.dhbw.woped.process2text.dataModel.process.Activity(newActivityId, "complete process", null, null, ActivityType.NONE));
+                    model.addActivity(new Activity(newActivityId, "complete process", null, null, ActivityType.NONE));
                     transformedElems.put( elemId +"_End", newActivityId);
                     transformedElemsRev.put(newActivityId, elemId + "_End");
                     if (precElem != -1) {
-                        model.addArc(new de.dhbw.woped.process2text.dataModel.process.Arc(model.getNewId(), "", model.getElem(precElem), model.getElem(newActivityId)));
+                        model.addArc(new Arc(model.getNewId(), "", model.getElem(precElem), model.getElem(newActivityId)));
                     }
                     int newId = model.getNewId();
-                    model.addGateway(new de.dhbw.woped.process2text.dataModel.process.Gateway(newId, "", lane, pool,de.dhbw.woped.process2text.dataModel.process.GatewayType.XOR));
+                    model.addGateway(new Gateway(newId, "", lane, pool, GatewayType.XOR));
                     transformedElems.put(elemId, newId);
                     transformedElemsRev.put(newId, elemId);
-                    model.addArc(new de.dhbw.woped.process2text.dataModel.process.Arc(model.getNewId(), "", model.getElem(newActivityId), model.getElem(newId)));
+                    model.addArc(new Arc(model.getNewId(), "", model.getElem(newActivityId), model.getElem(newId)));
                 }
 
                 // Simple place with 1 incoming and one outgoing arc
@@ -98,11 +99,11 @@ public class PetriNetToProcessConverter {
                     x++;
                     // Create new element
                     int newId = model.getNewId();
-                    model.addGateway(new de.dhbw.woped.process2text.dataModel.process.Gateway(newId, "", lane, pool, de.dhbw.woped.process2text.dataModel.process.GatewayType.XOR));
+                    model.addGateway(new Gateway(newId, "", lane, pool, GatewayType.XOR));
                     transformedElems.put(elemId, newId);
                     transformedElemsRev.put(newId, elemId);
                     if (precElem != -1) {
-                        model.addArc(new de.dhbw.woped.process2text.dataModel.process.Arc(model.getNewId(), "", model.getElem(precElem), model.getElem(newId)));
+                        model.addArc(new Arc(model.getNewId(), "", model.getElem(precElem), model.getElem(newId)));
                     }
 
                     //if it is 0, there is no successor ...
@@ -113,8 +114,8 @@ public class PetriNetToProcessConverter {
                     } else {
                         //PetriNet ends with a XOR-Join
                         int newId3 = model.getNewId();
-                        model.addGateway(new de.dhbw.woped.process2text.dataModel.process.Gateway(newId3, "", lane, pool, de.dhbw.woped.process2text.dataModel.process.GatewayType.XOR));
-                        model.addArc(new de.dhbw.woped.process2text.dataModel.process.Arc(model.getNewId(), "", model.getElem(newId), model.getElem(newId3)));
+                        model.addGateway(new Gateway(newId3, "", lane, pool, GatewayType.XOR));
+                        model.addArc(new Arc(model.getNewId(), "", model.getElem(newId), model.getElem(newId3)));
 
                     }
                 }
@@ -142,27 +143,27 @@ public class PetriNetToProcessConverter {
                         xorTitle = label;
                         //Add Activity
                         int newId = model.getNewId();
-                        model.addActivity(new de.dhbw.woped.process2text.dataModel.process.Activity(newId, label, null, null, ActivityType.NONE));
+                        model.addActivity(new Activity(newId, label, null, null, ActivityType.NONE));
                         if (precElem != -1) {
                             // falls der momentane Place bereits exisitiert
                             if(transformedElems.keySet().contains(elemId)){
                                 int placeId = transformedElems.get(elemId);
 
-                                Element source = model.getElem(placeId);
-                                ArrayList<de.dhbw.woped.process2text.dataModel.process.Arc> arcs = getArcWithSource(source,model);
+                                de.dhbw.woped.process2text.dataModel.process.Element source = model.getElem(placeId);
+                                ArrayList<Arc> arcs = getArcWithSource(source,model);
 
                                 model.deleteArc(arcs.get(0));
-                                model.addArc(new de.dhbw.woped.process2text.dataModel.process.Arc(model.getNewId(), "", model.getElem(placeId), model.getElem(newId)));
+                                model.addArc(new Arc(model.getNewId(), "", model.getElem(placeId), model.getElem(newId)));
                             }else {
-                                model.addArc(new de.dhbw.woped.process2text.dataModel.process.Arc(model.getNewId(), "", model.getElem(precElem), model.getElem(newId)));
+                                model.addArc(new Arc(model.getNewId(), "", model.getElem(precElem), model.getElem(newId)));
                             }
                         }
                         // Add Gateway
                         int newId2 = model.getNewId();
-                        model.addGateway(new de.dhbw.woped.process2text.dataModel.process.Gateway(newId2, "", lane, pool,de.dhbw.woped.process2text.dataModel.process.GatewayType.XOR));
+                        model.addGateway(new Gateway(newId2, "", lane, pool,GatewayType.XOR));
                         transformedElems.put(elemId, newId2);
                         transformedElemsRev.put(newId2, elemId);
-                        model.addArc(new de.dhbw.woped.process2text.dataModel.process.Arc(model.getNewId(), "", model.getElem(newId), model.getElem(newId2)));
+                        model.addArc(new Arc(model.getNewId(), "", model.getElem(newId), model.getElem(newId2)));
 
                         // Recursively go through the model
                         for (String suc : petriNet.getSuccessor(elemId)) {
@@ -173,11 +174,11 @@ public class PetriNetToProcessConverter {
                         //Normal XOR --> without WoPeD XOR
                         // Create new element
                         int newId = model.getNewId();
-                        model.addGateway(new de.dhbw.woped.process2text.dataModel.process.Gateway(newId, "", lane, pool, de.dhbw.woped.process2text.dataModel.process.GatewayType.XOR));
+                        model.addGateway(new Gateway(newId, "", lane, pool, GatewayType.XOR));
                         transformedElems.put(elemId, newId);
                         transformedElemsRev.put(newId, elemId);
                         if (precElem != -1) {
-                            model.addArc(new de.dhbw.woped.process2text.dataModel.process.Arc(model.getNewId(), "", model.getElem(precElem), model.getElem(newId)));
+                            model.addArc(new Arc(model.getNewId(), "", model.getElem(precElem), model.getElem(newId)));
                         }
                         // Recursively go through the model
                         for (String suc : petriNet.getSuccessor(elemId)) {
@@ -197,8 +198,8 @@ public class PetriNetToProcessConverter {
                     x++;
 
                     //Role in Text --> Role in Petrinet = Lane in BPMN
-                    de.dhbw.woped.process2text.dataModel.process.Pool groupAsPool = new de.dhbw.woped.process2text.dataModel.process.Pool(elem.getGroup());
-                    de.dhbw.woped.process2text.dataModel.process.Lane roleAsLane = new de.dhbw.woped.process2text.dataModel.process.Lane(elem.getRole(), elem.getGroup());
+                    Pool groupAsPool = new Pool(elem.getGroup());
+                    Lane roleAsLane = new Lane(elem.getRole(), elem.getGroup());
 
                     if (elem.getRole().equals("none")) {
                         groupAsPool = null;
@@ -220,11 +221,11 @@ public class PetriNetToProcessConverter {
                         if(xorTitle == null){
                             xorTitle = "";
                         }
-                        model.addActivity(new de.dhbw.woped.process2text.dataModel.process.Activity(newId, xorTitle + " " + label2, roleAsLane, groupAsPool, ActivityType.NONE));
+                        model.addActivity(new Activity(newId, xorTitle + " " + label2, roleAsLane, groupAsPool, ActivityType.NONE));
                         transformedElems.put(elemId, newId);
                         transformedElemsRev.put(newId, elemId);
                         if (precElem != -1) {
-                            model.addArc(new de.dhbw.woped.process2text.dataModel.process.Arc(model.getNewId(), "", model.getElem(precElem), model.getElem(newId)));
+                            model.addArc(new Arc(model.getNewId(), "", model.getElem(precElem), model.getElem(newId)));
                         }
 
                         // Recursively go through the model
@@ -236,10 +237,10 @@ public class PetriNetToProcessConverter {
                         //Get Label from Successor --> XOR Label
 
                         int newActivityId = model.getNewId();
-                        model.addActivity(new de.dhbw.woped.process2text.dataModel.process.Activity(newActivityId, "finish branch", null, null, ActivityType.NONE));
+                        model.addActivity(new Activity(newActivityId, "finish branch", null, null, ActivityType.NONE));
                         transformedElems.put(elemId, newActivityId);
                         transformedElemsRev.put(newActivityId, elemId);
-                        model.addArc(new de.dhbw.woped.process2text.dataModel.process.Arc(model.getNewId(), "", model.getElem(precElem), model.getElem(newActivityId)));
+                        model.addArc(new Arc(model.getNewId(), "", model.getElem(precElem), model.getElem(newActivityId)));
 
 
                         int XORId = getXORJoinID(elemId, model);
@@ -251,32 +252,32 @@ public class PetriNetToProcessConverter {
 
 
                             int newXorId = model.getNewId();
-                            model.addGateway(new de.dhbw.woped.process2text.dataModel.process.Gateway(newXorId, XorId, lane, pool, de.dhbw.woped.process2text.dataModel.process.GatewayType.XOR));
+                            model.addGateway(new Gateway(newXorId, XorId, lane, pool, GatewayType.XOR));
                             transformedElems.put(elemId, newXorId);
                             transformedElemsRev.put(newXorId, elemId);
-                            model.addArc(new de.dhbw.woped.process2text.dataModel.process.Arc(model.getNewId(), "", model.getElem(newActivityId), model.getElem(newXorId)));
+                            model.addArc(new Arc(model.getNewId(), "", model.getElem(newActivityId), model.getElem(newXorId)));
 
                             // Activtiy erstellen welches das XOR-Join label darstellt und das mit Gateway verbinden
                             newActivityId = model.getNewId();
-                            model.addActivity(new de.dhbw.woped.process2text.dataModel.process.Activity(newActivityId, elem.getLabel(), null, null, ActivityType.NONE));
+                            model.addActivity(new Activity(newActivityId, elem.getLabel(), null, null, ActivityType.NONE));
                             transformedElems.put(elemId, newActivityId);
                             transformedElemsRev.put(newActivityId, elemId);
-                            model.addArc(new de.dhbw.woped.process2text.dataModel.process.Arc(model.getNewId(), "", model.getElem(newXorId), model.getElem(newActivityId)));
+                            model.addArc(new Arc(model.getNewId(), "", model.getElem(newXorId), model.getElem(newActivityId)));
 
                         } else {
                             //vorheriges Element mit dem GatewayID verbinden
-                            model.addArc(new de.dhbw.woped.process2text.dataModel.process.Arc(model.getNewId(), "", model.getElem(newActivityId), model.getElem(XORId)));
+                            model.addArc(new Arc(model.getNewId(), "", model.getElem(newActivityId), model.getElem(XORId)));
                         }
 
 
                         String activityLabel = elem.getLabel();
-                        HashMap<Integer, de.dhbw.woped.process2text.dataModel.process.Activity> activityHashMap = model.getActivites();
+                        HashMap<Integer, Activity> activityHashMap = model.getActivites();
                         Iterator it = activityHashMap.entrySet().iterator();
 
                         int activityId = 0;
                         while (it.hasNext()) {
                             Map.Entry element = (Map.Entry) it.next();
-                            de.dhbw.woped.process2text.dataModel.process.Activity g = (de.dhbw.woped.process2text.dataModel.process.Activity) element.getValue();
+                            Activity g = (Activity) element.getValue();
                             String label = g.getLabel();
                             if (activityLabel.equals(label)) {
                                 activityId = g.getId();
@@ -294,11 +295,11 @@ public class PetriNetToProcessConverter {
                         int newId = model.getNewId();
                         String label = elem.getLabel();
                         int type = elem.getId().contains("sub") ? ActivityType.TYPE_MAP.get("Subprocess") : ActivityType.NONE;
-                        model.addActivity(new de.dhbw.woped.process2text.dataModel.process.Activity(newId, label, roleAsLane, groupAsPool, type));
+                        model.addActivity(new Activity(newId, label, roleAsLane, groupAsPool, type));
                         transformedElems.put(elemId, newId);
                         transformedElemsRev.put(newId, elemId);
                         if (precElem != -1) {
-                            model.addArc(new de.dhbw.woped.process2text.dataModel.process.Arc(model.getNewId(), "", model.getElem(precElem), model.getElem(newId)));
+                            model.addArc(new Arc(model.getNewId(), "", model.getElem(precElem), model.getElem(newId)));
                         }
 
                         // Recursively go through the model
@@ -315,18 +316,18 @@ public class PetriNetToProcessConverter {
                     String label = elem.getLabel();
                     // Create new element
                     int newId = model.getNewId();
-                    model.addGateway(new de.dhbw.woped.process2text.dataModel.process.Gateway(newId, "", lane, pool, de.dhbw.woped.process2text.dataModel.process.GatewayType.AND));
+                    model.addGateway(new Gateway(newId, "", lane, pool, GatewayType.AND));
                     transformedElems.put(elemId, newId);
                     transformedElemsRev.put(newId, elemId);
                     if (precElem != -1) {
-                        model.addArc(new de.dhbw.woped.process2text.dataModel.process.Arc(model.getNewId(), "", model.getElem(precElem), model.getElem(newId)));
+                        model.addArc(new Arc(model.getNewId(), "", model.getElem(precElem), model.getElem(newId)));
                     }
                     if(!(joinSplitWords.contains(label) || label.matches("([a-z]+)\\d+") || label.equals("")) || elem.getTrigger().equals("200")){
                         int newActivityId = model.getNewId();
-                        model.addActivity(new de.dhbw.woped.process2text.dataModel.process.Activity(newActivityId, label, null, null, ActivityType.NONE));
+                        model.addActivity(new Activity(newActivityId, label, null, null, ActivityType.NONE));
                         transformedElems.put(elemId + "_AndLabel", newActivityId);
                         transformedElemsRev.put(newActivityId, elemId + "_AndLabel");
-                        model.addArc(new de.dhbw.woped.process2text.dataModel.process.Arc(model.getNewId(), "", model.getElem(newId), model.getElem(newActivityId)));
+                        model.addArc(new Arc(model.getNewId(), "", model.getElem(newId), model.getElem(newActivityId)));
                         // Recursively go through the model
                         String suc = petriNet.getSuccessor(elemId).get(0);
                         transformElem(petriNet.getElements().get(suc), newActivityId, petriNet, model, pool, lane);
@@ -347,18 +348,18 @@ public class PetriNetToProcessConverter {
                     String label = elem.getLabel();
                     if(!(label.equals("split") || label.equals("divide") || label.equals("fork") || label.equals("clone") || label.matches("([a-z]+)\\d+") || label.equals("")) || elem.getTrigger().equals("200")) {
                         int newActivityId = model.getNewId();
-                        model.addActivity(new de.dhbw.woped.process2text.dataModel.process.Activity(newActivityId, label, null, null, ActivityType.NONE));
+                        model.addActivity(new Activity(newActivityId, label, null, null, ActivityType.NONE));
                         transformedElems.put(elemId + "_AndLabel", newActivityId);
                         transformedElemsRev.put(newActivityId, elemId + "_AndLabel");
                         if (precElem != -1) {
-                            model.addArc(new de.dhbw.woped.process2text.dataModel.process.Arc(model.getNewId(), "", model.getElem(precElem), model.getElem(newActivityId)));
+                            model.addArc(new Arc(model.getNewId(), "", model.getElem(precElem), model.getElem(newActivityId)));
                         }
                         // Create new element
                         int newId = model.getNewId();
-                        model.addGateway(new de.dhbw.woped.process2text.dataModel.process.Gateway(newId, label, lane, pool, de.dhbw.woped.process2text.dataModel.process.GatewayType.AND));
+                        model.addGateway(new Gateway(newId, label, lane, pool, GatewayType.AND));
                         transformedElems.put(elemId, newId);
                         transformedElemsRev.put(newId, elemId);
-                        model.addArc(new de.dhbw.woped.process2text.dataModel.process.Arc(model.getNewId(), "", model.getElem(newActivityId), model.getElem(newId)));
+                        model.addArc(new Arc(model.getNewId(), "", model.getElem(newActivityId), model.getElem(newId)));
                         // Recursively go through the model
                         for (String suc : petriNet.getSuccessor(elemId)) {
                             transformElem(petriNet.getElements().get(suc), newId, petriNet, model, pool, lane);
@@ -366,11 +367,11 @@ public class PetriNetToProcessConverter {
                     }else{
                         // Create new element
                         int newId = model.getNewId();
-                        model.addGateway(new de.dhbw.woped.process2text.dataModel.process.Gateway(newId, label, lane, pool, de.dhbw.woped.process2text.dataModel.process.GatewayType.AND));
+                        model.addGateway(new Gateway(newId, label, lane, pool, GatewayType.AND));
                         transformedElems.put(elemId, newId);
                         transformedElemsRev.put(newId, elemId);
                         if (precElem != -1) {
-                            model.addArc(new de.dhbw.woped.process2text.dataModel.process.Arc(model.getNewId(), "", model.getElem(precElem), model.getElem(newId)));
+                            model.addArc(new Arc(model.getNewId(), "", model.getElem(precElem), model.getElem(newId)));
                         }
                         // Recursively go through the model
                         for (String suc : petriNet.getSuccessor(elemId)) {
@@ -385,20 +386,21 @@ public class PetriNetToProcessConverter {
 
     }
 
-    private int getXORJoinID(String elementId, de.dhbw.woped.process2text.dataModel.process.ProcessModel model){
+    private int getXORJoinID(String elementId, ProcessModel model){
         int indexOfChar=elementId.indexOf("_");
         String start =elementId.substring(0,indexOfChar);
 
         String startXor = start + "_XOR";
 
-        HashMap<Integer, de.dhbw.woped.process2text.dataModel.process.Gateway> gatewayHashMap = model.getGateways();
+        HashMap<Integer, Gateway> gatewayHashMap = model.getGateways();
 
         Iterator it = gatewayHashMap.entrySet().iterator();
 
         int id = 0;
         while(it.hasNext()){
             Map.Entry element = (Map.Entry)it.next();
-            dataModel.process.Gateway g = (dataModel.process.Gateway) element.getValue();
+            Gateway g = (Gateway) element.getValue();
+ //           dataModel.process.Gateway g = (dataModel.process.Gateway) element.getValue();
             String label = g.getLabel();
             if(label.equals(startXor)){
                 id = g.getId();
@@ -408,15 +410,15 @@ public class PetriNetToProcessConverter {
         return id;
     }
 
-    private ArrayList<de.dhbw.woped.process2text.dataModel.process.Arc> getArcWithSource(Element element, de.dhbw.woped.process2text.dataModel.process.ProcessModel model){
-        HashMap<Integer, de.dhbw.woped.process2text.dataModel.process.Arc> gatewayHashMap = model.getArcs();
+    private ArrayList<Arc> getArcWithSource(de.dhbw.woped.process2text.dataModel.process.Element element, ProcessModel model){
+        HashMap<Integer, Arc> gatewayHashMap = model.getArcs();
 
         Iterator it = gatewayHashMap.entrySet().iterator();
 
-        ArrayList<de.dhbw.woped.process2text.dataModel.process.Arc> arcs = new ArrayList<de.dhbw.woped.process2text.dataModel.process.Arc>();
+        ArrayList<Arc> arcs = new ArrayList<Arc>();
         while(it.hasNext()){
             Map.Entry mapEntry = (Map.Entry)it.next();
-            de.dhbw.woped.process2text.dataModel.process.Arc a = (de.dhbw.woped.process2text.dataModel.process.Arc) mapEntry.getValue();
+            Arc a = (Arc) mapEntry.getValue();
             if(element.equals(a.getSource())){
                 arcs.add(a);
             }

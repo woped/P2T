@@ -2,6 +2,7 @@ package de.dhbw.woped.process2text.textPlanning;
 
 
 import dataModel.process.ActivityType;
+import de.dhbw.woped.process2text.dataModel.process.ProcessModel;
 import de.hpi.bpt.graph.algo.rpst.RPST;
 import de.hpi.bpt.graph.algo.rpst.RPSTNode;
 import de.hpi.bpt.process.ControlFlow;
@@ -17,7 +18,6 @@ import de.dhbw.woped.process2text.dataModel.dsynt.DSynTSentence;
 import de.dhbw.woped.process2text.dataModel.intermediate.AbstractFragment;
 import de.dhbw.woped.process2text.dataModel.intermediate.ConditionFragment;
 import de.dhbw.woped.process2text.dataModel.intermediate.ExecutableFragment;
-import de.dhbw.woped.process2text.dataModel.process.ProcessModel;
 import de.dhbw.woped.process2text.textPlanning.recordClasses.ConverterRecord;
 import de.dhbw.woped.process2text.textPlanning.recordClasses.GatewayPropertyRecord;
 import de.dhbw.woped.process2text.textPlanning.recordClasses.ModifierRecord;
@@ -31,7 +31,7 @@ import java.util.HashMap;
 public class TextPlanner {
     private static final String[] quantifiers = {"a", "the", "all", "any", "more", "most", "none", "some", "such", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"};
     private final RPST<ControlFlow, Node> rpst;
-    private final de.dhbw.woped.process2text.dataModel.process.ProcessModel process;
+    private final ProcessModel process;
     private final TextToIntermediateConverter textToIMConverter;
     private final ArrayList<ConditionFragment> passedFragments;
     private final ArrayList<ModifierRecord> passedMods; // used for Skips
@@ -46,7 +46,7 @@ public class TextPlanner {
     private boolean tagWithBullet = false;
     private boolean start = true;
 
-    public TextPlanner(RPST<ControlFlow, Node> rpst, de.dhbw.woped.process2text.dataModel.process.ProcessModel process, EnglishLabelDeriver lDeriver, EnglishLabelHelper lHelper, String imperativeRole, boolean imperative, boolean isAlternative) {
+    public TextPlanner(RPST<ControlFlow, Node> rpst, ProcessModel process, EnglishLabelDeriver lDeriver, EnglishLabelHelper lHelper, String imperativeRole, boolean imperative, boolean isAlternative) {
         this.rpst = rpst;
         this.process = process;
         this.lHelper = lHelper;
@@ -433,7 +433,7 @@ public class TextPlanner {
         // If activity has attached Events
         if (activity.hasAttachedEvents()) {
             ArrayList<Integer> attachedEvents = activity.getAttachedEvents();
-            HashMap<Integer, de.dhbw.woped.process2text.dataModel.process.ProcessModel> alternativePaths = process.getAlternativePaths();
+            HashMap<Integer, ProcessModel> alternativePaths = process.getAlternativePaths();
             for (Integer attEvent : attachedEvents) {
                 if (alternativePaths.keySet().contains(attEvent)) {
                     System.out.println("Incorporating Alternative " + attEvent);

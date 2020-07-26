@@ -1,5 +1,6 @@
 package de.dhbw.woped.process2text.textGenerator;
 
+import de.dhbw.woped.process2text.dataModel.process.ProcessModel;
 import de.hpi.bpt.graph.algo.rpst.RPST;
 import de.hpi.bpt.process.ControlFlow;
 import de.hpi.bpt.process.Node;
@@ -12,7 +13,6 @@ import de.dhbw.woped.process2text.dataModel.dsynt.DSynTSentence;
 import de.dhbw.woped.process2text.dataModel.pnmlReader.PNMLReader;
 import de.dhbw.woped.process2text.dataModel.pnmlReader.PetriNet.PetriNet;
 import de.dhbw.woped.process2text.dataModel.pnmlReader.PetriNetToProcessConverter;
-import de.dhbw.woped.process2text.dataModel.process.ProcessModel;
 import de.dhbw.woped.process2text.sentencePlanning.DiscourseMarker;
 import de.dhbw.woped.process2text.sentencePlanning.ReferringExpressionGenerator;
 import de.dhbw.woped.process2text.sentencePlanning.SentenceAggregator;

@@ -9,9 +9,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ProcessModel {
-    private final HashMap<Integer, de.dhbw.woped.process2text.dataModel.process.Arc> arcs;
-    private final HashMap<Integer, de.dhbw.woped.process2text.dataModel.process.Activity> activities;
-    private final HashMap<Integer, de.dhbw.woped.process2text.dataModel.process.Event> events;
+    private final HashMap<Integer, Arc> arcs;
+    private final HashMap<Integer, Activity> activities;
+    private final HashMap<Integer, Event> events;
     private final HashMap<Integer, Gateway> gateways;
     private final ArrayList<String> lanes;
     private final ArrayList<String> pools;
@@ -72,7 +72,7 @@ public class ProcessModel {
     }
 
     public void annotateModel(EnglishLabelDeriver lDeriver, EnglishLabelHelper lHelper) {
-        for (de.dhbw.woped.process2text.dataModel.process.Activity a : activities.values()) {
+        for (Activity a : activities.values()) {
             EnglishLabelProperties props = new EnglishLabelProperties();
             try {
                 String label = a.getLabel().toLowerCase().replaceAll("\n", " ");
@@ -154,15 +154,15 @@ public class ProcessModel {
         pools.add(temp);
     }
 
-    public void addArc(de.dhbw.woped.process2text.dataModel.process.Arc arc) {
+    public void addArc(Arc arc) {
         arcs.put(arc.getId(), arc);
     }
 
-    public void addActivity(de.dhbw.woped.process2text.dataModel.process.Activity activity) {
+    public void addActivity(Activity activity) {
         activities.put(activity.getId(), activity);
     }
 
-    public void addEvent(de.dhbw.woped.process2text.dataModel.process.Event event) {
+    public void addEvent(Event event) {
         events.put(event.getId(), event);
     }
 
@@ -170,15 +170,15 @@ public class ProcessModel {
         gateways.put(gateway.getId(), gateway);
     }
 
-    public HashMap<Integer, de.dhbw.woped.process2text.dataModel.process.Arc> getArcs() {
+    public HashMap<Integer, Arc> getArcs() {
         return arcs;
     }
 
-    public HashMap<Integer, de.dhbw.woped.process2text.dataModel.process.Activity> getActivites() {
+    public HashMap<Integer, Activity> getActivites() {
         return activities;
     }
 
-    public HashMap<Integer, de.dhbw.woped.process2text.dataModel.process.Event> getEvents() {
+    public HashMap<Integer, Event> getEvents() {
         return events;
     }
 
@@ -186,7 +186,7 @@ public class ProcessModel {
         return gateways;
     }
 
-    public de.dhbw.woped.process2text.dataModel.process.Activity getActivity(int id) {
+    public Activity getActivity(int id) {
         return activities.get(id);
     }
 
@@ -200,9 +200,9 @@ public class ProcessModel {
         lanes.add(temp);
     }
 
-    public void deleteArc( de.dhbw.woped.process2text.dataModel.process.Arc arc) {
+    public void deleteArc( Arc arc) {
         for (Map.Entry entry : arcs.entrySet()) {
-            de.dhbw.woped.process2text.dataModel.process.Arc a = (de.dhbw.woped.process2text.dataModel.process.Arc) entry.getValue();
+            Arc a = (Arc) entry.getValue();
             if (a == arc) {
                 arcs.remove(entry.getKey());
                 break;
