@@ -1,7 +1,6 @@
 package de.dhbw.woped.process2text.textPlanning;
 
 
-import dataModel.process.ActivityType;
 import de.dhbw.woped.process2text.dataModel.process.ProcessModel;
 import de.hpi.bpt.graph.algo.rpst.RPST;
 import de.hpi.bpt.graph.algo.rpst.RPSTNode;
@@ -345,7 +344,7 @@ public class TextPlanner {
         // Standard case
         eFrag = new ExecutableFragment(anno.getActions().get(0), anno.getBusinessObjects().get(0), "", anno.getAddition());
         eFrag.addAssociation(activity.getId());
-        if (activity.getType() == ActivityType.TYPE_MAP.get("Subprocess")) {
+        if (activity.getType() == de.dhbw.woped.process2text.dataModel.process.ActivityType.TYPE_MAP.get("Subprocess")) {
             eFrag.setAddition("in a subprocess");
         }
         String role = getRole(activity, eFrag);

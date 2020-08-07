@@ -1,6 +1,5 @@
 package de.dhbw.woped.process2text.dataModel.pnmlReader;
 
-import dataModel.process.ActivityType;
 import de.dhbw.woped.process2text.dataModel.pnmlReader.PetriNet.Element;
 import de.dhbw.woped.process2text.dataModel.pnmlReader.PetriNet.PetriNet;
 import de.dhbw.woped.process2text.dataModel.process.*;

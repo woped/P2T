@@ -168,7 +168,7 @@ public class FormatConverter {
 
 		// Transform gateway
 		for (de.dhbw.woped.process2text.dataModel.process.Gateway g: pm.getGateways().values()) {
-			if (g.getType() == dataModel.process.GatewayType.XOR) {
+			if (g.getType() == de.dhbw.woped.process2text.dataModel.process.GatewayType.XOR) {
 				Gateway gt = new Gateway(GatewayType.XOR, g.getLabel());
 				gt.setId(Integer.toString(g.getId()));
 				elementMap.put(g.getId(), gt);
