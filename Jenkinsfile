@@ -32,13 +32,12 @@ pipeline {
         }
         stage('build docker') {
             steps {
-                    node {
-                        docker.withRegistry('https://registry.hub.docker.com/v1/repositories/woped', 'docker-hub') {
-                            def dockerImage = docker.build("woped/process2text:$DOCKER_VERSION")
-                            def dockerImageLatest = docker.build("woped/process2text:latest")
-                            dockerImage.push();
-                            dockerImageLatest.push();
-                        }
+                node {
+                    docker.withRegistry('https://registry.hub.docker.com/v1/repositories/woped', 'docker-hub') {
+                        def dockerImage = docker.build("woped/process2text:$DOCKER_VERSION")
+                        def dockerImageLatest = docker.build("woped/process2text:latest")
+                        dockerImage.push();
+                        dockerImageLatest.push();
                     }
                 }
             }
@@ -55,7 +54,7 @@ def getDockerVersion() {
     pom = readMavenPom file: 'pom.xml'
     version = pom.version
 
-    if(version.toString().contains('SNAPSHOT')) {
+    if (version.toString().contains('SNAPSHOT')) {
         return version + '-' + "${currentBuild.startTimeInMillis}"
     } else {
         return version
