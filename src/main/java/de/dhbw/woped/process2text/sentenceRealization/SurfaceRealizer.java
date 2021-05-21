@@ -56,7 +56,13 @@ public class SurfaceRealizer {
             }
             idAttr.append(map.get(ids.get(i)));
         }
-
+        if(s.getExecutableFragment().sen_level > 0) {
+            String spacer = "";
+            for(int i = 0; i < s.getExecutableFragment().sen_level; i++){
+                spacer += "&#032";
+            }
+            return output + "<phrase ids=\"" + idAttr + "\">" + spacer + "-" + realproManager.getSentenceString() + " </phrase>"; //Textebenen hier hinzufügen
+        }
         return output + "<phrase ids=\"" + idAttr + "\"> " + realproManager.getSentenceString() + " </phrase>";
     }
 
