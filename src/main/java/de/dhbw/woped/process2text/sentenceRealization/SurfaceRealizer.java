@@ -61,7 +61,7 @@ public class SurfaceRealizer {
             for(int i = 0; i < s.getExecutableFragment().sen_level; i++){
                 spacer += "&#032";
             }
-            return output + "<phrase ids=\"" + idAttr + "\">" + spacer + "-" + realproManager.getSentenceString() + " </phrase>"; //Textebenen hier hinzufügen
+            return output + "<phrase ids=\"" + idAttr + "\">" + spacer + "-" + realproManager.getSentenceString() + " </phrase>"; //Bulletpoints and margin according to sentence level
         }
         return output + "<phrase ids=\"" + idAttr + "\"> " + realproManager.getSentenceString() + " </phrase>";
     }
