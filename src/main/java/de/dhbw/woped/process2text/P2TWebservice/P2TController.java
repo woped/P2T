@@ -13,14 +13,18 @@ public class P2TController extends Thread {
     public String generateText(String text) {
         this.text = text;
         String output = "";
-        TextGenerator tg = new TextGenerator();
+        if(text.contains("woped.org")) { //"woped.org" needs to be part of a Woped pnml File
+            TextGenerator tg = new TextGenerator();
 
-        try {
-            output = tg.toText(text, true);
+            try {
+                output = tg.toText(text, true);
 
-        }
-        catch (Exception e) {
-            e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("BPMN");
+            /** BPMN Reader Call **/
         }
         return output;
     }
