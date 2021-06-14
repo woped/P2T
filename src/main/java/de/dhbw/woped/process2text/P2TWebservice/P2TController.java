@@ -10,17 +10,25 @@ public class P2TController extends Thread {
     String text;
     public static final int MAX_INPUT_LENGTH=15000;//Reject any Request larger than this
 
+    /**
+     * Decides wheter Input is PNML or BPMN and calls corresponding Text Generator. Note: PNML files must Contain "woped.org" in their header.
+     * @param text
+     * @return Natural Language interpretation of Input
+     */
     public String generateText(String text) {
         this.text = text;
         String output = "";
-        TextGenerator tg = new TextGenerator();
+        if(text.contains("woped.org")) { //"woped.org" needs to be part of a Woped pnml File
+            TextGenerator tg = new TextGenerator();
 
-        try {
-            output = tg.toText(text, true);
+            try {
+                output = tg.toText(text, true);
 
-        }
-        catch (Exception e) {
-            e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            /** BPMN Reader Call **/
         }
         return output;
     }
