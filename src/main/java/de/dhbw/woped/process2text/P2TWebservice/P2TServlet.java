@@ -1,5 +1,6 @@
 package de.dhbw.woped.process2text.P2TWebservice;
 
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,7 @@ public class P2TServlet extends HttpServlet{
         return control.generateText(text);
     }
 
+    @ApiOperation(value = "Translate a process model into human readable text.")
     @RequestMapping(value = "/generateText", method = RequestMethod.POST, consumes = "text/plain", produces = "text/plain")
     protected String doPost(@RequestBody String body) {
         String text = body;
