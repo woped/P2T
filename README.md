@@ -5,13 +5,13 @@ This webservice is used to translate a petrinet into plain text.
 | URL           | Description   | 
 | ------------- |:-------------:|
 | https://woped.dhbw-karlsruhe.de/p2t/ | Embedded UI|
-| https://woped.dhbw-karlsruhe.de/p2t/swagger-ui| Swagger UI|
+| https://woped.dhbw-karlsruhe.de/p2t/swagger-ui/ | Swagger UI|
 
 # Related repositories
 | URL           | Description   |
 | ------------- |:-------------:|
 | https://github.com/tfreytag/T2P | Text2Process Webservice |
-| https://github.com/tfreytag/WoPeD/ | WoPeD-Client |
+| https://github.com/tfreytag/WoPeD | WoPeD-Client |
 
 # Resources
 | URL           | Description   |
