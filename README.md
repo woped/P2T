@@ -4,19 +4,19 @@ This webservice is used to translate a petrinet into plain text.
 # Live demo
 | URL           | Description   | 
 | ------------- |:-------------:|
-| https://woped.dhbw-karlsruhe.de/t2p/ | Embedded UI|
-| https://woped.dhbw-karlsruhe.de/t2p/swagger-ui| Swagger UI|
+| https://woped.dhbw-karlsruhe.de/p2t/ | Embedded UI|
+| https://woped.dhbw-karlsruhe.de/p2t/swagger-ui| Swagger UI|
 
 # Related repositories
 | URL           | Description   |
 | ------------- |:-------------:|
-| https://github.com/tfreytag/P2T | Process2Text Webservice |
+| https://github.com/tfreytag/T2P | Text2Process Webservice |
 | https://github.com/tfreytag/WoPeD | WoPeD-Client |
 
 # Resources
 | URL           | Description   |
 | ------------- |:-------------:|
-| https://hub.docker.com/r/woped/text2process | Docker Hub|
+| https://hub.docker.com/r/woped/process2text | Docker Hub|
 
 # Requirements for development
 * IDE of your choice
