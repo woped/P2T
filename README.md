@@ -11,7 +11,7 @@ This webservice is used to translate a petrinet into plain text.
 | URL           | Description   |
 | ------------- |:-------------:|
 | https://github.com/tfreytag/T2P | Text2Process Webservice |
-| https://github.com/tfreytag/WoPeD | WoPeD-Client |
+| https://github.com/tfreytag/WoPeD/ | WoPeD-Client |
 
 # Resources
 | URL           | Description   |
