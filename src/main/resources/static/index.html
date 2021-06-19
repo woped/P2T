@@ -22,7 +22,6 @@
                 success: function(responseData, textStatus, jqXHR) {
                     $('#result').val("");
                     $('#result').val(responseData);
-                    console.log("Hi Text");
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     console.log(errorThrown);
@@ -41,8 +40,6 @@
                     success: function(responseData, textStatus, jqXHR) {
                         $('#result').val("");
                         $('#result').val(responseData);
-                        console.log(responseData)
-                        console.log("Hi File");
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
                         console.log(errorThrown);
