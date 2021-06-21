@@ -1,7 +1,7 @@
 package de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis;
 
-import contentDetermination.labelAnalysis.interfaces.LabelCategorizer;
-import contentDetermination.labelAnalysis.structure.Activity;
+import de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis.interfaces.LabelCategorizer;
+import de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis.structure.Activity;
 import edu.stanford.nlp.util.ArrayUtils;
 import net.didion.jwnl.JWNLException;
 import net.didion.jwnl.data.IndexWord;

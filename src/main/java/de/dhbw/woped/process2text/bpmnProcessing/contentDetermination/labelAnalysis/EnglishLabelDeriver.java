@@ -1,7 +1,7 @@
 package de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis;
 
-import contentDetermination.labelAnalysis.interfaces.LabelDeriver;
-import contentDetermination.labelAnalysis.structure.Activity;
+import de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis.interfaces.LabelDeriver;
+import de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis.structure.Activity;
 import net.didion.jwnl.JWNLException;
 import net.didion.jwnl.data.IndexWord;
 import net.didion.jwnl.data.POS;

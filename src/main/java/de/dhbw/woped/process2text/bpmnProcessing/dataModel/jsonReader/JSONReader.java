@@ -1,11 +1,11 @@
 package de.dhbw.woped.process2text.bpmnProcessing.dataModel.jsonReader;
 
-import dataModel.jsonIntermediate.*;
-import dataModel.jsonStructure.Doc;
-import dataModel.jsonStructure.ElementLevel;
-import dataModel.jsonStructure.LaneLevel;
-import dataModel.jsonStructure.PoolLevel;
-import dataModel.process.*;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.jsonIntermediate.*;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.jsonStructure.Doc;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.jsonStructure.ElementLevel;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.jsonStructure.LaneLevel;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.jsonStructure.PoolLevel;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.*;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;

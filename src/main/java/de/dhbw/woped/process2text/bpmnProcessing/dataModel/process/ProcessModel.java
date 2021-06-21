@@ -1,12 +1,12 @@
 package de.dhbw.woped.process2text.bpmnProcessing.dataModel.process;
 
-import contentDetermination.labelAnalysis.EnglishLabelCategorizer;
-import contentDetermination.labelAnalysis.EnglishLabelDeriver;
-import contentDetermination.labelAnalysis.EnglishLabelHelper;
-import contentDetermination.labelAnalysis.EnglishLabelProperties;
-import dataModel.process.Arc;
-import dataModel.process.Event;
-import dataModel.process.Gateway;
+import de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis.EnglishLabelCategorizer;
+import de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis.EnglishLabelDeriver;
+import de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis.EnglishLabelHelper;
+import de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis.EnglishLabelProperties;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.Arc;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.Event;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.Gateway;
 
 import java.util.ArrayList;
 import java.util.HashMap;

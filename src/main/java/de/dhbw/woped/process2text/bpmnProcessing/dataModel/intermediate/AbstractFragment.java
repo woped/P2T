@@ -1,7 +1,7 @@
 package de.dhbw.woped.process2text.bpmnProcessing.dataModel.intermediate;
 
-import dataModel.Pair;
-import textPlanning.recordClasses.ModifierRecord;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.Pair;
+import de.dhbw.woped.process2text.bpmnProcessing.textPlanning.recordClasses.ModifierRecord;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,10 +1,10 @@
 package de.dhbw.woped.process2text.bpmnProcessing.dataModel.jsonStructure;
 
-import dataModel.jsonStructure.DocProperties;
-import dataModel.jsonStructure.ElementLevel;
-import dataModel.jsonStructure.LaneLevel;
-import dataModel.jsonStructure.PoolLevel;
-import dataModel.jsonStructure.Stencil;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.jsonStructure.DocProperties;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.jsonStructure.ElementLevel;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.jsonStructure.LaneLevel;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.jsonStructure.PoolLevel;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.jsonStructure.Stencil;
 
 import java.util.ArrayList;
 

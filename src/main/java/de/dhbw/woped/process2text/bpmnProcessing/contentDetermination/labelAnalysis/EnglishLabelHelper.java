@@ -1,8 +1,8 @@
 package de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis;
 
-import contentDetermination.support.Distance;
-import contentDetermination.support.Noun2VerbTransformer;
-import contentDetermination.support.Stemmer;
+import de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.support.Distance;
+import de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.support.Noun2VerbTransformer;
+import de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.support.Stemmer;
 import edu.stanford.nlp.tagger.maxent.MaxentTagger;
 import net.didion.jwnl.JWNL;
 import net.didion.jwnl.JWNLException;

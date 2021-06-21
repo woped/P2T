@@ -1,9 +1,9 @@
 package de.dhbw.woped.process2text.bpmnProcessing.dataModel.p2t;
 
-import dataModel.arborescence.ALEdge;
-import dataModel.arborescence.ALNode;
-import dataModel.arborescence.AdjacencyList;
-import dataModel.arborescence.Edmonds;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.arborescence.ALEdge;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.arborescence.ALNode;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.arborescence.AdjacencyList;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.arborescence.Edmonds;
 import org.jbpt.petri.*;
 import org.jbpt.petri.structure.PetriNetStructuralChecks;
 import org.jbpt.petri.unfolding.OccurrenceNet;

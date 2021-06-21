@@ -1,11 +1,11 @@
 package de.dhbw.woped.process2text.bpmnProcessing.dataModel.dsynt;
 
 
-import dataModel.intermediate.ConditionFragment;
-import dataModel.intermediate.ExecutableFragment;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.intermediate.ConditionFragment;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.intermediate.ExecutableFragment;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import textPlanning.IntermediateToDSynTConverter;
+import de.dhbw.woped.process2text.bpmnProcessing.textPlanning.IntermediateToDSynTConverter;
 
 public class DSynTConditionSentence extends DSynTSentence {
 	

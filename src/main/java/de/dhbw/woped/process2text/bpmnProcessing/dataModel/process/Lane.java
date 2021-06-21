@@ -1,7 +1,7 @@
 package de.dhbw.woped.process2text.bpmnProcessing.dataModel.process;
 
 
-import dataModel.process.Pool;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.Pool;
 
 public class Lane {
 	

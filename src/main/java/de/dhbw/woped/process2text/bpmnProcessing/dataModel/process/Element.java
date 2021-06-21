@@ -1,8 +1,8 @@
 package de.dhbw.woped.process2text.bpmnProcessing.dataModel.process;
 
 
-import dataModel.process.Lane;
-import dataModel.process.Pool;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.Lane;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.Pool;
 
 public abstract class Element {
 	

@@ -1,8 +1,8 @@
 package de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.extraction;
 
-import contentDetermination.labelAnalysis.EnglishLabelHelper;
+import de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis.EnglishLabelHelper;
 import de.hpi.bpt.process.Node;
-import textPlanning.recordClasses.ModifierRecord;
+import de.dhbw.woped.process2text.bpmnProcessing.textPlanning.recordClasses.ModifierRecord;
 
 import java.util.HashMap;
 

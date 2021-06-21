@@ -1,6 +1,6 @@
 package de.dhbw.woped.process2text.bpmnProcessing.dataModel.jsonStructure;
 
-import dataModel.jsonStructure.Doc;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.jsonStructure.Doc;
 
 import java.util.ArrayList;
 

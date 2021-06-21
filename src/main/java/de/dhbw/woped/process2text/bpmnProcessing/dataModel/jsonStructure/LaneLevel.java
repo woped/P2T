@@ -1,8 +1,8 @@
 package de.dhbw.woped.process2text.bpmnProcessing.dataModel.jsonStructure;
 
-import dataModel.jsonStructure.ElementLevel;
-import dataModel.jsonStructure.LaneProperties;
-import dataModel.jsonStructure.Stencil;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.jsonStructure.ElementLevel;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.jsonStructure.LaneProperties;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.jsonStructure.Stencil;
 
 import java.util.ArrayList;
 

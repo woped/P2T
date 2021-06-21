@@ -1,9 +1,9 @@
 package de.dhbw.woped.process2text.bpmnProcessing.dataModel.pnmlReader;
 
-import dataModel.pnmlReader.PetriNet.Arc;
-import dataModel.pnmlReader.PetriNet.PetriNet;
-import dataModel.pnmlReader.PetriNet.Place;
-import dataModel.pnmlReader.PetriNet.Transition;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.pnmlReader.PetriNet.Arc;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.pnmlReader.PetriNet.PetriNet;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.pnmlReader.PetriNet.Place;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.pnmlReader.PetriNet.Transition;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;

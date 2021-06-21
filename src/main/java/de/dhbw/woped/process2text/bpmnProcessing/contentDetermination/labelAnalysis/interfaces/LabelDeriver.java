@@ -1,6 +1,6 @@
 package de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis.interfaces;
 
-import contentDetermination.labelAnalysis.structure.Activity;
+import de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis.structure.Activity;
 
 import java.util.ArrayList;
 

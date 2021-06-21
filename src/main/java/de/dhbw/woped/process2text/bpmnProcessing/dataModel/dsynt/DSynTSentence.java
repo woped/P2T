@@ -1,7 +1,7 @@
 package de.dhbw.woped.process2text.bpmnProcessing.dataModel.dsynt;
 
 
-import dataModel.intermediate.ExecutableFragment;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.intermediate.ExecutableFragment;
 import org.w3c.dom.Document;
 
 public abstract class DSynTSentence {

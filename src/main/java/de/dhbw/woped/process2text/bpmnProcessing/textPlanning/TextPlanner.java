@@ -1,28 +1,28 @@
 package de.dhbw.woped.process2text.bpmnProcessing.textPlanning;
 
 
-import contentDetermination.extraction.GatewayExtractor;
-import contentDetermination.labelAnalysis.EnglishLabelDeriver;
-import contentDetermination.labelAnalysis.EnglishLabelHelper;
-import dataModel.Pair;
-import dataModel.dsynt.DSynTConditionSentence;
-import dataModel.dsynt.DSynTMainSentence;
-import dataModel.dsynt.DSynTSentence;
-import dataModel.intermediate.AbstractFragment;
-import dataModel.intermediate.ConditionFragment;
-import dataModel.intermediate.ExecutableFragment;
-import dataModel.process.*;
+import de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.extraction.GatewayExtractor;
+import de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis.EnglishLabelDeriver;
+import de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis.EnglishLabelHelper;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.Pair;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.dsynt.DSynTConditionSentence;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.dsynt.DSynTMainSentence;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.dsynt.DSynTSentence;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.intermediate.AbstractFragment;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.intermediate.ConditionFragment;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.intermediate.ExecutableFragment;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.*;
 import de.hpi.bpt.graph.algo.rpst.RPST;
 import de.hpi.bpt.graph.algo.rpst.RPSTNode;
 import de.hpi.bpt.process.ControlFlow;
 import de.hpi.bpt.process.Node;
 import de.hpi.bpt.process.Process;
 import net.didion.jwnl.JWNLException;
-import preprocessing.FormatConverter;
-import templates.TemplateLoader;
-import textPlanning.recordClasses.ConverterRecord;
-import textPlanning.recordClasses.GatewayPropertyRecord;
-import textPlanning.recordClasses.ModifierRecord;
+import de.dhbw.woped.process2text.bpmnProcessing.preprocessing.FormatConverter;
+import de.dhbw.woped.process2text.bpmnProcessing.templates.TemplateLoader;
+import de.dhbw.woped.process2text.bpmnProcessing.textPlanning.recordClasses.ConverterRecord;
+import de.dhbw.woped.process2text.bpmnProcessing.textPlanning.recordClasses.GatewayPropertyRecord;
+import de.dhbw.woped.process2text.bpmnProcessing.textPlanning.recordClasses.ModifierRecord;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
