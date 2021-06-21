@@ -9,10 +9,10 @@ import de.dhbw.woped.process2text.bpmnProcessing.dataModel.intermediate.Abstract
 import de.dhbw.woped.process2text.bpmnProcessing.dataModel.intermediate.ConditionFragment;
 import de.dhbw.woped.process2text.bpmnProcessing.dataModel.intermediate.ExecutableFragment;
 import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.*;
-import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.rpst.RPST;
-import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.rpst.RPSTNode;
-import de.dhbw.woped.process2text.bpmnProcessing.bpt.process.ControlFlow;
-import de.dhbw.woped.process2text.bpmnProcessing.bpt.process.Node;
+import de.hpi.bpt.graph.algo.rpst.RPST;
+import de.hpi.bpt.graph.algo.rpst.RPSTNode;
+import de.hpi.bpt.process.ControlFlow;
+import de.hpi.bpt.process.Node;
 import net.didion.jwnl.JWNLException;
 import de.dhbw.woped.process2text.bpmnProcessing.templates.Phrases;
 import de.dhbw.woped.process2text.bpmnProcessing.templates.TemplateLoader;

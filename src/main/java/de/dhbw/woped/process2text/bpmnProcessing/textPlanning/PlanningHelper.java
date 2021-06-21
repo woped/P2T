@@ -1,14 +1,13 @@
 package de.dhbw.woped.process2text.bpmnProcessing.textPlanning;
 
-import de.dhbw.woped.process2text.bpmnProcessing.dataModel.p2t.WFnet2Processes;
 import de.dhbw.woped.process2text.bpmnProcessing.dataModel.petri.ProcessCover;
 import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.*;
-import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.rpst.RPST;
-import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.rpst.RPSTNode;
-import de.dhbw.woped.process2text.bpmnProcessing.bpt.process.ControlFlow;
-import de.dhbw.woped.process2text.bpmnProcessing.bpt.process.Event;
-import de.dhbw.woped.process2text.bpmnProcessing.bpt.process.Gateway;
-import de.dhbw.woped.process2text.bpmnProcessing.bpt.process.Node;
+import de.hpi.bpt.graph.algo.rpst.RPST;
+import de.hpi.bpt.graph.algo.rpst.RPSTNode;
+import de.hpi.bpt.process.ControlFlow;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.Event;
+import de.hpi.bpt.process.Gateway;
+import de.hpi.bpt.process.Node;
 import org.jbpt.bp.BehaviouralProfile;
 import org.jbpt.bp.construct.BPCreatorNet;
 import org.jbpt.petri.Flow;
@@ -329,7 +328,7 @@ public class PlanningHelper {
 	 */
 	public static boolean isEndEvent(Object o, ProcessModel process) {
 		if (o.getClass().toString().equals("class de.hpi.bpt.process.Event") == true) {
-			dataModel.process.Event event = process.getEvents().get(
+			Event event = process.getEvents().get(
 					Integer.valueOf(((Event) o).getId()));
 			if (event.getType() == EventType.END_EVENT) {
 				return true;
@@ -432,7 +431,7 @@ public class PlanningHelper {
 
 		int c = 0;
 
-		for (dataModel.petri.Process p : fps.getCorrectProcesses()) {
+		for (de.dhbw.woped.process2text.bpmnProcessing.dataModel.petri.Process p : fps.getCorrectProcesses()) {
 			c++;
 
 			// Create NetSystem from PetriNet
@@ -528,36 +527,6 @@ public class PlanningHelper {
 				runSequenceIDs.add(runSequence.get(i).getName());
 			}
 			runSequences.add(runSequenceIDs);
-		}
-
-		WFnet2Processes wf2pi = null;
-		try {
-			wf2pi = new WFnet2Processes(netSystem);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		for (List<org.jbpt.petri.Node> l: wf2pi.getPetriNetPaths()) {
-		
-			// Go through all nodes and add relevant elems
-			ArrayList<org.jbpt.petri.Node> relevantNodes = new ArrayList<org.jbpt.petri.Node>();
-			for (org.jbpt.petri.Node n : l) {
-				if (orignalMapping.containsKey(n.getName())) {
-					String oldProcessID = n.getName();
-
-					// Add relevant activities
-					for (org.jbpt.pm.Activity a : pm.getActivities()) {
-						if (a.getId().equals(oldProcessID)) {
-							relevantNodes.add(n);
-						}
-					}
-					// Add relevant gateways
-					for (org.jbpt.pm.Gateway g : pm.getGateways()) {
-						if (g.getId().equals(oldProcessID)) {
-							relevantNodes.add(n);
-						}
-					}
-				}
-			}
 		}
 
 		return runSequences;

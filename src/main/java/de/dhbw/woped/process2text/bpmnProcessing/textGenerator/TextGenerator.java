@@ -7,9 +7,9 @@ import de.dhbw.woped.process2text.bpmnProcessing.dataModel.pnmlReader.PNMLReader
 import de.dhbw.woped.process2text.bpmnProcessing.dataModel.pnmlReader.PetriNet.PetriNet;
 import de.dhbw.woped.process2text.bpmnProcessing.dataModel.pnmlReader.PetriNetToProcessConverter;
 import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.ProcessModel;
-import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.rpst.RPST;
-import de.dhbw.woped.process2text.bpmnProcessing.bpt.process.ControlFlow;
-import de.dhbw.woped.process2text.bpmnProcessing.bpt.process.Node;
+import de.hpi.bpt.graph.algo.rpst.RPST;
+import de.hpi.bpt.process.ControlFlow;
+import de.hpi.bpt.process.Node;
 import de.dhbw.woped.process2text.bpmnProcessing.preprocessing.FormatConverter;
 import de.dhbw.woped.process2text.bpmnProcessing.preprocessing.RigidStructurer;
 import de.dhbw.woped.process2text.bpmnProcessing.sentencePlanning.DiscourseMarker;

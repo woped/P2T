@@ -7,9 +7,9 @@ public class ElementLevel {
 	String resourceId;
 	ElementProperties properties;
 	Stencil stencil;
-	ArrayList<dataModel.jsonStructure.ElementLevel>childShapes;
-	ArrayList<dataModel.jsonStructure.ElementLevel>outgoing;
-	ArrayList<dataModel.jsonStructure.ElementLevel>dockers;
+	ArrayList<ElementLevel>childShapes;
+	ArrayList<ElementLevel>outgoing;
+	ArrayList<ElementLevel>dockers;
 
 	public String getResourceId() {
 		return resourceId;
@@ -29,22 +29,22 @@ public class ElementLevel {
 	public void setStencil(Stencil stencil) {
 		this.stencil = stencil;
 	}
-	public ArrayList<dataModel.jsonStructure.ElementLevel> getChildShapes() {
+	public ArrayList<ElementLevel> getChildShapes() {
 		return childShapes;
 	}
-	public void setChildShapes(ArrayList<dataModel.jsonStructure.ElementLevel> childShapes) {
+	public void setChildShapes(ArrayList<ElementLevel> childShapes) {
 		this.childShapes = childShapes;
 	}
-	public ArrayList<dataModel.jsonStructure.ElementLevel> getOutgoing() {
+	public ArrayList<ElementLevel> getOutgoing() {
 		return outgoing;
 	}
-	public void setOutgoing(ArrayList<dataModel.jsonStructure.ElementLevel> outgoing) {
+	public void setOutgoing(ArrayList<ElementLevel> outgoing) {
 		this.outgoing = outgoing;
 	}
-	public ArrayList<dataModel.jsonStructure.ElementLevel> getDockers() {
+	public ArrayList<ElementLevel> getDockers() {
 		return dockers;
 	}
-	public void setDockers(ArrayList<dataModel.jsonStructure.ElementLevel> dockers) {
+	public void setDockers(ArrayList<ElementLevel> dockers) {
 		this.dockers = dockers;
 	}
 	

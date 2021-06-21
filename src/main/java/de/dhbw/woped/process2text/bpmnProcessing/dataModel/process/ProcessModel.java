@@ -1,6 +1,5 @@
 package de.dhbw.woped.process2text.bpmnProcessing.dataModel.process;
 
-import de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis.EnglishLabelCategorizer;
 import de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis.EnglishLabelDeriver;
 import de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis.EnglishLabelHelper;
 import de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis.EnglishLabelProperties;
@@ -19,7 +18,7 @@ public class ProcessModel {
 	private HashMap <Integer,Gateway> gateways;
 	private ArrayList<String> lanes;
 	private ArrayList<String> pools;
-	private HashMap<Integer, dataModel.process.ProcessModel> alternativePaths;
+	private HashMap<Integer, ProcessModel> alternativePaths;
 
 	public static final int VOS = 0;
 	public static final int AN = 1;
@@ -52,7 +51,7 @@ public class ProcessModel {
 		return base;
 	}
 
-	public HashMap<Integer, dataModel.process.ProcessModel> getAlternativePaths() {
+	public HashMap<Integer, ProcessModel> getAlternativePaths() {
 		return alternativePaths;
 	}
 
@@ -241,8 +240,7 @@ public class ProcessModel {
 
 //		System.out.println(activities.size() + "\t" + events.size() + "\t" + gateways.size());
 
-		EnglishLabelCategorizer lC = new EnglishLabelCategorizer(lHelper.getDictionary(), lHelper, lDeriver);
-		ArrayList<contentDetermination.labelAnalysis.structure.Activity> modela = new ArrayList<contentDetermination.labelAnalysis.structure.Activity>();
+		ArrayList<de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis.structure.Activity> modela = new ArrayList<de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis.structure.Activity>();
 
 		for (Activity a: activities.values()) {
 			EnglishLabelProperties props = new EnglishLabelProperties();
@@ -258,7 +256,7 @@ public class ProcessModel {
 
 					String[] labelSplit = label.split(" ");
 
-					contentDetermination.labelAnalysis.structure.Activity act = new contentDetermination.labelAnalysis.structure.Activity(label, label, "",modela);
+					de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis.structure.Activity act = new de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis.structure.Activity(label, label, "",modela);
 //					if (lC.getLabelStyle(act).equals("VO")) {
 						lDeriver.deriveFromVOS(a.getLabel(), labelSplit, props);
 //					} else {
@@ -328,10 +326,10 @@ public class ProcessModel {
 		gateways = new HashMap<Integer, Gateway>();
 		lanes = new ArrayList<String>();
 		pools = new ArrayList<String>();
-		alternativePaths = new HashMap<Integer, dataModel.process.ProcessModel>();
+		alternativePaths = new HashMap<Integer, ProcessModel>();
 	}
 
-	public void addAlternativePath(dataModel.process.ProcessModel path, int id) {
+	public void addAlternativePath(ProcessModel path, int id) {
 		alternativePaths.put(id, path);
 	}
 
@@ -440,15 +438,15 @@ public class ProcessModel {
 		return count;
 	}
 
-	public HashMap<Integer, dataModel.process.ProcessModel> getModelForEachPool() {
+	public HashMap<Integer, ProcessModel> getModelForEachPool() {
 
-		HashMap<Integer, dataModel.process.ProcessModel> newModels = new HashMap<Integer, dataModel.process.ProcessModel>();
+		HashMap<Integer, ProcessModel> newModels = new HashMap<Integer, ProcessModel>();
 
 		// Add activities
 		for (Activity a: activities.values()) {
 			int poolId = a.getPool().getId();
 			if (!newModels.containsKey(poolId)) {
-				newModels.put(poolId, new dataModel.process.ProcessModel(poolId, ""));
+				newModels.put(poolId, new ProcessModel(poolId, ""));
 				newModels.get(poolId).addPool(a.getPool().getName());
 			}
 			newModels.get(poolId).addActivity(a);
@@ -466,7 +464,7 @@ public class ProcessModel {
 		for (Event e: events.values()) {
 			int poolId = e.getPool().getId();
 			if (!newModels.containsKey(poolId)) {
-				newModels.put(poolId, new dataModel.process.ProcessModel(poolId, ""));
+				newModels.put(poolId, new ProcessModel(poolId, ""));
 			}
 			newModels.get(poolId).addEvent(e);
 			for (Arc arc: arcs.values()) {
@@ -483,7 +481,7 @@ public class ProcessModel {
 		for (Gateway g: gateways.values()) {
 			int poolId = g.getPool().getId();
 			if (!newModels.containsKey(poolId)) {
-				newModels.put(poolId, new dataModel.process.ProcessModel(poolId, ""));
+				newModels.put(poolId, new ProcessModel(poolId, ""));
 			}
 			newModels.get(poolId).addGateway(g);
 			for (Arc arc: arcs.values()) {

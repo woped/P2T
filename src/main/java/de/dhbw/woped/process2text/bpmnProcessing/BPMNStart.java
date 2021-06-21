@@ -26,6 +26,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
+
+
 public class BPMNStart {
 	
 	private static EnglishLabelHelper lHelper;
@@ -147,5 +149,6 @@ public class BPMNStart {
 				e.printStackTrace();
 			}
 		}
+		return "";
 	}
 }
