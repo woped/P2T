@@ -34,11 +34,12 @@ public class P2TController extends Thread {
             }
         } else {
             /** BPMN Reader Call **/
-            System.out.println(XMLReader.read(text));
-            /*
+            //System.out.println(XMLReader.read(text));
+
             try {
                 BPMNStart bpmn = new BPMNStart();
-                output = bpmn.createFromFile(XMLReader.read(text));
+                //output = bpmn.createFromFile(XMLReader.read(text));
+                output = bpmn.createFromFile(text);
             } catch (JWNLException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -46,7 +47,7 @@ public class P2TController extends Thread {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
-            */
+
         }
         return output;
     }

@@ -2,7 +2,6 @@ package de.dhbw.woped.process2text.bpmnProcessing;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
-import com.itextpdf.text.DocumentException;
 import de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis.EnglishLabelDeriver;
 import de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis.EnglishLabelHelper;
 import de.dhbw.woped.process2text.bpmnProcessing.dataModel.dsynt.DSynTSentence;
@@ -45,7 +44,7 @@ public class BPMNStart {
 	/**
 	 *  Function for generating text from a model. The according process model must be provided to the function.
 	 */
-	private String toText(ProcessModel model, int counter) throws JWNLException, IOException, ClassNotFoundException, DocumentException {
+	private String toText(ProcessModel model, int counter) throws JWNLException, IOException, ClassNotFoundException{
 		String imperativeRole = ""; 
 		boolean imperative = false;
 		
