@@ -1,6 +1,6 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.process.epc.util;
 
-import de.hpi.bpt.process.epc.*;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.process.epc.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.Text;

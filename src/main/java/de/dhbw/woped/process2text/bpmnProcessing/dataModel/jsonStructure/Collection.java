@@ -1,7 +1,5 @@
 package de.dhbw.woped.process2text.bpmnProcessing.dataModel.jsonStructure;
 
-import de.dhbw.woped.process2text.bpmnProcessing.dataModel.jsonStructure.Doc;
-
 import java.util.ArrayList;
 
 public class Collection {

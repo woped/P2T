@@ -1,11 +1,11 @@
 package de.dhbw.woped.process2text.bpmnProcessing.sentenceRealization;
 
 import com.cogentex.real.api.RealProMgr;
-import dataModel.dsynt.DSynTConditionSentence;
-import dataModel.dsynt.DSynTMainSentence;
-import dataModel.dsynt.DSynTSentence;
-import dataModel.intermediate.ConditionFragment;
-import dataModel.intermediate.ExecutableFragment;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.dsynt.DSynTConditionSentence;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.dsynt.DSynTMainSentence;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.dsynt.DSynTSentence;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.intermediate.ConditionFragment;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.intermediate.ExecutableFragment;
 import org.w3c.dom.Document;
 
 import java.util.ArrayList;

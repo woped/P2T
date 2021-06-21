@@ -1,6 +1,6 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.process.epc.util;
 
-import de.hpi.bpt.process.epc.*;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.process.epc.*;
 
 import java.util.ArrayList;
 import java.util.HashSet;

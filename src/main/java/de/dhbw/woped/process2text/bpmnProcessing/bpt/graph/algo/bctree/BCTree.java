@@ -1,13 +1,9 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.bctree;
 
-import de.hpi.bpt.graph.abs.IEdge;
-import de.hpi.bpt.graph.abs.IGraph;
-import de.hpi.bpt.graph.algo.GraphAlgorithms;
-import de.hpi.bpt.graph.algo.bctree.BCTComponent;
-import de.hpi.bpt.graph.algo.bctree.BCTreeNode;
-import de.hpi.bpt.graph.algo.bctree.BCType;
-import de.hpi.bpt.graph.algo.bctree.DFS;
-import de.hpi.bpt.hypergraph.abs.IVertex;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.IEdge;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.IGraph;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.GraphAlgorithms;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

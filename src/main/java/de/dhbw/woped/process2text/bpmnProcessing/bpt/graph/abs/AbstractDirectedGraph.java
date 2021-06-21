@@ -1,9 +1,6 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs;
 
-import de.hpi.bpt.graph.abs.AbstractDirectedEdge;
-import de.hpi.bpt.graph.abs.AbstractMultiDirectedGraph;
-import de.hpi.bpt.graph.abs.IDirectedEdge;
-import de.hpi.bpt.hypergraph.abs.IVertex;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -21,7 +18,7 @@ public class AbstractDirectedGraph<E extends IDirectedEdge<V>, V extends IVertex
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.hypergraph.abs.AbstractMultiDirectedHyperGraph#addEdge(de.hpi.bpt.hypergraph.abs.IVertex, de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractMultiDirectedHyperGraph#addEdge(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex, de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	@Override
 	public E addEdge(V s, V t) {

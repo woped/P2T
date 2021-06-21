@@ -1,8 +1,6 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.oryx.erdf;
 
-import de.hpi.bpt.hypergraph.abs.Vertex;
-import de.hpi.bpt.oryx.erdf.ERDFObject;
-import de.hpi.bpt.oryx.erdf.IERDFObject;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.Vertex;
 import org.w3c.dom.Node;
 
 /**

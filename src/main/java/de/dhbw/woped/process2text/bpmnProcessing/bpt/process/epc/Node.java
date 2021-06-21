@@ -1,7 +1,6 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.process.epc;
 
-import de.hpi.bpt.hypergraph.abs.Vertex;
-import de.hpi.bpt.process.epc.INode;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.Vertex;
 
 /**
  * EPC node implementation

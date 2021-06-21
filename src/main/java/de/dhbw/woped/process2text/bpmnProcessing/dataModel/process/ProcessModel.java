@@ -4,9 +4,6 @@ import de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnaly
 import de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis.EnglishLabelDeriver;
 import de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis.EnglishLabelHelper;
 import de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis.EnglishLabelProperties;
-import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.Arc;
-import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.Event;
-import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.Gateway;
 
 import java.util.ArrayList;
 import java.util.HashMap;

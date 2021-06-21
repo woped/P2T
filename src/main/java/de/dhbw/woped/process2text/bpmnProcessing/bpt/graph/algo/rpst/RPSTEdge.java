@@ -1,10 +1,9 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.rpst;
 
-import de.hpi.bpt.graph.abs.AbstractDirectedEdge;
-import de.hpi.bpt.graph.abs.AbstractMultiDirectedGraph;
-import de.hpi.bpt.graph.abs.IDirectedEdge;
-import de.hpi.bpt.graph.algo.rpst.RPSTNode;
-import de.hpi.bpt.hypergraph.abs.IVertex;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.AbstractDirectedEdge;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.AbstractMultiDirectedGraph;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.IDirectedEdge;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex;
 
 public class RPSTEdge<E extends IDirectedEdge<V>, V extends IVertex> extends AbstractDirectedEdge<RPSTNode<E,V>> {
 

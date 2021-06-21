@@ -1,10 +1,5 @@
 package de.dhbw.woped.process2text.bpmnProcessing.dataModel.process;
 
-import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.Annotation;
-import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.Element;
-import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.Lane;
-import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.Pool;
-
 import java.util.ArrayList;
 
 

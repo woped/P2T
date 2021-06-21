@@ -1,7 +1,7 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs;
 
-import de.hpi.bpt.hypergraph.abs.IHyperEdge;
-import de.hpi.bpt.hypergraph.abs.IVertex;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IHyperEdge;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex;
 
 /**
  * Interface describing binary graph edge behavior (constrained by implementation)

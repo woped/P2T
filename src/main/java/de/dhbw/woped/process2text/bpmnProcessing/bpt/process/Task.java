@@ -1,8 +1,6 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.process;
 
 
-import de.hpi.bpt.process.Activity;
-
 public class Task extends Activity {
 
 	public Task() {

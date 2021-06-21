@@ -1,8 +1,5 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.process.epc;
 
-import de.hpi.bpt.process.epc.FlowObject;
-import de.hpi.bpt.process.epc.FlowObjectType;
-import de.hpi.bpt.process.epc.IFunction;
 
 /**
  * EPC function implementation

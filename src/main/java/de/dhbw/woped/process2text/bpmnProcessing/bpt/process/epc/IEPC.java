@@ -1,17 +1,6 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.process.epc;
 
-import de.hpi.bpt.graph.abs.IDirectedGraph;
-import de.hpi.bpt.process.epc.FlowObjectType;
-import de.hpi.bpt.process.epc.IConnection;
-import de.hpi.bpt.process.epc.IConnector;
-import de.hpi.bpt.process.epc.IControlFlow;
-import de.hpi.bpt.process.epc.IEvent;
-import de.hpi.bpt.process.epc.IFlowObject;
-import de.hpi.bpt.process.epc.IFunction;
-import de.hpi.bpt.process.epc.INode;
-import de.hpi.bpt.process.epc.INonFlowObject;
-import de.hpi.bpt.process.epc.IProcessInterface;
-import de.hpi.bpt.process.epc.NonFlowObjectType;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.IDirectedGraph;
 
 import java.util.Collection;
 

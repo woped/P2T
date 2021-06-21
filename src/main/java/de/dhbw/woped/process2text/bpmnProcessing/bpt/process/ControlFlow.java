@@ -1,8 +1,7 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.process;
 
-import de.hpi.bpt.graph.abs.AbstractDirectedEdge;
-import de.hpi.bpt.graph.abs.AbstractMultiDirectedGraph;
-import de.hpi.bpt.process.Node;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.AbstractDirectedEdge;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.AbstractMultiDirectedGraph;
 
 
 public class ControlFlow extends AbstractDirectedEdge<Node> {

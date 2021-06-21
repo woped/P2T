@@ -1,6 +1,6 @@
 package de.dhbw.woped.process2text.bpmnProcessing.textPlanning.recordClasses;
 
-import dataModel.Pair;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.Pair;
 
 import java.util.ArrayList;
 

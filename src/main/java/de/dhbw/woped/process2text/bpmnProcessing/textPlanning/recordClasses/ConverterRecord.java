@@ -1,7 +1,7 @@
 package de.dhbw.woped.process2text.bpmnProcessing.textPlanning.recordClasses;
 
-import dataModel.dsynt.DSynTSentence;
-import dataModel.intermediate.ConditionFragment;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.dsynt.DSynTSentence;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.intermediate.ConditionFragment;
 
 import java.util.ArrayList;
 

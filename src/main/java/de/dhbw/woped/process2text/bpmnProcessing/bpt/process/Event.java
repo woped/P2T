@@ -1,7 +1,5 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.process;
 
-import de.hpi.bpt.process.Node;
-
 public class Event extends Node {
 	
 	public Event() {

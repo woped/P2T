@@ -1,11 +1,5 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs;
 
-import de.hpi.bpt.hypergraph.abs.AbstractGraphNotifier;
-import de.hpi.bpt.hypergraph.abs.AbstractHyperEdge;
-import de.hpi.bpt.hypergraph.abs.IHyperEdge;
-import de.hpi.bpt.hypergraph.abs.IHyperGraph;
-import de.hpi.bpt.hypergraph.abs.IVertex;
-
 import java.util.*;
 
 /**

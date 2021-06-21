@@ -1,9 +1,6 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.process;
 
 
-import de.hpi.bpt.process.GatewayType;
-import de.hpi.bpt.process.Node;
-
 public class Gateway extends Node {
 	
 	private GatewayType type;

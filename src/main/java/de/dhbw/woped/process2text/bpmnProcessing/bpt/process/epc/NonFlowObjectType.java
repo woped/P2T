@@ -1,12 +1,5 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.process.epc;
 
-import de.hpi.bpt.process.epc.IApplicationSystem;
-import de.hpi.bpt.process.epc.IDocument;
-import de.hpi.bpt.process.epc.INonFlowObject;
-import de.hpi.bpt.process.epc.IOrganization;
-import de.hpi.bpt.process.epc.IOrganizationType;
-import de.hpi.bpt.process.epc.IRole;
-import de.hpi.bpt.process.epc.ISystem;
 
 /**
  * EPC non flow object types

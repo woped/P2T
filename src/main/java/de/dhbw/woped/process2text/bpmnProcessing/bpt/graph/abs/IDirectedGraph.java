@@ -1,9 +1,7 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs;
 
-import de.hpi.bpt.graph.abs.IDirectedEdge;
-import de.hpi.bpt.graph.abs.IGraph;
-import de.hpi.bpt.hypergraph.abs.IDirectedHyperGraph;
-import de.hpi.bpt.hypergraph.abs.IVertex;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IDirectedHyperGraph;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex;
 
 /**
  * Directed graph interface

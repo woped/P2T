@@ -1,7 +1,5 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.oryx.erdf;
 
-import de.hpi.bpt.oryx.erdf.ERDFEdge;
-import de.hpi.bpt.oryx.erdf.ERDFNode;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;

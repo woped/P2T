@@ -1,12 +1,11 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.rpst;
 
-import de.hpi.bpt.graph.abs.AbstractDirectedGraph;
-import de.hpi.bpt.graph.abs.IDirectedEdge;
-import de.hpi.bpt.graph.abs.IDirectedGraph;
-import de.hpi.bpt.graph.algo.rpst.RPSTSkeleton;
-import de.hpi.bpt.graph.algo.tctree.TCType;
-import de.hpi.bpt.hypergraph.abs.IVertex;
-import de.hpi.bpt.hypergraph.abs.Vertex;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.AbstractDirectedGraph;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.IDirectedEdge;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.IDirectedGraph;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.tctree.TCType;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.Vertex;
 
 import java.util.ArrayList;
 import java.util.Collection;

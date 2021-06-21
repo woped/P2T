@@ -1,13 +1,8 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.tctree;
 
-import de.hpi.bpt.graph.abs.IEdge;
-import de.hpi.bpt.graph.abs.IGraph;
-import de.hpi.bpt.graph.algo.tctree.AbstractDFS;
-import de.hpi.bpt.graph.algo.tctree.EdgeMap;
-import de.hpi.bpt.graph.algo.tctree.MetaInfo;
-import de.hpi.bpt.graph.algo.tctree.MetaInfoContainer;
-import de.hpi.bpt.graph.algo.tctree.NodeMap;
-import de.hpi.bpt.hypergraph.abs.IVertex;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.IEdge;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.IGraph;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex;
 
 /**
  * This class computes the tree structure during the DFS, stored in a 

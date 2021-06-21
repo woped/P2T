@@ -1,6 +1,5 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.oryx.erdf;
 
-import de.hpi.bpt.oryx.erdf.IERDFObject;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 

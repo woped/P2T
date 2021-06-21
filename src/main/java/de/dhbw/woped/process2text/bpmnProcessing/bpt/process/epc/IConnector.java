@@ -1,9 +1,6 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.process.epc;
 
 
-import de.hpi.bpt.process.epc.ConnectorType;
-import de.hpi.bpt.process.epc.IFlowObject;
-
 /**
  * The connector in the process model. Connector is the flow object.
  * 

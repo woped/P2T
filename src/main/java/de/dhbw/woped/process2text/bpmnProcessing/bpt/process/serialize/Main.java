@@ -1,11 +1,7 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.process.serialize;
 
-import de.hpi.bpt.process.Process;
-import de.hpi.bpt.process.*;
-import de.hpi.bpt.process.serialize.JSON2Process;
-import de.hpi.bpt.process.serialize.Process2DOT;
-import de.hpi.bpt.process.serialize.Process2JSON;
-import de.hpi.bpt.process.serialize.SerializationException;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.process.Process;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.process.*;
 
 public class Main {
 

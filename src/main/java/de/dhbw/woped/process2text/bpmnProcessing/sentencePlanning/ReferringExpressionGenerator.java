@@ -1,10 +1,10 @@
 package de.dhbw.woped.process2text.bpmnProcessing.sentencePlanning;
 
-import contentDetermination.labelAnalysis.EnglishLabelHelper;
-import dataModel.dsynt.DSynTMainSentence;
-import dataModel.dsynt.DSynTSentence;
-import dataModel.intermediate.ExecutableFragment;
-import dataModel.process.ProcessModel;
+import de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis.EnglishLabelHelper;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.dsynt.DSynTMainSentence;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.dsynt.DSynTSentence;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.intermediate.ExecutableFragment;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.ProcessModel;
 import net.didion.jwnl.JWNLException;
 import net.didion.jwnl.data.IndexWord;
 import net.didion.jwnl.data.POS;

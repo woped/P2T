@@ -1,10 +1,6 @@
 package de.dhbw.woped.process2text.bpmnProcessing.dataModel.process;
 
 
-import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.Element;
-import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.Lane;
-import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.Pool;
-
 public class Gateway extends Element {
 	
 	private int type;

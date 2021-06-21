@@ -1,8 +1,7 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.graph;
 
-import de.hpi.bpt.graph.DirectedEdge;
-import de.hpi.bpt.graph.abs.AbstractDirectedGraph;
-import de.hpi.bpt.hypergraph.abs.Vertex;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.AbstractDirectedGraph;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.Vertex;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -16,7 +15,7 @@ public class DirectedGraph extends AbstractDirectedGraph<DirectedEdge,Vertex>
 {
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.AbstractDirectedGraph#addEdge(de.hpi.bpt.hypergraph.abs.IVertex, de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.AbstractDirectedGraph#addEdge(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex, de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	@Override
 	public DirectedEdge addEdge(Vertex s, Vertex t) {

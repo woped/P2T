@@ -1,6 +1,6 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.process.epc;
 
-import de.hpi.bpt.hypergraph.abs.IVertex;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex;
 
 /**
  * An element of an EPC diagram which is a node of a graph.

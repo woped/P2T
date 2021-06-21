@@ -1,7 +1,6 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.process.engine;
 
-import de.hpi.bpt.hypergraph.abs.Vertex;
-import de.hpi.bpt.process.engine.IProcess;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.Vertex;
 
 import java.io.BufferedReader;
 import java.io.IOException;

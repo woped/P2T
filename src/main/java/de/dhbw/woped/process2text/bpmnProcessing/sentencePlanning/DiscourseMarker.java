@@ -1,11 +1,11 @@
 package de.dhbw.woped.process2text.bpmnProcessing.sentencePlanning;
 
-import dataModel.dsynt.DSynTConditionSentence;
-import dataModel.dsynt.DSynTMainSentence;
-import dataModel.dsynt.DSynTSentence;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.dsynt.DSynTConditionSentence;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.dsynt.DSynTMainSentence;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.dsynt.DSynTSentence;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import textPlanning.IntermediateToDSynTConverter;
+import de.dhbw.woped.process2text.bpmnProcessing.textPlanning.IntermediateToDSynTConverter;
 
 import java.util.ArrayList;
 

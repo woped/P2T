@@ -1,7 +1,7 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.process.epc.util;
 
-import de.hpi.bpt.graph.algo.TransitiveClosure;
-import de.hpi.bpt.process.epc.*;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.TransitiveClosure;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.process.epc.*;
 
 import java.util.*;
 

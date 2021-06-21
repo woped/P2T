@@ -1,7 +1,5 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.tctree;
 
-import de.hpi.bpt.graph.algo.tctree.MetaInfo;
-
 import java.util.HashMap;
 
 /**

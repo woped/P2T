@@ -1,14 +1,14 @@
 package de.dhbw.woped.process2text.bpmnProcessing.textPlanning;
 
-import dataModel.p2t.WFnet2Processes;
-import dataModel.petri.ProcessCover;
-import dataModel.process.*;
-import de.hpi.bpt.graph.algo.rpst.RPST;
-import de.hpi.bpt.graph.algo.rpst.RPSTNode;
-import de.hpi.bpt.process.ControlFlow;
-import de.hpi.bpt.process.Event;
-import de.hpi.bpt.process.Gateway;
-import de.hpi.bpt.process.Node;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.p2t.WFnet2Processes;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.petri.ProcessCover;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.*;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.rpst.RPST;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.rpst.RPSTNode;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.process.ControlFlow;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.process.Event;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.process.Gateway;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.process.Node;
 import org.jbpt.bp.BehaviouralProfile;
 import org.jbpt.bp.construct.BPCreatorNet;
 import org.jbpt.petri.Flow;

@@ -1,10 +1,7 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs;
 
-import de.hpi.bpt.graph.abs.AbstractDirectedGraph;
-import de.hpi.bpt.graph.abs.IDirectedEdge;
-import de.hpi.bpt.graph.abs.ITree;
-import de.hpi.bpt.graph.algo.GraphAlgorithms;
-import de.hpi.bpt.hypergraph.abs.IVertex;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.GraphAlgorithms;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -27,7 +24,7 @@ public class AbstractTree<E extends IDirectedEdge<V>,V extends IVertex> extends 
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.AbstractGraph#addEdge(de.hpi.bpt.hypergraph.abs.IVertex, de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.AbstractGraph#addEdge(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex, de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	@Override
 	public E addEdge(V v1, V v2) {
@@ -49,7 +46,7 @@ public class AbstractTree<E extends IDirectedEdge<V>,V extends IVertex> extends 
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.AbstractMultiGraph#removeVertex(de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.AbstractMultiGraph#removeVertex(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	@Override
 	public V removeVertex(V v) {
@@ -68,7 +65,7 @@ public class AbstractTree<E extends IDirectedEdge<V>,V extends IVertex> extends 
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.AbstractMultiGraph#removeVertices(java.util.Collection)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.AbstractMultiGraph#removeVertices(java.util.Collection)
 	 */
 	@Override
 	public Collection<V> removeVertices(Collection<V> vs) {
@@ -84,7 +81,7 @@ public class AbstractTree<E extends IDirectedEdge<V>,V extends IVertex> extends 
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.hypergraph.abs.AbstractMultiHyperGraph#removeEdge(de.hpi.bpt.hypergraph.abs.IHyperEdge)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractMultiHyperGraph#removeEdge(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IHyperEdge)
 	 */
 	/*@Override
 	public E removeEdge(E e) {
@@ -95,7 +92,7 @@ public class AbstractTree<E extends IDirectedEdge<V>,V extends IVertex> extends 
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.hypergraph.abs.AbstractMultiHyperGraph#removeEdges(java.util.Collection)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractMultiHyperGraph#removeEdges(java.util.Collection)
 	 */
 	/*@Override
 	public Collection<E> removeEdges(Collection<E> es) {
@@ -112,7 +109,7 @@ public class AbstractTree<E extends IDirectedEdge<V>,V extends IVertex> extends 
 	
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.ITree#addChild(de.hpi.bpt.hypergraph.abs.IVertex, de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.ITree#addChild(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex, de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	public E addChild(V parent, V child) {
 		if (this.contains(parent) && ! this.contains(child)) {
@@ -124,7 +121,7 @@ public class AbstractTree<E extends IDirectedEdge<V>,V extends IVertex> extends 
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.ITree#getAllChildren(de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.ITree#getAllChildren(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	public Collection<V> getAllChildren(V v) {
 		// TODO Auto-generated method stub
@@ -133,7 +130,7 @@ public class AbstractTree<E extends IDirectedEdge<V>,V extends IVertex> extends 
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.ITree#getAllParents(de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.ITree#getAllParents(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	public Collection<V> getAllParents(V v) {
 		Collection<V> result = new ArrayList<V>();
@@ -150,7 +147,7 @@ public class AbstractTree<E extends IDirectedEdge<V>,V extends IVertex> extends 
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.ITree#getChildren(de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.ITree#getChildren(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	public Collection<V> getChildren(V v) {
 		return this.getSuccessors(v);
@@ -158,7 +155,7 @@ public class AbstractTree<E extends IDirectedEdge<V>,V extends IVertex> extends 
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.ITree#getInternalNodes()
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.ITree#getInternalNodes()
 	 */
 	public Collection<V> getInternalNodes() {
 		Collection<V> result = this.getVertices();
@@ -169,7 +166,7 @@ public class AbstractTree<E extends IDirectedEdge<V>,V extends IVertex> extends 
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.ITree#getLeaves()
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.ITree#getLeaves()
 	 */
 	public Collection<V> getLeaves() {
 		return graphAlgorithms.getBoundaryVertices(this);
@@ -177,7 +174,7 @@ public class AbstractTree<E extends IDirectedEdge<V>,V extends IVertex> extends 
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.ITree#getParent(de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.ITree#getParent(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	public V getParent(V v) {
 		return this.getFirstPredecessor(v);
@@ -185,7 +182,7 @@ public class AbstractTree<E extends IDirectedEdge<V>,V extends IVertex> extends 
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.ITree#getRoot()
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.ITree#getRoot()
 	 */
 	public V getRoot() {
 		return this.root;
@@ -193,7 +190,7 @@ public class AbstractTree<E extends IDirectedEdge<V>,V extends IVertex> extends 
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.ITree#reRoot(de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.ITree#reRoot(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	public V reRoot(V v) {
 		// TODO Auto-generated method stub

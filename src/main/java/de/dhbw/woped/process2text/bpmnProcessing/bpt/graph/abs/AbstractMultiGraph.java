@@ -1,10 +1,7 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs;
 
-import de.hpi.bpt.graph.abs.AbstractEdge;
-import de.hpi.bpt.graph.abs.IEdge;
-import de.hpi.bpt.graph.abs.IGraph;
-import de.hpi.bpt.hypergraph.abs.AbstractMultiHyperGraph;
-import de.hpi.bpt.hypergraph.abs.IVertex;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractMultiHyperGraph;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -24,7 +21,7 @@ public class AbstractMultiGraph<E extends IEdge<V>,V extends IVertex>
 {
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.IGraph#areAdjacent(de.hpi.bpt.hypergraph.abs.IVertex, de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.IGraph#areAdjacent(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex, de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	public boolean areAdjacent(V v1, V v2) {
 		E e = this.getEdge(v1, v2);
@@ -34,7 +31,7 @@ public class AbstractMultiGraph<E extends IEdge<V>,V extends IVertex>
 	
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.IGraph#getEdge(de.hpi.bpt.hypergraph.abs.IVertex, de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.IGraph#getEdge(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex, de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	public E getEdge(V v1, V v2) {
 		Collection<E> es = this.vertices.get(v1);
@@ -52,7 +49,7 @@ public class AbstractMultiGraph<E extends IEdge<V>,V extends IVertex>
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.hypergraph.abs.AbstractMultiHyperGraph#addEdge(java.util.Collection)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractMultiHyperGraph#addEdge(java.util.Collection)
 	 */
 	@Override
 	public E addEdge(Collection<V> vs) throws UnsupportedOperationException {
@@ -61,7 +58,7 @@ public class AbstractMultiGraph<E extends IEdge<V>,V extends IVertex>
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.hypergraph.abs.AbstractMultiHyperGraph#addEdge(de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractMultiHyperGraph#addEdge(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	@Override
 	public E addEdge(V v) throws UnsupportedOperationException {
@@ -70,7 +67,7 @@ public class AbstractMultiGraph<E extends IEdge<V>,V extends IVertex>
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.IGraph#addEdge(de.hpi.bpt.hypergraph.abs.IVertex, de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.IGraph#addEdge(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex, de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	@SuppressWarnings("unchecked")
 	public E addEdge(V v1, V v2) {
@@ -81,7 +78,7 @@ public class AbstractMultiGraph<E extends IEdge<V>,V extends IVertex>
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.hypergraph.abs.AbstractMultiHyperGraph#isMultiGraph()
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractMultiHyperGraph#isMultiGraph()
 	 */
 	@Override
 	public boolean isMultiGraph() {
@@ -90,7 +87,7 @@ public class AbstractMultiGraph<E extends IEdge<V>,V extends IVertex>
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.hypergraph.abs.AbstractMultiHyperGraph#removeVertex(de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractMultiHyperGraph#removeVertex(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	@Override
 	public V removeVertex(V v) {
@@ -112,7 +109,7 @@ public class AbstractMultiGraph<E extends IEdge<V>,V extends IVertex>
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.hypergraph.abs.AbstractMultiHyperGraph#removeVertices(java.util.Collection)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractMultiHyperGraph#removeVertices(java.util.Collection)
 	 */
 	@Override
 	public Collection<V> removeVertices(Collection<V> vs) {
@@ -129,7 +126,7 @@ public class AbstractMultiGraph<E extends IEdge<V>,V extends IVertex>
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.IGraph#getEdges(de.hpi.bpt.hypergraph.abs.IVertex, de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.IGraph#getEdges(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex, de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	public Collection<E> getEdges(V v1, V v2) {
 		if (v1 == null || v2 == null) return new ArrayList<E>();

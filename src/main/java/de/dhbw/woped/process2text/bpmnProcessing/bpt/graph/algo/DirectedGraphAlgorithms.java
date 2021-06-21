@@ -1,9 +1,8 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo;
 
-import de.hpi.bpt.graph.abs.IDirectedEdge;
-import de.hpi.bpt.graph.abs.IDirectedGraph;
-import de.hpi.bpt.graph.algo.TransitiveClosure;
-import de.hpi.bpt.hypergraph.abs.IVertex;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.IDirectedEdge;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.IDirectedGraph;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex;
 
 import java.util.*;
 

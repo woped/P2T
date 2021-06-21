@@ -1,8 +1,5 @@
 package de.dhbw.woped.process2text.bpmnProcessing.dataModel.jsonStructure;
 
-import de.dhbw.woped.process2text.bpmnProcessing.dataModel.jsonStructure.ElementProperties;
-import de.dhbw.woped.process2text.bpmnProcessing.dataModel.jsonStructure.Stencil;
-
 import java.util.ArrayList;
 
 public class ElementLevel {

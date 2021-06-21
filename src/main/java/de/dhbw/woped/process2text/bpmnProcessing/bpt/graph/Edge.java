@@ -1,8 +1,8 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.graph;
 
-import de.hpi.bpt.graph.abs.AbstractEdge;
-import de.hpi.bpt.graph.abs.AbstractMultiGraph;
-import de.hpi.bpt.hypergraph.abs.Vertex;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.AbstractEdge;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.AbstractMultiGraph;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.Vertex;
 
 /**
  * Graph edge implementation

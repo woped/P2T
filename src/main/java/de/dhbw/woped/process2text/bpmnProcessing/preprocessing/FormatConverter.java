@@ -1,10 +1,10 @@
 package de.dhbw.woped.process2text.bpmnProcessing.preprocessing;
 
-import dataModel.process.Arc;
-import dataModel.process.Element;
-import dataModel.process.ProcessModel;
-import de.hpi.bpt.process.Process;
-import de.hpi.bpt.process.*;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.Arc;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.Element;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.ProcessModel;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.process.Process;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.process.*;
 
 import java.util.HashMap;
 

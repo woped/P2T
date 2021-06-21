@@ -1,10 +1,5 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs;
 
-import de.hpi.bpt.hypergraph.abs.AbstractHyperEdge;
-import de.hpi.bpt.hypergraph.abs.AbstractMultiDirectedHyperGraph;
-import de.hpi.bpt.hypergraph.abs.IDirectedHyperEdge;
-import de.hpi.bpt.hypergraph.abs.IVertex;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;

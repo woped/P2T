@@ -1,13 +1,13 @@
 package de.dhbw.woped.process2text.bpmnProcessing.textPlanning.recordClasses;
 
-import dataModel.process.Arc;
-import dataModel.process.ProcessModel;
-import de.hpi.bpt.graph.algo.rpst.RPST;
-import de.hpi.bpt.graph.algo.rpst.RPSTEdge;
-import de.hpi.bpt.graph.algo.rpst.RPSTNode;
-import de.hpi.bpt.process.ControlFlow;
-import de.hpi.bpt.process.Node;
-import textPlanning.PlanningHelper;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.Arc;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.ProcessModel;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.rpst.RPST;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.rpst.RPSTEdge;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.rpst.RPSTNode;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.process.ControlFlow;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.process.Node;
+import de.dhbw.woped.process2text.bpmnProcessing.textPlanning.PlanningHelper;
 
 import java.util.ArrayList;
 

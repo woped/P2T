@@ -1,9 +1,9 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.tctree;
 
-import de.hpi.bpt.graph.abs.AbstractMultiGraphFragment;
-import de.hpi.bpt.graph.abs.IEdge;
-import de.hpi.bpt.graph.abs.IGraph;
-import de.hpi.bpt.hypergraph.abs.IVertex;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.AbstractMultiGraphFragment;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.IEdge;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.IGraph;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -41,7 +41,7 @@ public class TCTreeSkeleton<E extends IEdge<V>, V extends IVertex> extends Abstr
 		E e = super.addNonFragmentEdge(v1, v2);
 		
 		// mark edge virtual
-		e.setDescription(de.hpi.bpt.graph.algo.tctree.TCTreeSkeleton.VIRTUAL_EDGE_LABEL);
+		e.setDescription(de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.tctree.TCTreeSkeleton.VIRTUAL_EDGE_LABEL);
 		
 		return e;
 	}
@@ -69,13 +69,13 @@ public class TCTreeSkeleton<E extends IEdge<V>, V extends IVertex> extends Abstr
 	 * @return <code>true</code> if edge is virtual, <code>false</code> otherwise
 	 */
 	public boolean isVirtual(E e) {
-		return e.getDescription().equals(de.hpi.bpt.graph.algo.tctree.TCTreeSkeleton.VIRTUAL_EDGE_LABEL);
+		return e.getDescription().equals(de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.tctree.TCTreeSkeleton.VIRTUAL_EDGE_LABEL);
 	}
 
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.AbstractMultiGraphFragment#copyOriginalGraph()
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.AbstractMultiGraphFragment#copyOriginalGraph()
 	 */
 	@Override
 	public void copyOriginalGraph() {
@@ -95,11 +95,11 @@ public class TCTreeSkeleton<E extends IEdge<V>, V extends IVertex> extends Abstr
 	
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.AbstractMultiGraphFragment#getComplementary()
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.AbstractMultiGraphFragment#getComplementary()
 	 */
 	@Override
-	public de.hpi.bpt.graph.algo.tctree.TCTreeSkeleton<E, V> getComplementary() {
-		de.hpi.bpt.graph.algo.tctree.TCTreeSkeleton<E,V> result = new de.hpi.bpt.graph.algo.tctree.TCTreeSkeleton<E,V>(this.graph);
+	public de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.tctree.TCTreeSkeleton<E, V> getComplementary() {
+		de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.tctree.TCTreeSkeleton<E,V> result = new de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.tctree.TCTreeSkeleton<E,V>(this.graph);
 		if (this.graph == null) return result;
 		
 		Collection<E> es = this.graph.getEdges();

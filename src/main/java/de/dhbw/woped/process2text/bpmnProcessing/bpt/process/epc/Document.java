@@ -1,9 +1,5 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.process.epc;
 
-import de.hpi.bpt.process.epc.IDocument;
-import de.hpi.bpt.process.epc.NonFlowObject;
-import de.hpi.bpt.process.epc.NonFlowObjectType;
-
 /**
  * EPC document implementation
  * 

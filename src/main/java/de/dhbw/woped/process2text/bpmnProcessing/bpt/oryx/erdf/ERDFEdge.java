@@ -1,10 +1,7 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.oryx.erdf;
 
-import de.hpi.bpt.graph.abs.AbstractDirectedEdge;
-import de.hpi.bpt.graph.abs.AbstractMultiDirectedGraph;
-import de.hpi.bpt.oryx.erdf.ERDFNode;
-import de.hpi.bpt.oryx.erdf.ERDFObject;
-import de.hpi.bpt.oryx.erdf.IERDFObject;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.AbstractDirectedEdge;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.AbstractMultiDirectedGraph;
 import org.w3c.dom.Node;
 
 /**

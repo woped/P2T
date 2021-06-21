@@ -1,8 +1,7 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.graph;
 
-import de.hpi.bpt.graph.Edge;
-import de.hpi.bpt.graph.abs.AbstractGraph;
-import de.hpi.bpt.hypergraph.abs.Vertex;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.AbstractGraph;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.Vertex;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -17,7 +16,7 @@ public class Graph extends AbstractGraph<Edge,Vertex>
 {
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.AbstractGraph#addEdge(de.hpi.bpt.hypergraph.abs.IVertex, de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.AbstractGraph#addEdge(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex, de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	@Override
 	public Edge addEdge(Vertex v1, Vertex v2) {

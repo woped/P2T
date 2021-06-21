@@ -1,7 +1,7 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.process.serialize;
 
-import de.hpi.bpt.process.Process;
-import de.hpi.bpt.process.*;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.process.Process;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.process.*;
 
 public class Process2DOT {
 	

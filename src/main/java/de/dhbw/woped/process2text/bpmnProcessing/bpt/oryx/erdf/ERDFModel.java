@@ -1,9 +1,6 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.oryx.erdf;
 
-import de.hpi.bpt.graph.abs.AbstractDirectedGraph;
-import de.hpi.bpt.oryx.erdf.ERDFEdge;
-import de.hpi.bpt.oryx.erdf.ERDFNode;
-import de.hpi.bpt.oryx.erdf.IERDFModel;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.AbstractDirectedGraph;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;

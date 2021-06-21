@@ -1,8 +1,6 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs;
 
-import de.hpi.bpt.graph.abs.AbstractMultiDirectedGraph;
-import de.hpi.bpt.graph.abs.IDirectedEdge;
-import de.hpi.bpt.hypergraph.abs.IVertex;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -28,7 +26,7 @@ public class AbstractMultiDirectedGraphFragment<E extends IDirectedEdge<V>, V ex
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.hypergraph.abs.AbstractMultiDirectedHyperGraph#addEdge(de.hpi.bpt.hypergraph.abs.IVertex, de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractMultiDirectedHyperGraph#addEdge(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex, de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	@Override
 	public E addEdge(V s, V t) {
@@ -40,7 +38,7 @@ public class AbstractMultiDirectedGraphFragment<E extends IDirectedEdge<V>, V ex
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.hypergraph.abs.AbstractMultiHyperGraph#addVertex(de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractMultiHyperGraph#addVertex(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	@Override
 	public V addVertex(V v) {
@@ -101,7 +99,7 @@ public class AbstractMultiDirectedGraphFragment<E extends IDirectedEdge<V>, V ex
 	
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.hypergraph.abs.AbstractMultiDirectedHyperGraph#checkEdge(java.util.Collection, java.util.Collection)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractMultiDirectedHyperGraph#checkEdge(java.util.Collection, java.util.Collection)
 	 */
 	@Override
 	protected boolean checkEdge(Collection<V> ss, Collection<V> ts) {

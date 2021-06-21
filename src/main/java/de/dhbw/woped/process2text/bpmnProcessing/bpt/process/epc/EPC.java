@@ -1,10 +1,7 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.process.epc;
 
-import de.hpi.bpt.graph.abs.AbstractDirectedGraph;
-import de.hpi.bpt.graph.algo.DirectedGraphAlgorithms;
-import de.hpi.bpt.process.epc.Connector;
-import de.hpi.bpt.process.epc.Event;
-import de.hpi.bpt.process.epc.FlowObjectType;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.AbstractDirectedGraph;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.DirectedGraphAlgorithms;
 
 import java.util.*;
 

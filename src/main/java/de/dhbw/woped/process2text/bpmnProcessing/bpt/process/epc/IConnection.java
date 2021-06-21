@@ -1,7 +1,6 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.process.epc;
 
-import de.hpi.bpt.graph.abs.IDirectedEdge;
-import de.hpi.bpt.process.epc.INode;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.IDirectedEdge;
 
 /**
  * A connection in an EPC diagram. Connections are all the edges in the graph other than control flow.

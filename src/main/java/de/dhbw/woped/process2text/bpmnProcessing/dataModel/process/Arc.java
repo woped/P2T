@@ -1,7 +1,5 @@
 package de.dhbw.woped.process2text.bpmnProcessing.dataModel.process;
 
-import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.Element;
-
 public class Arc {
 	
 	private int id;

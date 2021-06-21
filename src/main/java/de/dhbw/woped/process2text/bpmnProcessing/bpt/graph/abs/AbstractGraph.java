@@ -1,8 +1,6 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs;
 
-import de.hpi.bpt.graph.abs.AbstractMultiGraph;
-import de.hpi.bpt.graph.abs.IEdge;
-import de.hpi.bpt.hypergraph.abs.IVertex;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,7 +17,7 @@ public class AbstractGraph<E extends IEdge<V>,V extends IVertex> extends Abstrac
 {	
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.AbstractMultiGraph#addEdge(de.hpi.bpt.hypergraph.abs.IVertex, de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.AbstractMultiGraph#addEdge(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex, de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	@Override
 	public E addEdge(V v1, V v2) {
@@ -33,7 +31,7 @@ public class AbstractGraph<E extends IEdge<V>,V extends IVertex> extends Abstrac
 	
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.AbstractMultiGraph#isMultiGraph()
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.AbstractMultiGraph#isMultiGraph()
 	 */
 	@Override
 	public boolean isMultiGraph() {

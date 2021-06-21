@@ -1,9 +1,6 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs;
 
-import de.hpi.bpt.graph.abs.AbstractMultiGraph;
-import de.hpi.bpt.graph.abs.IEdge;
-import de.hpi.bpt.graph.abs.IGraph;
-import de.hpi.bpt.hypergraph.abs.IVertex;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex;
 
 import java.util.*;
 import java.util.Map.Entry;
@@ -32,7 +29,7 @@ public class AbstractMultiGraphFragment<E extends IEdge<V>, V extends IVertex> e
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.hypergraph.abs.AbstractMultiDirectedHyperGraph#addEdge(de.hpi.bpt.hypergraph.abs.IVertex, de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractMultiDirectedHyperGraph#addEdge(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex, de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	@Override
 	public E addEdge(V v1, V v2) {
@@ -79,7 +76,7 @@ public class AbstractMultiGraphFragment<E extends IEdge<V>, V extends IVertex> e
 	
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.hypergraph.abs.AbstractMultiHyperGraph#removeEdge(de.hpi.bpt.hypergraph.abs.IHyperEdge)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractMultiHyperGraph#removeEdge(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IHyperEdge)
 	 */
 	@Override
 	public E removeEdge(E e) {
@@ -118,7 +115,7 @@ public class AbstractMultiGraphFragment<E extends IEdge<V>, V extends IVertex> e
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.hypergraph.abs.AbstractMultiHyperGraph#addVertex(de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractMultiHyperGraph#addVertex(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	@Override
 	public V addVertex(V v) {
@@ -186,8 +183,8 @@ public class AbstractMultiGraphFragment<E extends IEdge<V>, V extends IVertex> e
 	 * Get fragment complementary
 	 * @return Complementary of the fragment
 	 */
-	public de.hpi.bpt.graph.abs.AbstractMultiGraphFragment<E,V> getComplementary() {
-		de.hpi.bpt.graph.abs.AbstractMultiGraphFragment<E,V> result = new de.hpi.bpt.graph.abs.AbstractMultiGraphFragment<E,V>(this.graph);
+	public de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.AbstractMultiGraphFragment<E,V> getComplementary() {
+		de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.AbstractMultiGraphFragment<E,V> result = new de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.AbstractMultiGraphFragment<E,V>(this.graph);
 		if (this.graph == null) return result;
 		
 		Collection<E> es = this.graph.getEdges();

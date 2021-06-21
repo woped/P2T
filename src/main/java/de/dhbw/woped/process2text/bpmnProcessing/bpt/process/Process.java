@@ -1,11 +1,6 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.process;
 
-import de.hpi.bpt.graph.abs.AbstractDirectedGraph;
-import de.hpi.bpt.process.ControlFlow;
-import de.hpi.bpt.process.Gateway;
-import de.hpi.bpt.process.GatewayType;
-import de.hpi.bpt.process.Node;
-import de.hpi.bpt.process.Task;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.AbstractDirectedGraph;
 
 import java.util.ArrayList;
 import java.util.Collection;

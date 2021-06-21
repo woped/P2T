@@ -1,9 +1,7 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.bctree;
 
-import de.hpi.bpt.graph.abs.IEdge;
-import de.hpi.bpt.graph.algo.bctree.BCTComponent;
-import de.hpi.bpt.graph.algo.bctree.BCType;
-import de.hpi.bpt.hypergraph.abs.IVertex;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.IEdge;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex;
 
 import java.util.Collection;
 import java.util.Vector;
@@ -11,8 +9,8 @@ import java.util.Vector;
 public class BCTreeNode<E extends IEdge<V>, V extends IVertex> {
 	private BCType nodeType;
 	
-	private de.hpi.bpt.graph.algo.bctree.BCTreeNode<E,V> parentNode;
-	private Vector<de.hpi.bpt.graph.algo.bctree.BCTreeNode<E,V>> childNodes;
+	private de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.bctree.BCTreeNode<E,V> parentNode;
+	private Vector<de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.bctree.BCTreeNode<E,V>> childNodes;
 	
 	private BCTComponent<E,V> graph;
 	private V point;
@@ -20,7 +18,7 @@ public class BCTreeNode<E extends IEdge<V>, V extends IVertex> {
 	
 	public BCTreeNode(BCTComponent<E,V> g) {
 		this.parentNode = null;
-		this.childNodes = new Vector<de.hpi.bpt.graph.algo.bctree.BCTreeNode<E,V>>();
+		this.childNodes = new Vector<de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.bctree.BCTreeNode<E,V>>();
 
 		this.graph = g;
 		this.point = null;
@@ -30,7 +28,7 @@ public class BCTreeNode<E extends IEdge<V>, V extends IVertex> {
 	
 	public BCTreeNode(V p) {
 		parentNode = null;
-		childNodes = new Vector<de.hpi.bpt.graph.algo.bctree.BCTreeNode<E,V>>();
+		childNodes = new Vector<de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.bctree.BCTreeNode<E,V>>();
 
 		this.graph = null;
 		this.point = p;
@@ -42,7 +40,7 @@ public class BCTreeNode<E extends IEdge<V>, V extends IVertex> {
 		return nodeType;
 	}
 	
-	public de.hpi.bpt.graph.algo.bctree.BCTreeNode<E,V> getParentNode() {
+	public de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.bctree.BCTreeNode<E,V> getParentNode() {
 		return this.parentNode;
 	}
 	
@@ -54,19 +52,19 @@ public class BCTreeNode<E extends IEdge<V>, V extends IVertex> {
 		return this.point;
 	}
 	
-	public Collection<de.hpi.bpt.graph.algo.bctree.BCTreeNode<E,V>> getChildren() {
+	public Collection<de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.bctree.BCTreeNode<E,V>> getChildren() {
 		return this.childNodes;
 	}
 	
-	public void addChild(de.hpi.bpt.graph.algo.bctree.BCTreeNode<E,V> node) {
+	public void addChild(de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.bctree.BCTreeNode<E,V> node) {
 		this.childNodes.add(node);
 	}
 	
-	public void removeChild(de.hpi.bpt.graph.algo.bctree.BCTreeNode<E,V> node) {
+	public void removeChild(de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.bctree.BCTreeNode<E,V> node) {
 		this.childNodes.remove(node);
 	}
 	
-	public void setParent(de.hpi.bpt.graph.algo.bctree.BCTreeNode<E,V> node) {
+	public void setParent(de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.bctree.BCTreeNode<E,V> node) {
 		this.parentNode = node;
 	}
 }

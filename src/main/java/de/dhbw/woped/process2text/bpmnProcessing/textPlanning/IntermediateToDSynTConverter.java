@@ -1,14 +1,14 @@
 package de.dhbw.woped.process2text.bpmnProcessing.textPlanning;
 
 
-import dataModel.Pair;
-import dataModel.dsynt.DSynTMainSentence;
-import dataModel.intermediate.AbstractFragment;
-import dataModel.intermediate.ConditionFragment;
-import dataModel.intermediate.ExecutableFragment;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.Pair;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.dsynt.DSynTMainSentence;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.intermediate.AbstractFragment;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.intermediate.ConditionFragment;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.intermediate.ExecutableFragment;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import textPlanning.recordClasses.ModifierRecord;
+import de.dhbw.woped.process2text.bpmnProcessing.textPlanning.recordClasses.ModifierRecord;
 
 
 public class IntermediateToDSynTConverter {

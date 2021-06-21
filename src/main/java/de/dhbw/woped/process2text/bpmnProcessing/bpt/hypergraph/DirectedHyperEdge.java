@@ -1,8 +1,8 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph;
 
-import de.hpi.bpt.hypergraph.abs.AbstractDirectedHyperEdge;
-import de.hpi.bpt.hypergraph.abs.AbstractMultiDirectedHyperGraph;
-import de.hpi.bpt.hypergraph.abs.Vertex;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractDirectedHyperEdge;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractMultiDirectedHyperGraph;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.Vertex;
 
 /**
  * Directed hyper edge implementation

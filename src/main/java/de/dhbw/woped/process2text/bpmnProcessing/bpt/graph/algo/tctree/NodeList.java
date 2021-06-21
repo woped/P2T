@@ -1,6 +1,6 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.tctree;
 
-import de.hpi.bpt.hypergraph.abs.IVertex;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex;
 
 import java.util.ArrayList;
 

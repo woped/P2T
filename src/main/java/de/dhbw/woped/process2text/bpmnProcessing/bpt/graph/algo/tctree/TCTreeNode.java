@@ -1,10 +1,8 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.algo.tctree;
 
-import de.hpi.bpt.graph.abs.IEdge;
-import de.hpi.bpt.graph.algo.tctree.TCTreeSkeleton;
-import de.hpi.bpt.graph.algo.tctree.TCType;
-import de.hpi.bpt.hypergraph.abs.IVertex;
-import de.hpi.bpt.hypergraph.abs.Vertex;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.IEdge;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.Vertex;
 
 import java.util.ArrayList;
 import java.util.Collection;

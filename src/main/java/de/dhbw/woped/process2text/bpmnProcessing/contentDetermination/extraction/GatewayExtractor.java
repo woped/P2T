@@ -1,7 +1,7 @@
 package de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.extraction;
 
 import de.dhbw.woped.process2text.bpmnProcessing.contentDetermination.labelAnalysis.EnglishLabelHelper;
-import de.hpi.bpt.process.Node;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.process.Node;
 import de.dhbw.woped.process2text.bpmnProcessing.textPlanning.recordClasses.ModifierRecord;
 
 import java.util.HashMap;

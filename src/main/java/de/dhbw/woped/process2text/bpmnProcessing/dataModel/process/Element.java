@@ -1,9 +1,6 @@
 package de.dhbw.woped.process2text.bpmnProcessing.dataModel.process;
 
 
-import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.Lane;
-import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.Pool;
-
 public abstract class Element {
 	
 	private int id;

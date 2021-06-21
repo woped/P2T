@@ -1,9 +1,6 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.process.epc;
 
 
-import de.hpi.bpt.process.epc.FlowObjectType;
-import de.hpi.bpt.process.epc.INode;
-
 /**
  * A flow object in an EPC. Events, functions, connectors, and process interfaces are the flow objects. 
  * 

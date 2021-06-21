@@ -1,11 +1,8 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs;
 
-import de.hpi.bpt.graph.abs.AbstractMultiDirectedGraph;
-import de.hpi.bpt.graph.abs.IDirectedEdge;
-import de.hpi.bpt.graph.abs.IEdge;
-import de.hpi.bpt.hypergraph.abs.AbstractDirectedHyperEdge;
-import de.hpi.bpt.hypergraph.abs.IDirectedHyperEdge;
-import de.hpi.bpt.hypergraph.abs.IVertex;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractDirectedHyperEdge;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IDirectedHyperEdge;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -36,7 +33,7 @@ public class AbstractDirectedEdge<V extends IVertex> extends AbstractDirectedHyp
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.IDirectedEdge#getSource()
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.IDirectedEdge#getSource()
 	 */
 	public V getSource() {
 		return this.source;
@@ -44,7 +41,7 @@ public class AbstractDirectedEdge<V extends IVertex> extends AbstractDirectedHyp
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.IDirectedEdge#getTarget()
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.IDirectedEdge#getTarget()
 	 */
 	public V getTarget() {
 		return this.target;
@@ -52,7 +49,7 @@ public class AbstractDirectedEdge<V extends IVertex> extends AbstractDirectedHyp
 	
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.IDirectedEdge#setSource(de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.IDirectedEdge#setSource(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	public V setSource(V v) {
 		if (this.graph == null) return null;
@@ -66,7 +63,7 @@ public class AbstractDirectedEdge<V extends IVertex> extends AbstractDirectedHyp
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.IDirectedEdge#setTarget(de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.IDirectedEdge#setTarget(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	public V setTarget(V v) {
 		if (this.graph == null) return null;
@@ -80,7 +77,7 @@ public class AbstractDirectedEdge<V extends IVertex> extends AbstractDirectedHyp
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.IEdge#getOtherVertex(de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.IEdge#getOtherVertex(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	public V getOtherVertex(V v) {
 		if (v == null) return null;
@@ -91,7 +88,7 @@ public class AbstractDirectedEdge<V extends IVertex> extends AbstractDirectedHyp
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.IEdge#isSelfLoop()
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.IEdge#isSelfLoop()
 	 */
 	public boolean isSelfLoop() {
 		if (this.source.equals(this.target) && this.source != null && this.target != null) return true;
@@ -100,7 +97,7 @@ public class AbstractDirectedEdge<V extends IVertex> extends AbstractDirectedHyp
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.IDirectedEdge#setVertices(de.hpi.bpt.hypergraph.abs.IVertex, de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.IDirectedEdge#setVertices(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex, de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	@SuppressWarnings("unchecked")
 	public void setVertices(V s, V t) {
@@ -135,7 +132,7 @@ public class AbstractDirectedEdge<V extends IVertex> extends AbstractDirectedHyp
 	
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.hypergraph.abs.AbstractDirectedHyperEdge#equals(java.lang.Object)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractDirectedHyperEdge#equals(java.lang.Object)
 	 */
 	/*@SuppressWarnings("unchecked")
 	@Override
@@ -152,7 +149,7 @@ public class AbstractDirectedEdge<V extends IVertex> extends AbstractDirectedHyp
 	
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.hypergraph.abs.AbstractDirectedHyperEdge#addSourceVertex(de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractDirectedHyperEdge#addSourceVertex(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	@Override
 	public V addSourceVertex(V v) throws UnsupportedOperationException {
@@ -161,7 +158,7 @@ public class AbstractDirectedEdge<V extends IVertex> extends AbstractDirectedHyp
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.hypergraph.abs.AbstractDirectedHyperEdge#addSourceVertices(java.util.Collection)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractDirectedHyperEdge#addSourceVertices(java.util.Collection)
 	 */
 	@Override
 	public Collection<V> addSourceVertices(Collection<V> vs) throws UnsupportedOperationException {
@@ -170,7 +167,7 @@ public class AbstractDirectedEdge<V extends IVertex> extends AbstractDirectedHyp
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.hypergraph.abs.AbstractDirectedHyperEdge#addTargetVertex(de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractDirectedHyperEdge#addTargetVertex(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	@Override
 	public V addTargetVertex(V v) throws UnsupportedOperationException {
@@ -179,7 +176,7 @@ public class AbstractDirectedEdge<V extends IVertex> extends AbstractDirectedHyp
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.hypergraph.abs.AbstractDirectedHyperEdge#addTargetVertices(java.util.Collection)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractDirectedHyperEdge#addTargetVertices(java.util.Collection)
 	 */
 	@Override
 	public Collection<V> addTargetVertices(Collection<V> vs) throws UnsupportedOperationException {
@@ -188,7 +185,7 @@ public class AbstractDirectedEdge<V extends IVertex> extends AbstractDirectedHyp
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.hypergraph.abs.AbstractDirectedHyperEdge#removeSourceVertex(de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractDirectedHyperEdge#removeSourceVertex(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	@Override
 	public V removeSourceVertex(V v) throws UnsupportedOperationException {
@@ -197,7 +194,7 @@ public class AbstractDirectedEdge<V extends IVertex> extends AbstractDirectedHyp
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.hypergraph.abs.AbstractDirectedHyperEdge#removeSourceVertices(java.util.Collection)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractDirectedHyperEdge#removeSourceVertices(java.util.Collection)
 	 */
 	@Override
 	public Collection<V> removeSourceVertices(Collection<V> vs) throws UnsupportedOperationException {
@@ -206,7 +203,7 @@ public class AbstractDirectedEdge<V extends IVertex> extends AbstractDirectedHyp
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.hypergraph.abs.AbstractDirectedHyperEdge#removeTargetVertex(de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractDirectedHyperEdge#removeTargetVertex(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	@Override
 	public V removeTargetVertex(V v) throws UnsupportedOperationException {
@@ -215,7 +212,7 @@ public class AbstractDirectedEdge<V extends IVertex> extends AbstractDirectedHyp
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.hypergraph.abs.AbstractDirectedHyperEdge#removeTargetVertices(java.util.Collection)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractDirectedHyperEdge#removeTargetVertices(java.util.Collection)
 	 */
 	@Override
 	public Collection<V> removeTargetVertices(Collection<V> vs) throws UnsupportedOperationException {
@@ -224,7 +221,7 @@ public class AbstractDirectedEdge<V extends IVertex> extends AbstractDirectedHyp
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.hypergraph.abs.AbstractDirectedHyperEdge#addSourceAndTagetVertices(java.util.Collection, java.util.Collection)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractDirectedHyperEdge#addSourceAndTagetVertices(java.util.Collection, java.util.Collection)
 	 */
 	@Override
 	public Collection<V> addSourceAndTagetVertices(Collection<V> ss, Collection<V> ts) throws UnsupportedOperationException {
@@ -233,7 +230,7 @@ public class AbstractDirectedEdge<V extends IVertex> extends AbstractDirectedHyp
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.hypergraph.abs.AbstractDirectedHyperEdge#removeSourceAndTagetVertices(java.util.Collection, java.util.Collection)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractDirectedHyperEdge#removeSourceAndTagetVertices(java.util.Collection, java.util.Collection)
 	 */
 	@Override
 	public Collection<V> removeSourceAndTagetVertices(Collection<V> ss, Collection<V> ts) throws UnsupportedOperationException {
@@ -242,7 +239,7 @@ public class AbstractDirectedEdge<V extends IVertex> extends AbstractDirectedHyp
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.hypergraph.abs.AbstractDirectedHyperEdge#removeVertex(de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractDirectedHyperEdge#removeVertex(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	@Override
 	public V removeVertex(V v) throws UnsupportedOperationException {
@@ -251,7 +248,7 @@ public class AbstractDirectedEdge<V extends IVertex> extends AbstractDirectedHyp
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.hypergraph.abs.AbstractDirectedHyperEdge#removeVertices(java.util.Collection)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractDirectedHyperEdge#removeVertices(java.util.Collection)
 	 */
 	@Override
 	public Collection<V> removeVertices(Collection<V> vs) throws UnsupportedOperationException {
@@ -260,7 +257,7 @@ public class AbstractDirectedEdge<V extends IVertex> extends AbstractDirectedHyp
 	
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.hypergraph.abs.AbstractDirectedHyperEdge#destroy()
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.AbstractDirectedHyperEdge#destroy()
 	 */
 	@Override
 	public void destroy() {
@@ -270,7 +267,7 @@ public class AbstractDirectedEdge<V extends IVertex> extends AbstractDirectedHyp
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.IEdge#getV1()
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.IEdge#getV1()
 	 */
 	public V getV1() {
 		return this.source;
@@ -278,7 +275,7 @@ public class AbstractDirectedEdge<V extends IVertex> extends AbstractDirectedHyp
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.IEdge#getV2()
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.IEdge#getV2()
 	 */
 	public V getV2() {
 		return this.target;
@@ -286,7 +283,7 @@ public class AbstractDirectedEdge<V extends IVertex> extends AbstractDirectedHyp
 
 	/*
 	 * (non-Javadoc)
-	 * @see de.hpi.bpt.graph.abs.IEdge#connectsVertices(de.hpi.bpt.hypergraph.abs.IVertex, de.hpi.bpt.hypergraph.abs.IVertex)
+	 * @see de.dhbw.woped.process2text.bpmnProcessing.bpt.graph.abs.IEdge#connectsVertices(de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex, de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.IVertex)
 	 */
 	public boolean connectsVertices(V v1, V v2) {
 		return this.connectsVertex(v1) && this.connectsVertex(v2);

@@ -1,8 +1,8 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.process.epc;
 
-import de.hpi.bpt.process.epc.IOrganizationType;
-import de.hpi.bpt.process.epc.NonFlowObject;
-import de.hpi.bpt.process.epc.NonFlowObjectType;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.process.epc.IOrganizationType;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.process.epc.NonFlowObject;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.process.epc.NonFlowObjectType;
 
 /**
  * EPC organization type implementation

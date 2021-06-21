@@ -1,6 +1,6 @@
 package de.dhbw.woped.process2text.bpmnProcessing.bpt.process;
 
-import de.hpi.bpt.hypergraph.abs.Vertex;
+import de.dhbw.woped.process2text.bpmnProcessing.bpt.hypergraph.abs.Vertex;
 
 
 public abstract class Node extends Vertex {
