@@ -26,31 +26,24 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class Main {
+public class BPMNStart {
 	
 	private static EnglishLabelHelper lHelper;
 	private static EnglishLabelDeriver lDeriver;
 	
 	/**
-	 * Main function. 
+	 * Constructor
 	 */
-	public static void main(String[] args) throws Exception{
-
-		String file = "BicycleManufacturing.json";
-//		String file = "RigidTest.json";
-		
+	public BPMNStart() throws JWNLException, IOException, ClassNotFoundException {
 		// Set up label parsing classes
 		lHelper = new EnglishLabelHelper();
 		lDeriver  = new EnglishLabelDeriver(lHelper);
-		
-		// Load and generate from JSON files in directory
-		createFromFile(file);
 	}
 	
 	/**
 	 *  Function for generating text from a model. The according process model must be provided to the function.
 	 */
-	public static String toText(ProcessModel model, int counter) throws JWNLException, IOException, ClassNotFoundException, DocumentException {
+	private String toText(ProcessModel model, int counter) throws JWNLException, IOException, ClassNotFoundException, DocumentException {
 		String imperativeRole = ""; 
 		boolean imperative = false;
 		
@@ -95,7 +88,7 @@ public class Main {
 	/**
 	 * Loads JSON files from directory and writes generated texts 
 	 */
-	private static void createFromFile(String file) throws JsonSyntaxException, IOException {
+	public String createFromFile(String file) throws JsonSyntaxException, IOException {
 		
 		JSONReader reader = new JSONReader();
 		Gson gson = new Gson();
@@ -111,6 +104,8 @@ public class Main {
 				// Multi Pool Model
 				if (model.getPools().size() > 1) {
 					long time = System.currentTimeMillis();
+
+					/*
 					System.out.println();
 					System.out.print("The model contains "  + model.getPools().size() + " pools: ");
 					int count = 0;
@@ -124,7 +119,8 @@ public class Main {
 						System.out.print(role + " (" + (count+1) + ")");
 						count++;
 					}
-					
+					*/
+
 					HashMap<Integer,ProcessModel> newModels = model.getModelForEachPool();
 					for (ProcessModel m: newModels.values()) {
 						try {
@@ -135,7 +131,7 @@ public class Main {
 							e.printStackTrace();
 						}
 						String surfaceText = toText(m,counter);
-						System.out.println(surfaceText.replaceAll(" process ", " " + m.getPools().get(0) + " process " ));
+						return surfaceText.replaceAll(" process ", " " + m.getPools().get(0) + " process " );
 					}
 				} else {
 					try {
@@ -145,8 +141,7 @@ public class Main {
 						System.out.println("Error: Normalization impossible");
 						e.printStackTrace();
 					}
-					String surfaceText = toText(model,counter);
-					System.out.println(surfaceText);
+					return toText(model,counter);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
