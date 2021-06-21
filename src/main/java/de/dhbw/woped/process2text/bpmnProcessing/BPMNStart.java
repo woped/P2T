@@ -95,7 +95,7 @@ public class BPMNStart {
 		Gson gson = new Gson();
 		int counter = 0;
 		
-		Doc modelDoc = gson.fromJson(reader.getJSONStringFromFile(file), Doc.class);
+		Doc modelDoc = gson.fromJson(file, Doc.class);
 		if (modelDoc.getChildShapes() != null) {
 			try {
 				reader.init();
