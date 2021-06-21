@@ -43,8 +43,13 @@ public class PlanningHelper {
         }
 
         Node currentElem = startElem;
+        int cnt = 0; //Counter Variable to prevent Server Crash
         while (orderedTopNodes.size() < topNodes.size()) {
+            if (cnt >= 10000){ //Workaround to prevvent Crash
+                break;
+            }
             for (RPSTNode<ControlFlow, Node> node : topNodes) {
+                cnt++;
                 if (node.getEntry().equals(currentElem)) {
                     orderedTopNodes.add(node);
                     currentElem = node.getExit();

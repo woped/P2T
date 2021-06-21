@@ -29,6 +29,7 @@ public class P2TController extends Thread {
             }
         } else {
             /** BPMN Reader Call **/
+            output = "BPMN Text Generation is currently under construction. Please try again later.";
         }
         return output;
     }
