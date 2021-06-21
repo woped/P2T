@@ -1,6 +1,6 @@
 package de.dhbw.woped.process2text.P2TWebservice;
 
-import de.dhbw.woped.process2text.textGenerator.TextGenerator;
+import de.dhbw.woped.process2text.pnmlProcessing.textGenerator.TextGenerator;
 
 public class P2TController extends Thread {
     // This is the controller class, which is being called by the class P2T Servlet
