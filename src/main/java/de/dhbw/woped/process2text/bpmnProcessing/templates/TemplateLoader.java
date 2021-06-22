@@ -10,7 +10,7 @@ import java.io.File;
 public class TemplateLoader {
 	
 	
-	private final String dir = "src/templates/";
+	private final String dir = "src/main/java/de/dhbw/woped/process2text/bpmnProcessing/templates/";
 	public static final String AND_SPLIT = "ANDSplit.xml";
 	public static final String AND_JOIN = "ANDJoin.xml";
 	public static final String AND_JOIN_SIMPLE = "ANDJoinSimple.xml";
