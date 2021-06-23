@@ -52,6 +52,18 @@ public class P2TController extends Thread {
             }
         } else {
             output = "unknown file format";
+            BPMNStart bpmn = null;
+            try {
+                bpmn = new BPMNStart();
+                output = bpmn.createFromFile(text);
+            } catch (JWNLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+
         }
         return output;
     }

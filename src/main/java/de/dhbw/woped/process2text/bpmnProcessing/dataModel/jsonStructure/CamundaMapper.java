@@ -58,7 +58,6 @@ public class CamundaMapper {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-        System.out.println(bpmn.bpmnDefinitions.bpmnProcess.get(0).bpmnLaneSet.bpmnLane.get(0).bpmnFlowNodeRef);
         doc.setResourceId(bpmn.bpmnDefinitions.bpmndiBPMNDiagram.id);
         doc.setStencil(this.bpmnDiagram);
         ArrayList<PoolLevel> pools = new ArrayList<>();
@@ -94,7 +93,6 @@ public class CamundaMapper {
 
     private ArrayList<LaneLevel> buildLanes(BpmnParticipant participant) {
         ArrayList<LaneLevel> lanes = new ArrayList<>();
-        System.out.println(participant);
         BpmnProcess process = null;
         for (BpmnProcess p : bpmn.bpmnDefinitions.bpmnProcess){
             if(p.id.equals(participant.processRef)) {
@@ -102,13 +100,15 @@ public class CamundaMapper {
                 break;
             }
         }
-        for (BpmnLane x : process.bpmnLaneSet.bpmnLane) {
-            LaneLevel tmp = new LaneLevel();
-            tmp.setResourceId(x.id);
-            tmp.setStencil(this.lane);
-            tmp.setProps(setLaneProperties(x.name));
-            tmp.setChildShapes(getElements(x, process));
-            lanes.add(tmp);
+        if(process.bpmnLaneSet != null) {
+            for (BpmnLane x : process.bpmnLaneSet.bpmnLane) {
+                LaneLevel tmp = new LaneLevel();
+                tmp.setResourceId(x.id);
+                tmp.setStencil(this.lane);
+                tmp.setProps(setLaneProperties(x.name));
+                tmp.setChildShapes(getElements(x, process));
+                lanes.add(tmp);
+            }
         }
         return lanes;
     }
