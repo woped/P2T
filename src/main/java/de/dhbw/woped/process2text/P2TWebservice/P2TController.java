@@ -2,6 +2,7 @@ package de.dhbw.woped.process2text.P2TWebservice;
 
 import de.dhbw.woped.process2text.bpmnProcessing.BPMNReader.XMLReader;
 import de.dhbw.woped.process2text.bpmnProcessing.BPMNStart;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.jsonStructure.CamundaMapper;
 import de.dhbw.woped.process2text.pnmlProcessing.textGenerator.TextGenerator;
 import net.didion.jwnl.JWNLException;
 
@@ -32,14 +33,16 @@ public class P2TController extends Thread {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        } else {
+        } else if (text.contains("Camunda")){
             /** BPMN Reader Call **/
             //System.out.println(XMLReader.read(text));
 
             try {
                 BPMNStart bpmn = new BPMNStart();
-                //output = bpmn.createFromFile(XMLReader.read(text));
-                output = bpmn.createFromFile(text);
+                CamundaMapper mapper = new CamundaMapper();
+                String json = XMLReader.read(text);
+                output = bpmn.createText(mapper.buildDoc(json));
+                //output = bpmn.createFromFile(text);
             } catch (JWNLException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -47,7 +50,8 @@ public class P2TController extends Thread {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
-
+        } else {
+            output = "unknown file format";
         }
         return output;
     }

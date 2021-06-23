@@ -25,86 +25,89 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-
-
 public class BPMNStart {
-	
-	private static EnglishLabelHelper lHelper;
-	private static EnglishLabelDeriver lDeriver;
-	
-	/**
-	 * Constructor
-	 */
-	public BPMNStart() throws JWNLException, IOException, ClassNotFoundException {
-		// Set up label parsing classes
-		lHelper = new EnglishLabelHelper();
-		lDeriver  = new EnglishLabelDeriver(lHelper);
-	}
-	
-	/**
-	 *  Function for generating text from a model. The according process model must be provided to the function.
-	 */
-	private String toText(ProcessModel model, int counter) throws JWNLException, IOException, ClassNotFoundException{
-		String imperativeRole = ""; 
-		boolean imperative = false;
-		
-		// Annotate model
-		model.annotateModel(0,lDeriver,lHelper);
-		
-		// Convert to RPST
-		FormatConverter formatConverter = new FormatConverter();
-		Process p = formatConverter.transformToRPSTFormat(model);
-		RPST<ControlFlow,Node> rpst = new RPST<ControlFlow,Node>(p);
-		
-		// Convert to Text
-		TextPlanner converter = new TextPlanner(rpst, model, lDeriver, lHelper, imperativeRole, imperative, false);
-		converter.convertToText(rpst.getRoot(), 0);
-		ArrayList <DSynTSentence> sentencePlan = converter.getSentencePlan();
-		
-		// Aggregation
-		SentenceAggregator sentenceAggregator = new SentenceAggregator(lHelper);
-		sentencePlan = sentenceAggregator.performRoleAggregation(sentencePlan, model);
-		
-		// Referring Expression
-		ReferringExpressionGenerator refExpGenerator = new ReferringExpressionGenerator(lHelper);
-		sentencePlan  = refExpGenerator.insertReferringExpressions(sentencePlan, model, false);
-		
-		// Discourse Marker 
-		DiscourseMarker discourseMarker = new DiscourseMarker();
-		sentencePlan = discourseMarker.insertSequenceConnectives(sentencePlan);
 
-		// Realization
-		SurfaceRealizer surfaceRealizer = new SurfaceRealizer();
-		String surfaceText = surfaceRealizer.realizePlan(sentencePlan);
-		
-		// Cleaning
-		if (imperative == true) {
-			surfaceText = surfaceRealizer.cleanTextForImperativeStyle(surfaceText, imperativeRole, model.getLanes());
-		}
-		
-		surfaceText = surfaceRealizer.postProcessText(surfaceText);
-		return surfaceText;
-	}
-	
-	/**
-	 * Loads JSON files from directory and writes generated texts 
-	 */
-	public String createFromFile(String file) throws JsonSyntaxException, IOException {
-		
-		JSONReader reader = new JSONReader();
-		Gson gson = new Gson();
-		int counter = 0;
-		
-		Doc modelDoc = gson.fromJson(file, Doc.class);
-		if (modelDoc.getChildShapes() != null) {
-			try {
-				reader.init();
-				reader.getIntermediateProcessFromFile(modelDoc);
-				ProcessModel model = reader.getProcessModelFromIntermediate();
-				
-				// Multi Pool Model
-				if (model.getPools().size() > 1) {
-					long time = System.currentTimeMillis();
+    private static EnglishLabelHelper lHelper;
+    private static EnglishLabelDeriver lDeriver;
+
+    /**
+     * Constructor
+     */
+    public BPMNStart() throws JWNLException, IOException, ClassNotFoundException {
+        // Set up label parsing classes
+        lHelper = new EnglishLabelHelper();
+        lDeriver = new EnglishLabelDeriver(lHelper);
+    }
+
+    /**
+     * Function for generating text from a model. The according process model must be provided to the function.
+     */
+    private String toText(ProcessModel model, int counter) throws JWNLException, IOException, ClassNotFoundException {
+        String imperativeRole = "";
+        boolean imperative = false;
+
+        // Annotate model
+        model.annotateModel(0, lDeriver, lHelper);
+
+        // Convert to RPST
+        FormatConverter formatConverter = new FormatConverter();
+        Process p = formatConverter.transformToRPSTFormat(model);
+        RPST<ControlFlow, Node> rpst = new RPST<ControlFlow, Node>(p);
+
+        // Convert to Text
+        TextPlanner converter = new TextPlanner(rpst, model, lDeriver, lHelper, imperativeRole, imperative, false);
+        converter.convertToText(rpst.getRoot(), 0);
+        ArrayList<DSynTSentence> sentencePlan = converter.getSentencePlan();
+
+        // Aggregation
+        SentenceAggregator sentenceAggregator = new SentenceAggregator(lHelper);
+        sentencePlan = sentenceAggregator.performRoleAggregation(sentencePlan, model);
+
+        // Referring Expression
+        ReferringExpressionGenerator refExpGenerator = new ReferringExpressionGenerator(lHelper);
+        sentencePlan = refExpGenerator.insertReferringExpressions(sentencePlan, model, false);
+
+        // Discourse Marker
+        DiscourseMarker discourseMarker = new DiscourseMarker();
+        sentencePlan = discourseMarker.insertSequenceConnectives(sentencePlan);
+
+        // Realization
+        SurfaceRealizer surfaceRealizer = new SurfaceRealizer();
+        String surfaceText = surfaceRealizer.realizePlan(sentencePlan);
+
+        // Cleaning
+        if (imperative == true) {
+            surfaceText = surfaceRealizer.cleanTextForImperativeStyle(surfaceText, imperativeRole, model.getLanes());
+        }
+
+        surfaceText = surfaceRealizer.postProcessText(surfaceText);
+        return surfaceText;
+    }
+
+    /**
+     * Loads JSON files from directory and writes generated texts
+     */
+    public String createFromFile(String file) throws JsonSyntaxException, IOException {
+
+        Gson gson = new Gson();
+        Doc modelDoc = gson.fromJson(file, Doc.class);
+
+        return createText(modelDoc);
+    }
+
+
+    public String createText(Doc modelDoc) {
+        JSONReader reader = new JSONReader();
+        int counter = 0;
+        if (modelDoc.getChildShapes() != null) {
+            try {
+                reader.init();
+                reader.getIntermediateProcessFromFile(modelDoc);
+                ProcessModel model = reader.getProcessModelFromIntermediate();
+
+                // Multi Pool Model
+                if (model.getPools().size() > 1) {
+                    long time = System.currentTimeMillis();
 
 					/*
 					System.out.println();
@@ -122,32 +125,32 @@ public class BPMNStart {
 					}
 					*/
 
-					HashMap<Integer,ProcessModel> newModels = model.getModelForEachPool();
-					for (ProcessModel m: newModels.values()) {
-						try {
-							m.normalize();
-							m.normalizeEndEvents();
-						} catch (Exception e) {
-							System.out.println("Error: Normalization impossible");
-							e.printStackTrace();
-						}
-						String surfaceText = toText(m,counter);
-						return surfaceText.replaceAll(" process ", " " + m.getPools().get(0) + " process " );
-					}
-				} else {
-					try {
-						model.normalize();
-						model.normalizeEndEvents();
-					} catch (Exception e) {
-						System.out.println("Error: Normalization impossible");
-						e.printStackTrace();
-					}
-					return toText(model,counter);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		return "";
-	}
+                    HashMap<Integer, ProcessModel> newModels = model.getModelForEachPool();
+                    for (ProcessModel m : newModels.values()) {
+                        try {
+                            m.normalize();
+                            m.normalizeEndEvents();
+                        } catch (Exception e) {
+                            System.out.println("Error: Normalization impossible");
+                            e.printStackTrace();
+                        }
+                        String surfaceText = toText(m, counter);
+                        return surfaceText.replaceAll(" process ", " " + m.getPools().get(0) + " process ");
+                    }
+                } else {
+                    try {
+                        model.normalize();
+                        model.normalizeEndEvents();
+                    } catch (Exception e) {
+                        System.out.println("Error: Normalization impossible");
+                        e.printStackTrace();
+                    }
+                    return toText(model, counter);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return "";
+    }
 }
