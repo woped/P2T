@@ -335,10 +335,9 @@ public class JSONReader {
 
  		// Save outgoing elements
 		ArrayList<Integer> jArcIDs = new ArrayList<Integer>();
-		for (ElementLevel out : elem.getOutgoing()) {
-			jArcIDs.add(getId(out.getResourceId()));
-		}
-		
+			for (ElementLevel out : elem.getOutgoing()) {
+				jArcIDs.add(getId(out.getResourceId()));
+			}
 		if (elem.getStencil().toString().equals("Task")) {
 			JSONTask jTask = new JSONTask(id, elem.getProps().getName(),jArcIDs, currentLaneId, currentPoolId, elem.getProps().getTasktype());
 			if (inSubProcess) {

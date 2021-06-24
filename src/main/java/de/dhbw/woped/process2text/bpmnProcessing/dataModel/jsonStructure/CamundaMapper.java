@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import de.dhbw.woped.process2text.bpmnProcessing.dataModel.camundaStructure.*;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.process.Pool;
 import org.jbpt.pm.bpmn.Bpmn;
 
 import java.util.ArrayList;
@@ -13,15 +14,18 @@ public class CamundaMapper {
     private Doc doc;
     private Stencil bpmnDiagram;
     private Stencil pool;
+    private Stencil messageFlow;
     private Stencil lane;
     private Stencil startEvent;
     private Stencil endEvent;
     private Stencil activity;
     private Stencil gatewayAnd;
     private Stencil gatewayXor;
+    private Stencil arc;
     private Stencil sequenceFlow;
     private Root bpmn;
     private ArrayList<ElementLevel> existingElements;
+    private BpmnProcess currentProcess;
 
     public CamundaMapper() {
         this.existingElements = new ArrayList<>();
@@ -44,6 +48,10 @@ public class CamundaMapper {
         gatewayXor.id = "Exclusive_Databased_Gateway";
         sequenceFlow = new Stencil();
         sequenceFlow.id = "SequenceFlow";
+        messageFlow = new Stencil();
+        messageFlow.id = "MessageFlow";
+        arc = new Stencil();
+        arc.id = "Arc";
     }
 
     /**
@@ -69,7 +77,20 @@ public class CamundaMapper {
             tmp.setProps(setPoolProperties(x.name));
             tmp.setChildShapes(buildLanes(x));
             pools.add(tmp);
+            for (BpmnSequenceFlow y : currentProcess.bpmnSequenceFlow){
+                PoolLevel sqf = new PoolLevel();
+                sqf.setResourceId(y.id);
+                sqf.setStencil(this.sequenceFlow);
+                Target tg = new Target();
+                tg.setResourceId(y.targetRef);
+                sqf.setTarget(tg);
+                sqf.setProps(setPoolProperties(""));
+                sqf.setChildShapes(new ArrayList<LaneLevel>());
+                pools.add(sqf);
+            }
         }
+
+        doc.setChildShapes(pools);
         return doc;
     }
 
@@ -88,6 +109,7 @@ public class CamundaMapper {
     private ElementProperties setElementProperties(String name) {
         ElementProperties props = new ElementProperties();
         props.setName(name);
+        props.setTasktype("None");
         return props;
     }
 
@@ -97,6 +119,7 @@ public class CamundaMapper {
         for (BpmnProcess p : bpmn.bpmnDefinitions.bpmnProcess){
             if(p.id.equals(participant.processRef)) {
                 process = p;
+                this.currentProcess = p;
                 break;
             }
         }
@@ -118,13 +141,9 @@ public class CamundaMapper {
         String[] flowNodeRef = lane.bpmnFlowNodeRef.toString().split(",");
         for (String x : flowNodeRef) {
             ElementLevel tmp = null;
-            if (!elements.isEmpty()) {
-                tmp = searchForExistingElementObjects(elements, process.bpmnStartEvent.bpmnOutgoing);
-            }
-            if (tmp != null) {
-
-            } else {
+            if (!x.contains("Flow")){
                 tmp = new ElementLevel();
+                this.existingElements.add(tmp);
                 if (x.contains("StartEvent")) {
                     tmp.setResourceId(process.bpmnStartEvent.id);
                     tmp.setStencil(startEvent);
@@ -135,9 +154,7 @@ public class CamundaMapper {
                     if (searchOG == null) {
                         ElementLevel og = new ElementLevel();
                         og.setResourceId(process.bpmnStartEvent.bpmnOutgoing);
-                        if (!elements.isEmpty()) {
-                            finishElement(og);
-                        }
+                            og = finishElement(og);
                         outgoing.add(og);
                     } else {
                         outgoing.add(searchOG);
@@ -147,6 +164,8 @@ public class CamundaMapper {
                     tmp.setResourceId(process.bpmnEndEvent.id);
                     tmp.setStencil(endEvent);
                     tmp.setProps(setElementProperties(""));
+                    ArrayList<ElementLevel> outgoing = new ArrayList<>();
+                    tmp.setOutgoing(outgoing);
                 } else if (x.contains("Activity")) {
                     BpmnTask activity = process.bpmnTask.stream().filter(BpmnTask -> x.contains(BpmnTask.id)).findAny().orElse(null);
                     tmp.setResourceId(activity.id);
@@ -157,9 +176,7 @@ public class CamundaMapper {
                     if (searchOG == null) {
                         ElementLevel og = new ElementLevel();
                         og.setResourceId(process.bpmnStartEvent.bpmnOutgoing);
-                        if (!elements.isEmpty()) {
-                            finishElement(og);
-                        }
+                        og = finishElement(og);
                         outgoing.add(og);
                     } else {
                         outgoing.add(searchOG);
@@ -168,23 +185,17 @@ public class CamundaMapper {
                 } else if (x.contains("Gateway")) {
                     BpmnExclusiveGateway gw = process.bpmnExclusiveGateway.stream().filter(BpmnExclusiveGateway -> x.contains(BpmnExclusiveGateway.id)).findAny().orElse(null);
                     ArrayList<ElementLevel> outgoing = new ArrayList<>();
+                    tmp.setOutgoing(outgoing);
                     if (gw != null) {
                         tmp.setResourceId(gw.id);
                         tmp.setStencil(gatewayXor);
                         for (String gwOg : gw.bpmnOutgoing) {
                             ElementLevel searchOG = searchForExistingElementObjects(new ArrayList<ElementLevel>(), gwOg);
-                            if (searchOG == null && !outgoing.isEmpty()) {
-                                searchOG = searchForExistingElementObjects(outgoing, gwOg);
-                            }
                             if (searchOG == null) {
-                                this.existingElements.add(tmp);
                                 ElementLevel og = new ElementLevel();
                                 og.setResourceId(gwOg);
-                                if (!elements.isEmpty()) {
-                                    finishElement(og);
-                                }
+                                og = finishElement(og);
                                 outgoing.add(og);
-                                this.existingElements.add(og);
                             } else {
                                 outgoing.add(searchOG);
                             }
@@ -195,17 +206,11 @@ public class CamundaMapper {
                         tmp.setStencil(gatewayAnd);
                         for (String gwOg : pgw.bpmnOutgoing) {
                             ElementLevel searchOG = searchForExistingElementObjects(new ArrayList<ElementLevel>(), gwOg);
-                            if (searchOG == null && !outgoing.isEmpty()) {
-                                searchOG = searchForExistingElementObjects(outgoing, gwOg);
-                            }
                             if (searchOG == null) {
                                 ElementLevel og = new ElementLevel();
                                 og.setResourceId(gwOg);
-                                if (!elements.isEmpty()) {
-                                    finishElement(og);
-                                }
+                                og = finishElement(og);
                                 outgoing.add(og);
-                                this.existingElements.add(og);
                             } else {
                                 outgoing.add(searchOG);
                             }
@@ -213,34 +218,20 @@ public class CamundaMapper {
                     }
                     tmp.setProps(setElementProperties(""));
 
-                } else if (x.contains("Flow")) {
-                    BpmnSequenceFlow flow = process.bpmnSequenceFlow.stream().filter(BpmnSequenceFlow -> x.contains(BpmnSequenceFlow.id)).findAny().orElse(null);
-                    tmp.setResourceId(flow.id);
-                    tmp.setStencil(sequenceFlow);
-                    if (flow.name != null) {
-                        tmp.setProps(setElementProperties(flow.name));
-                    } else {
-                        tmp.setProps(setElementProperties(""));
-                    }
-                    ArrayList<ElementLevel> outgoing = new ArrayList<>();
-                    ElementLevel searchOG = searchForExistingElementObjects(new ArrayList<ElementLevel>(), flow.targetRef);
-                    if (searchOG == null) {
-                        ElementLevel og = new ElementLevel();
-                        og.setResourceId(flow.targetRef);
-                        if (!elements.isEmpty()) {
-                            finishElement(og);
-                        }
-                        outgoing.add(og);
-                    } else {
-                        outgoing.add(searchOG);
-                    }
-                    tmp.setOutgoing(outgoing);
+                }
+
+            }
+            if(tmp != null){
+                ElementLevel finalTmp = tmp;
+                if (finalTmp.resourceId != null && !elements.stream().anyMatch((item -> finalTmp.resourceId.equals(item.resourceId)))) {
+                    elements.add(tmp);
+                }
+
+                if (!this.existingElements.contains(tmp)) {
+                    this.existingElements.add(tmp);
                 }
             }
-            elements.add(tmp);
-            if (!this.existingElements.contains(tmp)) {
-                this.existingElements.add(tmp);
-            }
+
         }
         return elements;
     }
@@ -248,24 +239,27 @@ public class CamundaMapper {
     private ElementLevel searchForExistingElementObjects(ArrayList<ElementLevel> list, String og) {
         if(list == null){
             list = this.existingElements;
+        } else if(list.isEmpty()){
+            list = this.existingElements;
+        } else {
+            list.addAll(this.existingElements);
         }
-        for (ElementLevel x : list) {
-            if (x.resourceId == og) {
-                return x;
+            for (ElementLevel x : list) {
+                if (x.resourceId != null && x.resourceId.contains(og)) {
+                    return x;
+                }
             }
-            ElementLevel tmp = searchForExistingElementObjects(x.outgoing, og);
-            if (tmp != null) {
-                return tmp;
-            }
-        }
         return null;
     }
 
-    private void finishElement(ElementLevel element) {
+    private ElementLevel finishElement(ElementLevel element) {
+        this.existingElements.add(element);
         String x = element.resourceId;
         if (x.contains("EndEvent")) {
             element.setStencil(endEvent);
             element.setProps(setElementProperties(""));
+            ArrayList<ElementLevel> outgoing = new ArrayList<>();
+            element.setOutgoing(outgoing);
         } else if (x.contains("Activity")) {
             BpmnTask t = null;
             element.setStencil(this.activity);
@@ -283,7 +277,7 @@ public class CamundaMapper {
             if (searchOG == null) {
                 ElementLevel og = new ElementLevel();
                 og.setResourceId(t.bpmnOutgoing);
-                finishElement(og);
+                og = finishElement(og);
                 outgoing.add(og);
             } else {
                 outgoing.add(searchOG);
@@ -292,25 +286,23 @@ public class CamundaMapper {
         } else if (x.contains("Gateway")) {
             BpmnExclusiveGateway gw = null;
             for (BpmnProcess p : bpmn.bpmnDefinitions.bpmnProcess) {
-                gw = p.bpmnExclusiveGateway.stream().filter(BpmnExclusiveGateway -> x.contains(BpmnExclusiveGateway.id)).findAny().orElse(null);
+                if(p.bpmnExclusiveGateway != null) {
+                    gw = p.bpmnExclusiveGateway.stream().filter(BpmnExclusiveGateway -> x.contains(BpmnExclusiveGateway.id)).findAny().orElse(null);
+                }
                 if (gw != null)
                     break;
             }
             ArrayList<ElementLevel> outgoing = new ArrayList<>();
+            element.setOutgoing(outgoing);
             if (gw != null) {
                 element.setStencil(gatewayXor);
                 for (String gwOg : gw.bpmnOutgoing) {
                     ElementLevel searchOG = searchForExistingElementObjects(new ArrayList<ElementLevel>(), gwOg);
-                    if (searchOG == null && !outgoing.isEmpty()) {
-                        searchOG = searchForExistingElementObjects(outgoing, gwOg);
-                    }
                     if (searchOG == null) {
-                        this.existingElements.add(element);
                         ElementLevel og = new ElementLevel();
                         og.setResourceId(gwOg);
-                        finishElement(og);
+                        og = finishElement(og);
                         outgoing.add(og);
-                        this.existingElements.add(og);
                     } else {
                         outgoing.add(searchOG);
                     }
@@ -325,15 +317,11 @@ public class CamundaMapper {
                 element.setStencil(gatewayAnd);
                 for (String gwOg : pgw.bpmnOutgoing) {
                     ElementLevel searchOG = searchForExistingElementObjects(new ArrayList<ElementLevel>(), gwOg);
-                    if (searchOG == null && !outgoing.isEmpty()) {
-                        searchOG = searchForExistingElementObjects(outgoing, gwOg);
-                    }
                     if (searchOG == null) {
                         ElementLevel og = new ElementLevel();
                         og.setResourceId(gwOg);
-                        finishElement(og);
+                        og = finishElement(og);
                         outgoing.add(og);
-                        this.existingElements.add(og);
                     } else {
                         outgoing.add(searchOG);
                     }
@@ -341,34 +329,36 @@ public class CamundaMapper {
             }
             element.setProps(setElementProperties(""));
 
-        } else if (x.contains("Flow")) {
-            BpmnSequenceFlow flow = null;
+        } /*else if (x.contains("Flow")) {
+            BpmnSequenceFlow flow = new BpmnSequenceFlow();
+            ArrayList<ElementLevel> outgoing = new ArrayList<>();
+            element.setOutgoing(outgoing);
             for (BpmnProcess p : bpmn.bpmnDefinitions.bpmnProcess) {
                 flow = p.bpmnSequenceFlow.stream().filter(BpmnSequenceFlow -> x.contains(BpmnSequenceFlow.id)).findAny().orElse(null);
                 if (flow != null)
                     break;
             }
-            element.setStencil(sequenceFlow);
+            element.setStencil(arc);
             if (flow.name != null) {
                 element.setProps(setElementProperties(flow.name));
             } else {
                 element.setProps(setElementProperties(""));
             }
-            ArrayList<ElementLevel> outgoing = new ArrayList<>();
+
             ElementLevel searchOG = searchForExistingElementObjects(new ArrayList<ElementLevel>(), flow.targetRef);
             if (searchOG == null) {
                 ElementLevel og = new ElementLevel();
                 og.setResourceId(flow.targetRef);
-                finishElement(og);
+                og = finishElement(og);
                 outgoing.add(og);
             } else {
                 outgoing.add(searchOG);
             }
-            element.setOutgoing(outgoing);
-        }
+        } */
         if (!this.existingElements.contains(element)) {
             this.existingElements.add(element);
         }
+        return element;
     }
 }
 
