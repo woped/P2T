@@ -13,9 +13,11 @@ import java.util.HashMap;
 
 public class SurfaceRealizer {
     private final RealProMgr realproManager;
+    private int prevSenLvl;
 
     public SurfaceRealizer() {
         realproManager = new RealProMgr();
+        prevSenLvl = 0;
     }
 
     public String realizeSentenceMap(ArrayList<DSynTSentence> sentencePlan, HashMap<Integer, String> map) {
@@ -56,12 +58,34 @@ public class SurfaceRealizer {
             }
             idAttr.append(map.get(ids.get(i)));
         }
+
+        /* Sentence Level Depth visualization through XML List; Woped Frontend Parser needs to be adjusted
+        if(s.getExecutableFragment().sen_level == prevSenLvl && s.getExecutableFragment().sen_level > 0) {
+            return output + "<phrase ids=\"" + idAttr + "\">" +  "<item>" + realproManager.getSentenceString() + "</item> </phrase>";
+        } else if(s.getExecutableFragment().sen_level > prevSenLvl) {
+            prevSenLvl++;
+            return output + "<list type=\"bullet\"><item><phrase ids=\"" + idAttr + "\">" + realproManager.getSentenceString() + " </phrase></item>";
+        } else if(s.getExecutableFragment().sen_level < prevSenLvl){
+            prevSenLvl--;
+            if(s.getExecutableFragment().sen_level == 0){
+                return output + "</list><phrase ids=\"" + idAttr + "\">" + realproManager.getSentenceString() + " </phrase>";
+            }
+            return output + "</list><item><phrase ids=\"" + idAttr + "\">" + realproManager.getSentenceString() + " </phrase></item>";
+        }
+        */
+
         if(s.getExecutableFragment().sen_level > 0) {
             String spacer = "";
             for(int i = 0; i < s.getExecutableFragment().sen_level; i++){
                 spacer += "&#032";
             }
-            return output + "<phrase ids=\"" + idAttr + "\">" + spacer + "-" + realproManager.getSentenceString() + " </phrase>"; //Bulletpoints and margin according to sentence level
+            if(s.getExecutableFragment().sen_level%2 == 0){
+                spacer += "&#149";
+            } else {
+                spacer += "-";
+            }
+
+            return output + "<phrase ids=\"" + idAttr + "\">" + spacer + realproManager.getSentenceString() + " </phrase>"; //Bulletpoints and margin according to sentence level
         }
         return output + "<phrase ids=\"" + idAttr + "\"> " + realproManager.getSentenceString() + " </phrase>";
     }
