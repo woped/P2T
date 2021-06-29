@@ -40,24 +40,24 @@ public class BPMNStart {
     }
 
     /**
-     * Function for generating text from a model. The according process model must be provided to the function.
+     *  Function for generating text from a model. The according process model must be provided to the function.
      */
-    private String toText(ProcessModel model, int counter) throws JWNLException, IOException, ClassNotFoundException {
+    public String toText(ProcessModel model, int counter) throws JWNLException, IOException, ClassNotFoundException {
         String imperativeRole = "";
         boolean imperative = false;
 
         // Annotate model
-        model.annotateModel(0, lDeriver, lHelper);
+        model.annotateModel(0,lDeriver,lHelper);
 
         // Convert to RPST
         FormatConverter formatConverter = new FormatConverter();
         Process p = formatConverter.transformToRPSTFormat(model);
-        RPST<ControlFlow, Node> rpst = new RPST<ControlFlow, Node>(p);
+        RPST<ControlFlow,Node> rpst = new RPST<ControlFlow,Node>(p);
 
         // Convert to Text
         TextPlanner converter = new TextPlanner(rpst, model, lDeriver, lHelper, imperativeRole, imperative, false);
         converter.convertToText(rpst.getRoot(), 0);
-        ArrayList<DSynTSentence> sentencePlan = converter.getSentencePlan();
+        ArrayList <DSynTSentence> sentencePlan = converter.getSentencePlan();
 
         // Aggregation
         SentenceAggregator sentenceAggregator = new SentenceAggregator(lHelper);
@@ -65,7 +65,7 @@ public class BPMNStart {
 
         // Referring Expression
         ReferringExpressionGenerator refExpGenerator = new ReferringExpressionGenerator(lHelper);
-        sentencePlan = refExpGenerator.insertReferringExpressions(sentencePlan, model, false);
+        sentencePlan  = refExpGenerator.insertReferringExpressions(sentencePlan, model, false);
 
         // Discourse Marker
         DiscourseMarker discourseMarker = new DiscourseMarker();
@@ -84,21 +84,17 @@ public class BPMNStart {
         return surfaceText;
     }
 
+
     /**
      * Loads JSON files from directory and writes generated texts
      */
-    public String createFromFile(String file) throws JsonSyntaxException, IOException {
+    public void createFromFile(String json) throws JsonSyntaxException, IOException {
 
-        Gson gson = new Gson();
-        Doc modelDoc = gson.fromJson(file, Doc.class);
-
-        return createText(modelDoc);
-    }
-
-
-    public String createText(Doc modelDoc) {
         JSONReader reader = new JSONReader();
+        Gson gson = new Gson();
         int counter = 0;
+
+        Doc modelDoc = gson.fromJson(json, Doc.class);
         if (modelDoc.getChildShapes() != null) {
             try {
                 reader.init();
@@ -108,25 +104,22 @@ public class BPMNStart {
                 // Multi Pool Model
                 if (model.getPools().size() > 1) {
                     long time = System.currentTimeMillis();
-
-					/*
-					System.out.println();
-					System.out.print("The model contains "  + model.getPools().size() + " pools: ");
-					int count = 0;
-					for (String role: model.getPools()) {
-						if (count > 0 && model.getPools().size() > 2) {
-							System.out.print(", ");
-						}
-						if (count ==  model.getPools().size()-1) {
-							System.out.print(" and ");
-						}
-						System.out.print(role + " (" + (count+1) + ")");
-						count++;
-					}
-					*/
+                    System.out.println();
+                    System.out.print("The model contains "  + model.getPools().size() + " pools: ");
+                    int count = 0;
+                    for (String role: model.getPools()) {
+                        if (count > 0 && model.getPools().size() > 2) {
+                            System.out.print(", ");
+                        }
+                        if (count ==  model.getPools().size()-1) {
+                            System.out.print(" and ");
+                        }
+                        System.out.print(role + " (" + (count+1) + ")");
+                        count++;
+                    }
 
                     HashMap<Integer, ProcessModel> newModels = model.getModelForEachPool();
-                    for (ProcessModel m : newModels.values()) {
+                    for (ProcessModel m: newModels.values()) {
                         try {
                             m.normalize();
                             m.normalizeEndEvents();
@@ -134,8 +127,8 @@ public class BPMNStart {
                             System.out.println("Error: Normalization impossible");
                             e.printStackTrace();
                         }
-                        String surfaceText = toText(m, counter);
-                        return surfaceText.replaceAll(" process ", " " + m.getPools().get(0) + " process ");
+                        String surfaceText = toText(m,counter);
+                        System.out.println(surfaceText.replaceAll(" process ", " " + m.getPools().get(0) + " process " ));
                     }
                 } else {
                     try {
@@ -145,12 +138,12 @@ public class BPMNStart {
                         System.out.println("Error: Normalization impossible");
                         e.printStackTrace();
                     }
-                    return toText(model, counter);
+                    String surfaceText = toText(model,counter);
+                    System.out.println(surfaceText);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        return "";
     }
 }
