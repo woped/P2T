@@ -33,8 +33,13 @@ public class P2TController extends Thread {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        } else {
+            // BPMN standard message
+            output = "BPMN Text Generation is currently under construction. Please try again later.";
+        }
+        /* Remove the comment and the standard message to use the BPMN to Text. Warning: There still are errors in this part of the code!
         } else if (text.contains("Camunda")){
-            /** BPMN Reader Call **/
+            //BPMN Reader Call
             //System.out.println(XMLReader.read(text));
 
             try {
@@ -63,8 +68,7 @@ public class P2TController extends Thread {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
-
-        }
+        }*/
         return output;
     }
 
