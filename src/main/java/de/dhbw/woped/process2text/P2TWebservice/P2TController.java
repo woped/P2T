@@ -1,6 +1,12 @@
 package de.dhbw.woped.process2text.P2TWebservice;
 
-import de.dhbw.woped.process2text.textGenerator.TextGenerator;
+import de.dhbw.woped.process2text.bpmnProcessing.BPMNReader.XMLReader;
+import de.dhbw.woped.process2text.bpmnProcessing.BPMNStart;
+import de.dhbw.woped.process2text.bpmnProcessing.dataModel.jsonStructure.CamundaMapper;
+import de.dhbw.woped.process2text.pnmlProcessing.textGenerator.TextGenerator;
+import net.didion.jwnl.JWNLException;
+
+import java.io.IOException;
 
 public class P2TController extends Thread {
     // This is the controller class, which is being called by the class P2T Servlet
@@ -13,7 +19,7 @@ public class P2TController extends Thread {
     /**
      * Decides wheter Input is PNML or BPMN and calls corresponding Text Generator. Note: PNML files must Contain "woped.org" in their header.
      * @param text
-     * @return Natural Language interpretation of Input
+     * @return Natural Language interpretation of Input.
      */
     public String generateText(String text) {
         this.text = text;
@@ -27,9 +33,37 @@ public class P2TController extends Thread {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        } else {
+        } else if (text.contains("Camunda")){
             /** BPMN Reader Call **/
-            output = "BPMN Text Generation is currently under construction. Please try again later.";
+            //System.out.println(XMLReader.read(text));
+
+            try {
+                BPMNStart bpmn = new BPMNStart();
+                CamundaMapper mapper = new CamundaMapper();
+                String json = XMLReader.read(text);
+                output = bpmn.createText(mapper.buildDoc(json));
+                //output = bpmn.createFromFile(text);
+            } catch (JWNLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        } else {
+            output = "unknown file format";
+            BPMNStart bpmn = null;
+            try {
+                bpmn = new BPMNStart();
+                output = bpmn.createFromFile(text);
+            } catch (JWNLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+
         }
         return output;
     }
