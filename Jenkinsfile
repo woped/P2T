@@ -27,7 +27,7 @@ pipeline {
         stage('build docker') {
             steps {
                 script {
-                        docker.withRegistry('https://registry.hub.docker.com/v2/repositories/woped', registryCredential) {
+                        docker.withRegistry('https://registry.hub.docker.com/v1/repositories/woped', registryCredential) {
                             def dockerImage = docker.build("woped/process2text:$DOCKER_VERSION")
                             def dockerImageLatest = docker.build("woped/process2text:latest")
                             dockerImage.push();
