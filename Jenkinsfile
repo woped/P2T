@@ -2,6 +2,7 @@ pipeline {
     environment {
         VERSION = getVersion()
         DOCKER_VERSION = getDockerVersion()
+        registryCredential = 'docker-hub'
     }
     agent {
         docker {
@@ -26,7 +27,7 @@ pipeline {
         stage('build docker') {
             steps {
                 script {
-                        docker.withRegistry([credentialsId: 'docker-hub', url: 'https://registry.hub.docker.com/v2/repositories/woped']) {
+                        docker.withRegistry('https://registry.hub.docker.com/v2/repositories/woped', registryCredential) {
                             def dockerImage = docker.build("woped/process2text:$DOCKER_VERSION")
                             def dockerImageLatest = docker.build("woped/process2text:latest")
                             dockerImage.push();
