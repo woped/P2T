@@ -37,6 +37,21 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            cleanWs()
+        }
+        success {
+            setBuildStatus("Build succeeded", "SUCCESS");
+        }
+        failure {
+            setBuildStatus("Build not Successfull", "FAILURE");
+            
+            emailext body: "Something is wrong with ${env.BUILD_URL}",
+                subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+                to: '${DEFAULT_RECIPIENTS}'
+        }
+    }
 }
 
 def getVersion() {
@@ -53,4 +68,14 @@ def getDockerVersion() {
     } else {
         return version
     }
+}
+
+void setBuildStatus(String message, String state) {
+  step([
+      $class: "GitHubCommitStatusSetter",
+      reposSource: [$class: "ManuallyEnteredRepositorySource", url: "https://github.com/tfreytag/WoPeD"],
+      contextSource: [$class: "ManuallyEnteredCommitContextSource", context: "ci/jenkins/build-status"],
+      errorHandlers: [[$class: "ChangingBuildStatusErrorHandler", result: "UNSTABLE"]],
+      statusResultSource: [ $class: "ConditionalStatusResultSource", results: [[$class: "AnyBuildResult", message: message, state: state]] ]
+  ]);
 }
