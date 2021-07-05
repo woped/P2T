@@ -152,9 +152,11 @@ public class TextPlanner {
                 }
 
                 // Convert to Text
+                //LOOP
                 if (PlanningHelper.isLoop(node, rpst) || PlanningHelper.isSkip(node, rpst)) {
-                    convertToText(node, level);
+                    convertToText(node, level+1);
                 }
+                //XOR - OR - Event
                 if (PlanningHelper.isXORSplit(node, rpst) || PlanningHelper.isORSplit(node, rpst) || PlanningHelper.isEventSplit(node, rpst)) {
                     ArrayList<RPSTNode<ControlFlow, Node>> paths = PlanningHelper.sortTreeLevel(node, node.getEntry(), rpst);
                     for (RPSTNode<ControlFlow, Node> path : paths) {
@@ -162,6 +164,7 @@ public class TextPlanner {
                         convertToText(path, level + 1);
                     }
                 }
+                //AND
                 if (PlanningHelper.isANDSplit(node, rpst)) {
 
                     // Determine path count
