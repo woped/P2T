@@ -26,8 +26,6 @@ pipeline {
             }
         }
         stage('build docker') {
-            
-            when { branch 'master' }
 
             steps {
                 script {
