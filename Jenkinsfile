@@ -42,7 +42,8 @@ pipeline {
 
             when { branch 'update-ci-pipeline' }
 
-            node {
+            steps {
+                node {
                     
                 def remote = [:]
                 remote.name = "woped"
