@@ -1,4 +1,5 @@
 pipeline {
+        
     environment {
         VERSION = getVersion()
         DOCKER_VERSION = getDockerVersion()
@@ -25,6 +26,9 @@ pipeline {
             }
         }
         stage('build docker') {
+
+            when { branch 'master' }
+                
             steps {
                 script {
                         docker.withRegistry('https://registry.hub.docker.com/v1/repositories/woped', registryCredential) {
@@ -36,7 +40,36 @@ pipeline {
                 }
             }
         }
+
+        stage('deploy when master') {
+
+            when { branch 'master' }
+
+            steps {
+                script {
+                    def remote = [:]
+                    remote.name = "woped"
+                    remote.host = "woped.dh-karlsruhe.de"
+                    remote.allowAnyHosts = true
+                    remote.sudo = true
+                    remote.pty = true
+                            
+                    withCredentials([usernamePassword(credentialsId: 'sshUserWoPeD', passwordVariable: 'password', usernameVariable: 'userName')]) {
+                        remote.user = userName
+                        remote.password = password
+                    }
+
+                    stage('Remote SSH') {
+                        sshCommand remote: remote, command: "sudo docker-compose -f /usr/local/bin/woped-webservice/docker-compose.yml pull p2t", sudo: true
+                        sshCommand remote: remote, command: "sudo docker-compose -f /usr/local/bin/woped-webservice/docker-compose.yml up -d", sudo: true
+                        sshCommand remote: remote, command: "sudo docker image prune -f", sudo: true
+                    }
+                    
+                }
+            }
+        }
     }
+
     post {
         always {
             cleanWs()
