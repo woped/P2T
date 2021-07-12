@@ -42,14 +42,13 @@ pipeline {
 
             when { branch 'update-ci-pipeline' }
 
-            
-                node {
-                    
+            steps {
+                script {
                     def remote = [:]
                     remote.name = "woped"
                     remote.host = "woped.dh-karlsruhe.de"
                     remote.allowAnyHosts = true
-                        
+                            
                     withCredentials([usernamePassword(credentialsId: 'sshUserAcct', passwordVariable: 'password', usernameVariable: 'userName')]) {
                         remote.user = userName
                         remote.password = password
@@ -62,7 +61,7 @@ pipeline {
                         } 
                     }
                 }
- 
+            }
         }
     }
 
