@@ -1,8 +1,8 @@
 pipeline {
     
     def remote = [:]
-    remote.name = "node"
-    remote.host = "node.abc.com"
+    remote.name = "woped"
+    remote.host = "woped.dh-karlsruhe.de"
     remote.allowAnyHosts = true
     
     environment {
@@ -53,7 +53,6 @@ pipeline {
                     remote.password = password
 
                     stage("SSH Commands") {
-                    
                         sshCommand remote: remote, command: "cd /usr/local/bin/woped-webservice"
 		                sshCommand remote: remote, command: "docker-compose pull p2t"
             		    sshCommand remote: remote, command: "docker-compose up -d"
@@ -63,7 +62,7 @@ pipeline {
             }
         }
     }
-    
+
     post {
         always {
             cleanWs()
