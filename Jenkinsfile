@@ -52,6 +52,7 @@ pipeline {
                     remote.host = "woped.dh-karlsruhe.de"
                     remote.allowAnyHosts = true
                     remote.sudo = true
+                    remote.pty = true
                             
                     withCredentials([usernamePassword(credentialsId: 'sshUserWoPeD', passwordVariable: 'password', usernameVariable: 'userName')]) {
                         remote.user = userName
