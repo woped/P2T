@@ -1,4 +1,10 @@
 pipeline {
+    
+    def remote = [:]
+    remote.name = "node"
+    remote.host = "node.abc.com"
+    remote.allowAnyHosts = true
+    
     environment {
         VERSION = getVersion()
         DOCKER_VERSION = getDockerVersion()
@@ -36,7 +42,28 @@ pipeline {
                 }
             }
         }
+
+        stage('deploy when main') {
+
+            when { branch 'update-ci-pipeline' }
+
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'sshUserAcct', passwordVariable: 'password', usernameVariable: 'userName')]) {
+                    remote.user = userName
+                    remote.password = password
+
+                    stage("SSH Commands") {
+                    
+                        sshCommand remote: remote, command: "cd /usr/local/bin/woped-webservice"
+		                sshCommand remote: remote, command: "docker-compose pull p2t"
+            		    sshCommand remote: remote, command: "docker-compose up -d"
+		                sshCommand remote: remote, command: "docker image prune -f"
+                    } 
+                }
+            }
+        }
     }
+    
     post {
         always {
             cleanWs()
