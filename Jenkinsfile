@@ -49,7 +49,7 @@ pipeline {
                     remote.host = "woped.dh-karlsruhe.de"
                     remote.allowAnyHosts = true
                             
-                    withCredentials([usernamePassword(credentialsId: 'sshUserAcct', passwordVariable: 'password', usernameVariable: 'userName')]) {
+                    withCredentials([usernamePassword(credentialsId: 'sshUserWoPeD', passwordVariable: 'password', usernameVariable: 'userName')]) {
                         remote.user = userName
                         remote.password = password
                     }
