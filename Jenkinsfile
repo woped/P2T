@@ -42,7 +42,7 @@ pipeline {
 
             when { branch 'update-ci-pipeline' }
 
-            steps {
+            
                 node {
                     
                     def remote = [:]
@@ -62,7 +62,7 @@ pipeline {
                         } 
                     }
                 }
-            }  
+ 
         }
     }
 
