@@ -60,8 +60,8 @@ pipeline {
                     }
 
                     stage('Remote SSH') {
-                        sshCommand remote: remote, command: "sudo docker-compose -f ./usr/local/bin/woped-webservice/docker-compose.yml pull p2t", sudo: true
-                        sshCommand remote: remote, command: "sudo docker-compose -f ./usr/local/bin/woped-webservice/docker-compose.yml up -d", sudo: true
+                        sshCommand remote: remote, command: "sudo docker-compose -f /usr/local/bin/woped-webservice/docker-compose.yml pull p2t", sudo: true
+                        sshCommand remote: remote, command: "sudo docker-compose -f /usr/local/bin/woped-webservice/docker-compose.yml up -d", sudo: true
                         sshCommand remote: remote, command: "sudo docker image prune -f", sudo: true
                     }
                     
