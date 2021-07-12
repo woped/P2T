@@ -52,14 +52,12 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: 'sshUserAcct', passwordVariable: 'password', usernameVariable: 'userName')]) {
                         remote.user = userName
                         remote.password = password
-
-                        stage("SSH Commands") {
-                            sshCommand remote: remote, command: "cd /usr/local/bin/woped-webservice"
-                            sshCommand remote: remote, command: "docker-compose pull p2t"
-                            sshCommand remote: remote, command: "docker-compose up -d"
-                            sshCommand remote: remote, command: "docker image prune -f"
-                        } 
                     }
+
+                    sshCommand remote: remote, command: "cd /usr/local/bin/woped-webservice"
+                    sshCommand remote: remote, command: "docker-compose pull p2t"
+                    sshCommand remote: remote, command: "docker-compose up -d"
+                    sshCommand remote: remote, command: "docker image prune -f"
                 }
             }
         }
