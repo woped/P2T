@@ -59,6 +59,9 @@ pipeline {
                     }
 
                     stage('Remote SSH') {
+                        def commandResult = sshCommand remote: remote, command: 'echo "Hello World!"'
+                        echo "Result: " + commandResult
+                        
                         def commandResult1 = sshCommand remote: remote, command: "cd /usr/local/bin/woped-webservice"
                         echo "Result: " + commandResult1
                         def commandResult2 = sshCommand remote: remote, command: "docker pull woped/process2text", sudo: true
