@@ -59,14 +59,8 @@ pipeline {
                     }
 
                     stage('Remote SSH') {
-                        def commandResult = sshCommand remote: remote, command: 'echo "Hello World!"'
-                        echo "Result: " + commandResult
-                        
-                        def commandResult1 = sshCommand remote: remote, command: "cd /usr/local/bin/woped-webservice"
-                        echo "Result: " + commandResult1
-                        def commandResult2 = sshCommand remote: remote, command: "docker pull woped/process2text", sudo: true
-                        echo "Result: " + commandResult2
-                        sshCommand remote: remote, command: "sudo docker-compose up -d", sudo: true
+                        sshCommand remote: remote, command: "cd /usr/local/bin/woped-webservice ; docker-compose pull p2t", sudo: true
+                        sshCommand remote: remote, command: "cd /usr/local/bin/woped-webservice ; sudo docker-compose up -d", sudo: true
                         sshCommand remote: remote, command: "sudo docker image prune -f", sudo: true
                     }
                     
