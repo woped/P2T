@@ -27,6 +27,8 @@ pipeline {
         }
         stage('build docker') {
 
+            when { branch 'master' }
+                
             steps {
                 script {
                         docker.withRegistry('https://registry.hub.docker.com/v1/repositories/woped', registryCredential) {
@@ -39,9 +41,9 @@ pipeline {
             }
         }
 
-        stage('deploy when main') {
+        stage('deploy when master') {
 
-            when { branch 'update-ci-pipeline' }
+            when { branch 'master' }
 
             steps {
                 script {
