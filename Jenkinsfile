@@ -26,6 +26,9 @@ pipeline {
             }
         }
         stage('build docker') {
+            
+            when { branch 'master' }
+
             steps {
                 script {
                         docker.withRegistry('https://registry.hub.docker.com/v1/repositories/woped', registryCredential) {
