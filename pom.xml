@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.3.1.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>de.dhbw.woped</groupId>
 	<artifactId>WoPeD-Process2Text</artifactId>
@@ -17,6 +18,14 @@
 	<properties>
 		<java.version>11</java.version>
 	</properties>
+
+	<repositories>
+		<repository>
+			<id>data-local</id>
+			<name>data</name>
+			<url>file://${project.basedir}/lib</url>
+		</repository>
+	</repositories>
 
 	<distributionManagement>
 		<repository>
@@ -71,104 +80,79 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>3.0.0</version>
 		</dependency>
-		<!-- 			Workspace Dependencies 				-->
+		<!-- Workspace Dependencies -->
 		<dependency>
 			<groupId>PLATZHALTER</groupId>
 			<artifactId>bpstruct</artifactId>
-			<version>0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/bpstruct.jar</systemPath>
+			<version>1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>PLATZHALTER</groupId>
 			<artifactId>hpi-bpt</artifactId>
-			<version>0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/hpi-bpt.jar</systemPath>
+			<version>1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>PLATZHALTER</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>4.0.1</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/javax.servlet-api-4.0.1.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>PLATZHALTER</groupId>
 			<artifactId>json</artifactId>
 			<version>20180130</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/json-20180130.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>PLATZHALTER</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/junit-4.12.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>PLATZHALTER</groupId>
 			<artifactId>pnapi-java</artifactId>
 			<version>1.0.5</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/pnapi-java-1.0.5.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>PLATZHALTER</groupId>
 			<artifactId>resolver</artifactId>
-			<version>0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/resolver.jar</systemPath>
+			<version>1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>PLATZHALTER</groupId>
 			<artifactId>rpw</artifactId>
-			<version>0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/rpw.jar</systemPath>
+			<version>1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>PLATZHALTER</groupId>
 			<artifactId>rpw-lkb</artifactId>
-			<version>0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/rpw-lkb.jar</systemPath>
+			<version>1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>PLATZHALTER</groupId>
 			<artifactId>serializer</artifactId>
-			<version>0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/serializer.jar</systemPath>
+			<version>1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>PLATZHALTER</groupId>
 			<artifactId>uma</artifactId>
 			<version>1.2.4</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/uma-1.2.4.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>PLATZHALTER</groupId>
 			<artifactId>xalan</artifactId>
-			<version>0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/xalan.jar</systemPath>
+			<version>1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>PLATZHALTER</groupId>
 			<artifactId>xercesImpl</artifactId>
-			<version>0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/xercesImpl.jar</systemPath>
+			<version>1.0</version>
 		</dependency>
+		<!-- <dependency> <groupId>PLATZHALTER</groupId> <artifactId>xml-apis</artifactId> 
+			<version>0</version> <scope>system</scope> <systemPath>${project.basedir}/lib/xml-apis.jar</systemPath> 
+			</dependency> -->
 		<dependency>
-			<groupId>PLATZHALTER</groupId>
-			<artifactId>xml-apis</artifactId>
-			<version>0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/xml-apis.jar</systemPath>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -207,7 +191,8 @@
 						<configuration>
 							<tasks>
 								<copy todir="${basedir}/target/src/main/resources">
-									<fileset dir="${basedir}/src/main/resources" includes="**/*" />
+									<fileset dir="${basedir}/src/main/resources"
+										includes="**/*" />
 								</copy>
 							</tasks>
 						</configuration>

@@ -19,12 +19,9 @@ public class EnglishLabelHelper {
 
     public EnglishLabelHelper() throws JWNLException {
 
-        log.debug("Constructor call English Label Helper");
         // Initialize WordNet (JWNL)
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        log.debug("Thread call class loader {}", classLoader);
         InputStream input = classLoader.getResourceAsStream("file_properties.xml");
-        log.debug("LOG the input of the InputStream {}", input.toString());
         JWNL.initialize(input);
         this.wordnet = Dictionary.getInstance();
     }
