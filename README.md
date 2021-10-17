@@ -27,9 +27,7 @@ _It is recommended to use IntelliJ IDE._
 1. Git clone this project onto your machine.
 2. Start IntelliJ and open the project.
 3. Wait until all files have been loaded.
-4. Add a new Library: `File -> Project Structure -> Libraries -> + -> new Java Library -> mark all .jar-Files in the lib folder -> Ok -> Close Project Structure`
-5. Right click on pom.xml and click `Maven -> Reimport`
-6. Run Application with the Start-Button or with `mvn spring-boot:run`
+4. Run Application with the Start-Button or with `mvn spring-boot:run`
 
 # Testing
 ### Testing via Swagger UI
