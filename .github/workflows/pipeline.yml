@@ -1,0 +1,16 @@
+name: P2T Pipeline
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build Stage
+        run: mvn clean install -Dmaven.test.skip=true
