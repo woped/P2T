@@ -22,4 +22,4 @@ jobs:
           settings-path: ${{ github.workspace }}
           
       - name: Maven install
-        run: mvn clean install -U -Dmaven.test.skip=true
+        run: mvn clean install -Dmaven.test.skip=true
