@@ -19,11 +19,7 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
           server-id: nexus-releases # Value of the distributionManagement/repository/id field of the pom.xml
-
-      - name: Maven Package
-        run: mvn -B clean package -DskipTests
-      - name: Maven Verify
-        run: mvn -B clean verify
-        
-      # - name: Maven install
-        # run: mvn clean install -Dmaven.test.skip=true
+          settings-path: ${{ github.workspace }}
+          
+      - name: Maven install
+        run: mvn clean install -Dmaven.test.skip=true
