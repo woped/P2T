@@ -21,5 +21,10 @@ jobs:
           server-id: nexus-releases # Value of the distributionManagement/repository/id field of the pom.xml
           settings-path: ${{ github.workspace }}
           
-      - name: Maven install
+      - name: Build
         run: mvn clean install -Dmaven.test.skip=true
+        
+      - name: deploy jar
+        run: mvn -s $MAVEN_SETTINGS deploy -Dmaven.test.skip=true
+        env:
+          MAVEN_SETTINGS: ${{ github.workspace }}
