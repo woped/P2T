@@ -19,18 +19,16 @@ jobs:
         with:
           java-version: '11'
           distribution: 'temurin'
-          server-id: nexus-releases # Value of the distributionManagement/repository/id field of the pom.xml
+          # server-id: nexus-releases # Value of the distributionManagement/repository/id field of the pom.xml
           settings-path: ${{ github.workspace }}
           
       - name: Build
         run: mvn clean install -Dmaven.test.skip=true
-        
-      - run: mkdir release && cp target/*jar-with-dependencies.jar release
+
         
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: release
+          artifacts: ${{ github.workspace }}
           token: ${{ secrets.GITHUB_TOKEN }}
           commit: master
           tag: v1.0.${{ github.run_number }}
-
