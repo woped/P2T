@@ -24,10 +24,8 @@ jobs:
       - name: Build
         run: mvn clean install -Dmaven.test.skip=true
         
-      - name: Create a Release
-        uses: elgohr/Github-Release-Action@v4
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: ncipollo/release-action@v1
         with:
-          title: MyReleaseMessage
+          artifacts: "release.tar.gz,foo/*.txt"
+          token: ${{ secrets.GITHUB_TOKEN }}
 
