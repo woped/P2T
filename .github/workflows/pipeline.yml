@@ -25,9 +25,11 @@ jobs:
       - name: Build
         run: mvn clean install -Dmaven.test.skip=true
         
+      - run: mkdir release && cp target/*jar-with-dependencies.jar release
+        
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "release.tar.gz,foo/*.txt"
+          artifacts: release
           token: ${{ secrets.GITHUB_TOKEN }}
           commit: master
           tag: v1.0.${{ github.run_number }}
