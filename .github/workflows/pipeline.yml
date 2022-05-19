@@ -24,5 +24,10 @@ jobs:
       - name: Build
         run: mvn clean install -Dmaven.test.skip=true
         
-      - name: deploy jar
-        run: mvn -s $GITHUB_WORKSPACE/settings.xml deploy -Dmaven.test.skip=true
+      - name: Create a Release
+        uses: elgohr/Github-Release-Action@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        with:
+          title: MyReleaseMessage
+
