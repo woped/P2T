@@ -25,15 +25,13 @@ jobs:
       - name: Build
         run: mvn clean install -Dmaven.test.skip=true
         
-      - name: Get version
+      - name: Set Release version env variable
         run: |
-          VERSION=$( mvn help:evaluate -Dexpression=project.version -q -DforceStdout )
-          echo "::set-output name=version::$VERSION"
-        id: get_version
+          echo "RELEASE_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
 
       - uses: ncipollo/release-action@v1
         with:
           artifacts: ${{ github.workspace }}
           token: ${{ secrets.GITHUB_TOKEN }}
           commit: master
-          tag: ${{ github.get_version }}
+          tag: ${{ env.RELEASE_VERSION }}
