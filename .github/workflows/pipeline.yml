@@ -65,4 +65,4 @@ jobs:
         with:
           push: true
           # TODO: Docker Version statt RELEASE_VERSION
-          tags: RELEASE_VERSION
+          tags: ${{ env.RELEASE_VERSION }}
