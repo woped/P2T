@@ -28,13 +28,13 @@ jobs:
         run: |
           echo "RELEASE_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
       
-      - if: contains(['SNAPSHOT'],env.BUILD_VERSION)
-        name: Docker Version Snapshot
+      - name: Docker Version contains SNAPSHOT
+        if: contains(env.RELEASE_VERSION, 'SNAPSPHOT')     
         run: |
           echo "DOCKER_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
       
-      - if: false == contains(['SNAPSHOT'], env.BUILD_VERSION)
-        name: Docker Version no Snapshot
+      - name: Docker Version contains no SNAPSHOT
+        if: false == contains(env.RELEASE_VERSION, 'SNAPSPHOT')
         run: |
           echo "DOCKER_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
 
