@@ -64,5 +64,5 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          # TODO: Docker Version statt RELEASE_VERSIO
+          # TODO: Docker Version statt RELEASE_VERSION
           tags: RELEASE_VERSION
