@@ -27,6 +27,12 @@ jobs:
       - name: Set Release version env variable
         run: |
           echo "RELEASE_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
+      
+      - if: contains(['SNAPSHOT'],env.BUILD_VERSION)
+        run: |
+          echo "DOCKER_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
+      - if: |
+          echo "DOCKER_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
 
       - uses: ncipollo/release-action@v1
         with:
@@ -55,5 +61,4 @@ jobs:
         with:
           context: .
           push: true
-          # TODO: Docker Version statt RELEASE_VERSION
-          tags: svenjung/woped:${{github.run_id}}
+          tags: svenjung/woped:${{ env.DOCKER_VERSION }}
