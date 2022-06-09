@@ -63,8 +63,9 @@ jobs:
       #    echo "DOCKER_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
           
       - name: Build and push
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v2
         with:
+          context: .
           push: true
           # TODO: Docker Version statt RELEASE_VERSION
           tags: ${{github.run_id}}
