@@ -47,8 +47,8 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       
-      - name: Set current date as env variable
-        run: echo "NOW::$(date)" >> $GITHUB_ENV
+      # - name: Set current date as env variable
+      # run: echo "NOW::$(date)" >> $GITHUB_ENV
       
       # TODO: IF ELSE, bei Snapshot Buildtime in Milliseconds anhängen
       # - if: contains(['SNAPSHOT'],env.RELEASE_VERSION)
