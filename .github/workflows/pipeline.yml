@@ -30,13 +30,14 @@ jobs:
           
       - name: Add SHORT_SHA env property with commit short sha
         run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
-      
-      - name: Set Docker Version
-        run: echo "DOCKER_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
         
-      - name: Docker Version contains SNAPSHOT
-        if: contains(env.RELEASE_VERSION, 'SNAPSPHOT')     
+      - name: If Version does contain SNAPSHOT add SHORT_SHA
+        if: contains(env.RELEASE_VERSION, 'SNAPSHOT')     
         run: echo "DOCKER_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)-${{ env.SHORT_SHA }}" >> $GITHUB_ENV
+        
+      - name: If Version does not contain SNAPSHOT add nothing
+        if: false == contains(env.RELEASE_VERSION, 'SNAPSHOT')
+        run: echo "DOCKER_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
 
       - uses: ncipollo/release-action@v1
         with:
