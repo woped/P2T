@@ -68,4 +68,4 @@ jobs:
           context: .
           push: true
           # TODO: Docker Version statt RELEASE_VERSION
-          tags: ${{github.run_id}}
+          tags: svenjung/woped:${{github.run_id}}
