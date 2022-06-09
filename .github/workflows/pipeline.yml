@@ -34,12 +34,12 @@ jobs:
       - name: Docker Version contains SNAPSHOT
         if: contains(env.RELEASE_VERSION, 'SNAPSPHOT')     
         run: |
-          echo "DOCKER_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)#${{ env.SHORT_SHA }}" >> $GITHUB_ENV
+          echo "DOCKER_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)-${{ env.SHORT_SHA }}" >> $GITHUB_ENV
       
       - name: Docker Version contains no SNAPSHOT
         if: false == contains(env.RELEASE_VERSION, 'SNAPSPHOT')
         run: |
-          echo "DOCKER_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)#${{ env.SHORT_SHA }}" >> $GITHUB_ENV
+          echo "DOCKER_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)-${{ env.SHORT_SHA }}" >> $GITHUB_ENV
           # echo "DOCKER_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
 
       - uses: ncipollo/release-action@v1
