@@ -33,7 +33,7 @@ jobs:
           artifacts: ${{ github.workspace }}
           token: ${{ secrets.GITHUB_TOKEN }}
           commit: master
-          tag: ${{ env.RELEASE_VERSION }}
+          tag: ${{ env.RELEASE_VERSION }}.${{github.run_id}}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
