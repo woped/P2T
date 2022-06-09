@@ -33,7 +33,8 @@ jobs:
           artifacts: ${{ github.workspace }}
           token: ${{ secrets.GITHUB_TOKEN }}
           commit: master
-          tag: ${{ env.RELEASE_VERSION }}.${{github.run_id}}
+          artifactErrorsFailBuild: false
+          tag: ${{ env.RELEASE_VERSION }}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -52,15 +53,12 @@ jobs:
       # - name: Set current date as env variable
       # run: echo "NOW::$(date)" >> $GITHUB_ENV
       
-      # TODO: IF ELSE, bei Snapshot Buildtime in Milliseconds anhängen
-      # - if: contains(['SNAPSHOT'],env.RELEASE_VERSION)
-      #  name: IF
-      #  run: |
-      #    echo "DOCKER_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)-" >> $GITHUB_ENV
-      # - if: false == contains(['SNAPSHOT'], env.RELEASE_VERSION)
-      #  name: Else
-      #  run: |
-      #    echo "DOCKER_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
+      - if: contains(['SNAPSHOT'],env.BUILD_VERSION)
+   name:IF
+   run: echo ":)"
+ - if: false == contains(['SNAPSHOT'], env.BUILD_VERSION)
+   name: Else
+   run: echo ":("
           
       - name: Build and push
         uses: docker/build-push-action@v2
