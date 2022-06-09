@@ -54,11 +54,11 @@ jobs:
       # run: echo "NOW::$(date)" >> $GITHUB_ENV
       
       - if: contains(['SNAPSHOT'],env.BUILD_VERSION)
-   name:IF
-   run: echo ":)"
- - if: false == contains(['SNAPSHOT'], env.BUILD_VERSION)
-   name: Else
-   run: echo ":("
+        name: IF
+        run: echo ":)"
+      - if: false == contains(['SNAPSHOT'], env.BUILD_VERSION)
+        name: Else
+        run: echo ":("
           
       - name: Build and push
         uses: docker/build-push-action@v2
