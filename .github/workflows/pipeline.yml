@@ -33,7 +33,7 @@ jobs:
           artifacts: ${{ github.workspace }}
           token: ${{ secrets.GITHUB_TOKEN }}
           commit: master
-          artifactErrorsFailBuild: false
+          allowUpdates: 'true'
           tag: ${{ env.RELEASE_VERSION }}
 
       - name: Set up QEMU
