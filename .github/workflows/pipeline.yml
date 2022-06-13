@@ -7,6 +7,20 @@ on:
     branches: [master]
 
 jobs:
+  checkstyle:
+    name: checkstyle
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Run check style
+        uses: nikitasavinov/checkstyle-action@0.6.0
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review
+          level: warning
+          checkstyle_config: google_checks.xml
+
   build:
     runs-on: ubuntu-latest
     permissions: write-all
@@ -21,9 +35,6 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
           settings-path: ${{ github.workspace }}
-          
-      - name: Checkstyle for Java
-        uses: dbelyaev/action-checkstyle@v0.6.1
 
       - name: Build
         run: mvn clean install -Dmaven.test.skip=true
