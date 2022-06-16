@@ -210,6 +210,42 @@
 			<artifactId>swagger-annotations</artifactId>
 			<version>1.6.6</version>
 		</dependency>
+		<dependency>
+			<groupId>com.diffplug.spotless</groupId>
+			<artifactId>spotless-lib</artifactId>
+			<version>2.26.2</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.diffplug.spotless</groupId>
+			<artifactId>spotless-lib-extra</artifactId>
+			<version>2.26.2</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.diffplug.durian</groupId>
+			<artifactId>durian-core</artifactId>
+			<version>1.2.0</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.diffplug.durian</groupId>
+			<artifactId>durian-collect</artifactId>
+			<version>1.2.0</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.plexus</groupId>
+			<artifactId>plexus-resources</artifactId>
+			<version>1.2.0</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jgit</groupId>
+			<artifactId>org.eclipse.jgit</artifactId>
+			<version>5.13.0.202109080827-r</version>
+			<scope>runtime</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
