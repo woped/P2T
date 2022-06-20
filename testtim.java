@@ -6,7 +6,7 @@ import org.eclipse.jdt.core.dom.ASTParser;
 public class TextEinAusgabe2 extends Frame {
     
     
-            TextField eingabe;
+             TextField eingabe;
     Label ausgabe;
 
     public static void main(String[] args) {
