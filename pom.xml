@@ -215,18 +215,7 @@
 			<artifactId>spotless-maven-plugin</artifactId>
 			<version>2.22.8</version>
 		</dependency>
-		<!-- <dependency>
-			<groupId>com.diffplug.spotless</groupId>
-			<artifactId>spotless-lib</artifactId>
-			<version>2.22.8</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.diffplug.spotless</groupId>
-			<artifactId>spotless-lib-extra</artifactId>
-			<version>2.22.8</version>
-			<scope>runtime</scope>
-		</dependency> -->
+		
 		<dependency>
 			<groupId>com.diffplug.durian</groupId>
 			<artifactId>durian-core</artifactId>
