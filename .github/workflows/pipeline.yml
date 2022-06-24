@@ -29,9 +29,9 @@ jobs:
       #   run: mvn spotless:apply
 
       - name: Build
-        run: mvn clean install -Dmaven.test.skip=true
+        run: mvn clean install -Dmaven.test.skip=true | mvn spotless:apply
 
-      - name: Forcieren des Formatierungsstandards
+      - name: Forcieren des Formatierungsstandards #alternativ
         run: mvn spotless:apply
         
       - name: Set Release version env variable
