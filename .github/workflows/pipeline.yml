@@ -22,8 +22,8 @@ jobs:
           distribution: 'temurin'
           settings-path: ${{ github.workspace }}
 
-      - name: Formatierungsprüfungs via Spotless
-        run: mvn spotless:check
+      # - name: Formatierungsprüfungs via Spotless
+      #   run: mvn spotless:check
         
       - name: Forcieren des Formatierungsstandards
         run: mvn spotless:apply
