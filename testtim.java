@@ -7,6 +7,8 @@ public class TextEinAusgabe2 extends Frame {
     
     
                     TextField eingabe;
+
+                    
     Label ausgabe;
 
     public static void main(String[] args) {
