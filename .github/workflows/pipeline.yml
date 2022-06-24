@@ -24,10 +24,9 @@ jobs:
 
       - name: Formatierungsprüfungs via Spotless
         run: mvn spotless:check
-        run: mvn spotless:apply
         
-      # - name: Forcieren des Formatierungsstandards
-      #   run: mvn spotless:apply
+      - name: Forcieren des Formatierungsstandards
+        run: mvn spotless:apply
 
       - name: Build
         run: mvn clean install -Dmaven.test.skip=true
