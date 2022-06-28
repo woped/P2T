@@ -22,17 +22,8 @@ jobs:
           distribution: 'temurin'
           settings-path: ${{ github.workspace }}
 
-      # - name: Formatierungsprüfungs via Spotless
-      #   run: mvn spotless:check
-        
-      # - name: Forcieren des Formatierungsstandards
-      #   run: mvn spotless:apply
-
       - name: Build
-        run: mvn clean install -Dmaven.test.skip=true #| mvn spotless:apply
-
-      - name: Forcieren des Formatierungsstandards #alternativ
-        run: mvn spotless:apply
+        run: mvn clean install -Dmaven.test.skip=true
         
       - name: Set Release version env variable
         run: |
