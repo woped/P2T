@@ -268,7 +268,7 @@
 				<version>2.22.8</version>
 				<configuration>
 					<!-- optional: limit format enforcement to just the files changed by this feature branch -->
-					<!-- <ratchetFrom>master</ratchetFrom> -->
+					<!-- <ratchetFrom>master</ratchetFrom> --><!-- Kommentar ausschalten falls das Formatting nur auf einem bestimmten Branch angewandt werden soll-->
 					<formats>
 						<!-- you can define as many formats as you want, each is independent -->
 						<format>

@@ -2,7 +2,7 @@
 This webservice is used to translate a petrinet into plain text.
 
 # Live demo
-| URL           | Description   | 
+| URL           | Description   |
 | ------------- |:-------------:|
 | https://woped.dhbw-karlsruhe.de/p2t/ | Embedded UI|
 | https://woped.dhbw-karlsruhe.de/p2t/swagger-ui/ | Swagger UI|
@@ -53,10 +53,10 @@ _It is recommended to use IntelliJ IDE._
 1. Start the application.
 2. Follow the installation instructions of the WoPeD-Client (`https://github.com/tfreytag/WoPeD`).
 3. Start WoPeD-Client and.
-4. Open the configuration and navigate to `NLP Tools`. Adapt the `Process2Text` configuration: 
-   - `Server host`: `localhost`
-   - `Port`: `8080`
-   - `URI`: `/p2t`
+4. Open the configuration and navigate to `NLP Tools`. Adapt the `Process2Text` configuration:
+- `Server host`: `localhost`
+- `Port`: `8080`
+- `URI`: `/p2t`
 5. Test your configuration.
 6. Close the configuration and import or create a new petrinet.
 7. Navigate to `Analyse` -> `Translate to text` and execute. The petrinet will now be transformed by your locally started P2T webservice.
