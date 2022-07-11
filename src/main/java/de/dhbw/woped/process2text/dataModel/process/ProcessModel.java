@@ -76,6 +76,7 @@ public class ProcessModel {
             EnglishLabelProperties props = new EnglishLabelProperties();
             try {
                 String label = a.getLabel().toLowerCase().replaceAll("\n", " ");
+
                 label = label.replaceAll(" {2}", " ");
 
                 if (label.contains("glossary://")) {
@@ -200,7 +201,20 @@ public class ProcessModel {
         lanes.add(temp);
     }
 
-    public void deleteArc( Arc arc) {
+    @Override
+    public String toString() {
+        return "ProcessModel{" +
+                "arcs=" + arcs +
+                ", activities=" + activities +
+                ", events=" + events +
+                ", gateways=" + gateways +
+                ", lanes=" + lanes +
+                ", pools=" + pools +
+                ", alternativePaths=" + alternativePaths +
+                '}';
+    }
+
+    public void deleteArc(Arc arc) {
         for (Map.Entry entry : arcs.entrySet()) {
             Arc a = (Arc) entry.getValue();
             if (a == arc) {

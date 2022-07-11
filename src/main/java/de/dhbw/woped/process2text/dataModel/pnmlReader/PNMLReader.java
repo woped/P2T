@@ -13,6 +13,7 @@ import de.dhbw.woped.process2text.dataModel.pnmlReader.PetriNet.Transition;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 
 public class PNMLReader {
@@ -22,7 +23,6 @@ public class PNMLReader {
             DocumentBuilder db = dbf.newDocumentBuilder();
             Document doc = db.parse(input);
             doc.getDocumentElement().normalize();
-
             PetriNet petriNet = new PetriNet();
             extractElements(doc, "place", petriNet);
             extractElements(doc, "transition", petriNet);
