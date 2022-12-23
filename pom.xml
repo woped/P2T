@@ -200,6 +200,10 @@
                                 <include>*.md</include>
                                 <include>.gitignore</include>
                             </includes>
+                            <excludes>
+                                <exclude>LICENSE.md</exclude>
+                                <exclude>README.md</exclude>
+                            </excludes>
                             <trimTrailingWhitespace/>
                             <endWithNewline/>
                             <indent>
