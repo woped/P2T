@@ -6,8 +6,8 @@ bin/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
 !**/src/test/**
-*.jar
-!lib/*.jar
+#*.jar
+#!lib/*.jar
 ### STS ###
 .apt_generated
 .classpath
