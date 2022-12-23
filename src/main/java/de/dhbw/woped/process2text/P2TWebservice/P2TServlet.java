@@ -1,9 +1,10 @@
 package de.dhbw.woped.process2text.P2TWebservice;
 
 import io.swagger.annotations.ApiOperation;
-import java.io.*;
 import javax.servlet.http.HttpServlet;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,6 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Slf4j
 public class P2TServlet extends HttpServlet {
+
+  Logger logger = LoggerFactory.getLogger(P2TServlet.class);
+  // Logger logger = LoggerFactory.getLogger(.class);
   private String p2tText = "";
 
   // Call P2TController's generateText Method
@@ -30,7 +34,7 @@ public class P2TServlet extends HttpServlet {
       produces = "text/plain")
   protected String doPost(@RequestBody String body) {
     String text = body;
-    System.out.println(body);
+    logger.debug(body);
     p2tText = createText(text);
     return p2tText;
   }

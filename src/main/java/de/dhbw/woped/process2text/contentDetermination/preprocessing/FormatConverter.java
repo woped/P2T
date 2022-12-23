@@ -11,8 +11,12 @@ import de.hpi.bpt.process.Node;
 import de.hpi.bpt.process.Process;
 import de.hpi.bpt.process.Task;
 import java.util.HashMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class FormatConverter {
+
+  Logger logger = LoggerFactory.getLogger(FormatConverter.class);
   private HashMap<Integer, Element> converterMap;
   private int newElems;
 
@@ -43,7 +47,7 @@ public class FormatConverter {
           elemMap.put(e.getId(), e);
         }
       } else {
-        System.out.println("ERROR: Transformation Problem");
+        logger.error("ERROR: Transformation Problem");
       }
     }
 

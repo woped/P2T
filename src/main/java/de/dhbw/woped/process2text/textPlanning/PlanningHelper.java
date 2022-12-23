@@ -9,8 +9,13 @@ import de.hpi.bpt.process.Node;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class PlanningHelper {
+
+  static Logger logger = LoggerFactory.getLogger(PlanningHelper.class);
+
   /** Creates an order for the top level of a given RPST Tree. */
   static ArrayList<RPSTNode<ControlFlow, Node>> sortTreeLevel(
       RPSTNode<ControlFlow, Node> lnode, Node startElem, RPST<ControlFlow, Node> rpst) {
@@ -282,7 +287,7 @@ public class PlanningHelper {
     for (RPSTNode<ControlFlow, Node> node : orderedTopNodes) {
       int depth = PlanningHelper.getDepth(node, rpst);
       for (int i = 0; i < level; i++) {
-        System.out.print("\t");
+        logger.info("\t");
       }
 
       // Determine type of node for presentation purposes
@@ -290,7 +295,7 @@ public class PlanningHelper {
       String exitString = PlanningHelper.getNodeRepresentation(node.getExit());
 
       if (PlanningHelper.isBond(node)) {
-        System.out.println(
+        logger.info(
             node.getName()
                 + " ("
                 + PlanningHelper.getBondType(node, rpst)
@@ -304,7 +309,7 @@ public class PlanningHelper {
                 + exitString
                 + "]");
       } else {
-        System.out.println(
+        logger.info(
             node.getName()
                 + " ("
                 + depth

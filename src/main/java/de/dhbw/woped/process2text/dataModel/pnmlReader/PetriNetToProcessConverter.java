@@ -7,8 +7,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class PetriNetToProcessConverter {
+
+  Logger logger = LoggerFactory.getLogger(PetriNetToProcessConverter.class);
   private HashMap<String, Integer> transformedElems;
   public HashMap<Integer, String> transformedElemsRev;
 
@@ -483,14 +487,14 @@ public class PetriNetToProcessConverter {
   public void printConversion() {
     for (int i = loopSet.length; i > 0; i--) {
       if (loopSet[i - 1] != null) {
-        System.out.println(i + ". Element: " + loopSet[i - 1]);
+        logger.info(i + ". Element: " + loopSet[i - 1]);
       }
     }
-    System.out.println("Places: " + places);
-    System.out.println("Transition " + transitions);
-    System.out.println("XOR-Splits: " + xor_split);
-    System.out.println("XOR-Joins: " + xor_join);
-    System.out.println("AND-Splits: " + and_split);
-    System.out.println("AND-Joins: " + and_join);
+    logger.info("Places: " + places);
+    logger.info("Transition " + transitions);
+    logger.info("XOR-Splits: " + xor_split);
+    logger.info("XOR-Joins: " + xor_join);
+    logger.info("AND-Splits: " + and_split);
+    logger.info("AND-Joins: " + and_join);
   }
 }

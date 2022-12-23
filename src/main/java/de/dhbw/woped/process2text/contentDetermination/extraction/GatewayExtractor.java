@@ -4,8 +4,12 @@ import de.dhbw.woped.process2text.contentDetermination.labelAnalysis.EnglishLabe
 import de.dhbw.woped.process2text.textPlanning.recordClasses.ModifierRecord;
 import de.hpi.bpt.process.Node;
 import java.util.HashMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class GatewayExtractor {
+
+  Logger logger = LoggerFactory.getLogger(GatewayExtractor.class);
   private final Node gateway;
   private final EnglishLabelHelper lHelper;
   public boolean bo_isPlural = false;
@@ -126,7 +130,6 @@ public class GatewayExtractor {
             && lHelper.isNoun(lastNoun.substring(0, lastNoun.length() - 1))) {
           bo_isPlural = true;
           bo_hasArticle = false;
-          System.out.println("YES");
         }
         extracted = true;
       }
@@ -166,7 +169,7 @@ public class GatewayExtractor {
       }
 
       if (!extracted) {
-        System.out.println("GatewayExtractor: Extraction pattern not covered: " + s);
+        logger.info("GatewayExtractor: Extraction pattern not covered: " + s);
       }
     }
   }

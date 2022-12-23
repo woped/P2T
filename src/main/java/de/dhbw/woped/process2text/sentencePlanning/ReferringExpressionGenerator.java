@@ -14,8 +14,12 @@ import net.didion.jwnl.data.Synset;
 import net.didion.jwnl.data.list.PointerTargetNode;
 import net.didion.jwnl.data.list.PointerTargetNodeList;
 import net.didion.jwnl.data.list.PointerTargetTree;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ReferringExpressionGenerator {
+
+  Logger logger = LoggerFactory.getLogger(ReferringExpressionGenerator.class);
   private final EnglishLabelHelper lHelper;
   public String currRole;
 
@@ -69,7 +73,7 @@ public class ReferringExpressionGenerator {
           }
 
           ((DSynTMainSentence) aTextPlan).changeRole();
-          System.out.println(
+          logger.info(
               "Referring Expression inserted: "
                   + aTextPlan.getExecutableFragment().getAction()
                   + " - "

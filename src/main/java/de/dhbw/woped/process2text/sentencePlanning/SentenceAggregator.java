@@ -4,8 +4,13 @@ import de.dhbw.woped.process2text.dataModel.dsynt.DSynTMainSentence;
 import de.dhbw.woped.process2text.dataModel.dsynt.DSynTSentence;
 import de.dhbw.woped.process2text.dataModel.intermediate.ExecutableFragment;
 import java.util.ArrayList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class SentenceAggregator {
+
+  Logger logger = LoggerFactory.getLogger(SentenceAggregator.class);
+
   public ArrayList<DSynTSentence> performRoleAggregation(ArrayList<DSynTSentence> textPlan) {
     ArrayList<Integer> toBeDeleted = new ArrayList<>();
 
@@ -41,7 +46,7 @@ public class SentenceAggregator {
           toBeDeleted.add(i - deleteCount);
           deleteCount++;
 
-          System.out.println(
+          logger.info(
               "Aggregated: "
                   + textPlan.get(i).getExecutableFragment().getAction()
                   + " - "

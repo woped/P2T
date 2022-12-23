@@ -8,12 +8,17 @@ import java.io.InputStream;
 import java.util.HashMap;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class PNMLReader {
+
+  Logger logger = LoggerFactory.getLogger(PNMLReader.class);
+
   public PetriNet getPetriNetFromPNMLString(InputStream input) {
     try {
       DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -126,7 +131,7 @@ public class PNMLReader {
   }
 
   public void test() {
-    System.out.println(role);
-    System.out.println(group);
+    logger.info(role);
+    logger.info(group);
   }
 }

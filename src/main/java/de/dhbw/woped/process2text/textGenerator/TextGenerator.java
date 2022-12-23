@@ -80,7 +80,6 @@ public class TextGenerator {
     converter.convertToText(rpst.getRoot(), 0);
     ///////////////////////////////////////////////////////////
     //        String test = converter.testGetRole();
-    //        System.out.println(converter.testGetRole());
     ArrayList<DSynTSentence> sentencePlan = converter.getSentencePlan();
 
     // Aggregation

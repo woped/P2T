@@ -5,9 +5,13 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @SuppressWarnings("ArraysAsListWithZeroOrOneArgument")
 public class Test {
+
+  static Logger logger = LoggerFactory.getLogger(Test.class);
   private static final String ANSI_RESET = "\u001B[0m";
   private static final String ANSI_RED = "\u001B[31m";
   private static final String ANSI_GREEN = "\u001B[32m";
@@ -204,61 +208,58 @@ public class Test {
     for (Map.Entry<String, List<String>> test : tests.entrySet()) {
       List<String> expected = test.getValue();
       List<String> roleTestList = new ArrayList<>();
-      //            System.out.println("//////////////////////////////////////////////////// C
-      // TEST");
-      //            System.out.println(test.getValue());
       String result;
 
       try {
 
         TextGenerator textGenerator = new TextGenerator();
-        System.out.print(test.getKey() + ": ");
+        logger.info(test.getKey() + ": ");
         String content = new String(Files.readAllBytes(Paths.get(BASE_PATH + test.getKey())));
         // test
-        System.out.println(BASE_PATH + test.getKey());
+        logger.info(BASE_PATH + test.getKey());
         File f = new File(BASE_PATH + test.getKey());
-        System.out.println(f.getAbsolutePath());
+        logger.info(f.getAbsolutePath());
         result = textGenerator.toText(content);
         roleTestList = textGenerator.roleList;
         result = removeNewLinesAndSurroundingSpaces(result);
         result = result.substring(0, result.length() - 7).substring(6);
       } catch (Exception e) {
         exceptions.add(e);
-        System.out.println(
+        logger.info(
             TEST_EXCEPTION + " failed with exception: " + e + " (expected: " + expected + ")");
         error++;
         continue;
       }
 
       if (result.isEmpty()) {
-        System.out.println(TEST_FAILED + " failed with no result.");
+        logger.info(TEST_FAILED + " failed with no result.");
         error++;
         continue;
       }
       if (!roleCheck(result, expected, roleTestList)) {
-        System.out.println(TEST_FAILED + " failed because of no matching Roles");
+        logger.info(TEST_FAILED + " failed because of no matching Roles");
         printDifference(expected, result);
         failed++;
         continue;
       }
 
       if (!equals(result, expected)) {
-        System.out.println(TEST_FAILED + " failed.");
+        logger.info(TEST_FAILED + " failed.");
         printDifference(expected, result);
         failed++;
         continue;
       }
       successful++;
-      System.out.println(TEST_SUCCESS + " succeeded.");
+      logger.info(TEST_SUCCESS + " succeeded.");
     }
 
-    System.out.println("\n=============================================");
-    System.out.println(TEST_SUCCESS + successful + " tests successful.");
-    System.out.println(TEST_FAILED + failed + " tests failed.");
-    System.out.println(TEST_EXCEPTION + error + " Petrinets failed with exception.");
-    System.out.println(ICON_SUM + (successful + failed + error) + " tests executed.");
+    logger.info("\n=============================================");
+    logger.info(TEST_SUCCESS + successful + " tests successful.");
+    logger.info(TEST_FAILED + failed + " tests failed.");
+    logger.info(TEST_EXCEPTION + error + " Petrinets failed with exception.");
+    logger.info(ICON_SUM + (successful + failed + error) + " tests executed.");
 
-    System.out.println("\n=============================================");
+    logger.info("\n=============================================");
 
     if (exceptions.size() > 0) {
       try {
@@ -293,8 +294,8 @@ public class Test {
   private static boolean equals(String result, List<String> control) {
     for (String c : control) {
       // if (result.equals(removeNewLinesAndSurroundingSpaces(c)));
-      System.out.println("////////////////////////////////////////////////// CTEEEEESSSSST");
-      System.out.println(c);
+      logger.info("////////////////////////////////////////////////// CTEEEEESSSSST");
+      logger.info(c);
       String[] splitResult = result.split("</phrase>");
       String[] splitControll = c.split("</phrase>");
       int i = 0;
@@ -320,9 +321,9 @@ public class Test {
         prüfung = KMPSearch(splitResult[j], splitControll[j]);
         // Leventstein-Distanz Algorithmus
         levent = diff(splitControll[j], splitResult[j]);
-        System.out.println("///////////////////////////  Prüfung " + prüfung + ": " + j);
-        System.out.println("///////////////////////////  Leven " + levent + ": " + j);
-        System.out.println(splitControll.length + "           " + splitResult.length);
+        logger.info("///////////////////////////  Prüfung " + prüfung + ": " + j);
+        logger.info("///////////////////////////  Leven " + levent + ": " + j);
+        logger.info(splitControll.length + "           " + splitResult.length);
         //
         if (prüfung) {
           truePattern++;
@@ -334,11 +335,11 @@ public class Test {
           }
         }
       }
-      System.out.println(
+      logger.info(
           "/////////////////////////// + Numberof ResultPhrases   " + numberOfResultPhrases);
-      System.out.println("/////////////////////////// + Numberof True Pattern   " + truePattern);
-      System.out.println("/////////////////////////// + Numberof False Pattern   " + falsePattern);
-      System.out.println(
+      logger.info("/////////////////////////// + Numberof True Pattern   " + truePattern);
+      logger.info("/////////////////////////// + Numberof False Pattern   " + falsePattern);
+      logger.info(
           "/////////////////////////// + Percentage   "
               + percentageCalculator(numberOfResultPhrases, truePattern));
       if (percentageCalculator(numberOfResultPhrases, truePattern) >= 50.0) {
@@ -371,11 +372,11 @@ public class Test {
       return;
     }
 
-    System.out.println("\tExpected one of: ");
+    logger.info("\tExpected one of: ");
     for (String s : expected) {
-      System.out.println("\t\t\t- " + s);
+      logger.info("\t\t\t- " + s);
     }
-    System.out.println("\tBut got:  " + actual);
+    logger.info("\tBut got:  " + actual);
   }
 
   public static int diff(String orig, String eing) {
@@ -408,8 +409,8 @@ public class Test {
   public static boolean KMPSearch(String pat, String txt) {
     int M = pat.length();
     int N = txt.length();
-    System.out.println("Pattern///////" + pat);
-    System.out.println("Text//////////" + txt);
+    logger.info("Pattern///////" + pat);
+    logger.info("Text//////////" + txt);
 
     // create lps[] that will hold the longest
     // prefix suffix values for pattern
@@ -431,8 +432,8 @@ public class Test {
         wert = true;
         foundPatternNumb++;
 
-        System.out.println(wert);
-        System.out.println("Found pattern " + "at index " + (i - j));
+        logger.info("" + wert);
+        logger.info("Found pattern " + "at index " + (i - j));
         j = lps[j - 1];
       }
 

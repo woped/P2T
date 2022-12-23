@@ -25,8 +25,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import net.didion.jwnl.JWNLException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class TextPlanner {
+
+  Logger logger = LoggerFactory.getLogger(TextPlanner.class);
+
   private static final String[] quantifiers = {
     "a", "the", "all", "any", "more", "most", "none", "some", "such", "one", "two", "three", "four",
     "five", "six", "seven", "eight", "nine", "ten"
@@ -481,7 +486,7 @@ public class TextPlanner {
       HashMap<Integer, ProcessModel> alternativePaths = process.getAlternativePaths();
       for (Integer attEvent : attachedEvents) {
         if (alternativePaths.keySet().contains(attEvent)) {
-          System.out.println("Incorporating Alternative " + attEvent);
+          logger.info("Incorporating Alternative " + attEvent);
           // Transform alternative
           ProcessModel alternative = alternativePaths.get(attEvent);
           alternative.annotateModel(lDeriver, lHelper);

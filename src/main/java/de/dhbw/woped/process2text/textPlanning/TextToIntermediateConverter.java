@@ -17,8 +17,12 @@ import de.hpi.bpt.process.ControlFlow;
 import de.hpi.bpt.process.Node;
 import java.util.ArrayList;
 import java.util.HashMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class TextToIntermediateConverter {
+
+  Logger logger = LoggerFactory.getLogger(TextToIntermediateConverter.class);
   private final RPST<ControlFlow, Node> rpst;
   private final de.dhbw.woped.process2text.contentDetermination.labelAnalysis.EnglishLabelHelper
       lHelper;
@@ -294,7 +298,6 @@ class TextToIntermediateConverter {
         }
       } catch (NullPointerException e) {
         role = "process";
-        //          System.out.println("Class TextToIntermediateConverter.java occured a: "+e+".
         // Make sure to use roles when handeling loops. Default Role 'Process' used now.");
       }
 
@@ -719,7 +722,7 @@ class TextToIntermediateConverter {
         return getEventSentence(eFrag);
 
       default:
-        System.out.println("NON-COVERED EVENT " + event.getType());
+        logger.info("NON-COVERED EVENT " + event.getType());
         return null;
     }
 
@@ -845,7 +848,7 @@ class TextToIntermediateConverter {
         configureFragment(cFrag);
         return new DSynTConditionSentence(eFrag, cFrag);
       default:
-        System.out.println("NON-COVERED EVENT " + event.getType());
+        logger.info("NON-COVERED EVENT " + event.getType());
         return null;
     }
   }
