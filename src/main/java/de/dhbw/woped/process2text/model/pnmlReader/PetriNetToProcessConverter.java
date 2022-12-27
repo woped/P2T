@@ -147,10 +147,9 @@ public class PetriNetToProcessConverter {
             // WoPeD XOR!! --> WoPeD specific operator
             // Get Label from Successor --> XOR Label
             String sucId = pr.get(0);
-            HashMap<String, de.dhbw.woped.process2text.model.pnmlReader.PetriNet.Element>
-                elems = petriNet.getElements();
-            de.dhbw.woped.process2text.model.pnmlReader.PetriNet.Element sucXOR =
-                elems.get(sucId);
+            HashMap<String, de.dhbw.woped.process2text.model.pnmlReader.PetriNet.Element> elems =
+                petriNet.getElements();
+            de.dhbw.woped.process2text.model.pnmlReader.PetriNet.Element sucXOR = elems.get(sucId);
             String label = sucXOR.getLabel();
             xorTitle = label;
             // Add Activity
@@ -161,8 +160,7 @@ public class PetriNetToProcessConverter {
               if (transformedElems.keySet().contains(elemId)) {
                 int placeId = transformedElems.get(elemId);
 
-                de.dhbw.woped.process2text.model.process.Element source =
-                    model.getElem(placeId);
+                de.dhbw.woped.process2text.model.process.Element source = model.getElem(placeId);
                 ArrayList<Arc> arcs = getArcWithSource(source, model);
 
                 model.deleteArc(arcs.get(0));
@@ -234,10 +232,9 @@ public class PetriNetToProcessConverter {
             // Get Label from Successor --> Place Label
             ArrayList<String> pr = petriNet.getSuccessor(elemId);
             String sucId = pr.get(0);
-            HashMap<String, de.dhbw.woped.process2text.model.pnmlReader.PetriNet.Element>
-                elems = petriNet.getElements();
-            de.dhbw.woped.process2text.model.pnmlReader.PetriNet.Element sucXOR =
-                elems.get(sucId);
+            HashMap<String, de.dhbw.woped.process2text.model.pnmlReader.PetriNet.Element> elems =
+                petriNet.getElements();
+            de.dhbw.woped.process2text.model.pnmlReader.PetriNet.Element sucXOR = elems.get(sucId);
             String label2 = sucXOR.getLabel();
 
             int newId = model.getNewId();
@@ -468,7 +465,7 @@ public class PetriNetToProcessConverter {
   }
 
   private ArrayList<Arc> getArcWithSource(
-          de.dhbw.woped.process2text.model.process.Element element, ProcessModel model) {
+      de.dhbw.woped.process2text.model.process.Element element, ProcessModel model) {
     HashMap<Integer, Arc> gatewayHashMap = model.getArcs();
 
     Iterator it = gatewayHashMap.entrySet().iterator();

@@ -1,7 +1,5 @@
 package de.dhbw.woped.process2text.service.text.planning;
 
-import de.dhbw.woped.process2text.service.content.determination.extraction.GatewayExtractor;
-import de.dhbw.woped.process2text.service.content.determination.labelAnalysis.EnglishLabelHelper;
 import de.dhbw.woped.process2text.model.dsynt.DSynTConditionSentence;
 import de.dhbw.woped.process2text.model.dsynt.DSynTMainSentence;
 import de.dhbw.woped.process2text.model.dsynt.DSynTSentence;
@@ -9,6 +7,8 @@ import de.dhbw.woped.process2text.model.intermediate.AbstractFragment;
 import de.dhbw.woped.process2text.model.intermediate.ConditionFragment;
 import de.dhbw.woped.process2text.model.intermediate.ExecutableFragment;
 import de.dhbw.woped.process2text.model.process.ProcessModel;
+import de.dhbw.woped.process2text.service.content.determination.extraction.GatewayExtractor;
+import de.dhbw.woped.process2text.service.content.determination.labelAnalysis.EnglishLabelHelper;
 import de.dhbw.woped.process2text.service.text.planning.recordClasses.ConverterRecord;
 import de.dhbw.woped.process2text.service.text.planning.recordClasses.ModifierRecord;
 import de.hpi.bpt.graph.algo.rpst.RPST;
@@ -24,8 +24,7 @@ class TextToIntermediateConverter {
 
   Logger logger = LoggerFactory.getLogger(TextToIntermediateConverter.class);
   private final RPST<ControlFlow, Node> rpst;
-  private final EnglishLabelHelper
-      lHelper;
+  private final EnglishLabelHelper lHelper;
   private final boolean imperative;
   private final String imperativeRole;
   private final ProcessModel process;
@@ -744,7 +743,7 @@ class TextToIntermediateConverter {
 
   /** Returns Sentence for attached Event. */
   private DSynTConditionSentence getAttachedEventSentence(
-          de.dhbw.woped.process2text.model.process.Event event, ConditionFragment cFrag) {
+      de.dhbw.woped.process2text.model.process.Event event, ConditionFragment cFrag) {
     ExecutableFragment eFrag = new ExecutableFragment("cancel", "it", "", "");
     eFrag.verb_IsPassive = true;
     eFrag.bo_isSubject = true;

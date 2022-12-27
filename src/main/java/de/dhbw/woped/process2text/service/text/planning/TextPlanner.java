@@ -1,9 +1,6 @@
 package de.dhbw.woped.process2text.service.text.planning;
 
-import de.dhbw.woped.process2text.service.content.determination.extraction.GatewayExtractor;
-import de.dhbw.woped.process2text.service.content.determination.labelAnalysis.EnglishLabelDeriver;
-import de.dhbw.woped.process2text.service.content.determination.labelAnalysis.EnglishLabelHelper;
-import de.dhbw.woped.process2text.service.content.determination.preprocessing.FormatConverter;
+import de.dhbw.woped.process2text.model.Pair;
 import de.dhbw.woped.process2text.model.dsynt.DSynTConditionSentence;
 import de.dhbw.woped.process2text.model.dsynt.DSynTMainSentence;
 import de.dhbw.woped.process2text.model.dsynt.DSynTSentence;
@@ -11,10 +8,13 @@ import de.dhbw.woped.process2text.model.intermediate.AbstractFragment;
 import de.dhbw.woped.process2text.model.intermediate.ConditionFragment;
 import de.dhbw.woped.process2text.model.intermediate.ExecutableFragment;
 import de.dhbw.woped.process2text.model.process.ProcessModel;
+import de.dhbw.woped.process2text.service.content.determination.extraction.GatewayExtractor;
+import de.dhbw.woped.process2text.service.content.determination.labelAnalysis.EnglishLabelDeriver;
+import de.dhbw.woped.process2text.service.content.determination.labelAnalysis.EnglishLabelHelper;
+import de.dhbw.woped.process2text.service.content.determination.preprocessing.FormatConverter;
 import de.dhbw.woped.process2text.service.text.planning.recordClasses.ConverterRecord;
 import de.dhbw.woped.process2text.service.text.planning.recordClasses.GatewayPropertyRecord;
 import de.dhbw.woped.process2text.service.text.planning.recordClasses.ModifierRecord;
-import de.dhbw.woped.process2text.model.Pair;
 import de.hpi.bpt.graph.algo.rpst.RPST;
 import de.hpi.bpt.graph.algo.rpst.RPSTNode;
 import de.hpi.bpt.process.ControlFlow;
@@ -259,8 +259,7 @@ public class TextPlanner {
           if (start && !isAlternative) {
 
             // Event is followed by gateway --> full sentence
-            if (event.getType()
-                    == de.dhbw.woped.process2text.model.process.EventType.START_EVENT
+            if (event.getType() == de.dhbw.woped.process2text.model.process.EventType.START_EVENT
                 && currentPosition < orderedTopNodes.size() - 1
                 && PlanningHelper.isBond(orderedTopNodes.get(currentPosition + 1))) {
               start = false;
@@ -270,8 +269,7 @@ public class TextPlanner {
               eFrag.bo_isSubject = true;
               sentencePlan.add(new DSynTMainSentence(eFrag));
             }
-            if (event.getType()
-                != de.dhbw.woped.process2text.model.process.EventType.START_EVENT) {
+            if (event.getType() != de.dhbw.woped.process2text.model.process.EventType.START_EVENT) {
               start = false;
               ConverterRecord convRecord = textToIMConverter.convertEvent(event);
               if (convRecord != null && convRecord.hasPreStatements()) {
@@ -628,7 +626,7 @@ public class TextPlanner {
 
   /** Returns role of a fragment. */
   private String getRole(
-          de.dhbw.woped.process2text.model.process.Activity a, AbstractFragment frag) {
+      de.dhbw.woped.process2text.model.process.Activity a, AbstractFragment frag) {
     if (a.getLane() == null) {
       frag.verb_IsPassive = true;
       frag.bo_isSubject = true;

@@ -5,7 +5,6 @@ import de.dhbw.woped.process2text.service.content.determination.support.Noun2Ver
 import java.io.InputStream;
 import java.util.HashSet;
 import java.util.Set;
-
 import lombok.extern.slf4j.Slf4j;
 import net.didion.jwnl.JWNL;
 import net.didion.jwnl.JWNLException;

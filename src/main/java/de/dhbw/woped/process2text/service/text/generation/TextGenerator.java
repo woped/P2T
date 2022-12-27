@@ -1,14 +1,14 @@
 package de.dhbw.woped.process2text.service.text.generation;
 
-import de.dhbw.woped.process2text.service.content.determination.labelAnalysis.EnglishLabelDeriver;
-import de.dhbw.woped.process2text.service.content.determination.labelAnalysis.EnglishLabelHelper;
-import de.dhbw.woped.process2text.service.content.determination.preprocessing.FormatConverter;
-import de.dhbw.woped.process2text.service.content.determination.preprocessing.RigidStructurer;
 import de.dhbw.woped.process2text.model.dsynt.DSynTSentence;
 import de.dhbw.woped.process2text.model.pnmlReader.PNMLReader;
 import de.dhbw.woped.process2text.model.pnmlReader.PetriNet.PetriNet;
 import de.dhbw.woped.process2text.model.pnmlReader.PetriNetToProcessConverter;
 import de.dhbw.woped.process2text.model.process.ProcessModel;
+import de.dhbw.woped.process2text.service.content.determination.labelAnalysis.EnglishLabelDeriver;
+import de.dhbw.woped.process2text.service.content.determination.labelAnalysis.EnglishLabelHelper;
+import de.dhbw.woped.process2text.service.content.determination.preprocessing.FormatConverter;
+import de.dhbw.woped.process2text.service.content.determination.preprocessing.RigidStructurer;
 import de.dhbw.woped.process2text.service.sentence.planning.DiscourseMarker;
 import de.dhbw.woped.process2text.service.sentence.planning.ReferringExpressionGenerator;
 import de.dhbw.woped.process2text.service.sentence.planning.SentenceAggregator;

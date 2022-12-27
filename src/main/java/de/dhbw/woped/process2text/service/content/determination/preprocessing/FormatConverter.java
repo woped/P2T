@@ -73,11 +73,7 @@ public class FormatConverter {
         if (g.getGatewayType() == GatewayType.OR) {
           de.dhbw.woped.process2text.model.process.Gateway gw =
               new de.dhbw.woped.process2text.model.process.Gateway(
-                  getId(),
-                  "",
-                  null,
-                  null,
-                  de.dhbw.woped.process2text.model.process.GatewayType.OR);
+                  getId(), "", null, null, de.dhbw.woped.process2text.model.process.GatewayType.OR);
           pm.addGateway(gw);
           idMap.put(g.getId(), gw.getId());
           elemMap.put(gw.getId(), gw);
@@ -113,8 +109,7 @@ public class FormatConverter {
       Element source = elemMap.get(idMap.get(f.getSource().getId()));
       Element target = elemMap.get(idMap.get(f.getTarget().getId()));
       de.dhbw.woped.process2text.model.process.Arc arc =
-          new de.dhbw.woped.process2text.model.process.Arc(
-              getId(), f.getName(), source, target);
+          new de.dhbw.woped.process2text.model.process.Arc(getId(), f.getName(), source, target);
       pm.addArc(arc);
     }
     return pm;

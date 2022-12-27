@@ -1,11 +1,11 @@
 package de.dhbw.woped.process2text.service.text.planning;
 
+import de.dhbw.woped.process2text.model.Pair;
 import de.dhbw.woped.process2text.model.dsynt.DSynTMainSentence;
 import de.dhbw.woped.process2text.model.intermediate.AbstractFragment;
 import de.dhbw.woped.process2text.model.intermediate.ConditionFragment;
 import de.dhbw.woped.process2text.model.intermediate.ExecutableFragment;
 import de.dhbw.woped.process2text.service.text.planning.recordClasses.ModifierRecord;
-import de.dhbw.woped.process2text.model.Pair;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
