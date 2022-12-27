@@ -5,7 +5,7 @@
          version="4.0">
     <servlet>
         <servlet-name>P2TServlet</servlet-name>
-        <servlet-class>de.dhbw.woped.process2text.P2TWebservice.P2TServlet2</servlet-class>
+        <servlet-class>de.dhbw.woped.process2text.exception.P2TServlet2</servlet-class>
     </servlet>
 
     <!-- Note: All <servlet> elements MUST be grouped together and

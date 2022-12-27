@@ -1,6 +1,6 @@
 package de.dhbw.woped.process2text.service;
 
-import de.dhbw.woped.process2text.textGenerator.TextGenerator;
+import de.dhbw.woped.process2text.service.text.generation.TextGenerator;
 import org.springframework.stereotype.Service;
 
 @Service

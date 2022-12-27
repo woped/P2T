@@ -1,6 +1,6 @@
 package de.dhbw.woped.process2text;
 
-import de.dhbw.woped.process2text.textGenerator.TextGenerator;
+import de.dhbw.woped.process2text.service.text.generation.TextGenerator;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
