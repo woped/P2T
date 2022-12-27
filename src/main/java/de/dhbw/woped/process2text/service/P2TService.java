@@ -1,22 +1,24 @@
-package de.dhbw.woped.process2text.P2TWebservice;
+package de.dhbw.woped.process2text.service;
 
 import de.dhbw.woped.process2text.textGenerator.TextGenerator;
+import org.springframework.stereotype.Service;
 
-public class P2TController extends Thread {
-  // This is the controller class, which is being called by the class P2T Servlet
-  // Right now only consists of one return and one generateText Method
-  // generate Text calls the main function in TextGenerator to translate a petri net to
-  // natural language
-  String text;
-  public static final int MAX_INPUT_LENGTH = 15000; // Reject any Request larger than this
+@Service
+public class P2TService {
 
+  /**
+   * Generate text from a process model
+   *
+   * @param text
+   * @return
+   */
   public String generateText(String text) {
-    this.text = prepareText(text);
+    String preparedText = prepareText(text);
     String output = "";
     TextGenerator tg = new TextGenerator();
 
     try {
-      output = tg.toText(this.text, true);
+      output = tg.toText(preparedText, true);
 
     } catch (Exception e) {
       e.printStackTrace();
@@ -34,9 +36,5 @@ public class P2TController extends Thread {
   private String prepareText(String pnml) {
     pnml = pnml.trim();
     return pnml.startsWith("=") ? pnml.substring(1) : pnml;
-  }
-
-  public String getText() {
-    return text;
   }
 }

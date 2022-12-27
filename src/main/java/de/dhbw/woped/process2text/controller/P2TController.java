@@ -1,30 +1,24 @@
-package de.dhbw.woped.process2text.P2TWebservice;
+package de.dhbw.woped.process2text.controller;
 
+import de.dhbw.woped.process2text.service.P2TService;
 import io.swagger.annotations.ApiOperation;
-import javax.servlet.http.HttpServlet;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-// WebServlet value = URL to call the Webservice from
 @RestController
 @Slf4j
-public class P2TServlet extends HttpServlet {
+public class P2TController {
 
-  Logger logger = LoggerFactory.getLogger(P2TServlet.class);
-  // Logger logger = LoggerFactory.getLogger(.class);
-  private String p2tText = "";
+  public static final int MAX_INPUT_LENGTH = 15000; // Reject any Request larger than this
+  Logger logger = LoggerFactory.getLogger(P2TController.class);
 
-  // Call P2TController's generateText Method
-  public String createText(String text) {
-    P2TController control = new P2TController();
-    // String contextPath = getServletContext().getRealPath("/WEB-INF/classes");
-    return control.generateText(text);
-  }
+  @Autowired P2TService p2tService;
 
   @ApiOperation(value = "Translate a process model into human readable text.")
   @RequestMapping(
@@ -33,9 +27,7 @@ public class P2TServlet extends HttpServlet {
       consumes = "text/plain",
       produces = "text/plain")
   protected String doPost(@RequestBody String body) {
-    String text = body;
     logger.debug(body);
-    p2tText = createText(text);
-    return p2tText;
+    return p2tService.generateText(body);
   }
 }
