@@ -23,7 +23,7 @@ jobs:
           settings-path: ${{ github.workspace }}
 
       - name: Build
-        run: mvn clean install -Dmaven.test.skip=true
+        run: mvn clean install -Dmaven.test.skip=true --no-transfer-progress
 
       - name: Set Release version env variable
         run: |
