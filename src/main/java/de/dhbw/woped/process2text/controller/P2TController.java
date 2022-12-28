@@ -18,10 +18,7 @@ public class P2TController {
   @Autowired P2TService p2tService;
 
   @ApiOperation(value = "Translate a process model into human readable text.")
-  @PostMapping(
-      value = "/generateText",
-      consumes = "text/plain",
-      produces = "text/plain")
+  @PostMapping(value = "/generateText", consumes = "text/plain", produces = "text/plain")
   protected String doPost(@RequestBody String body) {
     logger.debug(body.replaceAll("[\n\r\t]", "_"));
     return p2tService.generateText(body);
