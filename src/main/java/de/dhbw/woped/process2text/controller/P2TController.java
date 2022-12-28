@@ -6,10 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Slf4j
@@ -21,9 +18,8 @@ public class P2TController {
   @Autowired P2TService p2tService;
 
   @ApiOperation(value = "Translate a process model into human readable text.")
-  @RequestMapping(
+  @PostMapping(
       value = "/generateText",
-      method = RequestMethod.POST,
       consumes = "text/plain",
       produces = "text/plain")
   protected String doPost(@RequestBody String body) {
