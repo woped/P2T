@@ -32,7 +32,7 @@ public class PNMLReader {
 
       return petriNet;
     } catch (Exception e) {
-      e.printStackTrace();
+      logger.error(e.getLocalizedMessage());
     }
     return null;
   }

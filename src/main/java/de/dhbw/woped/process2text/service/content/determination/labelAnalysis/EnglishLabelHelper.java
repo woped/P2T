@@ -10,9 +10,13 @@ import net.didion.jwnl.JWNL;
 import net.didion.jwnl.JWNLException;
 import net.didion.jwnl.data.*;
 import net.didion.jwnl.dictionary.Dictionary;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Slf4j
 public class EnglishLabelHelper {
+
+  Logger logger = LoggerFactory.getLogger(EnglishLabelHelper.class);
   private static final String[] verbs = {
     "sign off",
     "logon",
@@ -70,7 +74,7 @@ public class EnglishLabelHelper {
     try {
       return Noun2VerbTransformer.toVerb(noun, wordnet);
     } catch (Exception e) {
-      e.printStackTrace();
+      logger.error(e.getLocalizedMessage());
       return "";
     }
   }
@@ -91,7 +95,7 @@ public class EnglishLabelHelper {
     try {
       word = wordnet.lookupAllIndexWords(potVerb).getIndexWord(POS.VERB);
     } catch (JWNLException e) {
-      e.printStackTrace();
+      logger.error(e.getLocalizedMessage());
     }
     return word != null;
   }
@@ -108,7 +112,7 @@ public class EnglishLabelHelper {
     try {
       word = wordnet.lookupAllIndexWords(potAdj).getIndexWord(POS.ADJECTIVE);
     } catch (JWNLException e) {
-      e.printStackTrace();
+      logger.error(e.getLocalizedMessage());
     }
     return word != null;
   }
@@ -125,7 +129,7 @@ public class EnglishLabelHelper {
     try {
       word = wordnet.lookupAllIndexWords(potNoun).getIndexWord(POS.NOUN);
     } catch (JWNLException e) {
-      e.printStackTrace();
+      logger.error(e.getLocalizedMessage());
     }
     return word != null;
   }
@@ -333,7 +337,7 @@ public class EnglishLabelHelper {
       }
       return noun;
     } catch (JWNLException e) {
-      e.printStackTrace();
+      logger.error(e.getLocalizedMessage());
     }
     return "";
   }

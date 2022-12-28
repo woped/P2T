@@ -6,12 +6,16 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class BPMNReader {
+
+  Logger logger = LoggerFactory.getLogger(BPMNReader.class);
 
   public HashMap<Integer, String> transformedElemsRev;
 
@@ -31,7 +35,7 @@ public class BPMNReader {
       extractArc(doc, model);
       return model;
     } catch (Exception e) {
-      e.printStackTrace();
+      logger.error(e.getLocalizedMessage());
     }
     return null;
   }

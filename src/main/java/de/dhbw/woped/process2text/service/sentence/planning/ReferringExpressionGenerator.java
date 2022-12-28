@@ -130,7 +130,7 @@ public class ReferringExpressionGenerator {
         }
       }
     } catch (JWNLException e) {
-      e.printStackTrace();
+      logger.error(e.getLocalizedMessage());
       return false;
     }
     return false;

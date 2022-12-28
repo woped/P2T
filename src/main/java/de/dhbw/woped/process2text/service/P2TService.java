@@ -1,10 +1,14 @@
 package de.dhbw.woped.process2text.service;
 
 import de.dhbw.woped.process2text.service.text.generation.TextGenerator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
 public class P2TService {
+
+  Logger logger = LoggerFactory.getLogger(P2TService.class);
 
   /**
    * Generate text from a process model
@@ -21,7 +25,7 @@ public class P2TService {
       output = tg.toText(preparedText, true);
 
     } catch (Exception e) {
-      e.printStackTrace();
+      logger.error(e.getLocalizedMessage());
     }
     return output;
   }

@@ -1,11 +1,11 @@
 package de.dhbw.woped.process2text.service.text.generation;
 
-import de.dhbw.woped.process2text.model.reader.bpmn.BPMNReader;
 import de.dhbw.woped.process2text.model.dsynt.DSynTSentence;
+import de.dhbw.woped.process2text.model.process.ProcessModel;
+import de.dhbw.woped.process2text.model.reader.bpmn.BPMNReader;
 import de.dhbw.woped.process2text.model.reader.pnml.PNMLReader;
 import de.dhbw.woped.process2text.model.reader.pnml.PetriNet.PetriNet;
 import de.dhbw.woped.process2text.model.reader.pnml.PetriNetToProcessConverter;
-import de.dhbw.woped.process2text.model.process.ProcessModel;
 import de.dhbw.woped.process2text.service.content.determination.labelAnalysis.EnglishLabelDeriver;
 import de.dhbw.woped.process2text.service.content.determination.labelAnalysis.EnglishLabelHelper;
 import de.dhbw.woped.process2text.service.content.determination.preprocessing.FormatConverter;

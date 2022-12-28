@@ -1,8 +1,8 @@
 package de.dhbw.woped.process2text.model.reader.pnml;
 
+import de.dhbw.woped.process2text.model.process.*;
 import de.dhbw.woped.process2text.model.reader.pnml.PetriNet.Element;
 import de.dhbw.woped.process2text.model.reader.pnml.PetriNet.PetriNet;
-import de.dhbw.woped.process2text.model.process.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;

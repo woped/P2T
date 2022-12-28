@@ -6,8 +6,12 @@ import de.dhbw.woped.process2text.service.content.determination.labelAnalysis.En
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ProcessModel {
+
+  Logger logger = LoggerFactory.getLogger(ProcessModel.class);
   private final HashMap<Integer, Arc> arcs;
   private final HashMap<Integer, Activity> activities;
   private final HashMap<Integer, Event> events;
@@ -135,7 +139,7 @@ public class ProcessModel {
           a.addAnnotation(anno);
         }
       } catch (Exception e) {
-        e.printStackTrace();
+        logger.error(e.getLocalizedMessage());
       }
     }
   }
