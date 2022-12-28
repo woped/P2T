@@ -1,4 +1,4 @@
-package de.dhbw.woped.process2text.model.pnmlReader.PetriNet;
+package de.dhbw.woped.process2text.model.reader.pnml.PetriNet;
 
 public class Transition extends Element {
   public Transition(

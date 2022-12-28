@@ -1,4 +1,4 @@
-package de.dhbw.woped.process2text.model.bpmnReader;
+package de.dhbw.woped.process2text.model.reader.bpmn;
 
 import de.dhbw.woped.process2text.model.process.*;
 import java.io.InputStream;

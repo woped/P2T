@@ -1,9 +1,9 @@
-package de.dhbw.woped.process2text.model.pnmlReader;
+package de.dhbw.woped.process2text.model.reader.pnml;
 
-import de.dhbw.woped.process2text.model.pnmlReader.PetriNet.Arc;
-import de.dhbw.woped.process2text.model.pnmlReader.PetriNet.PetriNet;
-import de.dhbw.woped.process2text.model.pnmlReader.PetriNet.Place;
-import de.dhbw.woped.process2text.model.pnmlReader.PetriNet.Transition;
+import de.dhbw.woped.process2text.model.reader.pnml.PetriNet.Arc;
+import de.dhbw.woped.process2text.model.reader.pnml.PetriNet.PetriNet;
+import de.dhbw.woped.process2text.model.reader.pnml.PetriNet.Place;
+import de.dhbw.woped.process2text.model.reader.pnml.PetriNet.Transition;
 import java.io.InputStream;
 import java.util.HashMap;
 import javax.xml.parsers.DocumentBuilder;

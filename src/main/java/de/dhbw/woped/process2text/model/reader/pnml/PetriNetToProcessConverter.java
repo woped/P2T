@@ -1,7 +1,7 @@
-package de.dhbw.woped.process2text.model.pnmlReader;
+package de.dhbw.woped.process2text.model.reader.pnml;
 
-import de.dhbw.woped.process2text.model.pnmlReader.PetriNet.Element;
-import de.dhbw.woped.process2text.model.pnmlReader.PetriNet.PetriNet;
+import de.dhbw.woped.process2text.model.reader.pnml.PetriNet.Element;
+import de.dhbw.woped.process2text.model.reader.pnml.PetriNet.PetriNet;
 import de.dhbw.woped.process2text.model.process.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -147,9 +147,9 @@ public class PetriNetToProcessConverter {
             // WoPeD XOR!! --> WoPeD specific operator
             // Get Label from Successor --> XOR Label
             String sucId = pr.get(0);
-            HashMap<String, de.dhbw.woped.process2text.model.pnmlReader.PetriNet.Element> elems =
+            HashMap<String, de.dhbw.woped.process2text.model.reader.pnml.PetriNet.Element> elems =
                 petriNet.getElements();
-            de.dhbw.woped.process2text.model.pnmlReader.PetriNet.Element sucXOR = elems.get(sucId);
+            de.dhbw.woped.process2text.model.reader.pnml.PetriNet.Element sucXOR = elems.get(sucId);
             String label = sucXOR.getLabel();
             xorTitle = label;
             // Add Activity
@@ -232,9 +232,9 @@ public class PetriNetToProcessConverter {
             // Get Label from Successor --> Place Label
             ArrayList<String> pr = petriNet.getSuccessor(elemId);
             String sucId = pr.get(0);
-            HashMap<String, de.dhbw.woped.process2text.model.pnmlReader.PetriNet.Element> elems =
+            HashMap<String, de.dhbw.woped.process2text.model.reader.pnml.PetriNet.Element> elems =
                 petriNet.getElements();
-            de.dhbw.woped.process2text.model.pnmlReader.PetriNet.Element sucXOR = elems.get(sucId);
+            de.dhbw.woped.process2text.model.reader.pnml.PetriNet.Element sucXOR = elems.get(sucId);
             String label2 = sucXOR.getLabel();
 
             int newId = model.getNewId();

@@ -1,4 +1,4 @@
-package de.dhbw.woped.process2text.model.pnmlReader.PetriNet;
+package de.dhbw.woped.process2text.model.reader.pnml.PetriNet;
 
 import java.util.ArrayList;
 import java.util.HashMap;
