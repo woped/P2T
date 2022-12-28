@@ -17,6 +17,8 @@
 
     <properties>
         <java.version>11</java.version>
+        <sonar.organization>woped</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 
     <repositories>
