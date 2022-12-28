@@ -100,7 +100,7 @@ public class PetriNetToProcessConverter {
         }
 
         //  Place with multiple outgoing arcs (XOR-Join)
-        if (petriNet.getSuccessor(elemId).size() >= 0
+        if (!petriNet.getSuccessor(elemId).isEmpty()
             && petriNet.getPredecessor(elemId).size() > 1) {
           xor_join++;
           loopSet[x] = elemId + ": XOR Join";
@@ -131,7 +131,7 @@ public class PetriNetToProcessConverter {
 
         // Place with multiple incoming arcs (XOR-Split)
         if (petriNet.getSuccessor(elemId).size() > 1
-            && petriNet.getPredecessor(elemId).size() >= 0) {
+            && !petriNet.getPredecessor(elemId).isEmpty()) {
           xor_split++;
           loopSet[x] = elemId + ": XOR Split";
           x++;
