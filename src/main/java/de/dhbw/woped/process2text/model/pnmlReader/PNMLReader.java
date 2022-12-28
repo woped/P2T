@@ -25,7 +25,6 @@ public class PNMLReader {
       DocumentBuilder db = dbf.newDocumentBuilder();
       Document doc = db.parse(input);
       doc.getDocumentElement().normalize();
-
       PetriNet petriNet = new PetriNet();
       extractElements(doc, "place", petriNet);
       extractElements(doc, "transition", petriNet);

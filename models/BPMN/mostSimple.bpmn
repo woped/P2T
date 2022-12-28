@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0hfi50w" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.0.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.0.0">
+  <bpmn:process id="Process_1pye03w" isExecutable="false">
+    <bpmn:startEvent id="Event_1oobmda" name="start">
+      <bpmn:outgoing>Flow_1bfg2vq</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Activity_1wdx6nh" name="Work">
+      <bpmn:incoming>Flow_1bfg2vq</bpmn:incoming>
+      <bpmn:outgoing>Flow_1izke84</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="Event_0pdn7ut" name="end">
+      <bpmn:incoming>Flow_1izke84</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1bfg2vq" sourceRef="Event_1oobmda" targetRef="Activity_1wdx6nh" />
+    <bpmn:sequenceFlow id="Flow_1izke84" sourceRef="Activity_1wdx6nh" targetRef="Event_0pdn7ut" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1pye03w">
+      <bpmndi:BPMNEdge id="Flow_1izke84_di" bpmnElement="Flow_1izke84">
+        <di:waypoint x="530" y="120" />
+        <di:waypoint x="862" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1bfg2vq_di" bpmnElement="Flow_1bfg2vq">
+        <di:waypoint x="188" y="120" />
+        <di:waypoint x="430" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_1oobmda_di" bpmnElement="Event_1oobmda">
+        <dc:Bounds x="152" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="159" y="145" width="23" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1wdx6nh_di" bpmnElement="Activity_1wdx6nh">
+        <dc:Bounds x="430" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0pdn7ut_di" bpmnElement="Event_0pdn7ut">
+        <dc:Bounds x="862" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="871" y="145" width="19" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

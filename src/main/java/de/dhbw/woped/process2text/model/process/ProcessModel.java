@@ -75,6 +75,7 @@ public class ProcessModel {
       EnglishLabelProperties props = new EnglishLabelProperties();
       try {
         String label = a.getLabel().toLowerCase().replaceAll("\n", " ");
+
         label = label.replaceAll(" {2}", " ");
 
         if (label.contains("glossary://")) {
@@ -197,6 +198,26 @@ public class ProcessModel {
       temp = temp.replace(";;", "");
     }
     lanes.add(temp);
+  }
+
+  @Override
+  public String toString() {
+    return "ProcessModel{"
+        + "arcs="
+        + arcs
+        + ", activities="
+        + activities
+        + ", events="
+        + events
+        + ", gateways="
+        + gateways
+        + ", lanes="
+        + lanes
+        + ", pools="
+        + pools
+        + ", alternativePaths="
+        + alternativePaths
+        + '}';
   }
 
   public void deleteArc(Arc arc) {
