@@ -27,7 +27,7 @@ public class P2TController {
       consumes = "text/plain",
       produces = "text/plain")
   protected String doPost(@RequestBody String body) {
-    logger.debug(body);
+    logger.debug(body.replaceAll("[\n\r\t]", "_"));
     return p2tService.generateText(body);
   }
 }
