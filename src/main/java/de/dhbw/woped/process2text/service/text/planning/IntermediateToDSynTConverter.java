@@ -35,19 +35,19 @@ public class IntermediateToDSynTConverter {
     }
 
     // Check attributes
-    if (frag.verb_IsPassive) {
+    if (frag.verbIsPassive) {
       verb.setAttribute("voice", "pass");
     }
-    if (frag.verb_isParticiple) {
+    if (frag.verbIsParticiple) {
       verb.setAttribute("mood", "pres-part");
     }
-    if (frag.verb_isPast) {
+    if (frag.verbIsPast) {
       verb.setAttribute("tense", "past");
     }
-    if (frag.verb_isNegated) {
+    if (frag.verbIsNegated) {
       verb.setAttribute("polarity", "neg");
     }
-    if (frag.verb_isImperative) {
+    if (frag.verbIsImperative) {
       verb.setAttribute("mood", "imp");
     }
 
@@ -56,7 +56,7 @@ public class IntermediateToDSynTConverter {
         verb.setAttribute("rel", "nil");
         break;
       case VERB_TYPE_CONDITION:
-        if (((ConditionFragment) frag).sen_headPosition) {
+        if (((ConditionFragment) frag).senHeadPosition) {
           verb.setAttribute("starting_point", "+");
           verb.setAttribute("rel", "ATTR");
         } else {
@@ -73,19 +73,19 @@ public class IntermediateToDSynTConverter {
   /** Create DSynT representation for business object. Returns the according DSynt element. */
   public static Element createBO(Document doc, AbstractFragment frag) {
     Element object = doc.createElement("dsyntnode");
-    if (!frag.getBo().equals("") && !frag.bo_replaceWithPronoun) {
+    if (!frag.getBo().equals("") && !frag.boReplaceWithPronoun) {
       object.setAttribute("class", "common_noun");
-      if (frag.bo_isSubject) {
+      if (frag.boIsSubject) {
         object.setAttribute("rel", "I");
       } else {
         object.setAttribute("rel", "II");
       }
-      if (frag.bo_isPlural) {
+      if (frag.boIsPlural) {
         object.setAttribute("number", "pl");
       }
-      if (frag.bo_hasArticle) {
+      if (frag.boHasArticle) {
         object.setAttribute("article", "def");
-        if (frag.bo_hasIndefArticle) {
+        if (frag.boHasIndefArticle) {
           object.setAttribute("article", "indef");
         }
       } else {
@@ -93,7 +93,7 @@ public class IntermediateToDSynTConverter {
       }
       object.setAttribute("lexeme", frag.getBo());
     }
-    if (frag.bo_replaceWithPronoun) {
+    if (frag.boReplaceWithPronoun) {
       object.setAttribute("class", "common_noun");
       object.setAttribute("rel", "I");
       object.setAttribute("article", "def");
@@ -170,7 +170,7 @@ public class IntermediateToDSynTConverter {
       role.setAttribute("article", "def");
     }
 
-    if (frag.role_isImperative) {
+    if (frag.roleIsImperative) {
       role.setAttribute("pro", "pro");
       role.setAttribute("person", "2nd");
     }
@@ -178,7 +178,7 @@ public class IntermediateToDSynTConverter {
     role.setAttribute("rel", "I");
     role.setAttribute("lexeme", frag.getRole());
 
-    if (frag.verb_IsPassive) {
+    if (frag.verbIsPassive) {
       Element by = doc.createElement("dsyntnode");
       by.setAttribute("rel", "ATTR");
       by.setAttribute("lexeme", "BY");
@@ -204,7 +204,7 @@ public class IntermediateToDSynTConverter {
     add.setAttribute("class", "common_noun");
     add.setAttribute("rel", "II");
     add.setAttribute("lexeme", addLex);
-    if (addLex.endsWith("ing") || !frag.add_hasArticle) {
+    if (addLex.endsWith("ing") || !frag.addHasArticle) {
       add.setAttribute("article", "no");
     } else {
       add.setAttribute("article", "def");
@@ -217,7 +217,7 @@ public class IntermediateToDSynTConverter {
       DSynTMainSentence s = new DSynTMainSentence(frag);
       s.createDSynTRepresentation();
 
-      if (frag.sen_isCoord) {
+      if (frag.senIsCoord) {
         Element add = doc.createElement("dsyntnode");
         add.setAttribute("rel", "COORD");
         add.setAttribute("lexeme", "AND");

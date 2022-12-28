@@ -27,23 +27,23 @@ public abstract class AbstractFragment {
   }
 
   private final ArrayList<Integer> associatedActivities = new ArrayList<>();
-  public boolean bo_replaceWithPronoun = false;
-  public boolean bo_isSubject = false;
-  public boolean bo_isPlural = false;
-  public boolean bo_hasArticle = true;
-  public boolean bo_hasIndefArticle = false;
-  public boolean verb_IsPassive = false;
-  public boolean verb_isParticiple = false;
-  public boolean verb_isPast = false;
-  public boolean verb_isNegated = false;
-  public boolean verb_isImperative = false;
-  public boolean add_hasArticle = true;
-  public boolean sen_isCoord = true;
-  public boolean sen_hasConnective = false;
-  public boolean sen_hasBullet = false;
-  public int sen_level = 0;
-  public boolean sen_hasComma = false;
-  public boolean role_isImperative = false;
+  public boolean boReplaceWithPronoun = false;
+  public boolean boIsSubject = false;
+  public boolean boIsPlural = false;
+  public boolean boHasArticle = true;
+  public boolean boHasIndefArticle = false;
+  public boolean verbIsPassive = false;
+  public boolean verbIsParticiple = false;
+  public boolean verbIsPast = false;
+  public boolean verbIsNegated = false;
+  public boolean verbIsImperative = false;
+  public boolean addHasArticle = true;
+  public boolean senIsCoord = true;
+  public boolean senHasConnective = false;
+  public boolean senHasBullet = false;
+  public int senLevel = 0;
+  public boolean senHasComma = false;
+  public boolean roleIsImperative = false;
   private String action;
   private String bo;
   private String role;
@@ -83,7 +83,7 @@ public abstract class AbstractFragment {
   }
 
   public boolean hasBO() {
-    return !bo.equals("") || bo_replaceWithPronoun;
+    return !bo.equals("") || boReplaceWithPronoun;
   }
 
   public int getFragmentType() {
@@ -95,7 +95,7 @@ public abstract class AbstractFragment {
   }
 
   public ArrayList<String> getAllMods() {
-    return new ArrayList(modList.keySet());
+    return new ArrayList<>(modList.keySet());
   }
 
   public void addMod(String mod, ModifierRecord modRecord) {

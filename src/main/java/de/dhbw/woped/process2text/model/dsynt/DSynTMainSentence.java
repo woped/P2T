@@ -53,7 +53,7 @@ public class DSynTMainSentence extends DSynTSentence {
     }
 
     // create additional sentences
-    if (eFrag.getSentencList().size() > 0) {
+    if (!eFrag.getSentencList().isEmpty()) {
       IntermediateToDSynTConverter.createAddSentences(doc, verb, eFrag);
     }
   }
@@ -93,10 +93,12 @@ public class DSynTMainSentence extends DSynTSentence {
     return verb;
   }
 
+  @Override
   public Document getDSynT() {
     return doc;
   }
 
+  @Override
   public ExecutableFragment getExecutableFragment() {
     return eFrag;
   }

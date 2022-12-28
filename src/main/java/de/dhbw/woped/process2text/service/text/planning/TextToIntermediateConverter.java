@@ -57,9 +57,9 @@ class TextToIntermediateConverter {
     ModifierRecord modRecord3 =
         new ModifierRecord(ModifierRecord.TYPE_ADJ, ModifierRecord.TARGET_BO);
     eFrag.addMod("following", modRecord3);
-    eFrag.bo_isSubject = true;
-    eFrag.bo_hasArticle = false;
-    eFrag.verb_IsPassive = true;
+    eFrag.boIsSubject = true;
+    eFrag.boHasArticle = false;
+    eFrag.verbIsPassive = true;
     eFrag.addAssociation(Integer.valueOf(node.getEntry().getId()));
 
     ArrayList<DSynTSentence> preStatements = new ArrayList<>();
@@ -113,7 +113,7 @@ class TextToIntermediateConverter {
                     new ModifierRecord(ModifierRecord.TYPE_ADV, ModifierRecord.TARGET_VERB);
                 modRecord.addAttribute("adv-type", "sentential");
                 eFragNo.addMod("otherwise", modRecord);
-                eFragNo.sen_hasConnective = true;
+                eFragNo.senHasConnective = true;
                 eFragNo.addAssociation(Integer.valueOf(node.getExit().getId()));
               }
             }
@@ -130,15 +130,15 @@ class TextToIntermediateConverter {
             "",
             ConditionFragment.TYPE_IF,
             gwExtractor.getModList());
-    cFrag.bo_replaceWithPronoun = true;
+    cFrag.boReplaceWithPronoun = true;
     cFrag.addAssociation(Integer.valueOf(node.getEntry().getId()));
 
     // If imperative mode
     if (imperative && imperativeRole.equals(role)) {
       eFragNo.setRole("");
-      eFragNo.verb_isImperative = true;
+      eFragNo.verbIsImperative = true;
       eFragYes.setRole("");
-      eFragYes.verb_isImperative = true;
+      eFragYes.verbIsImperative = true;
     }
 
     DSynTConditionSentence dsyntSentence1 = new DSynTConditionSentence(eFragYes, cFrag);
@@ -153,9 +153,9 @@ class TextToIntermediateConverter {
     // One of the following branches is executed.  (And then use bullet points for structuring)
     ExecutableFragment eFrag =
         new ExecutableFragment("execute", "one of the following branches", "", "");
-    eFrag.bo_isSubject = true;
-    eFrag.verb_IsPassive = true;
-    eFrag.bo_hasArticle = false;
+    eFrag.boIsSubject = true;
+    eFrag.verbIsPassive = true;
+    eFrag.boHasArticle = false;
     eFrag.addAssociation(Integer.valueOf(node.getEntry().getId()));
 
     ArrayList<DSynTSentence> preStatements = new ArrayList<>();
@@ -170,11 +170,11 @@ class TextToIntermediateConverter {
             "",
             ConditionFragment.TYPE_ONCE,
             new HashMap<>());
-    post.verb_isPast = true;
-    post.verb_IsPassive = true;
-    post.bo_isSubject = true;
-    post.bo_isPlural = false;
-    post.bo_hasArticle = false;
+    post.verbIsPast = true;
+    post.verbIsPassive = true;
+    post.boIsSubject = true;
+    post.boIsPlural = false;
+    post.boHasArticle = false;
     post.setFragmentType(AbstractFragment.TYPE_JOIN);
     post.addAssociation(Integer.valueOf(node.getEntry().getId()));
 
@@ -203,18 +203,18 @@ class TextToIntermediateConverter {
       ModifierRecord modRecord =
           new ModifierRecord(ModifierRecord.TYPE_ADJ, ModifierRecord.TARGET_BO);
       eFrag.addMod("latter", modRecord);
-      eFrag.bo_isPlural = true;
+      eFrag.boIsPlural = true;
 
       ExecutableFragment eFrag2 = new ExecutableFragment("continue", "", "", "");
       eFrag2.addAssociation(Integer.valueOf(node.getEntry().getId()));
       eFrag.addSentence(eFrag2);
       if (role.equals("")) {
-        eFrag.verb_IsPassive = true;
-        eFrag.bo_isSubject = true;
-        eFrag2.verb_IsPassive = true;
+        eFrag.verbIsPassive = true;
+        eFrag.boIsSubject = true;
+        eFrag2.verbIsPassive = true;
         eFrag2.setBo("it");
-        eFrag2.bo_isSubject = true;
-        eFrag2.bo_hasArticle = false;
+        eFrag2.boIsSubject = true;
+        eFrag2.boHasArticle = false;
       }
 
       de.dhbw.woped.process2text.model.process.Activity a =
@@ -226,8 +226,8 @@ class TextToIntermediateConverter {
               "",
               "");
       eFrag3.addAssociation(a.getId());
-      eFrag3.sen_isCoord = false;
-      eFrag3.verb_isParticiple = true;
+      eFrag3.senIsCoord = false;
+      eFrag3.verbIsParticiple = true;
       ModifierRecord modRecord2 =
           new ModifierRecord(ModifierRecord.TYPE_ADV, ModifierRecord.TARGET_VERB);
       modRecord2.addAttribute("adv-type", "sentential");
@@ -242,9 +242,9 @@ class TextToIntermediateConverter {
               "",
               ConditionFragment.TYPE_AS_LONG_AS,
               new HashMap<>(gwExtractor.getModList()));
-      cFrag.verb_IsPassive = true;
-      cFrag.bo_isSubject = true;
-      cFrag.sen_headPosition = true;
+      cFrag.verbIsPassive = true;
+      cFrag.boIsSubject = true;
+      cFrag.senHeadPosition = true;
       cFrag.addAssociation(Integer.valueOf(node.getEntry().getId()));
 
       // Determine postcondition
@@ -257,16 +257,16 @@ class TextToIntermediateConverter {
               "",
               ConditionFragment.TYPE_ONCE,
               gwExtractor.getModList());
-      post.verb_IsPassive = true;
-      post.bo_isSubject = true;
+      post.verbIsPassive = true;
+      post.boIsSubject = true;
       post.setFragmentType(AbstractFragment.TYPE_JOIN);
       post.addAssociation(Integer.valueOf(node.getEntry().getId()));
 
       // If imperative mode
       if (imperative && imperativeRole.equals(role)) {
         eFrag.setRole("");
-        eFrag.verb_isImperative = true;
-        eFrag2.verb_isImperative = true;
+        eFrag.verbIsImperative = true;
+        eFrag2.verbIsImperative = true;
       }
 
       ArrayList<DSynTSentence> postStatements = new ArrayList<>();
@@ -279,9 +279,9 @@ class TextToIntermediateConverter {
       ModifierRecord modRecord =
           new ModifierRecord(ModifierRecord.TYPE_ADJ, ModifierRecord.TARGET_BO);
       eFrag.addMod("latter", modRecord);
-      eFrag.bo_isPlural = true;
-      eFrag.bo_isSubject = true;
-      eFrag.verb_IsPassive = true;
+      eFrag.boIsPlural = true;
+      eFrag.boIsSubject = true;
+      eFrag.verbIsPassive = true;
       ExecutableFragment eFrag2 = new ExecutableFragment("continue", "", "", "");
       eFrag.addSentence(eFrag2);
 
@@ -307,8 +307,8 @@ class TextToIntermediateConverter {
               a.getAnnotations().get(0).getBusinessObjects().get(0),
               "",
               a.getAnnotations().get(0).getAddition());
-      eFrag3.sen_isCoord = false;
-      eFrag3.verb_isParticiple = true;
+      eFrag3.senIsCoord = false;
+      eFrag3.verbIsParticiple = true;
       ModifierRecord modRecord2 =
           new ModifierRecord(ModifierRecord.TYPE_ADV, ModifierRecord.TARGET_VERB);
       modRecord2.addAttribute("adv-type", "sentential");
@@ -319,23 +319,23 @@ class TextToIntermediateConverter {
           new ConditionFragment("be", "dummy", "", "", ConditionFragment.TYPE_IF, new HashMap<>());
       cFrag.addMod(
           "required", new ModifierRecord(ModifierRecord.TYPE_ADV, ModifierRecord.TARGET_VERB));
-      cFrag.bo_replaceWithPronoun = true;
-      cFrag.bo_isSubject = true;
-      cFrag.sen_headPosition = true;
+      cFrag.boReplaceWithPronoun = true;
+      cFrag.boIsSubject = true;
+      cFrag.senHeadPosition = true;
 
       // Determine postcondition
       ConditionFragment post =
           new ConditionFragment(
               "finish", "loop", "", "", ConditionFragment.TYPE_ONCE, new HashMap<>());
-      post.verb_IsPassive = true;
-      post.bo_isSubject = true;
+      post.verbIsPassive = true;
+      post.boIsSubject = true;
       post.setFragmentType(AbstractFragment.TYPE_JOIN);
 
       // If imperative mode
       if (imperative && imperativeRole.equals(role)) {
         eFrag.setRole("");
-        eFrag.verb_isImperative = true;
-        eFrag2.verb_isImperative = true;
+        eFrag.verbIsImperative = true;
+        eFrag2.verbIsImperative = true;
       }
 
       ArrayList<DSynTSentence> postStatements = new ArrayList<>();
@@ -353,10 +353,10 @@ class TextToIntermediateConverter {
         new ConditionFragment("be", "dummy", "", "", ConditionFragment.TYPE_IF, new HashMap<>());
     ModifierRecord mod = new ModifierRecord(ModifierRecord.TYPE_ADV, ModifierRecord.TARGET_VERB);
     pre.addMod("necessary", mod);
-    pre.bo_replaceWithPronoun = true;
-    pre.sen_headPosition = true;
-    pre.sen_isCoord = true;
-    pre.sen_hasComma = true;
+    pre.boReplaceWithPronoun = true;
+    pre.senHeadPosition = true;
+    pre.senIsCoord = true;
+    pre.senHasComma = true;
     pre.addAssociation(Integer.valueOf(node.getEntry().getId()));
     return new ConverterRecord(pre, null, null, null);
   }
@@ -375,11 +375,11 @@ class TextToIntermediateConverter {
             "",
             ConditionFragment.TYPE_IN_CASE,
             gwExtractor.getModList());
-    pre.verb_IsPassive = gwExtractor.hasVerb;
-    pre.bo_isSubject = true;
-    pre.sen_headPosition = true;
-    pre.bo_isPlural = gwExtractor.bo_isPlural;
-    pre.bo_hasArticle = gwExtractor.bo_hasArticle;
+    pre.verbIsPassive = gwExtractor.hasVerb;
+    pre.boIsSubject = true;
+    pre.senHeadPosition = true;
+    pre.boIsPlural = gwExtractor.bo_isPlural;
+    pre.boHasArticle = gwExtractor.bo_hasArticle;
     pre.addAssociation(Integer.valueOf(node.getEntry().getId()));
     return new ConverterRecord(pre, null, null, null);
   }
@@ -403,30 +403,30 @@ class TextToIntermediateConverter {
             "",
             ConditionFragment.TYPE_WHETHER,
             gwExtractor.getModList());
-    cFrag.verb_IsPassive = true;
-    cFrag.bo_isSubject = true;
-    cFrag.sen_headPosition = false;
+    cFrag.verbIsPassive = true;
+    cFrag.boIsSubject = true;
+    cFrag.senHeadPosition = false;
     cFrag.addAssociation(Integer.valueOf(node.getEntry().getId()));
     eFrag.addAssociation(Integer.valueOf(node.getEntry().getId()));
 
     if (role.equals("")) {
-      eFrag.verb_IsPassive = true;
+      eFrag.verbIsPassive = true;
       eFrag.setBo("it");
-      eFrag.bo_hasArticle = false;
-      eFrag.bo_isSubject = true;
-      cFrag.verb_IsPassive = true;
+      eFrag.boHasArticle = false;
+      eFrag.boIsSubject = true;
+      cFrag.verbIsPassive = true;
       cFrag.setBo("it");
-      cFrag.bo_hasArticle = false;
-      cFrag.bo_isSubject = true;
+      cFrag.boHasArticle = false;
+      cFrag.boIsSubject = true;
     }
 
     // Statement about negative case (process is finished)
     ExecutableFragment eFrag2 = new ExecutableFragment("finish", "process instance", "", "");
-    eFrag2.verb_IsPassive = true;
-    eFrag2.bo_isSubject = true;
+    eFrag2.verbIsPassive = true;
+    eFrag2.boIsSubject = true;
     ConditionFragment cFrag2 =
         new ConditionFragment("be", "case", "this", "", ConditionFragment.TYPE_IF, new HashMap<>());
-    cFrag2.verb_isNegated = true;
+    cFrag2.verbIsNegated = true;
 
     // Determine precondition
     ConditionFragment pre =
@@ -437,19 +437,19 @@ class TextToIntermediateConverter {
             "",
             ConditionFragment.TYPE_IF,
             new HashMap<>());
-    pre.verb_IsPassive = true;
-    pre.sen_headPosition = true;
-    pre.bo_isSubject = true;
+    pre.verbIsPassive = true;
+    pre.senHeadPosition = true;
+    pre.boIsSubject = true;
     ModifierRecord modRecord =
         new ModifierRecord(ModifierRecord.TYPE_PREP, ModifierRecord.TARGET_VERB);
     modRecord.addAttribute("adv-type", "sentential");
     pre.addMod("otherwise", modRecord);
-    pre.sen_hasConnective = true;
+    pre.senHasConnective = true;
 
     // If imperative mode
     if (imperative && imperativeRole.equals(role)) {
       eFrag.setRole("");
-      eFrag.verb_isImperative = true;
+      eFrag.verbIsImperative = true;
     }
 
     ArrayList<DSynTSentence> preStatements = new ArrayList<>();
@@ -469,9 +469,9 @@ class TextToIntermediateConverter {
     // structuring)
     ExecutableFragment eFrag =
         new ExecutableFragment("split", "process", "", "into " + activities + " parallel branches");
-    eFrag.bo_isSubject = true;
-    eFrag.verb_IsPassive = true;
-    eFrag.add_hasArticle = false;
+    eFrag.boIsSubject = true;
+    eFrag.verbIsPassive = true;
+    eFrag.addHasArticle = false;
     eFrag.addAssociation(Integer.valueOf(node.getEntry().getId()));
 
     ArrayList<DSynTSentence> preStatements = new ArrayList<>();
@@ -486,11 +486,11 @@ class TextToIntermediateConverter {
             "",
             ConditionFragment.TYPE_ONCE,
             new HashMap<>());
-    post.verb_isPast = true;
-    post.verb_IsPassive = true;
-    post.bo_isSubject = true;
-    post.bo_isPlural = true;
-    post.bo_hasArticle = false;
+    post.verbIsPast = true;
+    post.verbIsPassive = true;
+    post.boIsSubject = true;
+    post.boIsPlural = true;
+    post.boHasArticle = false;
     post.addAssociation(Integer.valueOf(node.getEntry().getId()));
     post.setFragmentType(AbstractFragment.TYPE_JOIN);
 
@@ -539,20 +539,20 @@ class TextToIntermediateConverter {
                 "",
                 ConditionFragment.TYPE_ONCE,
                 new HashMap<>());
-        post.sen_headPosition = true;
-        post.verb_isPast = true;
+        post.senHeadPosition = true;
+        post.verbIsPast = true;
         post.setFragmentType(AbstractFragment.TYPE_JOIN);
         post.addAssociation(Integer.valueOf(node.getEntry().getId()));
       } else {
         post =
             new ConditionFragment(
                 "finish", "both branch", "", "", ConditionFragment.TYPE_ONCE, new HashMap<>());
-        post.bo_isPlural = true;
-        post.sen_headPosition = true;
-        post.bo_hasArticle = false;
-        post.bo_isSubject = true;
-        post.verb_isPast = true;
-        post.verb_IsPassive = true;
+        post.boIsPlural = true;
+        post.senHeadPosition = true;
+        post.boHasArticle = false;
+        post.boIsSubject = true;
+        post.verbIsPast = true;
+        post.verbIsPassive = true;
         post.setFragmentType(AbstractFragment.TYPE_JOIN);
         post.addAssociation(Integer.valueOf(node.getEntry().getId()));
       }
@@ -560,7 +560,7 @@ class TextToIntermediateConverter {
 
     // If imperative mode
     if (imperative && imperativeRole.equals(role)) {
-      post.role_isImperative = true;
+      post.roleIsImperative = true;
     }
 
     return new ConverterRecord(null, post, null, null, modRecord);
@@ -585,7 +585,7 @@ class TextToIntermediateConverter {
           cFrag =
               new ConditionFragment(
                   "occur", "error", "", "", ConditionFragment.TYPE_IF, new HashMap<>());
-          cFrag.bo_hasIndefArticle = true;
+          cFrag.boHasIndefArticle = true;
         } else {
           cFrag =
               new ConditionFragment(
@@ -595,9 +595,9 @@ class TextToIntermediateConverter {
                   "",
                   ConditionFragment.TYPE_IF,
                   new HashMap<>());
-          cFrag.bo_hasArticle = true;
+          cFrag.boHasArticle = true;
         }
-        cFrag.bo_isSubject = true;
+        cFrag.boIsSubject = true;
         if (event.isAttached()) {
           cFrag.setAddition("while latter task is executed,");
         }
@@ -640,8 +640,8 @@ class TextToIntermediateConverter {
         cFrag =
             new ConditionFragment(
                 "", "of an escalation", "", "", ConditionFragment.TYPE_IN_CASE, new HashMap<>());
-        cFrag.bo_hasArticle = false;
-        cFrag.bo_isSubject = true;
+        cFrag.boHasArticle = false;
+        cFrag.boIsSubject = true;
         break;
 
         // ***************************************************************
@@ -651,36 +651,36 @@ class TextToIntermediateConverter {
         // END EVENT
       case de.dhbw.woped.process2text.model.process.EventType.END_EVENT:
         eFrag = new ExecutableFragment("finish", "process", "", "");
-        eFrag.verb_IsPassive = true;
-        eFrag.bo_isSubject = true;
-        eFrag.bo_hasArticle = true;
+        eFrag.verbIsPassive = true;
+        eFrag.boIsSubject = true;
+        eFrag.boHasArticle = true;
         return getEventSentence(eFrag);
 
         // ERROR EVENT
       case de.dhbw.woped.process2text.model.process.EventType.END_ERROR:
         eFrag = new ExecutableFragment("end", "process", "", "with an error");
-        eFrag.bo_isSubject = true;
-        eFrag.bo_hasArticle = true;
-        eFrag.add_hasArticle = false;
+        eFrag.boIsSubject = true;
+        eFrag.boHasArticle = true;
+        eFrag.addHasArticle = false;
         return getEventSentence(eFrag);
 
       case de.dhbw.woped.process2text.model.process.EventType.END_SIGNAL:
         eFrag = new ExecutableFragment("end", "process", "", "with a signal.");
-        eFrag.bo_isSubject = true;
-        eFrag.bo_hasArticle = true;
-        eFrag.add_hasArticle = false;
+        eFrag.boIsSubject = true;
+        eFrag.boHasArticle = true;
+        eFrag.addHasArticle = false;
         return getEventSentence(eFrag);
 
         // START EVENT
       case de.dhbw.woped.process2text.model.process.EventType.START_MSG:
         cFrag = new ConditionFragment("receive", "message", "", "", ConditionFragment.TYPE_ONCE);
-        cFrag.bo_isSubject = true;
-        cFrag.verb_IsPassive = true;
-        cFrag.bo_hasArticle = true;
-        cFrag.bo_hasIndefArticle = true;
+        cFrag.boIsSubject = true;
+        cFrag.verbIsPassive = true;
+        cFrag.boHasArticle = true;
+        cFrag.boHasIndefArticle = true;
         eFrag = new ExecutableFragment("start", "process", "", "");
-        eFrag.bo_isSubject = true;
-        eFrag.bo_hasArticle = true;
+        eFrag.boIsSubject = true;
+        eFrag.boHasArticle = true;
         return getEventSentence(eFrag, cFrag);
 
         // ***************************************************************
@@ -690,34 +690,34 @@ class TextToIntermediateConverter {
         // MESSAGE EVENT
       case de.dhbw.woped.process2text.model.process.EventType.INTM_MSG_THR:
         eFrag = new ExecutableFragment("send", "message", event.getLane().getName(), "");
-        eFrag.bo_hasIndefArticle = true;
+        eFrag.boHasIndefArticle = true;
         return getEventSentence(eFrag);
 
         // ESCALATION EVENT
       case de.dhbw.woped.process2text.model.process.EventType.INTM_ESCALATION_THR:
         eFrag = new ExecutableFragment("trigger", "escalation", event.getLane().getName(), "");
-        eFrag.bo_hasIndefArticle = true;
+        eFrag.boHasIndefArticle = true;
         return getEventSentence(eFrag);
 
         // LINK EVENT
       case de.dhbw.woped.process2text.model.process.EventType.INTM_LINK_THR:
         eFrag = new ExecutableFragment("send", "signal", event.getLane().getName(), "");
-        eFrag.bo_hasIndefArticle = true;
+        eFrag.boHasIndefArticle = true;
         return getEventSentence(eFrag);
 
         // MULTIPLE TRIGGER
       case de.dhbw.woped.process2text.model.process.EventType.INTM_MULTIPLE_THR:
         eFrag = new ExecutableFragment("cause", "multiple trigger", event.getLane().getName(), "");
-        eFrag.bo_hasArticle = false;
-        eFrag.bo_isPlural = true;
+        eFrag.boHasArticle = false;
+        eFrag.boIsPlural = true;
         return getEventSentence(eFrag);
 
         // SIGNAL EVENT
       case de.dhbw.woped.process2text.model.process.EventType.INTM_SIGNAL_THR:
         eFrag = new ExecutableFragment("send", "signal", event.getLane().getName(), "");
-        eFrag.bo_hasArticle = true;
-        eFrag.bo_hasIndefArticle = true;
-        eFrag.bo_isPlural = true;
+        eFrag.boHasArticle = true;
+        eFrag.boHasIndefArticle = true;
+        eFrag.boIsPlural = true;
         return getEventSentence(eFrag);
 
       default:
@@ -745,9 +745,9 @@ class TextToIntermediateConverter {
   private DSynTConditionSentence getAttachedEventSentence(
       de.dhbw.woped.process2text.model.process.Event event, ConditionFragment cFrag) {
     ExecutableFragment eFrag = new ExecutableFragment("cancel", "it", "", "");
-    eFrag.verb_IsPassive = true;
-    eFrag.bo_isSubject = true;
-    eFrag.bo_hasArticle = false;
+    eFrag.verbIsPassive = true;
+    eFrag.boIsSubject = true;
+    eFrag.boHasArticle = false;
 
     if (!event.isLeadsToEnd()) {
       ModifierRecord modRecord =
@@ -757,12 +757,12 @@ class TextToIntermediateConverter {
       modRecord.addAttribute("rheme", "+");
       eFrag2.addMod("as follows", modRecord);
 
-      eFrag2.bo_isSubject = true;
+      eFrag2.boIsSubject = true;
       eFrag.addSentence(eFrag2);
     } else {
       ExecutableFragment eFrag2 = new ExecutableFragment("finish", "process", "", "");
-      eFrag2.bo_isSubject = true;
-      eFrag2.verb_IsPassive = true;
+      eFrag2.boIsSubject = true;
+      eFrag2.verbIsPassive = true;
       eFrag.addSentence(eFrag2);
     }
     return new DSynTConditionSentence(eFrag, cFrag);
@@ -780,7 +780,7 @@ class TextToIntermediateConverter {
       case de.dhbw.woped.process2text.model.process.EventType.INTM_TIMER:
         modRecord = new ModifierRecord(ModifierRecord.TYPE_ADV, ModifierRecord.TARGET_VERB);
         eFrag = new ExecutableFragment("continue", "process", "", "");
-        eFrag.bo_isSubject = true;
+        eFrag.boIsSubject = true;
         modRecord.addAttribute("adv-type", "sent-final");
         modRecord.addAttribute("rheme", "+");
         eFrag.addMod("normally", modRecord);
@@ -793,8 +793,8 @@ class TextToIntermediateConverter {
                 "within the time limit",
                 ConditionFragment.TYPE_IF,
                 new HashMap<>());
-        cFrag.sen_hasConnective = true;
-        cFrag.add_hasArticle = false;
+        cFrag.senHasConnective = true;
+        cFrag.addHasArticle = false;
         modRecord2 = new ModifierRecord(ModifierRecord.TYPE_PREP, ModifierRecord.TARGET_VERB);
         modRecord2.addAttribute("adv-type", "sentential");
         cFrag.addMod("otherwise", modRecord2);
@@ -803,7 +803,7 @@ class TextToIntermediateConverter {
       case de.dhbw.woped.process2text.model.process.EventType.INTM_ERROR:
         modRecord = new ModifierRecord(ModifierRecord.TYPE_ADV, ModifierRecord.TARGET_VERB);
         eFrag = new ExecutableFragment("continue", "process", "", "");
-        eFrag.bo_isSubject = true;
+        eFrag.boIsSubject = true;
         modRecord.addAttribute("adv-type", "sent-final");
         modRecord.addAttribute("rheme", "+");
         eFrag.addMod("normally", modRecord);
@@ -816,8 +816,8 @@ class TextToIntermediateConverter {
                 "without error",
                 ConditionFragment.TYPE_IF,
                 new HashMap<>());
-        cFrag.sen_hasConnective = true;
-        cFrag.add_hasArticle = false;
+        cFrag.senHasConnective = true;
+        cFrag.addHasArticle = false;
         modRecord2 = new ModifierRecord(ModifierRecord.TYPE_PREP, ModifierRecord.TARGET_VERB);
         modRecord2.addAttribute("adv-type", "sentential");
         cFrag.addMod("otherwise", modRecord2);
@@ -826,7 +826,7 @@ class TextToIntermediateConverter {
       case de.dhbw.woped.process2text.model.process.EventType.INTM_ESCALATION_CAT:
         modRecord = new ModifierRecord(ModifierRecord.TYPE_ADV, ModifierRecord.TARGET_VERB);
         eFrag = new ExecutableFragment("continue", "process", "", "");
-        eFrag.bo_isSubject = true;
+        eFrag.boIsSubject = true;
         modRecord.addAttribute("adv-type", "sent-final");
         modRecord.addAttribute("rheme", "+");
         eFrag.addMod("normally", modRecord);
@@ -839,8 +839,8 @@ class TextToIntermediateConverter {
                 "without escalation",
                 ConditionFragment.TYPE_IF,
                 new HashMap<>());
-        cFrag.sen_hasConnective = true;
-        cFrag.add_hasArticle = false;
+        cFrag.senHasConnective = true;
+        cFrag.addHasArticle = false;
         modRecord2 = new ModifierRecord(ModifierRecord.TYPE_PREP, ModifierRecord.TARGET_VERB);
         modRecord2.addAttribute("adv-type", "sentential");
         cFrag.addMod("otherwise", modRecord2);
@@ -870,15 +870,15 @@ class TextToIntermediateConverter {
   /** Returns sentence for intermediate events. */
   private DSynTConditionSentence getIntermediateEventSentence(ConditionFragment cFrag) {
     ExecutableFragment eFrag = new ExecutableFragment("continue", "process", "", "");
-    eFrag.bo_isSubject = true;
+    eFrag.boIsSubject = true;
     return new DSynTConditionSentence(eFrag, cFrag);
   }
 
   /** Configures condition fragment in a standard fashion. */
   private void configureFragment(ConditionFragment cFrag) {
-    cFrag.verb_IsPassive = true;
-    cFrag.bo_isSubject = true;
-    cFrag.bo_hasArticle = false;
+    cFrag.verbIsPassive = true;
+    cFrag.boIsSubject = true;
+    cFrag.boHasArticle = false;
   }
 
   /** Returns role executing current RPST node. */

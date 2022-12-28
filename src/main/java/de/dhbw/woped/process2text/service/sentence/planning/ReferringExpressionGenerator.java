@@ -53,11 +53,11 @@ public class ReferringExpressionGenerator {
             && !currRole.equals("he")
             && !currRole.equals("she")
             && !currRole.equals("it")
-            && !currFragment.sen_hasBullet
-            && currFragment.sen_level == prevFragment.sen_level
+            && !currFragment.senHasBullet
+            && currFragment.senLevel == prevFragment.senLevel
             && prevSentence.getExecutableFragment().getListSize() == 0
-            && !currFragment.sen_hasConnective
-            && !prevFragment.sen_hasConnective
+            && !currFragment.senHasConnective
+            && !prevFragment.senHasConnective
             && aTextPlan.getClass().toString().endsWith("DSynTMainSentence")
             && prevSentence.getClass().toString().endsWith("DSynTMainSentence")) {
 

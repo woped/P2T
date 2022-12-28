@@ -74,12 +74,12 @@ public class SurfaceRealizer {
     }
     */
 
-    if (s.getExecutableFragment().sen_level > 0) {
+    if (s.getExecutableFragment().senLevel > 0) {
       String spacer = "";
-      for (int i = 0; i < s.getExecutableFragment().sen_level; i++) {
+      for (int i = 0; i < s.getExecutableFragment().senLevel; i++) {
         spacer += "&#032";
       }
-      if (s.getExecutableFragment().sen_level % 2 == 0) {
+      if (s.getExecutableFragment().senLevel % 2 == 0) {
         spacer += "&#149";
       } else {
         spacer += "-";

@@ -54,11 +54,10 @@ public class BPMNReader {
     NodeList participants = doc.getElementsByTagName("bpmn:Participant");
     for (int j = 0; j < participants.getLength(); j++) {
       Element participant = (Element) participants.item(j);
-      if (participant.getAttribute("processRef") == pool.getBPMNId()) {
-        if (participant.getAttribute("name") == "Company"
-            || participant.getAttribute("name") == "User") {
-          type = 2;
-        }
+      if (participant.getAttribute("processRef") == pool.getBPMNId()
+          && (participant.getAttribute("name") == "Company"
+              || participant.getAttribute("name") == "User")) {
+        type = 2;
       }
     }
     NodeList flowNodes = null;
@@ -94,16 +93,11 @@ public class BPMNReader {
   }
 
   private void extractEvents(
-      Document doc,
-      ProcessModel model,
-      Element poolElement,
-      Pool pool,
-      Element laneElement,
-      Lane lane) {
+      ProcessModel model, Element poolElement, Pool pool, Element laneElement, Lane lane) {
     // Anlegen von Listen für die verschiedenen Eventarten
-    NodeList intermediate_event = poolElement.getElementsByTagName("bpmn:intermediateCatchEvent");
-    NodeList start_event = poolElement.getElementsByTagName("bpmn:startEvent");
-    NodeList end_event = poolElement.getElementsByTagName("bpmn:endEvent");
+    NodeList intermediateEvent = poolElement.getElementsByTagName("bpmn:intermediateCatchEvent");
+    NodeList startEvent = poolElement.getElementsByTagName("bpmn:startEvent");
+    NodeList endEvent = poolElement.getElementsByTagName("bpmn:endEvent");
     int newId;
     NodeList flowNodes = null;
     // Überprüfen ob lane vorhanden ist
@@ -116,8 +110,8 @@ public class BPMNReader {
     // transformedElemsRev
 
     // intermediateCatchEvents
-    for (int j = 0; j < intermediate_event.getLength(); j++) {
-      Node scdNode = intermediate_event.item(j);
+    for (int j = 0; j < intermediateEvent.getLength(); j++) {
+      Node scdNode = intermediateEvent.item(j);
       Element event = (Element) scdNode;
       boolean inLane = false;
       // Überprüfen, ob es eine Lane gibt
@@ -136,14 +130,13 @@ public class BPMNReader {
         Event interelement = new Event(newId, "", lane, pool, EventType.INTM_MSG_THR);
         interelement.addBPMNId(event.getAttribute("id"));
         model.addEvent(interelement);
-        // model.addEvent(new Event(newId, "", lane, pool, EventType.START_EVENT));
         this.transformedElemsRev.put(model.getNewId(), event.getAttribute("id"));
       }
     }
 
     // Startevent wird als Gateway abgespeichert (analog zur PNML-Klasse)
-    for (int j = 0; j < start_event.getLength(); j++) {
-      Node scdNode = start_event.item(j);
+    for (int j = 0; j < startEvent.getLength(); j++) {
+      Node scdNode = startEvent.item(j);
       Element event = (Element) scdNode;
       boolean inLane = false;
       // Überprüfen, ob es eine Lane gibt
@@ -161,14 +154,13 @@ public class BPMNReader {
         Gateway gateway = new Gateway(newId, "", lane, pool, 0);
         gateway.addBPMNId(event.getAttribute("id"));
         model.addGateway(gateway);
-        // model.addEvent(new Event(newId, "", lane, pool, EventType.START_EVENT));
         this.transformedElemsRev.put(model.getNewId(), event.getAttribute("id"));
       }
     }
 
     // Endevent wird als Activity abgespeichert (analog zur PNML-Klasse)
-    for (int j = 0; j < end_event.getLength(); j++) {
-      Node scdNode = end_event.item(j);
+    for (int j = 0; j < endEvent.getLength(); j++) {
+      Node scdNode = endEvent.item(j);
       Element event = (Element) scdNode;
       boolean inLane = false;
       // Überprüfen, ob es eine Lane gibt
@@ -186,22 +178,16 @@ public class BPMNReader {
         Activity activity = new Activity(newId, "complete process", lane, pool, 0);
         activity.addBPMNId(event.getAttribute("id"));
         model.addActivity(activity);
-        // model.addEvent(new Event(newId, "", lane, pool, EventType.END_EVENT));
         this.transformedElemsRev.put(model.getNewId(), event.getAttribute("id"));
       }
     }
   }
 
   private void extractGateways(
-      Document doc,
-      ProcessModel model,
-      Element poolElement,
-      Pool pool,
-      Element laneElement,
-      Lane lane) {
+      ProcessModel model, Element poolElement, Pool pool, Element laneElement, Lane lane) {
     // Anlegen von Listen für die verschiedenen Gateway-Arten
-    NodeList list_AND = poolElement.getElementsByTagName("bpmn:parallelGateway");
-    NodeList list_XOR = poolElement.getElementsByTagName("bpmn:exclusiveGateway");
+    NodeList listAND = poolElement.getElementsByTagName("bpmn:parallelGateway");
+    NodeList listXOR = poolElement.getElementsByTagName("bpmn:exclusiveGateway");
     int newId;
     NodeList flowNodes = null;
     // Überprüfen ob lane vorhanden ist
@@ -214,8 +200,8 @@ public class BPMNReader {
     // transformedElemsRev
 
     // AND-Gateway
-    for (int j = 0; j < list_AND.getLength(); j++) {
-      Node scdNode = list_AND.item(j);
+    for (int j = 0; j < listAND.getLength(); j++) {
+      Node scdNode = listAND.item(j);
       Element gw = (Element) scdNode;
       boolean inLane = false;
       // Überprüfen, ob es eine Lane gibt
@@ -238,8 +224,8 @@ public class BPMNReader {
     }
 
     // XOR-Gateway
-    for (int j = 0; j < list_XOR.getLength(); j++) {
-      Node scdNode = list_XOR.item(j);
+    for (int j = 0; j < listXOR.getLength(); j++) {
+      Node scdNode = listXOR.item(j);
       Element gw = (Element) scdNode;
       boolean inLane = false;
       // Überprüfen, ob es eine Lane gibt
@@ -274,8 +260,8 @@ public class BPMNReader {
       model.addLane(laneElement.getAttribute("name"));
       this.transformedElemsRev.put(model.getNewId(), laneElement.getAttribute("id"));
       extractActivity(doc, model, poolElement, pool, laneElement, lane);
-      extractEvents(doc, model, poolElement, pool, laneElement, lane);
-      extractGateways(doc, model, poolElement, pool, laneElement, lane);
+      extractEvents(model, poolElement, pool, laneElement, lane);
+      extractGateways(model, poolElement, pool, laneElement, lane);
     }
   }
 
@@ -289,8 +275,8 @@ public class BPMNReader {
       this.transformedElemsRev.put(model.getNewId(), poolElement.getAttribute("id"));
       if (lanes.getLength() == 0) {
         extractActivity(doc, model, poolElement, pool, null, null);
-        extractEvents(doc, model, poolElement, pool, null, null);
-        extractGateways(doc, model, poolElement, pool, null, null);
+        extractEvents(model, poolElement, pool, null, null);
+        extractGateways(model, poolElement, pool, null, null);
       } else {
         extractLane(doc, model, poolElement, pool);
       }

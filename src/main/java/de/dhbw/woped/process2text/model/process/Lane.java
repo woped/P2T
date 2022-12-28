@@ -2,7 +2,7 @@ package de.dhbw.woped.process2text.model.process;
 
 public class Lane {
   private final String name;
-  private final String exceptionString = "All";
+  private static final String exceptionString = "All";
   private String bpmnid;
 
   public Lane(String name, String pool) {

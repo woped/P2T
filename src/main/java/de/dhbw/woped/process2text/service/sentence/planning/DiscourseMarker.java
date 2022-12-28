@@ -33,9 +33,9 @@ public class DiscourseMarker {
     for (DSynTSentence s : textPlan) {
       if (s instanceof DSynTConditionSentence) {
         DSynTConditionSentence condS = (DSynTConditionSentence) s;
-        if (!condS.getExecutableFragment().sen_hasConnective
+        if (!condS.getExecutableFragment().senHasConnective
             && index > 0
-            && !condS.getConditionFragment().sen_headPosition) {
+            && !condS.getConditionFragment().senHeadPosition) {
           Element verb = condS.getVerb();
           Document doc = condS.getDSynT();
           IntermediateToDSynTConverter.insertConnective(
@@ -45,9 +45,9 @@ public class DiscourseMarker {
       }
       if (s instanceof DSynTMainSentence) {
         DSynTMainSentence mainS = (DSynTMainSentence) s;
-        if (!mainS.getExecutableFragment().sen_hasConnective
+        if (!mainS.getExecutableFragment().senHasConnective
             && index > 0
-            && !mainS.getExecutableFragment().sen_hasBullet) {
+            && !mainS.getExecutableFragment().senHasBullet) {
           Element verb = mainS.getVerb();
           Document doc = mainS.getDSynT();
 

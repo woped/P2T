@@ -29,11 +29,11 @@ public class SentenceAggregator {
 
         if (currRole.equals(prevRole)
             && !currRole.equals("")
-            && !currFragment.sen_hasBullet
-            && currFragment.sen_level == prevFragment.sen_level
+            && !currFragment.senHasBullet
+            && currFragment.senLevel == prevFragment.senLevel
             && prevSentence.getExecutableFragment().getListSize() == 0
-            && !currFragment.sen_hasConnective
-            && !prevFragment.sen_hasConnective
+            && !currFragment.senHasConnective
+            && !prevFragment.senHasConnective
             && currSentence.getClass().toString().equals("class DSynTMainSentence")
             && prevSentence.getClass().toString().equals("class DSynTMainSentence")) {
 

@@ -14,7 +14,7 @@ public class ConditionFragment extends AbstractFragment {
   public static final int TYPE_IN_CASE = 6;
   private final int type;
   private final ArrayList<ConditionFragment> sentenceList = new ArrayList<>();
-  public boolean sen_headPosition = true;
+  public boolean senHeadPosition = true;
 
   public ConditionFragment(String action, String bo, String role, String addition, int type) {
     super(action, bo, role, addition);

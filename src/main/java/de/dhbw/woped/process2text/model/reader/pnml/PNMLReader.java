@@ -113,15 +113,13 @@ public class PNMLReader {
         NodeList sndNodeElems = sndNode.getChildNodes();
         for (int k = 0; k < sndNodeElems.getLength(); k++) {
           Node thdNode = sndNodeElems.item(k);
-          if (thdNode.getNodeType() == Node.ELEMENT_NODE) {
-            if (thdNode.getNodeName().contains("text")) {
-              if (type.equals("place")) {
-                petriNet.addElements(new Place(id, thdNode.getTextContent()));
-              } else {
-                petriNet.addElements(
-                    new Transition(
-                        id, thdNode.getTextContent(), role, group, operatortype, trigger));
-              }
+          if (thdNode.getNodeType() == Node.ELEMENT_NODE
+              && thdNode.getNodeName().contains("text")) {
+            if (type.equals("place")) {
+              petriNet.addElements(new Place(id, thdNode.getTextContent()));
+            } else {
+              petriNet.addElements(
+                  new Transition(id, thdNode.getTextContent(), role, group, operatortype, trigger));
             }
           }
         }

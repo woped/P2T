@@ -147,12 +147,12 @@ public class TextPlanner {
               passedFragments.clear();
               sentencePlan.add(dsyntSentence);
             } else {
-              preStatement.getExecutableFragment().sen_level = level;
+              preStatement.getExecutableFragment().senLevel = level;
               if (passedMods.size() > 0) {
                 preStatement
                     .getExecutableFragment()
                     .addMod(passedMods.get(0).getLemma(), passedMods.get(0));
-                preStatement.getExecutableFragment().sen_hasConnective = true;
+                preStatement.getExecutableFragment().senHasConnective = true;
                 passedMods.clear();
               }
               sentencePlan.add(new DSynTMainSentence(preStatement.getExecutableFragment()));
@@ -166,7 +166,7 @@ public class TextPlanner {
           if (passedFragments.size() > 0) {
             if (passedFragments.get(0).getFragmentType() == AbstractFragment.TYPE_JOIN) {
               ExecutableFragment eFrag = new ExecutableFragment("continue", "process", "", "");
-              eFrag.bo_isSubject = true;
+              eFrag.boIsSubject = true;
               DSynTConditionSentence dsyntSentence =
                   new DSynTConditionSentence(eFrag, passedFragments.get(0));
               sentencePlan.add(dsyntSentence);
@@ -241,7 +241,7 @@ public class TextPlanner {
               && orderedTopNodes.indexOf(node) == orderedTopNodes.size() - 1) {
             // Adjust level and add to sentence plan
             DSynTSentence sen = textToIMConverter.convertEvent(event).preStatements.get(0);
-            sen.getExecutableFragment().sen_level = level;
+            sen.getExecutableFragment().senLevel = level;
             sentencePlan.add(sen);
           }
         }
@@ -265,8 +265,8 @@ public class TextPlanner {
               start = false;
               ExecutableFragment eFrag =
                   new ExecutableFragment("start", "process", "", "with a decision");
-              eFrag.add_hasArticle = false;
-              eFrag.bo_isSubject = true;
+              eFrag.addHasArticle = false;
+              eFrag.boIsSubject = true;
               sentencePlan.add(new DSynTMainSentence(eFrag));
             }
             if (event.getType() != de.dhbw.woped.process2text.model.process.EventType.START_EVENT) {
@@ -295,17 +295,17 @@ public class TextPlanner {
 
               // If only one sentence (e.g. "Intermediate" End Event)
               if (convRecord.preStatements.size() == 1) {
-                sen.getExecutableFragment().sen_level = level;
+                sen.getExecutableFragment().senLevel = level;
               }
 
               if (tagWithBullet) {
-                sen.getExecutableFragment().sen_hasBullet = true;
-                sen.getExecutableFragment().sen_level = level;
+                sen.getExecutableFragment().senHasBullet = true;
+                sen.getExecutableFragment().senLevel = level;
                 tagWithBullet = false;
               }
 
               if (i > 0) {
-                sen.getExecutableFragment().sen_level = level;
+                sen.getExecutableFragment().senLevel = level;
               }
               sentencePlan.add(sen);
             }
@@ -368,15 +368,15 @@ public class TextPlanner {
       }
 
       if (bo.endsWith("s") && lHelper.isNoun(bo.substring(0, bo.length() - 1))) {
-        eFrag.bo_hasArticle = true;
+        eFrag.boHasArticle = true;
       } else {
-        eFrag.bo_hasIndefArticle = true;
+        eFrag.boHasIndefArticle = true;
       }
 
       // If imperative mode
       if (imperative && imperativeRole.equals(role)) {
-        eFrag.verb_isImperative = true;
-        eFrag.role_isImperative = true;
+        eFrag.verbIsImperative = true;
+        eFrag.roleIsImperative = true;
       }
       correctArticleSettings(eFrag);
       DSynTMainSentence dsyntSentence = new DSynTMainSentence(eFrag);
@@ -403,21 +403,21 @@ public class TextPlanner {
         eFrag2 =
             new ExecutableFragment(
                 anno.getActions().get(1), anno.getBusinessObjects().get(1), "", "");
-        if (eFrag.verb_IsPassive) {
+        if (eFrag.verbIsPassive) {
           if (anno.getBusinessObjects().get(0).equals("")) {
-            eFrag2.verb_IsPassive = true;
+            eFrag2.verbIsPassive = true;
             eFrag.setBo(eFrag2.getBo());
             eFrag2.setBo("");
-            eFrag.bo_hasArticle = true;
+            eFrag.boHasArticle = true;
           } else {
-            eFrag2.verb_IsPassive = true;
-            eFrag2.bo_isSubject = true;
+            eFrag2.verbIsPassive = true;
+            eFrag2.boIsSubject = true;
           }
         }
       } else {
         eFrag2 = new ExecutableFragment(anno.getActions().get(1), "", "", "");
-        if (eFrag.verb_IsPassive) {
-          eFrag2.verb_IsPassive = true;
+        if (eFrag.verbIsPassive) {
+          eFrag2.verbIsPassive = true;
         }
       }
 
@@ -426,10 +426,10 @@ public class TextPlanner {
       eFrag.addSentence(eFrag2);
     }
 
-    eFrag.sen_level = level;
+    eFrag.senLevel = level;
     if (imperative && imperativeRole.equals(role)) {
       correctArticleSettings(eFrag);
-      eFrag.verb_isImperative = true;
+      eFrag.verbIsImperative = true;
       eFrag.setRole("");
     }
 
@@ -437,7 +437,7 @@ public class TextPlanner {
     if (passedMods.size() > 0 && !planned) {
       correctArticleSettings(eFrag);
       eFrag.addMod(passedMods.get(0).getLemma(), passedMods.get(0));
-      eFrag.sen_hasConnective = true;
+      eFrag.senHasConnective = true;
       passedMods.clear();
     }
 
@@ -445,12 +445,12 @@ public class TextPlanner {
     if (passedMod != null && !planned) {
       correctArticleSettings(eFrag);
       eFrag.addMod(passedMod.getLemma(), passedMod);
-      eFrag.sen_hasConnective = true;
+      eFrag.senHasConnective = true;
       passedMod = null;
     }
 
     if (tagWithBullet) {
-      eFrag.sen_hasBullet = true;
+      eFrag.senHasBullet = true;
       tagWithBullet = false;
     }
 
@@ -506,10 +506,10 @@ public class TextPlanner {
           for (int i = 0; i < subSentencePlan.size(); i++) {
             DSynTSentence sen = subSentencePlan.get(i);
             if (i == 0) {
-              sen.getExecutableFragment().sen_level = level;
+              sen.getExecutableFragment().senLevel = level;
             }
             if (i == 1) {
-              sen.getExecutableFragment().sen_hasBullet = true;
+              sen.getExecutableFragment().senHasBullet = true;
             }
             sentencePlan.add(sen);
           }
@@ -628,11 +628,11 @@ public class TextPlanner {
   private String getRole(
       de.dhbw.woped.process2text.model.process.Activity a, AbstractFragment frag) {
     if (a.getLane() == null) {
-      frag.verb_IsPassive = true;
-      frag.bo_isSubject = true;
+      frag.verbIsPassive = true;
+      frag.boIsSubject = true;
       if (frag.getBo().equals("")) {
         frag.setBo("it");
-        frag.bo_hasArticle = false;
+        frag.boHasArticle = false;
       }
       return "";
     }
@@ -641,11 +641,11 @@ public class TextPlanner {
       role = a.getPool().getName();
     }
     if (role.equals("")) {
-      frag.verb_IsPassive = true;
-      frag.bo_isSubject = true;
+      frag.verbIsPassive = true;
+      frag.boIsSubject = true;
       if (frag.getBo().equals("")) {
         frag.setBo("it");
-        frag.bo_hasArticle = false;
+        frag.boHasArticle = false;
       }
     }
     return role;
@@ -656,31 +656,31 @@ public class TextPlanner {
     String bo = frag.getBo();
     if (bo.endsWith("s")
         && !bo.endsWith("ss")
-        && frag.bo_hasArticle
+        && frag.boHasArticle
         && lHelper.isNoun(bo.substring(0, bo.length() - 1))) {
       bo = bo.substring(0, bo.length() - 1);
       frag.setBo(bo);
-      frag.bo_isPlural = true;
+      frag.boIsPlural = true;
     }
     if (bo.contains("&")) {
-      frag.bo_isPlural = true;
+      frag.boIsPlural = true;
     }
-    if (frag.bo_hasArticle) {
+    if (frag.boHasArticle) {
       String[] boSplit = bo.split(" ");
       if (boSplit.length > 1) {
         if (Arrays.asList(quantifiers).contains(boSplit[0].toLowerCase())) {
-          frag.bo_hasArticle = false;
+          frag.boHasArticle = false;
         }
       }
     }
-    if (bo.equals("") && frag.bo_hasArticle) {
-      frag.bo_hasArticle = false;
+    if (bo.equals("") && frag.boHasArticle) {
+      frag.boHasArticle = false;
     }
     if (bo.startsWith("their") || bo.startsWith("a ") || bo.startsWith("for")) {
-      frag.bo_hasArticle = false;
+      frag.boHasArticle = false;
     }
     String[] splitAdd = frag.getAddition().split(" ");
-    frag.add_hasArticle =
+    frag.addHasArticle =
         splitAdd.length <= 3 || !lHelper.isVerb(splitAdd[1]) || splitAdd[0].equals("on");
   }
 

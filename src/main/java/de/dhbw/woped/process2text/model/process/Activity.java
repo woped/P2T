@@ -24,7 +24,7 @@ public class Activity extends Element {
   }
 
   public boolean hasAttachedEvents() {
-    return attachedEvents.size() > 0;
+    return !attachedEvents.isEmpty();
   }
 
   public ArrayList<Integer> getAttachedEvents() {
