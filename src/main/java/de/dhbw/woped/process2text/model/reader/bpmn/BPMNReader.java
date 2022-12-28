@@ -17,6 +17,8 @@ public class BPMNReader {
 
   Logger logger = LoggerFactory.getLogger(BPMNReader.class);
 
+  private static String BPMN_FLOW_NODE_REF = "bpmn:flowNodeRef";
+
   public HashMap<Integer, String> transformedElemsRev;
 
   public ProcessModel getProcessModelFromBPMNString(InputStream input) {
@@ -63,7 +65,7 @@ public class BPMNReader {
     // Überprüfen ob lane vorhanden ist
     if (lane != null) {
       // extrahieren der Elemente innerhalb der Lane
-      flowNodes = laneElement.getElementsByTagName("bpmn:flowNodeRef");
+      flowNodes = laneElement.getElementsByTagName(BPMN_FLOW_NODE_REF);
     }
     // Durchlaufen aller Activities im Pool,
     NodeList activities = poolElement.getElementsByTagName("bpmn:task");
@@ -107,7 +109,7 @@ public class BPMNReader {
     // Überprüfen ob lane vorhanden ist
     if (lane != null) {
       // extrahieren der Elemente innerhalb der Lane
-      flowNodes = laneElement.getElementsByTagName("bpmn:flowNodeRef");
+      flowNodes = laneElement.getElementsByTagName(BPMN_FLOW_NODE_REF);
     }
     // Durchlaufen der verschiedenen Eventarten, erstellen der einzelnen Events, einfügen in model
     // und
@@ -205,7 +207,7 @@ public class BPMNReader {
     // Überprüfen ob lane vorhanden ist
     if (lane != null) {
       // extrahieren der Elemente innerhalb der Lane
-      flowNodes = laneElement.getElementsByTagName("bpmn:flowNodeRef");
+      flowNodes = laneElement.getElementsByTagName(BPMN_FLOW_NODE_REF);
     }
     // Durchlaufen der verschiedenen Gatewayarten, erstellen der einzelnen Gateways, einfügen in
     // model und
