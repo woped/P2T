@@ -12,9 +12,9 @@ import de.dhbw.woped.process2text.service.content.determination.extraction.Gatew
 import de.dhbw.woped.process2text.service.content.determination.label_analysis.EnglishLabelDeriver;
 import de.dhbw.woped.process2text.service.content.determination.label_analysis.EnglishLabelHelper;
 import de.dhbw.woped.process2text.service.content.determination.preprocessing.FormatConverter;
-import de.dhbw.woped.process2text.service.text.planning.recordClasses.ConverterRecord;
-import de.dhbw.woped.process2text.service.text.planning.recordClasses.GatewayPropertyRecord;
-import de.dhbw.woped.process2text.service.text.planning.recordClasses.ModifierRecord;
+import de.dhbw.woped.process2text.service.text.planning.record.ConverterRecord;
+import de.dhbw.woped.process2text.service.text.planning.record.GatewayPropertyRecord;
+import de.dhbw.woped.process2text.service.text.planning.record.ModifierRecord;
 import de.hpi.bpt.graph.algo.rpst.RPST;
 import de.hpi.bpt.graph.algo.rpst.RPSTNode;
 import de.hpi.bpt.process.ControlFlow;
@@ -78,7 +78,6 @@ public class TextPlanner {
   /** Text Planning Main */
   public void convertToText(RPSTNode<ControlFlow, Node> root, int level)
       throws JWNLException, FileNotFoundException {
-    String passRole = null;
     if (root == null) {
       return;
     }
@@ -134,7 +133,7 @@ public class TextPlanner {
         // Add pre statements
         if (convRecord != null && convRecord.preStatements != null) {
           for (DSynTSentence preStatement : convRecord.preStatements) {
-            if (passedFragments.size() > 0) {
+            if (!passedFragments.isEmpty()) {
               DSynTConditionSentence dsyntSentence =
                   new DSynTConditionSentence(
                       preStatement.getExecutableFragment(), passedFragments.get(0));
@@ -163,15 +162,14 @@ public class TextPlanner {
 
         // Pass precondition
         if (convRecord != null && convRecord.pre != null) {
-          if (passedFragments.size() > 0) {
-            if (passedFragments.get(0).getFragmentType() == AbstractFragment.TYPE_JOIN) {
-              ExecutableFragment eFrag = new ExecutableFragment("continue", "process", "", "");
-              eFrag.boIsSubject = true;
-              DSynTConditionSentence dsyntSentence =
-                  new DSynTConditionSentence(eFrag, passedFragments.get(0));
-              sentencePlan.add(dsyntSentence);
-              passedFragments.clear();
-            }
+          if (!passedFragments.isEmpty()
+              && (passedFragments.get(0).getFragmentType() == AbstractFragment.TYPE_JOIN)) {
+            ExecutableFragment eFrag = new ExecutableFragment("continue", "process", "", "");
+            eFrag.boIsSubject = true;
+            DSynTConditionSentence dsyntSentence =
+                new DSynTConditionSentence(eFrag, passedFragments.get(0));
+            sentencePlan.add(dsyntSentence);
+            passedFragments.clear();
           }
           passedFragments.add(convRecord.pre);
         }
@@ -247,7 +245,6 @@ public class TextPlanner {
         }
       }
       // **************************************  EVENTS  **************************************
-      //			 else if (PlanningHelper.isEvent(node.getEntry()) && orderedTopNodes.indexOf(node) > 0) {
       else if (PlanningHelper.isEvent(node.getEntry())) {
         de.dhbw.woped.process2text.model.process.Event event =
             process.getEvents().get((Integer.valueOf(node.getEntry().getId())));
@@ -455,7 +452,7 @@ public class TextPlanner {
     }
 
     // In case of passed fragments (General handling)
-    if (passedFragments.size() > 0 && !planned) {
+    if (!passedFragments.isEmpty() && !planned) {
       correctArticleSettings(eFrag);
       DSynTConditionSentence dsyntSentence =
           new DSynTConditionSentence(eFrag, passedFragments.get(0));
@@ -484,7 +481,7 @@ public class TextPlanner {
       HashMap<Integer, ProcessModel> alternativePaths = process.getAlternativePaths();
       for (Integer attEvent : attachedEvents) {
         if (alternativePaths.keySet().contains(attEvent)) {
-          logger.info("Incorporating Alternative " + attEvent);
+          logger.info("Incorporating Alternative {}", attEvent);
           // Transform alternative
           ProcessModel alternative = alternativePaths.get(attEvent);
           alternative.annotateModel(lDeriver, lHelper);
@@ -532,24 +529,6 @@ public class TextPlanner {
     // Determine path count
     ArrayList<RPSTNode<ControlFlow, Node>> andNodes =
         PlanningHelper.sortTreeLevel(node, node.getEntry(), rpst);
-    /*
-    if (andNodes.size() == 2) {
-
-        // Determine last activities of the AND split paths
-        ArrayList<Node> conditionNodes = new ArrayList<>();
-        for (RPSTNode<ControlFlow, Node> n : andNodes) {
-            ArrayList<RPSTNode<ControlFlow, Node>> pathNodes = PlanningHelper.sortTreeLevel(n, n.getEntry(), rpst);
-            Node lastNode = pathNodes.get(pathNodes.size() - 1).getEntry();
-            if (PlanningHelper.isTask(lastNode)) {
-                conditionNodes.add(lastNode);
-            }
-        }
-        //return textToIMConverter.convertANDSimple(node, PlanningHelper.getActivityCount(andNodes.get(0), rpst), conditionNodes);
-        return textToIMConverter.convertANDGeneral(node, andNodes.size());
-        // General case (paths > 2)
-    } else {
-        return textToIMConverter.convertANDGeneral(node, andNodes.size());
-    }*/
     return textToIMConverter.convertANDGeneral(node, andNodes.size());
   }
 
@@ -667,10 +646,8 @@ public class TextPlanner {
     }
     if (frag.boHasArticle) {
       String[] boSplit = bo.split(" ");
-      if (boSplit.length > 1) {
-        if (Arrays.asList(quantifiers).contains(boSplit[0].toLowerCase())) {
-          frag.boHasArticle = false;
-        }
+      if (boSplit.length > 1 && Arrays.asList(quantifiers).contains(boSplit[0].toLowerCase())) {
+        frag.boHasArticle = false;
       }
     }
     if (bo.equals("") && frag.boHasArticle) {

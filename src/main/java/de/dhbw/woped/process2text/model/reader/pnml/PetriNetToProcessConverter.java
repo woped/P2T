@@ -55,7 +55,6 @@ public class PetriNetToProcessConverter {
 
   private int x = 0;
   private static String xorTitle;
-  // private static String andTitle;
 
   private void transformElem(
       Element elem, int precElem, PetriNet petriNet, ProcessModel model, Pool pool, Lane lane) {
@@ -69,7 +68,7 @@ public class PetriNetToProcessConverter {
         places++;
 
         // Simple place with 1 or more incoming and no outgoing arc
-        if (petriNet.getSuccessor(elemId).size() == 0
+        if (petriNet.getSuccessor(elemId).isEmpty()
             && petriNet.getPredecessor(elemId).size() == 1) {
           loopSet[x] = elemId + ": simple place, no ougoing arc";
           x++;
@@ -458,7 +457,6 @@ public class PetriNetToProcessConverter {
     while (it.hasNext()) {
       Map.Entry element = (Map.Entry) it.next();
       Gateway g = (Gateway) element.getValue();
-      //           dataModel.process.Gateway g = (dataModel.process.Gateway) element.getValue();
       String label = g.getLabel();
       if (label.equals(startXor)) {
         id = g.getId();
@@ -488,14 +486,14 @@ public class PetriNetToProcessConverter {
   public void printConversion() {
     for (int i = loopSet.length; i > 0; i--) {
       if (loopSet[i - 1] != null) {
-        logger.info(i + ". Element: " + loopSet[i - 1]);
+        logger.info("{}. Element: {}", i, loopSet[i - 1]);
       }
     }
-    logger.info("Places: " + places);
-    logger.info("Transition " + transitions);
-    logger.info("XOR-Splits: " + xorSplit);
-    logger.info("XOR-Joins: " + xorJoin);
-    logger.info("AND-Splits: " + andSplit);
-    logger.info("AND-Joins: " + andJoin);
+    logger.info("Places: {}", places);
+    logger.info("Transition {}", transitions);
+    logger.info("XOR-Splits: {}", xorSplit);
+    logger.info("XOR-Joins: {}", xorJoin);
+    logger.info("AND-Splits: {}", andSplit);
+    logger.info("AND-Joins: {}", andJoin);
   }
 }

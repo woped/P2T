@@ -1,6 +1,6 @@
 package de.dhbw.woped.process2text.model.intermediate;
 
-import de.dhbw.woped.process2text.service.text.planning.recordClasses.ModifierRecord;
+import de.dhbw.woped.process2text.service.text.planning.record.ModifierRecord;
 import java.util.ArrayList;
 import java.util.HashMap;
 

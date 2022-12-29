@@ -1,7 +1,7 @@
 package de.dhbw.woped.process2text.service.content.determination.extraction;
 
 import de.dhbw.woped.process2text.service.content.determination.label_analysis.EnglishLabelHelper;
-import de.dhbw.woped.process2text.service.text.planning.recordClasses.ModifierRecord;
+import de.dhbw.woped.process2text.service.text.planning.record.ModifierRecord;
 import de.hpi.bpt.process.Node;
 import java.util.HashMap;
 import org.slf4j.Logger;
@@ -169,7 +169,7 @@ public class GatewayExtractor {
       }
 
       if (!extracted) {
-        logger.info("GatewayExtractor: Extraction pattern not covered: " + s);
+        logger.info("GatewayExtractor: Extraction pattern not covered: {}", s);
       }
     }
   }

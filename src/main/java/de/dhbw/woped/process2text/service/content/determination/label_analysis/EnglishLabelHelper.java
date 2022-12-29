@@ -270,20 +270,18 @@ public class EnglishLabelHelper {
         IndexWord iw = null;
         try {
           iw = wordnet.lookupAllIndexWords(action).getIndexWord(POS.VERB);
-        } catch (JWNLException ignored) {
+        } catch (JWNLException e) {
+          logger.error(e.getLocalizedMessage());
         }
         if (iw != null) {
           inf = iw.getLemma();
         }
       }
 
-      // if no infinitive has been found
-      if (inf.equals("")) {
-        // check if word is a noun and proceed accordingly
-        if (this.isNoun(action)) {
-          // get all verbs and check which verb is directly derived from noun
-          inf = getVerbsFromNoun(action);
-        }
+      // proceed if no infinitive has been found and word is noun
+      if (inf.equals("") && this.isNoun(action)) {
+        // get all verbs and check which verb is directly derived from noun
+        inf = getVerbsFromNoun(action);
       }
     }
     return inf;

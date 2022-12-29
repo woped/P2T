@@ -5,7 +5,7 @@ import de.dhbw.woped.process2text.model.dsynt.DSynTMainSentence;
 import de.dhbw.woped.process2text.model.intermediate.AbstractFragment;
 import de.dhbw.woped.process2text.model.intermediate.ConditionFragment;
 import de.dhbw.woped.process2text.model.intermediate.ExecutableFragment;
-import de.dhbw.woped.process2text.service.text.planning.recordClasses.ModifierRecord;
+import de.dhbw.woped.process2text.service.text.planning.record.ModifierRecord;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -24,12 +24,12 @@ public class IntermediateToDSynTConverter {
     if (action.contains(" ")) {
       splitAction = action.split(" ");
       verb.setAttribute("lexeme", splitAction[0]);
-      Element verb_add = doc.createElement("dsyntnode");
-      verb_add.setAttribute("class", "adverb");
-      verb_add.setAttribute("lexeme", splitAction[1]);
-      verb_add.setAttribute("position", "post-verbal");
-      verb_add.setAttribute("rel", "ATTR");
-      verb.appendChild(verb_add);
+      Element verbAdd = doc.createElement("dsyntnode");
+      verbAdd.setAttribute("class", "adverb");
+      verbAdd.setAttribute("lexeme", splitAction[1]);
+      verbAdd.setAttribute("position", "post-verbal");
+      verbAdd.setAttribute("rel", "ATTR");
+      verb.appendChild(verbAdd);
     } else {
       verb.setAttribute("lexeme", action);
     }

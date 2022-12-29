@@ -45,10 +45,6 @@ public class TextGenerator {
   }
 
   public String toText(String input) throws Exception {
-    return toText(input, false);
-  }
-
-  public String toText(String input, boolean surfaceOnly) throws Exception {
     String imperativeRole = "";
     ByteArrayInputStream is = new ByteArrayInputStream(input.getBytes());
     ByteArrayInputStream helpis = new ByteArrayInputStream(input.getBytes());
@@ -111,7 +107,6 @@ public class TextGenerator {
           new TextPlanner(rpst, model, lDeriver, lHelper, imperativeRole, false, false);
       converter.convertToText(rpst.getRoot(), 0);
       ///////////////////////////////////////////////////////////
-      //        String test = converter.testGetRole();
       ArrayList<DSynTSentence> sentencePlan = converter.getSentencePlan();
 
       // Aggregation
@@ -134,10 +129,6 @@ public class TextGenerator {
 
       // Cleaning
       surfaceText = surfaceRealizer.postProcessText(surfaceText);
-
-      /*if (surfaceOnly) {
-          return surfaceText;
-      }*/
 
       return surfaceText;
     } else {

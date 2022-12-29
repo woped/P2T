@@ -22,7 +22,7 @@ public class P2TService {
     TextGenerator tg = new TextGenerator();
 
     try {
-      output = tg.toText(preparedText, true);
+      output = tg.toText(preparedText);
 
     } catch (Exception e) {
       logger.error(e.getLocalizedMessage());

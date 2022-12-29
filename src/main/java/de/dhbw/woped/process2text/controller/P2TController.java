@@ -12,15 +12,18 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 public class P2TController {
 
-  public static final int MAX_INPUT_LENGTH = 15000; // Reject any Request larger than this
   Logger logger = LoggerFactory.getLogger(P2TController.class);
 
   @Autowired P2TService p2tService;
 
   @ApiOperation(value = "Translate a process model into human readable text.")
   @PostMapping(value = "/generateText", consumes = "text/plain", produces = "text/plain")
-  protected String doPost(@RequestBody String body) {
-    logger.debug(body.replaceAll("[\n\r\t]", "_"));
+  protected String generateText(@RequestBody String body) {
+    if (logger
+        .isDebugEnabled()) { // required so that body.replaceAll is only invoked in case the body is
+      // logged
+      logger.debug(body.replaceAll("[\n\r\t]", "_"));
+    }
     return p2tService.generateText(body);
   }
 }

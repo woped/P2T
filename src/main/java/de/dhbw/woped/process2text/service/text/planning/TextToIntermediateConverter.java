@@ -9,8 +9,8 @@ import de.dhbw.woped.process2text.model.intermediate.ExecutableFragment;
 import de.dhbw.woped.process2text.model.process.ProcessModel;
 import de.dhbw.woped.process2text.service.content.determination.extraction.GatewayExtractor;
 import de.dhbw.woped.process2text.service.content.determination.label_analysis.EnglishLabelHelper;
-import de.dhbw.woped.process2text.service.text.planning.recordClasses.ConverterRecord;
-import de.dhbw.woped.process2text.service.text.planning.recordClasses.ModifierRecord;
+import de.dhbw.woped.process2text.service.text.planning.record.ConverterRecord;
+import de.dhbw.woped.process2text.service.text.planning.record.ModifierRecord;
 import de.hpi.bpt.graph.algo.rpst.RPST;
 import de.hpi.bpt.graph.algo.rpst.RPSTNode;
 import de.hpi.bpt.process.ControlFlow;
@@ -83,7 +83,7 @@ class TextToIntermediateConverter {
           for (de.dhbw.woped.process2text.model.process.Arc arc : process.getArcs().values()) {
             if (arc.getSource().getId() == Integer.valueOf(tNode.getEntry().getId())
                 && arc.getTarget().getId() == Integer.valueOf(tNode.getExit().getId())) {
-              if (arc.getLabel().toLowerCase().equals("yes")) {
+              if (arc.getLabel().equalsIgnoreCase("yes")) {
                 de.dhbw.woped.process2text.model.process.Activity a =
                     process.getActivity(Integer.valueOf(tNode.getExit().getId()));
                 de.dhbw.woped.process2text.model.process.Annotation anno =
@@ -96,7 +96,7 @@ class TextToIntermediateConverter {
                 eFragYes = new ExecutableFragment(action, bo, role, addition);
                 eFragYes.addAssociation(Integer.valueOf(node.getExit().getId()));
               }
-              if (arc.getLabel().toLowerCase().equals("no")) {
+              if (arc.getLabel().equalsIgnoreCase("no")) {
                 de.dhbw.woped.process2text.model.process.Activity a =
                     process.getActivity(Integer.valueOf(tNode.getExit().getId()));
                 de.dhbw.woped.process2text.model.process.Annotation anno =

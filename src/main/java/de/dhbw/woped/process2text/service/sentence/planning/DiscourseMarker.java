@@ -11,7 +11,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 public class DiscourseMarker {
-  private final List<String> SEQ_CONNECTIVES =
+  private static final List<String> SEQ_CONNECTIVES =
       Arrays.asList(
           "afterwards",
           "subsequently",

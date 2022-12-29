@@ -1,4 +1,4 @@
-package de.dhbw.woped.process2text.service.text.planning.recordClasses;
+package de.dhbw.woped.process2text.service.text.planning.record;
 
 import de.dhbw.woped.process2text.model.dsynt.DSynTSentence;
 import de.dhbw.woped.process2text.model.intermediate.ConditionFragment;
