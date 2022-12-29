@@ -17,7 +17,7 @@ public class BPMNReader {
 
   Logger logger = LoggerFactory.getLogger(BPMNReader.class);
 
-  private static String BPMN_FLOW_NODE_REF = "bpmn:flowNodeRef";
+  private static final String BPMN_FLOW_NODE_REF = "bpmn:flowNodeRef";
 
   public HashMap<Integer, String> transformedElemsRev;
 

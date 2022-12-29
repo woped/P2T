@@ -104,6 +104,7 @@ public class DSynTConditionSentence extends DSynTSentence {
     return verb;
   }
 
+  @Override
   public Document getDSynT() {
     return doc;
   }

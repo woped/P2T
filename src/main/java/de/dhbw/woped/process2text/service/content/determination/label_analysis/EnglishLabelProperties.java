@@ -1,4 +1,4 @@
-package de.dhbw.woped.process2text.service.content.determination.labelAnalysis;
+package de.dhbw.woped.process2text.service.content.determination.label_analysis;
 
 import java.util.ArrayList;
 import java.util.Arrays;

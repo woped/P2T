@@ -29,7 +29,7 @@ public class FormatConverter {
     newElems = 0;
 
     for (Task t : p.getTasks()) {
-      int id = Integer.valueOf(t.getName());
+      int id = Integer.parseInt(t.getName());
       if (converterMap.containsKey(id)) {
         Element elem = converterMap.get(id);
 
@@ -53,7 +53,7 @@ public class FormatConverter {
 
     for (Gateway g : p.getGateways()) {
       if (!g.getName().equals("") && converterMap.containsKey(Integer.valueOf(g.getName()))) {
-        int id = Integer.valueOf(g.getName());
+        int id = Integer.parseInt(g.getName());
         de.dhbw.woped.process2text.model.process.Gateway gw =
             (de.dhbw.woped.process2text.model.process.Gateway) converterMap.get(id);
         pm.addGateway(gw);
@@ -178,7 +178,6 @@ public class FormatConverter {
     for (Activity a : pm.getActivites().values()) {
       Task t = new Task(a.getLabel());
       t.setId(Integer.toString(a.getId()));
-      // if (a.getType() == ActivityType.TYPE_MAP.get("Subprocess")) t.setDescription("sub");
       elementMap.put(a.getId(), t);
     }
 

@@ -1,4 +1,4 @@
-package de.dhbw.woped.process2text.service.content.determination.labelAnalysis;
+package de.dhbw.woped.process2text.service.content.determination.label_analysis;
 
 import de.dhbw.woped.process2text.service.content.determination.support.Distance;
 import de.dhbw.woped.process2text.service.content.determination.support.Noun2VerbTransformer;

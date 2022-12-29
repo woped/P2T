@@ -1,4 +1,4 @@
-package de.dhbw.woped.process2text.service.content.determination.labelAnalysis;
+package de.dhbw.woped.process2text.service.content.determination.label_analysis;
 
 import java.util.Arrays;
 import net.didion.jwnl.JWNLException;
@@ -26,10 +26,10 @@ public class EnglishLabelDeriver {
   public void deriveFromVOS(String label, String[] labelSplit, EnglishLabelProperties props)
       throws JWNLException {
     // Check for phrasal verb
-    if (labelSplit.length > 1) {
-      if (checkForPhrasalVerb(lHelper.getInfinitiveOfAction(labelSplit[0]) + " " + labelSplit[1])) {
-        props.setHasPhrasalVerb(true);
-      }
+    if (labelSplit.length > 1
+        && checkForPhrasalVerb(
+            lHelper.getInfinitiveOfAction(labelSplit[0]) + " " + labelSplit[1])) {
+      props.setHasPhrasalVerb(true);
     }
 
     // Check for conjunction

@@ -1,6 +1,6 @@
 package de.dhbw.woped.process2text.service.content.determination.extraction;
 
-import de.dhbw.woped.process2text.service.content.determination.labelAnalysis.EnglishLabelHelper;
+import de.dhbw.woped.process2text.service.content.determination.label_analysis.EnglishLabelHelper;
 import de.dhbw.woped.process2text.service.text.planning.recordClasses.ModifierRecord;
 import de.hpi.bpt.process.Node;
 import java.util.HashMap;
@@ -12,8 +12,8 @@ public class GatewayExtractor {
   Logger logger = LoggerFactory.getLogger(GatewayExtractor.class);
   private final Node gateway;
   private final EnglishLabelHelper lHelper;
-  public boolean bo_isPlural = false;
-  public boolean bo_hasArticle = true;
+  public boolean boIsPlural = false;
+  public boolean boHasArticle = true;
   public boolean hasVerb = true;
   private String verb;
   private String bo;
@@ -30,8 +30,8 @@ public class GatewayExtractor {
     this.modList = new HashMap<>();
     this.bo = "";
     modList.clear();
-    bo_isPlural = false;
-    bo_hasArticle = true;
+    boIsPlural = false;
+    boHasArticle = true;
   }
 
   private void processGateway(Node gateway) {
@@ -128,8 +128,8 @@ public class GatewayExtractor {
         String lastNoun = sSplit[sSplit.length - 2].trim();
         if (lastNoun.endsWith("s")
             && lHelper.isNoun(lastNoun.substring(0, lastNoun.length() - 1))) {
-          bo_isPlural = true;
-          bo_hasArticle = false;
+          boIsPlural = true;
+          boHasArticle = false;
         }
         extracted = true;
       }
@@ -162,7 +162,7 @@ public class GatewayExtractor {
         String lastNoun = sSplit[sSplit.length - 1];
         if (lastNoun.endsWith("s")
             && lHelper.isNoun(lastNoun.substring(0, lastNoun.length() - 1))) {
-          bo_hasArticle = false;
+          boHasArticle = false;
           hasVerb = false;
         }
         extracted = true;

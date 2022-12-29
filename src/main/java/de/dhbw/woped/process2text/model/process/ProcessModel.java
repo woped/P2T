@@ -1,8 +1,8 @@
 package de.dhbw.woped.process2text.model.process;
 
-import de.dhbw.woped.process2text.service.content.determination.labelAnalysis.EnglishLabelDeriver;
-import de.dhbw.woped.process2text.service.content.determination.labelAnalysis.EnglishLabelHelper;
-import de.dhbw.woped.process2text.service.content.determination.labelAnalysis.EnglishLabelProperties;
+import de.dhbw.woped.process2text.service.content.determination.label_analysis.EnglishLabelDeriver;
+import de.dhbw.woped.process2text.service.content.determination.label_analysis.EnglishLabelHelper;
+import de.dhbw.woped.process2text.service.content.determination.label_analysis.EnglishLabelProperties;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,6 +19,8 @@ public class ProcessModel {
   private final ArrayList<String> lanes;
   private final ArrayList<String> pools;
   private final HashMap<Integer, ProcessModel> alternativePaths;
+
+  private static final String GLOSSARY = "glossary://";
 
   public ProcessModel() {
     arcs = new HashMap<>();
@@ -82,8 +84,8 @@ public class ProcessModel {
 
         label = label.replaceAll(" {2}", " ");
 
-        if (label.contains("glossary://")) {
-          label = label.replace("glossary://", "");
+        if (label.contains(GLOSSARY)) {
+          label = label.replace(GLOSSARY, "");
           label = label.substring(label.indexOf("/") + 1, label.length());
           label = label.replace(";;", "");
         }
@@ -150,8 +152,8 @@ public class ProcessModel {
 
   public void addPool(String pool) {
     String temp = pool;
-    if (temp.contains("glossary://")) {
-      temp = pool.replace("glossary://", "");
+    if (temp.contains(GLOSSARY)) {
+      temp = pool.replace(GLOSSARY, "");
       temp = temp.substring(temp.indexOf("/") + 1, temp.length());
       temp = temp.replace(";;", "");
     }
@@ -196,8 +198,8 @@ public class ProcessModel {
 
   public void addLane(String lane) {
     String temp = lane;
-    if (temp.contains("glossary://")) {
-      temp = lane.replace("glossary://", "");
+    if (temp.contains(GLOSSARY)) {
+      temp = lane.replace(GLOSSARY, "");
       temp = temp.substring(temp.indexOf("/") + 1, temp.length());
       temp = temp.replace(";;", "");
     }

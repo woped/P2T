@@ -1,8 +1,8 @@
 package de.dhbw.woped.process2text.model.reader.pnml;
 
 import de.dhbw.woped.process2text.model.process.*;
-import de.dhbw.woped.process2text.model.reader.pnml.PetriNet.Element;
-import de.dhbw.woped.process2text.model.reader.pnml.PetriNet.PetriNet;
+import de.dhbw.woped.process2text.model.reader.pnml.petri_net.Element;
+import de.dhbw.woped.process2text.model.reader.pnml.petri_net.PetriNet;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -13,18 +13,20 @@ import org.slf4j.LoggerFactory;
 public class PetriNetToProcessConverter {
 
   Logger logger = LoggerFactory.getLogger(PetriNetToProcessConverter.class);
+
+  private static final String AND_LABEL = "_AndLabel";
   private HashMap<String, Integer> transformedElems;
   public HashMap<Integer, String> transformedElemsRev;
 
   private String loopSet[] = new String[100];
-  private int xor_split;
-  private int xor_join;
-  private int and_join;
-  private int and_split;
+  private int xorSplit;
+  private int xorJoin;
+  private int andJoin;
+  private int andSplit;
   private int transitions;
   private int places;
   String types[] = new String[100];
-  private ArrayList<String> joinSplitWords = new ArrayList<String>();
+  private ArrayList<String> joinSplitWords = new ArrayList<>();
 
   public ProcessModel convertToProcess(PetriNet petriNet) {
 
@@ -59,7 +61,6 @@ public class PetriNetToProcessConverter {
       Element elem, int precElem, PetriNet petriNet, ProcessModel model, Pool pool, Lane lane) {
     // Id of current petri net element
     String elemId = elem.getId();
-    String elemType = "";
     // If element not already excists
     if (!transformedElems.keySet().contains(elemId)) {
 
@@ -102,7 +103,7 @@ public class PetriNetToProcessConverter {
         //  Place with multiple outgoing arcs (XOR-Join)
         if (petriNet.getSuccessor(elemId).size() >= 0
             && petriNet.getPredecessor(elemId).size() > 1) {
-          xor_join++;
+          xorJoin++;
           loopSet[x] = elemId + ": XOR Join";
           x++;
           // Create new element
@@ -116,12 +117,12 @@ public class PetriNetToProcessConverter {
           }
 
           // if it is 0, there is no successor ...
-          if (!(petriNet.getSuccessor(elemId).size() == 0)) {
+          if (!petriNet.getSuccessor(elemId).isEmpty()) {
             // Recursively go through the model
             String suc = petriNet.getSuccessor(elemId).get(0);
             transformElem(petriNet.getElements().get(suc), newId, petriNet, model, pool, lane);
           } else {
-            // PetriNet ends with a XOR-Join
+            // petri_net ends with a XOR-Join
             int newId3 = model.getNewId();
             model.addGateway(new Gateway(newId3, "", lane, pool, GatewayType.XOR));
             model.addArc(
@@ -132,7 +133,7 @@ public class PetriNetToProcessConverter {
         // Place with multiple incoming arcs (XOR-Split)
         if (petriNet.getSuccessor(elemId).size() > 1
             && petriNet.getPredecessor(elemId).size() >= 0) {
-          xor_split++;
+          xorSplit++;
           loopSet[x] = elemId + ": XOR Split";
           x++;
           // Check XOR-Type
@@ -147,9 +148,10 @@ public class PetriNetToProcessConverter {
             // WoPeD XOR!! --> WoPeD specific operator
             // Get Label from Successor --> XOR Label
             String sucId = pr.get(0);
-            HashMap<String, de.dhbw.woped.process2text.model.reader.pnml.PetriNet.Element> elems =
+            HashMap<String, de.dhbw.woped.process2text.model.reader.pnml.petri_net.Element> elems =
                 petriNet.getElements();
-            de.dhbw.woped.process2text.model.reader.pnml.PetriNet.Element sucXOR = elems.get(sucId);
+            de.dhbw.woped.process2text.model.reader.pnml.petri_net.Element sucXOR =
+                elems.get(sucId);
             String label = sucXOR.getLabel();
             xorTitle = label;
             // Add Activity
@@ -232,9 +234,10 @@ public class PetriNetToProcessConverter {
             // Get Label from Successor --> Place Label
             ArrayList<String> pr = petriNet.getSuccessor(elemId);
             String sucId = pr.get(0);
-            HashMap<String, de.dhbw.woped.process2text.model.reader.pnml.PetriNet.Element> elems =
+            HashMap<String, de.dhbw.woped.process2text.model.reader.pnml.petri_net.Element> elems =
                 petriNet.getElements();
-            de.dhbw.woped.process2text.model.reader.pnml.PetriNet.Element sucXOR = elems.get(sucId);
+            de.dhbw.woped.process2text.model.reader.pnml.petri_net.Element sucXOR =
+                elems.get(sucId);
             String label2 = sucXOR.getLabel();
 
             int newId = model.getNewId();
@@ -268,15 +271,16 @@ public class PetriNetToProcessConverter {
                 new Arc(
                     model.getNewId(), "", model.getElem(precElem), model.getElem(newActivityId)));
 
-            int XORId = getXORJoinID(elemId, model);
-            if (XORId == 0) {
+            int xorId = getXORJoinID(elemId, model);
+            if (xorId == 0) {
               // Gateway erstellen + mit vorheriger Activity
               int indexOfChar = elemId.indexOf("_");
               String start = elemId.substring(0, indexOfChar);
-              String XorId = start + "_XOR";
+              String xorIdWithPostfix = start + "_XOR";
 
               int newXorId = model.getNewId();
-              model.addGateway(new Gateway(newXorId, XorId, lane, pool, GatewayType.XOR));
+              model.addGateway(
+                  new Gateway(newXorId, xorIdWithPostfix, lane, pool, GatewayType.XOR));
               transformedElems.put(elemId, newXorId);
               transformedElemsRev.put(newXorId, elemId);
               model.addArc(
@@ -298,7 +302,7 @@ public class PetriNetToProcessConverter {
               // vorheriges Element mit dem GatewayID verbinden
               model.addArc(
                   new Arc(
-                      model.getNewId(), "", model.getElem(newActivityId), model.getElem(XORId)));
+                      model.getNewId(), "", model.getElem(newActivityId), model.getElem(xorId)));
             }
 
             String activityLabel = elem.getLabel();
@@ -348,7 +352,7 @@ public class PetriNetToProcessConverter {
         if (petriNet.getSuccessor(elemId).size() == 1
             && petriNet.getPredecessor(elemId).size() > 1) {
           loopSet[x] = elemId + ": AND Join";
-          and_join++;
+          andJoin++;
           String label = elem.getLabel();
           // Create new element
           int newId = model.getNewId();
@@ -363,8 +367,8 @@ public class PetriNetToProcessConverter {
               || elem.getTrigger().equals("200")) {
             int newActivityId = model.getNewId();
             model.addActivity(new Activity(newActivityId, label, null, null, ActivityType.NONE));
-            transformedElems.put(elemId + "_AndLabel", newActivityId);
-            transformedElemsRev.put(newActivityId, elemId + "_AndLabel");
+            transformedElems.put(elemId + AND_LABEL, newActivityId);
+            transformedElemsRev.put(newActivityId, elemId + AND_LABEL);
             model.addArc(
                 new Arc(model.getNewId(), "", model.getElem(newId), model.getElem(newActivityId)));
             // Recursively go through the model
@@ -382,7 +386,7 @@ public class PetriNetToProcessConverter {
         if (petriNet.getSuccessor(elemId).size() > 1
             && petriNet.getPredecessor(elemId).size() == 1) {
           loopSet[x] = elemId + ": AND Split";
-          and_split++;
+          andSplit++;
 
           // Activitiy erstellen welches das And-Split Label darstellt und das mit Gateway verbinden
           String label = elem.getLabel();
@@ -395,8 +399,8 @@ public class PetriNetToProcessConverter {
               || elem.getTrigger().equals("200")) {
             int newActivityId = model.getNewId();
             model.addActivity(new Activity(newActivityId, label, null, null, ActivityType.NONE));
-            transformedElems.put(elemId + "_AndLabel", newActivityId);
-            transformedElemsRev.put(newActivityId, elemId + "_AndLabel");
+            transformedElems.put(elemId + AND_LABEL, newActivityId);
+            transformedElemsRev.put(newActivityId, elemId + AND_LABEL);
             if (precElem != -1) {
               model.addArc(
                   new Arc(
@@ -470,7 +474,7 @@ public class PetriNetToProcessConverter {
 
     Iterator it = gatewayHashMap.entrySet().iterator();
 
-    ArrayList<Arc> arcs = new ArrayList<Arc>();
+    ArrayList<Arc> arcs = new ArrayList<>();
     while (it.hasNext()) {
       Map.Entry mapEntry = (Map.Entry) it.next();
       Arc a = (Arc) mapEntry.getValue();
@@ -489,9 +493,9 @@ public class PetriNetToProcessConverter {
     }
     logger.info("Places: " + places);
     logger.info("Transition " + transitions);
-    logger.info("XOR-Splits: " + xor_split);
-    logger.info("XOR-Joins: " + xor_join);
-    logger.info("AND-Splits: " + and_split);
-    logger.info("AND-Joins: " + and_join);
+    logger.info("XOR-Splits: " + xorSplit);
+    logger.info("XOR-Joins: " + xorJoin);
+    logger.info("AND-Splits: " + andSplit);
+    logger.info("AND-Joins: " + andJoin);
   }
 }

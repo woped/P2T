@@ -3,7 +3,7 @@ package de.dhbw.woped.process2text.service.sentence.planning;
 import de.dhbw.woped.process2text.model.dsynt.DSynTMainSentence;
 import de.dhbw.woped.process2text.model.dsynt.DSynTSentence;
 import de.dhbw.woped.process2text.model.intermediate.ExecutableFragment;
-import de.dhbw.woped.process2text.service.content.determination.labelAnalysis.EnglishLabelHelper;
+import de.dhbw.woped.process2text.service.content.determination.label_analysis.EnglishLabelHelper;
 import java.util.ArrayList;
 import java.util.List;
 import net.didion.jwnl.JWNLException;
@@ -40,10 +40,6 @@ public class ReferringExpressionGenerator {
     DSynTSentence prevSentence = null;
 
     for (DSynTSentence aTextPlan : textPlan) {
-      // Determine current role
-      //            roleListRef = generateRoleList(aTextPlan);
-      // roleListRef.add(currRole);
-
       ExecutableFragment currFragment = aTextPlan.getExecutableFragment();
 
       if (prevRole != null && prevFragment != null) {

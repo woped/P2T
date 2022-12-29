@@ -8,7 +8,7 @@ import de.dhbw.woped.process2text.model.intermediate.ConditionFragment;
 import de.dhbw.woped.process2text.model.intermediate.ExecutableFragment;
 import de.dhbw.woped.process2text.model.process.ProcessModel;
 import de.dhbw.woped.process2text.service.content.determination.extraction.GatewayExtractor;
-import de.dhbw.woped.process2text.service.content.determination.labelAnalysis.EnglishLabelHelper;
+import de.dhbw.woped.process2text.service.content.determination.label_analysis.EnglishLabelHelper;
 import de.dhbw.woped.process2text.service.text.planning.recordClasses.ConverterRecord;
 import de.dhbw.woped.process2text.service.text.planning.recordClasses.ModifierRecord;
 import de.hpi.bpt.graph.algo.rpst.RPST;
@@ -378,8 +378,8 @@ class TextToIntermediateConverter {
     pre.verbIsPassive = gwExtractor.hasVerb;
     pre.boIsSubject = true;
     pre.senHeadPosition = true;
-    pre.boIsPlural = gwExtractor.bo_isPlural;
-    pre.boHasArticle = gwExtractor.bo_hasArticle;
+    pre.boIsPlural = gwExtractor.boIsPlural;
+    pre.boHasArticle = gwExtractor.boHasArticle;
     pre.addAssociation(Integer.valueOf(node.getEntry().getId()));
     return new ConverterRecord(pre, null, null, null);
   }

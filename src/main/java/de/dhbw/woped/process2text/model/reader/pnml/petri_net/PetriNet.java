@@ -1,4 +1,4 @@
-package de.dhbw.woped.process2text.model.reader.pnml.PetriNet;
+package de.dhbw.woped.process2text.model.reader.pnml.petri_net;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,7 +30,7 @@ public class PetriNet {
 
   public String getStartPlace() {
     for (Element elem : elements.values()) {
-      if (getPredecessor(elem.getId()).size() == 0) {
+      if (getPredecessor(elem.getId()).isEmpty()) {
         return elem.getId();
       }
     }

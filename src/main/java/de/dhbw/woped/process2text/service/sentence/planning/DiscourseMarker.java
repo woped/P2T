@@ -5,26 +5,25 @@ import de.dhbw.woped.process2text.model.dsynt.DSynTMainSentence;
 import de.dhbw.woped.process2text.model.dsynt.DSynTSentence;
 import de.dhbw.woped.process2text.service.text.planning.IntermediateToDSynTConverter;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 public class DiscourseMarker {
-  private final ArrayList<String> SEQ_CONNECTIVES =
-      new ArrayList<String>() {
-        {
-          add("afterwards");
-          add("subsequently");
-          add("next");
-          add("latterly");
-          add("thereafter");
-          add("after that");
-          add("consequently");
-          add("following");
-          add("thereon");
-          add("later on");
-          add("hereafter");
-        }
-      };
+  private final List<String> SEQ_CONNECTIVES =
+      Arrays.asList(
+          "afterwards",
+          "subsequently",
+          "next",
+          "latterly",
+          "thereafter",
+          "after that",
+          "consequently",
+          "following",
+          "thereon",
+          "later on",
+          "hereafter");
 
   public ArrayList<DSynTSentence> insertSequenceConnectives(ArrayList<DSynTSentence> textPlan) {
     int index = 0;

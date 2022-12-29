@@ -4,7 +4,7 @@ public class Distance {
   // ****************************
   // Get minimum of three values
   // ****************************
-  private static int Minimum(int a, int b, int c) {
+  private static int minimum(int a, int b, int c) {
     int mi;
 
     mi = a;
@@ -26,8 +26,8 @@ public class Distance {
     int m; // length of t
     int i; // iterates through s
     int j; // iterates through t
-    char s_i; // ith character of s
-    char t_j; // jth character of t
+    char sI; // ith character of s
+    char tJ; // jth character of t
     int cost; // cost
 
     // Step 1
@@ -52,21 +52,21 @@ public class Distance {
 
     // Step 3
     for (i = 1; i <= n; i++) {
-      s_i = s.charAt(i - 1);
+      sI = s.charAt(i - 1);
 
       // Step 4
       for (j = 1; j <= m; j++) {
-        t_j = t.charAt(j - 1);
+        tJ = t.charAt(j - 1);
 
         // Step 5
-        if (s_i == t_j) {
+        if (sI == tJ) {
           cost = 0;
         } else {
           cost = 1;
         }
 
         // Step 6
-        d[i][j] = Minimum(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + cost);
+        d[i][j] = minimum(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + cost);
       }
     }
 
