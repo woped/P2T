@@ -46,11 +46,11 @@ jobs:
 
       - name: If Version does contain SNAPSHOT add SHORT_SHA
         if: contains(env.RELEASE_VERSION, 'SNAPSHOT')
-        run: echo "DOCKER_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)-${{ env.SHORT_SHA }}" >> $GITHUB_ENV
+        run: echo "RELEASE_NAME=${{ env.RELEASE_VERSION }}-${{ env.SHORT_SHA }}" >> $GITHUB_ENV
 
       - name: If Version does not contain SNAPSHOT add nothing
         if: false == contains(env.RELEASE_VERSION, 'SNAPSHOT')
-        run: echo "DOCKER_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
+        run: echo "RELEASE_NAME=${{ env.RELEASE_VERSION }}" >> $GITHUB_ENV
 
       - uses: ncipollo/release-action@v1
         with:
@@ -58,7 +58,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit: master
           allowUpdates: 'true'
-          tag: ${{ env.RELEASE_VERSION }}
+          tag: ${{ env.RELEASE_NAME }}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -79,4 +79,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: woped/process2text:${{ env.DOCKER_VERSION }}
+          tags: woped/process2text:${{ env.RELEASE_NAME }}
