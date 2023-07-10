@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,7 +19,7 @@ public class P2TController {
 
   @ApiOperation(value = "Translate a process model into human readable text.")
   @PostMapping(value = "/generateText", consumes = "text/plain", produces = "text/plain")
-  protected String generateText(@RequestBody String body) {
+  protected ResponseEntity<String> generateText(@RequestBody String body) {
     if (logger
         .isDebugEnabled()) { // required so that body.replaceAll is only invoked in case the body is
       // logged
