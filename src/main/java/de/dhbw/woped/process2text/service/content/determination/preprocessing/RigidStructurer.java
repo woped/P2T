@@ -5,6 +5,8 @@ import ee.ut.bpstruct2.Restructurer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Collection;
+
 public class RigidStructurer {
 
   Logger logger = LoggerFactory.getLogger(RigidStructurer.class);

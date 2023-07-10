@@ -1,5 +1,7 @@
 package de.dhbw.woped.process2text.service.text.generation;
 
+import de.dhbw.woped.process2text.exception.RPSTConvertionException;
+import de.dhbw.woped.process2text.exception.StructureProcessModelException;
 import de.dhbw.woped.process2text.model.dsynt.DSynTSentence;
 import de.dhbw.woped.process2text.model.process.ProcessModel;
 import de.dhbw.woped.process2text.model.reader.bpmn.BPMNReader;
@@ -32,18 +34,16 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 
 public class TextGenerator {
-  ////////////////////////////////////
-
   Logger logger = LoggerFactory.getLogger(TextGenerator.class);
-
-  public String testGenerator;
   public List<String> roleList;
-  private String contextPath = "";
 
-  public TextGenerator() {
-    this.contextPath = contextPath;
-  }
 
+  /**
+   * Converts the input string into natural language text representation.
+   * @param input The input string to be converted.
+   * @return The natural language text representation of the input.
+   * @throws Exception If the conversion process encounters an error.
+   */
   public String toText(String input) throws Exception {
     String imperativeRole = "";
     ByteArrayInputStream is = new ByteArrayInputStream(input.getBytes());
@@ -56,6 +56,7 @@ public class TextGenerator {
     ProcessModel model = null;
     HashMap<Integer, String> transformedElemsRev = null;
     NodeList isBPMN = helpdoc.getElementsByTagName("bpmn:process");
+
     if (isPnml.getLength() > 0) {
       PNMLReader pnmlReader = new PNMLReader();
       PetriNet petriNet = pnmlReader.getPetriNetFromPNMLString(is);
@@ -91,22 +92,31 @@ public class TextGenerator {
       RPST<ControlFlow, Node> rpst = new RPST<>(p);
 
       // Check for Rigids
-      boolean containsRigids = PlanningHelper.containsRigid(rpst.getRoot(), rpst);
-      // Structure Rigid and convert back
-      if (containsRigids) {
-        p = formatConverter.transformToRigidFormat(model);
-        RigidStructurer rigidStructurer = new RigidStructurer();
-        p = rigidStructurer.structureProcess(p);
-        model = formatConverter.transformFromRigidFormat(p);
-        p = formatConverter.transformToRPSTFormat(model);
-        rpst = new RPST<>(p);
+      try {
+        boolean containsRigids = PlanningHelper.containsRigid(rpst.getRoot(), rpst);
+        // Structure Rigid and convert back
+        if (containsRigids) {
+          p = formatConverter.transformToRigidFormat(model);
+          RigidStructurer rigidStructurer = new RigidStructurer();
+          p = rigidStructurer.structureProcess(p);
+          model = formatConverter.transformFromRigidFormat(p);
+          p = formatConverter.transformToRPSTFormat(model);
+          rpst = new RPST<>(p);
+        }
+      } catch (Exception e) {
+        throw new StructureProcessModelException("Error: Structure Process Model failed");
+      }
+
+      // Check for errors in rpst convertion
+      if (rpst.getRoot() == null) {
+        logger.error("rpst conversion failed ");
+        throw new RPSTConvertionException("Error: RPST Convertion failed. Process Modell cloud include mistakes");
       }
 
       // Convert to Text
       TextPlanner converter =
           new TextPlanner(rpst, model, lDeriver, lHelper, imperativeRole, false, false);
       converter.convertToText(rpst.getRoot(), 0);
-      ///////////////////////////////////////////////////////////
       ArrayList<DSynTSentence> sentencePlan = converter.getSentencePlan();
 
       // Aggregation
@@ -132,7 +142,8 @@ public class TextGenerator {
 
       return surfaceText;
     } else {
-      return "Bitte Datei im BPMN- oder PNML-Format verwenden.";
+      logger.error("Error: Text generation failed");
+      throw new Exception("Please put in an pnml or bpnm file in xml format");
     }
   }
 }

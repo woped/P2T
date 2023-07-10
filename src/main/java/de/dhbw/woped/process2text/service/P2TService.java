@@ -1,9 +1,14 @@
 package de.dhbw.woped.process2text.service;
 
+import de.dhbw.woped.process2text.exception.BpmNlpHttpStatus;
+import de.dhbw.woped.process2text.exception.RPSTConvertionException;
+import de.dhbw.woped.process2text.exception.StructureProcessModelException;
 import de.dhbw.woped.process2text.service.text.generation.TextGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 @Service
 public class P2TService {
@@ -16,18 +21,27 @@ public class P2TService {
    * @param text
    * @return
    */
-  public String generateText(String text) {
+  public ResponseEntity<String> generateText(String text) {
     String preparedText = prepareText(text);
     String output = "";
     TextGenerator tg = new TextGenerator();
 
     try {
       output = tg.toText(preparedText);
-
-    } catch (Exception e) {
-      logger.error(e.getLocalizedMessage());
     }
-    return output;
+    catch (RPSTConvertionException rpstConvertionException){
+      logger.error(rpstConvertionException.getLocalizedMessage());
+      return ResponseEntity.status(BpmNlpHttpStatus.RPST_FAILURE).body(rpstConvertionException.getLocalizedMessage());
+    }
+    catch (StructureProcessModelException structureProcessModelException){
+      logger.error(structureProcessModelException.getLocalizedMessage());
+      return ResponseEntity.status(BpmNlpHttpStatus.STRUCTURE_FAILURE).body(structureProcessModelException.getLocalizedMessage());
+    }
+    catch (Exception e) {
+      logger.error(e.getLocalizedMessage());
+      return ResponseEntity.status(BpmNlpHttpStatus.CONVERTION_ERROR).body("Error while generating the text out of the process");
+    }
+    return ResponseEntity.status(HttpStatus.ACCEPTED).body(output);
   }
 
   /**

@@ -1,7 +1,7 @@
 package de.dhbw.woped.process2text.model.process;
 
 public class Pool {
-  private final String name;
+  private String name;
   private String bpmnid;
 
   public Pool(String name) {
@@ -10,6 +10,10 @@ public class Pool {
 
   public String getName() {
     return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   public void setBPMNId(String id) {
