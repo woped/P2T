@@ -16,7 +16,7 @@
     <description>WoPed webservice p2t</description>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>21</java.version>
         <sonar.organization>woped</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
