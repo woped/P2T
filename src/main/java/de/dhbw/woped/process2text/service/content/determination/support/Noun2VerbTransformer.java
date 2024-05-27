@@ -4,7 +4,9 @@ import java.util.*;
 import net.didion.jwnl.data.*;
 import net.didion.jwnl.dictionary.Dictionary;
 
-/** @author Sergey Smirnov */
+/**
+ * @author Sergey Smirnov
+ */
 public class Noun2VerbTransformer {
   private static final List<String> suffixes;
   private static final Map<String, String> cache;
