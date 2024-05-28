@@ -27,4 +27,11 @@ public class P2TLLMService {
 
     return restTemplate.postForObject(apiUrl, entity, String.class);
   }
+  public String callTransformer(String file){
+
+  }
+
+  public String checkForBPMNorPNML(String file){
+    if()
+  }
 }

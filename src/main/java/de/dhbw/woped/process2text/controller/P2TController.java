@@ -14,36 +14,37 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 public class P2TController {
 
-  Logger logger = LoggerFactory.getLogger(P2TController.class);
+    Logger logger = LoggerFactory.getLogger(P2TController.class);
 
-  @Autowired private P2TService p2tService;
+    @Autowired
+    private P2TService p2tService;
 
-  @Autowired private P2TLLMService llmService;
-
-
-  @ApiOperation(value = "Translate a process model into human readable text.")
-  @PostMapping(value = "/generateText", consumes = "text/plain", produces = "text/plain")
-  protected String generateText(@RequestBody String body) {
-    if (logger
-            .isDebugEnabled()) { // required so that body.replaceAll is only invoked in case the body is
-      // logged
-      logger.debug(body.replaceAll("[\n\r\t]", "_"));
-    }
-    return p2tService.generateText(body);
-  }
+    @Autowired
+    private P2TLLMService llmService;
 
 
-  @ApiOperation(value = "Translate a process model into human readable text using OpenAIs Large Langauge Model GPT" +
-          "4 Turbo.")
-  @PostMapping(value = "/generateText", consumes = "text/plain", produces = "text/plain")
-  protected String generateTextLLM(
-      @RequestBody String body, @RequestParam(required = false) String apiKey) {
-    if (logger.isDebugEnabled()) {
-      logger.debug(body.replaceAll("[\n\r\t]", "_"));
+    @ApiOperation(value = "Translate a process model into human readable text.")
+    @PostMapping(value = "/generateText", consumes = "text/plain", produces = "text/plain")
+    protected String generateText(@RequestBody String body) {
+        if (logger
+                .isDebugEnabled()) { // required so that body.replaceAll is only invoked in case the body is
+            // logged
+            logger.debug(body.replaceAll("[\n\r\t]", "_"));
+        }
+        return p2tService.generateText(body);
     }
 
-    return llmService.callLLM(body, apiKey);
-  }
+
+    @ApiOperation(value = "Translate a process model into human readable text using OpenAIs Large Language Model GPT" +
+            "4 Turbo.")
+    @PostMapping(value = "/generateTextLLM", consumes = "text/plain", produces = "text/plain")
+    protected String generateTextLLM(
+            @RequestBody String body, @RequestParam(required = false) String apiKey) {
+        if (logger.isDebugEnabled()) {
+            logger.debug(body.replaceAll("[\n\r\t]", "_"));
+        }
+        return llmService.callLLM(body, apiKey);
+    }
 
 
 }
