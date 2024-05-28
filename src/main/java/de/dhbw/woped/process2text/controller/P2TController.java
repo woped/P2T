@@ -35,7 +35,7 @@ public class P2TController {
 
   @ApiOperation(value = "Translate a process model into human readable text using OpenAIs Large Langauge Model GPT" +
           "4 Turbo.")
-  @PostMapping(value = "/generateText", consumes = "text/plain", produces = "text/plain")
+  @PostMapping(value = "/generateTextLLM", consumes = "text/plain", produces = "text/plain")
   protected String generateTextLLM(
       @RequestBody String body, @RequestParam(required = false) String apiKey) {
     if (logger.isDebugEnabled()) {
