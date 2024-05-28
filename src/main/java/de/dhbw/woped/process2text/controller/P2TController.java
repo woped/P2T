@@ -20,20 +20,30 @@ public class P2TController {
 
   @Autowired private P2TLLMService llmService;
 
+
   @ApiOperation(value = "Translate a process model into human readable text.")
   @PostMapping(value = "/generateText", consumes = "text/plain", produces = "text/plain")
-  protected String generateText(
+  protected String generateText(@RequestBody String body) {
+    if (logger
+            .isDebugEnabled()) { // required so that body.replaceAll is only invoked in case the body is
+      // logged
+      logger.debug(body.replaceAll("[\n\r\t]", "_"));
+    }
+    return p2tService.generateText(body);
+  }
+
+
+  @ApiOperation(value = "Translate a process model into human readable text using OpenAIs Large Langauge Model GPT" +
+          "4 Turbo.")
+  @PostMapping(value = "/generateText", consumes = "text/plain", produces = "text/plain")
+  protected String generateTextLLM(
       @RequestBody String body, @RequestParam(required = false) String apiKey) {
     if (logger.isDebugEnabled()) {
       logger.debug(body.replaceAll("[\n\r\t]", "_"));
     }
 
-    String generatedText = p2tService.generateText(body);
-
-    if (apiKey != null && !apiKey.isEmpty()) {
-      return llmService.callLLM(generatedText, apiKey);
-    }
-
-    return generatedText;
+    return llmService.callLLM(body, apiKey);
   }
+
+
 }
