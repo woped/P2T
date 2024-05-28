@@ -20,23 +20,25 @@ public class TransformerService {
 
     private final WebClient webClient;
 
-    @Autowired
-    public TransformerService(WebClient.Builder webClientBuilder){
-        this.webClient = webClientBuilder.baseUrl("\"https://europe-west3-woped-422510.cloudfunctions.net\"").build();
+    public TransformerService() {
+        this.webClient = WebClient.builder()
+                .baseUrl("https://europe-west3-woped-422510.cloudfunctions.net")
+                .build();
     }
 
+    public String transform(String direction, String bpmnXml) {
+        String endpoint = UriComponentsBuilder.fromUriString("/transform")
+                .queryParam("direction", direction)
+                .toUriString();
 
-
-    public String callTransformer(String direction, String file) {
-        String endpoint = UriComponentsBuilder.fromUriString("/transform").queryParam("direction", direction)
-                .build().toUriString();
         return this.webClient.post()
                 .uri(endpoint)
-                .body(BodyInserters.fromFormData("bpmn", file))
+                .body(BodyInserters.fromFormData("bpmn", bpmnXml))
                 .retrieve()
                 .bodyToMono(String.class)
                 .block();
     }
+
 
     /* the method analyzes a given XML content in the form of a string and determines the file format based
     on the root element of the XML document */
