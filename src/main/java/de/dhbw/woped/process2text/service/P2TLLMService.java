@@ -38,27 +38,5 @@ public class P2TLLMService {
         return restTemplate.postForObject(apiUrl, entity, String.class);
     }
 
-    public String callTransformer(String file) {
 
-    }
-
-    /* the method analyzes a given XML content in the form of a string and determines the file format based
-    on the root element of the XML document */
-    public String checkForBPMNorPNML(String file) throws ParserConfigurationException, IOException, SAXException {
-        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder documentBuilder = dbFactory.newDocumentBuilder();
-        Document document = documentBuilder.parse(new ByteArrayInputStream(file.getBytes()));
-        document.getDocumentElement().normalize();
-
-        Element rootElement = document.getDocumentElement();
-        String rootTag = rootElement.getTagName();
-
-        if ("pnml".equalsIgnoreCase(rootTag)) {
-            return "PNML";
-        } else if ("definitions".equalsIgnoreCase(rootTag)) {
-            return "BPMN";
-        } else {
-            return "Unknown";
-        }
-    }
 }
