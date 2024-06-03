@@ -22,7 +22,7 @@ public class WebConfig {
         logger.info("Applying CORS configuration");
         registry
             .addMapping("/**")
-            .allowedOrigins("http://localhost:4200", "http://localhost:3000/")
+            .allowedOrigins("http://localhost:4200", "http://localhost:3000")
             .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
             .allowedHeaders("*")
             .allowCredentials(true);
