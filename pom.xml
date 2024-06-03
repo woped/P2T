@@ -232,7 +232,7 @@
                         <id>spotless-check</id>
                         <phase>compile</phase>
                         <goals>
-                            <goal>check</goal>
+                            <goal>apply</goal>
                         </goals>
                     </execution>
                 </executions>
