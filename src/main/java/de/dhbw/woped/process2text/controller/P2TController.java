@@ -23,25 +23,28 @@ public class P2TController {
   @ApiOperation(value = "Translate a process model into human readable text.")
   @PostMapping(value = "/generateText", consumes = "text/plain", produces = "text/plain")
   protected String generateText(@RequestBody String body) {
-    if (logger
-        .isDebugEnabled()) { // required so that body.replaceAll is only invoked in case the body is
-      // logged
-      logger.debug(body.replaceAll("[\n\r\t]", "_"));
+    if (logger.isDebugEnabled()) {
+      logger.debug("Received body: " + body.replaceAll("[\n\r\t]", "_"));
     }
-    return p2tService.generateText(body);
+    String response = p2tService.generateText(body);
+    logger.debug("Response: " + response);
+    return response;
   }
 
   @ApiOperation(
       value =
-          "Translate a process model into human readable text using OpenAIs Large Langauge Model"
-              + " GPT4 Turbo.")
+          "Translate a process model into human readable text using OpenAIs Large Language Model"
+              + " GPT-4 Turbo.")
   @PostMapping(value = "/generateTextLLM", consumes = "text/plain", produces = "text/plain")
   protected String generateTextLLM(
-      @RequestBody String body, @RequestParam(required = false) String apiKey) {
+      @RequestBody String body,
+      @RequestParam(required = false) String apiKey,
+      @RequestParam(required = false) String prompt) {
     if (logger.isDebugEnabled()) {
-      logger.debug(body.replaceAll("[\n\r\t]", "_"));
+      logger.debug("Received body: " + body.replaceAll("[\n\r\t]", "_"));
     }
-
-    return llmService.callLLM(body, apiKey);
+    String response = llmService.callLLM(body, apiKey, prompt);
+    logger.debug("LLM Response: " + response);
+    return response;
   }
 }
