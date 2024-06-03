@@ -232,12 +232,12 @@
                         <id>spotless-check</id>
                         <phase>compile</phase>
                         <goals>
-                            <goal>apply</goal>
+                            <goal>check</goal>
                         </goals>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
     </build>
-    
+
 </project>
