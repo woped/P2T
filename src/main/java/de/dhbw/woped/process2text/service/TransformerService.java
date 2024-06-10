@@ -1,6 +1,5 @@
 package de.dhbw.woped.process2text.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -8,6 +7,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.springframework.http.MediaType;
 
 import java.io.IOException;
 
@@ -29,7 +29,8 @@ public class TransformerService {
 
         return this.webClient.post()
                 .uri(endpoint)
-                .body(BodyInserters.fromFormData("bpmn", pnmlXml))
+                .contentType(MediaType.MULTIPART_FORM_DATA)
+                .body(BodyInserters.fromMultipartData("pnml", pnmlXml))
                 .retrieve()
                 .bodyToMono(String.class)
                 .block();
@@ -54,6 +55,5 @@ public class TransformerService {
             return "Unknown";
         }
     }
-
 
 }
