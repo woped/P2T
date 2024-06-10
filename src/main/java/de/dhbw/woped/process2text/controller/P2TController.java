@@ -13,8 +13,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -48,9 +46,12 @@ public class P2TController {
       @RequestParam(required = true) String apiKey,
       @RequestParam(required = true) String prompt,
       @RequestParam(required = true) String gptModel) {
-    if (logger.isDebugEnabled()) {
-      logger.debug("Received body: " + body.replaceAll("[\n\r\t]", "_"));
-    }
+    logger.debug(
+        "Received request with apiKey: {}, prompt: {}, gptModel: {}, body: {}",
+        apiKey,
+        prompt,
+        gptModel,
+        body.replaceAll("[\n\r\t]", "_"));
     OpenAiApiDTO openAiApiDTO =
         new OpenAiApiDTO(apiKey, EnumGptModel.getEnumGptModel(gptModel), prompt);
     String response = llmService.callLLM(body, openAiApiDTO);

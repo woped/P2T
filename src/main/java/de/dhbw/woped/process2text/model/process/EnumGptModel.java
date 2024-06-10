@@ -24,7 +24,7 @@ public enum EnumGptModel {
       case "gpt-4-turbo":
         return EnumGptModel.GPT_4_TURBO;
       default:
-        return EnumGptModel.GPT_4_TURBO;
+        throw new IllegalArgumentException("Model not found: " + gptModel);
     }
   }
 }
