@@ -15,17 +15,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+/**
+ * Controller class to handle HTTP requests related to process-to-text translation. Provides
+ * endpoints to translate process models into human-readable text.
+ */
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @Slf4j
 public class P2TController {
 
-  Logger logger = LoggerFactory.getLogger(P2TController.class);
+  private static final Logger logger = LoggerFactory.getLogger(P2TController.class);
 
   @Autowired private P2TService p2tService;
-
   @Autowired private P2TLLMService llmService;
 
+  /**
+   * Endpoint to translate a process model into human-readable text.
+   *
+   * @param body The process model in plain text format.
+   * @return The translated text.
+   */
   @ApiOperation(value = "Translate a process model into human readable text.")
   @PostMapping(value = "/generateText", consumes = "text/plain", produces = "text/plain")
   protected String generateText(@RequestBody String body) {
@@ -37,6 +46,16 @@ public class P2TController {
     return response;
   }
 
+  /**
+   * Endpoint to translate a process model into human-readable text using OpenAI's Large Language
+   * Model.
+   *
+   * @param body The process model in plain text format.
+   * @param apiKey The API key for OpenAI.
+   * @param prompt The prompt to guide the translation.
+   * @param gptModel The GPT model to be used for translation.
+   * @return The translated text.
+   */
   @ApiOperation(
       value =
           "Translate a process model into human readable text using OpenAIs Large Language Model"
@@ -65,11 +84,15 @@ public class P2TController {
     }
   }
 
+  /**
+   * Endpoint to retrieve the list of available GPT models.
+   *
+   * @return A list of model names as strings.
+   */
   @GetMapping("/gptModels")
   public List<String> getEnumGptModels() {
-
     return Arrays.asList(EnumGptModel.values()).stream()
-        .map(e -> e.getModel())
+        .map(EnumGptModel::getModel)
         .collect(Collectors.toList());
   }
 }
