@@ -1,9 +1,13 @@
 package de.dhbw.woped.process2text.service;
 
+import de.dhbw.woped.process2text.controller.P2TController;
 import de.dhbw.woped.process2text.model.process.OpenAiApiDTO;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpEntity;
@@ -19,7 +23,7 @@ import org.springframework.web.server.ResponseStatusException;
 @Service
 public class P2TLLMService {
 
-  private static final Logger logger = LoggerFactory.getLogger(P2TLLMService.class);
+  Logger logger = LoggerFactory.getLogger(P2TController.class);
 
   public String callLLM(String text, OpenAiApiDTO openAiApiDTO) {
     String apiUrl = "https://api.openai.com/v1/chat/completions";
@@ -42,14 +46,37 @@ public class P2TLLMService {
     HttpEntity<Map<String, Object>> entity = new HttpEntity<>(requestBody, headers);
 
     try {
-      return restTemplate.postForObject(apiUrl, entity, String.class);
+      String response = restTemplate.postForObject(apiUrl, entity, String.class);
+      // Parse the response to extract the content
+      return extractContentFromResponse(response);
     } catch (HttpClientErrorException e) {
       logger.error("Error calling OpenAI API: {}", e.getResponseBodyAsString());
       throw new ResponseStatusException(
           HttpStatus.BAD_REQUEST, "OpenAI API error: " + e.getResponseBodyAsString(), e);
     } catch (RestClientException e) {
       logger.error("Error calling OpenAI API", e);
-      throw e; // Re-throw the exception to be caught in the controller
+      throw new ResponseStatusException(
+          HttpStatus.INTERNAL_SERVER_ERROR, "Error calling OpenAI API", e);
+    }
+  }
+
+  private String extractContentFromResponse(String response) {
+    try {
+      // Assuming the response is a JSON string, parse it
+      JSONObject jsonResponse = new JSONObject(response);
+      JSONArray choices = jsonResponse.getJSONArray("choices");
+      if (choices.length() > 0) {
+        JSONObject firstChoice = choices.getJSONObject(0);
+        JSONObject message = firstChoice.getJSONObject("message");
+        return message.getString("content");
+      } else {
+        throw new ResponseStatusException(
+            HttpStatus.INTERNAL_SERVER_ERROR, "No choices found in the response");
+      }
+    } catch (JSONException e) {
+      logger.error("Error parsing OpenAI API response", e);
+      throw new ResponseStatusException(
+          HttpStatus.INTERNAL_SERVER_ERROR, "Error parsing OpenAI API response", e);
     }
   }
 }

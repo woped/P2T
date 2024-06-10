@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -54,9 +55,14 @@ public class P2TController {
         body.replaceAll("[\n\r\t]", "_"));
     OpenAiApiDTO openAiApiDTO =
         new OpenAiApiDTO(apiKey, EnumGptModel.getEnumGptModel(gptModel), prompt);
-    String response = llmService.callLLM(body, openAiApiDTO);
-    logger.debug("LLM Response: " + response);
-    return response;
+    try {
+      String response = llmService.callLLM(body, openAiApiDTO);
+      logger.debug("LLM Response: " + response);
+      return response;
+    } catch (ResponseStatusException e) {
+      logger.error("Error processing LLM request", e);
+      throw e;
+    }
   }
 
   @GetMapping("/gptModels")
