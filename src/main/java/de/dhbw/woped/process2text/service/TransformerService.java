@@ -22,14 +22,14 @@ public class TransformerService {
                 .build();
     }
 
-    public String transform(String direction, String bpmnXml) {
+    public String transform(String direction, String pnmlXml) {
         String endpoint = UriComponentsBuilder.fromUriString("/transform")
                 .queryParam("direction", direction)
                 .toUriString();
 
         return this.webClient.post()
                 .uri(endpoint)
-                .body(BodyInserters.fromFormData("bpmn", bpmnXml))
+                .body(BodyInserters.fromFormData("bpmn", pnmlXml))
                 .retrieve()
                 .bodyToMono(String.class)
                 .block();
@@ -54,4 +54,6 @@ public class TransformerService {
             return "Unknown";
         }
     }
+
+
 }
