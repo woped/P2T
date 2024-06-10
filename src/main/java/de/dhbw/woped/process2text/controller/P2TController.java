@@ -1,13 +1,20 @@
 package de.dhbw.woped.process2text.controller;
 
+import de.dhbw.woped.process2text.model.process.EnumGptModel;
+import de.dhbw.woped.process2text.model.process.OpenAiApiDTO;
 import de.dhbw.woped.process2text.service.P2TLLMService;
 import de.dhbw.woped.process2text.service.P2TService;
 import io.swagger.annotations.ApiOperation;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -38,13 +45,24 @@ public class P2TController {
   @PostMapping(value = "/generateTextLLM", consumes = "text/plain", produces = "text/plain")
   protected String generateTextLLM(
       @RequestBody String body,
-      @RequestParam(required = false) String apiKey,
-      @RequestParam(required = false) String prompt) {
+      @RequestParam(required = true) String apiKey,
+      @RequestParam(required = true) String prompt,
+      @RequestParam(required = true) String gptModel) {
     if (logger.isDebugEnabled()) {
       logger.debug("Received body: " + body.replaceAll("[\n\r\t]", "_"));
     }
-    String response = llmService.callLLM(body, apiKey, prompt);
+    OpenAiApiDTO openAiApiDTO =
+        new OpenAiApiDTO(apiKey, EnumGptModel.getEnumGptModel(gptModel), prompt);
+    String response = llmService.callLLM(body, openAiApiDTO);
     logger.debug("LLM Response: " + response);
     return response;
+  }
+
+  @GetMapping("/gptModels")
+  public List<String> getEnumGptModels() {
+
+    return Arrays.asList(EnumGptModel.values()).stream()
+        .map(e -> e.getModel())
+        .collect(Collectors.toList());
   }
 }
