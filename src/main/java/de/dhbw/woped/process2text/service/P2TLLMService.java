@@ -32,11 +32,11 @@ public class P2TLLMService {
   /**
    * Calls the OpenAI API with the provided text and API details, and extracts the response content.
    *
-   * @param text The text to be sent to the OpenAI API.
+   * @param body The text to be sent to the OpenAI API.
    * @param openAiApiDTO Contains the API key, GPT model, and prompt.
    * @return The content of the response from the OpenAI API.
    */
-  public String callLLM(String text, OpenAiApiDTO openAiApiDTO) {
+  public String callLLM(String body, OpenAiApiDTO openAiApiDTO) {
     String apiUrl = "https://api.openai.com/v1/chat/completions";
     RestTemplate restTemplate = new RestTemplate();
 
@@ -53,6 +53,7 @@ public class P2TLLMService {
         List.of(
             Map.of("role", "system", "content", "You are a helpful assistant."),
             Map.of("role", "user", "content", openAiApiDTO.getPrompt())));
+    Map.of("role", "user", "content", body); // Adding the body here
     requestBody.put("max_tokens", 4096);
     requestBody.put("temperature", 0.7);
 
