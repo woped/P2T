@@ -52,8 +52,8 @@ public class P2TLLMService {
         "messages",
         List.of(
             Map.of("role", "system", "content", "You are a helpful assistant."),
-            Map.of("role", "user", "content", openAiApiDTO.getPrompt())));
-    Map.of("role", "user", "content", body); // Adding the body here
+            Map.of("role", "user", "content", openAiApiDTO.getPrompt()),
+            Map.of("role", "user", "content", body)));
     requestBody.put("max_tokens", 4096);
     requestBody.put("temperature", 0.7);
 
