@@ -1,7 +1,7 @@
 package de.dhbw.woped.process2text;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import de.dhbw.woped.process2text.service.TransformerService;
 import java.io.IOException;
@@ -29,20 +29,25 @@ class TransformerServiceTest {
     assertEquals("PNML", result);
   }
 
-    @Test
-    void testCheckForBPMNorPNML_Unknown()
-            throws ParserConfigurationException, IOException, SAXException {
-        String unknownXml = "<unknown></unknown>";
-        String result = transformerService.checkForBPMNorPNML(unknownXml);
-        assertEquals("Unknown", result);
-    }
+  @Test
+  void testCheckForBPMNorPNML_Unknown()
+      throws ParserConfigurationException, IOException, SAXException {
+    String unknownXml = "<unknown></unknown>";
+    String result = transformerService.checkForBPMNorPNML(unknownXml);
+    assertEquals("Unknown", result);
+  }
 
-    @Test
-    void testTransform() {
-        String direction = "pnmltobpmn";
-        String pnmlXml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n <pnml>\n <net type=\"\" id=\"\">\n </net>\n </pnml>";
-        String result = transformerService.transform(direction, pnmlXml);
+  @Test
+  void testTransform() {
+    String direction = "pnmltobpmn";
+    String pnmlXml =
+        "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+            + " <pnml>\n"
+            + " <net type=\"\" id=\"\">\n"
+            + " </net>\n"
+            + " </pnml>";
+    String result = transformerService.transform(direction, pnmlXml);
 
-        assertTrue(result.trim().startsWith("{\"bpmn"));
-    }
+    assertTrue(result.trim().startsWith("{\"bpmn"));
+  }
 }

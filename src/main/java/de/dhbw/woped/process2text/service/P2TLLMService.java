@@ -106,10 +106,13 @@ public class P2TLLMService {
       logger.error("Error retrieving models from OpenAI API: {}", e.getResponseBodyAsString());
       throw new ResponseStatusException(
           HttpStatus.BAD_REQUEST, "OpenAI API error: " + e.getResponseBodyAsString(), e);
-    } catch (RestClientException | JSONException e) {
+    } catch (RestClientException e) {
       logger.error("Error retrieving models from OpenAI API", e);
       throw new ResponseStatusException(
           HttpStatus.INTERNAL_SERVER_ERROR, "Error retrieving models from OpenAI API", e);
+    } catch (JSONException e) {
+      logger.error("Error parsing OpenAI API response", e);
+      throw new RuntimeException("Error parsing OpenAI API response", e);
     }
   }
 
