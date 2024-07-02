@@ -1,6 +1,5 @@
 package de.dhbw.woped.process2text.service;
 
-import java.io.IOException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -40,20 +39,20 @@ public class TransformerService {
   /* the method analyzes a given XML content in the form of a string and determines the file format based
   on the root element of the XML document */
   public String checkForBPMNorPNML(String file) {
-      // Parse the HTML content
-      Document document = Jsoup.parse(file, "", Parser.xmlParser());
+    // Parse the HTML content
+    Document document = Jsoup.parse(file, "", Parser.xmlParser());
 
-      // Get the root element
-      Element rootElement = document.child(0);
-      String rootTag = rootElement.tagName();
+    // Get the root element
+    Element rootElement = document.child(0);
+    String rootTag = rootElement.tagName();
 
-      // Check the root element tag name
-      if ("pnml".equalsIgnoreCase(rootTag)) {
-        return "PNML";
-      } else if ("definitions".equalsIgnoreCase(rootTag)) {
-        return "BPMN";
-      } else {
-        return "Unknown";
-      }
+    // Check the root element tag name
+    if ("pnml".equalsIgnoreCase(rootTag)) {
+      return "PNML";
+    } else if ("definitions".equalsIgnoreCase(rootTag)) {
+      return "BPMN";
+    } else {
+      return "Unknown";
+    }
   }
 }

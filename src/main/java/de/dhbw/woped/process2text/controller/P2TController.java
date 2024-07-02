@@ -1,13 +1,10 @@
 package de.dhbw.woped.process2text.controller;
 
-import de.dhbw.woped.process2text.model.process.EnumGptModel;
 import de.dhbw.woped.process2text.model.process.OpenAiApiDTO;
 import de.dhbw.woped.process2text.service.P2TLLMService;
 import de.dhbw.woped.process2text.service.P2TService;
 import io.swagger.annotations.ApiOperation;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -72,8 +69,7 @@ public class P2TController {
         prompt,
         gptModel,
         body.replaceAll("[\n\r\t]", "_"));
-    OpenAiApiDTO openAiApiDTO =
-        new OpenAiApiDTO(apiKey, EnumGptModel.getEnumGptModel(gptModel), prompt);
+    OpenAiApiDTO openAiApiDTO = new OpenAiApiDTO(apiKey, gptModel, prompt);
     try {
       String response = llmService.callLLM(body, openAiApiDTO);
       logger.debug("LLM Response: " + response);
@@ -87,12 +83,11 @@ public class P2TController {
   /**
    * Endpoint to retrieve the list of available GPT models.
    *
+   * @param apiKey The API key for OpenAI.
    * @return A list of model names as strings.
    */
   @GetMapping("/gptModels")
-  public List<String> getEnumGptModels() {
-    return Arrays.stream(EnumGptModel.values())
-        .map(EnumGptModel::getModel)
-        .collect(Collectors.toList());
+  public List<String> getGptModels(@RequestParam(required = true) String apiKey) {
+    return llmService.getGptModels(apiKey);
   }
 }

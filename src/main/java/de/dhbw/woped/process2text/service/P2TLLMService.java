@@ -5,6 +5,7 @@ import de.dhbw.woped.process2text.model.process.OpenAiApiDTO;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -12,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
@@ -38,9 +40,10 @@ public class P2TLLMService {
    */
   public String callLLM(String body, OpenAiApiDTO openAiApiDTO) {
     String apiUrl = "https://api.openai.com/v1/chat/completions";
-    //Use the Transformer API if the provided processmodell is a PNML to parse it into an BPMN
+    // Use the Transformer API if the provided processmodell is a PNML to parse it
+    // into an BPMN
     TransformerService transformerService = new TransformerService();
-    if (transformerService.checkForBPMNorPNML(body).equals("PNML")){
+    if (transformerService.checkForBPMNorPNML(body).equals("PNML")) {
       body = transformerService.transform("pnmltobpmn", body);
     }
     RestTemplate restTemplate = new RestTemplate();
@@ -51,7 +54,7 @@ public class P2TLLMService {
     // Create the request body with the specified model, messages, max tokens, and
     // temperature
     Map<String, Object> requestBody = new HashMap<>();
-    requestBody.put("model", openAiApiDTO.getGptModel().getModel());
+    requestBody.put("model", openAiApiDTO.getGptModel());
     requestBody.put(
         "messages",
         List.of(
@@ -76,6 +79,37 @@ public class P2TLLMService {
       logger.error("Error calling OpenAI API", e);
       throw new ResponseStatusException(
           HttpStatus.INTERNAL_SERVER_ERROR, "Error calling OpenAI API", e);
+    }
+  }
+
+  /**
+   * Retrieves the list of available GPT models from the OpenAI API.
+   *
+   * @param apiKey The API key for OpenAI.
+   * @return A list of model names as strings.
+   */
+  public List<String> getGptModels(String apiKey) {
+    String url = "https://api.openai.com/v1/models";
+    RestTemplate restTemplate = new RestTemplate();
+    HttpHeaders headers = new HttpHeaders();
+    headers.set("Authorization", "Bearer " + apiKey);
+    HttpEntity<String> entity = new HttpEntity<>(headers);
+
+    try {
+      String response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class).getBody();
+      JSONObject jsonResponse = new JSONObject(response);
+      JSONArray models = jsonResponse.getJSONArray("data");
+      return models.toList().stream()
+          .map(model -> ((Map<String, Object>) model).get("id").toString())
+          .collect(Collectors.toList());
+    } catch (HttpClientErrorException e) {
+      logger.error("Error retrieving models from OpenAI API: {}", e.getResponseBodyAsString());
+      throw new ResponseStatusException(
+          HttpStatus.BAD_REQUEST, "OpenAI API error: " + e.getResponseBodyAsString(), e);
+    } catch (RestClientException | JSONException e) {
+      logger.error("Error retrieving models from OpenAI API", e);
+      throw new ResponseStatusException(
+          HttpStatus.INTERNAL_SERVER_ERROR, "Error retrieving models from OpenAI API", e);
     }
   }
 
