@@ -4,11 +4,13 @@ package de.dhbw.woped.process2text.model.process;
 public class OpenAiApiDTO {
 
   public OpenAiApiDTO(
+      String apiKey, String gptModel, String prompt, String provider, boolean useRag) {
       String apiKey, String gptModel, String prompt, String provider, boolean useRAG) {
     this.apiKey = apiKey;
     this.gptModel = gptModel;
     this.prompt = prompt;
     this.provider = provider;
+    this.useRag = useRag;
     this.useRAG = useRAG;
   }
 
@@ -16,6 +18,7 @@ public class OpenAiApiDTO {
   private String gptModel;
   private String prompt;
   private String provider;
+  private boolean useRag;
   private boolean useRAG;
 
   public String getApiKey() {
@@ -30,6 +33,14 @@ public class OpenAiApiDTO {
     return prompt;
   }
 
+  public String getProvider() {
+    return provider;
+  }
+
+  public boolean isUseRag() {
+    return useRag;
+  }
+
   public void setGptModel(String gptModel) {
     this.gptModel = gptModel;
   }
@@ -42,6 +53,9 @@ public class OpenAiApiDTO {
     this.prompt = prompt;
   }
 
+  public void setProvider(String provider) {
+    this.provider = provider;
+  }
   public String getProvider() {
     return provider;
   }

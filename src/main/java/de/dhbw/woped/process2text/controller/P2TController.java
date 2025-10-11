@@ -11,6 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -53,7 +55,6 @@ public class P2TController {
    * @param body The process model in plain text format.
    * @return The translated text.
    */
-  @ApiOperation(value = "Translate a process model into human readable text.")
   @PostMapping(value = "/generateText", consumes = "text/plain", produces = "text/plain")
   protected String generateText(@RequestBody String body) {
     httpRequestsTotal.increment();
@@ -91,6 +92,9 @@ public class P2TController {
       @RequestParam(required = true) String prompt,
       @RequestParam(required = true) String gptModel,
       @RequestParam(required = true) String provider,
+      @RequestParam(required = false, defaultValue = "false") boolean useRag) {
+    logger.debug(
+        "Received request with apiKey: {}, prompt: {}, gptModel: {}, provider: {}, body: {}",
       @RequestParam(required = true) boolean useRag) {
     logger.debug(
         "Received request with apiKey: {}, prompt: {}, gptModel: {}, provider: {}, useRag: {}, body: {}",
@@ -98,6 +102,14 @@ public class P2TController {
         prompt,
         gptModel,
         provider,
+        body.replaceAll("[\n\r\t]", "_"));
+
+    OpenAiApiDTO openAiApiDTO;
+    if (provider.equalsIgnoreCase("lmStudio")) {
+
+      openAiApiDTO = new OpenAiApiDTO(null, gptModel, prompt, provider, useRag);
+    } else {
+      openAiApiDTO = new OpenAiApiDTO(apiKey, gptModel, prompt, provider, useRag);
         useRag,
         body.replaceAll("[\n\r\t]", "_"));
 
@@ -156,6 +168,21 @@ public class P2TController {
    * @return A list of model names as strings.
    */
   @GetMapping("/gptModels")
+  public List<String> getGptModels(
+      @RequestParam(required = false) String apiKey,
+      @RequestParam(required = true) String provider) {
+    switch (provider.toLowerCase()) {
+      case "gemini":
+        return llmService.getGeminiModels(apiKey);
+      case "openai":
+        return llmService.getGptModels(apiKey);
+      case "lmstudio":
+        return llmService.getLmStudioModels();
+      default:
+        throw new ResponseStatusException(
+            HttpStatus.BAD_REQUEST,
+            "Invalid provider. Supported providers are: 'gemini', 'openAi' and 'lmStudio'.");
+    }
   public List<String> getGptModels(@RequestParam(required = true) String apiKey) {
     httpRequestsTotal.increment();
     return httpRequestDuration.record(() -> llmService.getGptModels(apiKey));
