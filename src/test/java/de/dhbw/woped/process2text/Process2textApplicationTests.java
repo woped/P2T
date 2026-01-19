@@ -1,12 +1,15 @@
 package de.dhbw.woped.process2text;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
+import static com.github.tomakehurst.wiremock.client.WireMock.containing;
 import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
 import static com.github.tomakehurst.wiremock.client.WireMock.post;
+import static com.github.tomakehurst.wiremock.client.WireMock.postRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.verify;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -19,38 +22,18 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.web.server.ResponseStatusException;
-import org.wiremock.spring.EnableWireMock;
-
-@SpringBootTest
-@EnableWireMock
-class Process2textApplicationTests {
-
-  @Value("${wiremock.server.baseUrl}")
-  private String wiremockBaseUrl;
-
-  @Autowired private P2TLLMService p2tllmService;
-import static com.github.tomakehurst.wiremock.client.WireMock.containing;
-import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
-import static com.github.tomakehurst.wiremock.client.WireMock.post;
-import static com.github.tomakehurst.wiremock.client.WireMock.postRequestedFor;
-import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
-import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
-import static com.github.tomakehurst.wiremock.client.WireMock.verify;
-
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.web.server.ResponseStatusException;
 import org.wiremock.spring.ConfigureWireMock;
 import org.wiremock.spring.EnableWireMock;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @EnableWireMock({
+    @ConfigureWireMock(name = "openai-service"),
     @ConfigureWireMock(name = "rag-service", port = Process2textApplicationTests.RAG_SERVICE_PORT)
 })
 class Process2textApplicationTests {
@@ -58,15 +41,17 @@ class Process2textApplicationTests {
   public static final int RAG_SERVICE_PORT = 5000;
   private static final int HTTP_OK = 200;
 
+  @Value("${wiremock.server.baseUrl}")
+  private String wiremockBaseUrl;
+
   @LocalServerPort
   private int port;
+
+  @Autowired private P2TLLMService p2tllmService;
 
   @Autowired
   private TestRestTemplate restTemplate;
 
-  /**
-   * Test: RAG service is called when useRAG=true
-   */
   @Test
   void contextLoads() {}
 
@@ -445,7 +430,11 @@ class Process2textApplicationTests {
     // Clean up
     System.clearProperty("lmstudio.api.url");
   }
-}
+
+  /**
+   * Test: RAG service is called when useRAG=true
+   */
+  @Test
   void testRAGServiceCalledWhenEnabled() {
     // Mock RAG Service on port 5000
     stubFor(
@@ -474,7 +463,7 @@ class Process2textApplicationTests {
 
     // Call the real generateTextLLM method via HTTP with RAG enabled
     try {
-      String url = "http://localhost:" + port + "/p2t/generateTextLLM"
+      String url = "http://localhost:" + port + "/generateTextLLM"
           + "?apiKey=sk-testapikey"
           + "&prompt=Analyze this BPMN process"
           + "&gptModel=gpt-3.5-turbo"
@@ -529,7 +518,7 @@ class Process2textApplicationTests {
 
     // Call the real generateTextLLM method via HTTP with RAG disabled
     try {
-      String url = "http://localhost:" + port + "/p2t/generateTextLLM"
+      String url = "http://localhost:" + port + "/generateTextLLM"
           + "?apiKey=sk-testapikey"
           + "&prompt=Analyze this BPMN process"
           + "&gptModel=gpt-3.5-turbo"

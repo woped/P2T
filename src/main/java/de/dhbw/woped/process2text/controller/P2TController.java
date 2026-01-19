@@ -5,14 +5,12 @@ import de.dhbw.woped.process2text.service.P2TLLMService;
 import de.dhbw.woped.process2text.service.P2TService;
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.Timer;
-import io.swagger.annotations.ApiOperation;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -81,10 +79,6 @@ public class P2TController {
    * @param useRag Whether to use RAG (Retrieval-Augmented Generation) to enrich the prompt.
    * @return The translated text.
    */
-  @ApiOperation(
-      value =
-          "Translate a process model into human readable text using one of OpenAIs Large Language"
-              + " Models")
   @PostMapping(value = "/generateTextLLM", consumes = "text/plain", produces = "text/plain")
   protected String generateTextLLM(
       @RequestBody String body,
@@ -94,22 +88,11 @@ public class P2TController {
       @RequestParam(required = true) String provider,
       @RequestParam(required = false, defaultValue = "false") boolean useRag) {
     logger.debug(
-        "Received request with apiKey: {}, prompt: {}, gptModel: {}, provider: {}, body: {}",
-      @RequestParam(required = true) boolean useRag) {
-    logger.debug(
         "Received request with apiKey: {}, prompt: {}, gptModel: {}, provider: {}, useRag: {}, body: {}",
         apiKey,
         prompt,
         gptModel,
         provider,
-        body.replaceAll("[\n\r\t]", "_"));
-
-    OpenAiApiDTO openAiApiDTO;
-    if (provider.equalsIgnoreCase("lmStudio")) {
-
-      openAiApiDTO = new OpenAiApiDTO(null, gptModel, prompt, provider, useRag);
-    } else {
-      openAiApiDTO = new OpenAiApiDTO(apiKey, gptModel, prompt, provider, useRag);
         useRag,
         body.replaceAll("[\n\r\t]", "_"));
 
@@ -145,7 +128,6 @@ public class P2TController {
 
     OpenAiApiDTO openAiApiDTO;
     if (provider.equalsIgnoreCase("lmStudio")) {
-
       openAiApiDTO = new OpenAiApiDTO(null, gptModel, enrichedPrompt, provider, useRag);
     } else {
       openAiApiDTO = new OpenAiApiDTO(apiKey, gptModel, enrichedPrompt, provider, useRag);
@@ -183,8 +165,5 @@ public class P2TController {
             HttpStatus.BAD_REQUEST,
             "Invalid provider. Supported providers are: 'gemini', 'openAi' and 'lmStudio'.");
     }
-  public List<String> getGptModels(@RequestParam(required = true) String apiKey) {
-    httpRequestsTotal.increment();
-    return httpRequestDuration.record(() -> llmService.getGptModels(apiKey));
   }
 }

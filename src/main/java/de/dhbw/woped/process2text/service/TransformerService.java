@@ -24,7 +24,7 @@ public class TransformerService {
   /** Constructor to create a new WebClient instance containing the URL of the transformer API. */
   public TransformerService() {
     this.webClient =
-        WebClient.builder().baseUrl("https://europe-west3-woped-422510.cloudfunctions.net").build();
+        WebClient.builder().baseUrl("http://localhost:5001").build();
   }
 
   /**
