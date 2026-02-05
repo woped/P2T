@@ -28,19 +28,55 @@ import net.didion.jwnl.JWNLException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Converts process model structures into sentence plans.
+ *
+ * <p>This class traverses the Refined Process Structure Tree (RPST) and converts
+ * each process element (activities, events, gateways) into intermediate sentence
+ * representations that can later be realized as natural language text.
+ *
+ * <h2>Supported Process Constructs</h2>
+ * <ul>
+ *   <li><b>Activities:</b> Tasks, subprocesses with role/lane information</li>
+ *   <li><b>Events:</b> Start, end, and intermediate events</li>
+ *   <li><b>Gateways:</b> XOR, AND, OR splits/joins, loops, skips</li>
+ * </ul>
+ *
+ * <h2>Text Generation Modes</h2>
+ * <ul>
+ *   <li><b>Declarative:</b> Third-person descriptions ("The manager approves...")</li>
+ *   <li><b>Imperative:</b> Instructions for a specific role ("Approve the request")</li>
+ * </ul>
+ *
+ * <h2>Processing Strategy</h2>
+ * <p>The planner recursively traverses the RPST, handling each node type:
+ * <ol>
+ *   <li>Sorts nodes by control flow order</li>
+ *   <li>Identifies node types (bond, activity, event)</li>
+ *   <li>Converts nodes to intermediate fragments</li>
+ *   <li>Handles conditions and modifiers between nodes</li>
+ *   <li>Builds the final sentence plan</li>
+ * </ol>
+ *
+ * @author WoPeD Team
+ * @see TextToIntermediateConverter
+ * @see de.dhbw.woped.process2text.service.text.generation.TextGenerator
+ */
 public class TextPlanner {
 
-  Logger logger = LoggerFactory.getLogger(TextPlanner.class);
+  private static final Logger logger = LoggerFactory.getLogger(TextPlanner.class);
 
+  /** Common English quantifiers that affect article usage */
   private static final String[] quantifiers = {
     "a", "the", "all", "any", "more", "most", "none", "some", "such", "one", "two", "three", "four",
     "five", "six", "seven", "eight", "nine", "ten"
   };
+  
   private final RPST<ControlFlow, Node> rpst;
   private final ProcessModel process;
   private final TextToIntermediateConverter textToIMConverter;
   private final ArrayList<ConditionFragment> passedFragments;
-  private final ArrayList<ModifierRecord> passedMods; // used for Skips
+  private final ArrayList<ModifierRecord> passedMods;
   private final boolean isAlternative;
   private final ArrayList<DSynTSentence> sentencePlan;
   private final ArrayList<Pair<Integer, DSynTSentence>> activitiySentenceMap;
@@ -48,10 +84,21 @@ public class TextPlanner {
   private final EnglishLabelDeriver lDeriver;
   private final boolean imperative;
   private final String imperativeRole;
-  private ModifierRecord passedMod = null; // used for AND-Splits
+  private ModifierRecord passedMod = null;
   private boolean tagWithBullet = false;
   private boolean start = true;
 
+  /**
+   * Constructs a new TextPlanner for the given process model.
+   *
+   * @param rpst           the Refined Process Structure Tree
+   * @param process        the process model to convert
+   * @param lDeriver       helper for deriving linguistic information from labels
+   * @param lHelper        helper for English language processing
+   * @param imperativeRole the role for imperative mode (if applicable)
+   * @param imperative     true to generate imperative instructions
+   * @param isAlternative  true if this is an alternative path (e.g., exception)
+   */
   public TextPlanner(
       RPST<ControlFlow, Node> rpst,
       ProcessModel process,
