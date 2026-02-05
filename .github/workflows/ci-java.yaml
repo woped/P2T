@@ -16,9 +16,11 @@ jobs:
     uses: woped/devops/.github/workflows/testing_maven.yaml@main
     with:
       java_version: '21'
-  sonar_maven:
-    needs: testing_maven
-    uses: woped/devops/.github/workflows/sonar_maven.yaml@main
-    with:
-      java_version: '21'
-    secrets: inherit
+  
+  # SonarCloud temporarily disabled - re-enable when SONAR_TOKEN is configured
+  # sonar_maven:
+  #   needs: testing_maven
+  #   uses: woped/devops/.github/workflows/sonar_maven.yaml@main
+  #   with:
+  #     java_version: '21'
+  #   secrets: inherit
